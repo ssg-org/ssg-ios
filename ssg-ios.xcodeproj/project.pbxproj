@@ -21,6 +21,7 @@
 		6607383318E18492003EA07C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6607381518E18491003EA07C /* UIKit.framework */; };
 		6607383B18E18492003EA07C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6607383918E18492003EA07C /* InfoPlist.strings */; };
 		6607383D18E18492003EA07C /* ssg_iosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6607383C18E18492003EA07C /* ssg_iosTests.m */; };
+		6607384718E18772003EA07C /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6607384618E18772003EA07C /* FacebookSDK.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		6607383818E18492003EA07C /* ssg-iosTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ssg-iosTests-Info.plist"; sourceTree = "<group>"; };
 		6607383A18E18492003EA07C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6607383C18E18492003EA07C /* ssg_iosTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ssg_iosTests.m; sourceTree = "<group>"; };
+		6607384618E18772003EA07C /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6607381418E18491003EA07C /* CoreGraphics.framework in Frameworks */,
+				6607384718E18772003EA07C /* FacebookSDK.framework in Frameworks */,
 				6607381618E18491003EA07C /* UIKit.framework in Frameworks */,
 				6607381218E18491003EA07C /* Foundation.framework in Frameworks */,
 			);
@@ -101,6 +104,7 @@
 		6607381018E18491003EA07C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6607384618E18772003EA07C /* FacebookSDK.framework */,
 				6607381118E18491003EA07C /* Foundation.framework */,
 				6607381318E18491003EA07C /* CoreGraphics.framework */,
 				6607381518E18491003EA07C /* UIKit.framework */,
@@ -376,6 +380,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ssg-ios/ssg-ios-Prefix.pch";
 				INFOPLIST_FILE = "ssg-ios/ssg-ios-Info.plist";
@@ -389,6 +397,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ssg-ios/ssg-ios-Prefix.pch";
 				INFOPLIST_FILE = "ssg-ios/ssg-ios-Info.plist";
