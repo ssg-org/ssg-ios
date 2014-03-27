@@ -15,6 +15,8 @@
 
 @implementation LoginViewController
 
+#define isiPhone5  ([[UIScreen mainScreen] bounds].size.height == 568)?TRUE:FALSE
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -73,6 +75,12 @@
     
     [self.customFacebookLogin setFrame:frame];
     [ self.btnFacebookLogin addSubview:self.customFacebookLogin];
+    
+    
+    if (!isiPhone5) {
+      
+        self.containerView.frame=CGRectMake(self.containerView.frame.origin.x, self.containerView.frame.origin.y-15, self.containerView.frame.size.width, self.containerView.frame.size.height);
+    }
     
 }
 

@@ -30,5 +30,7 @@
 
 @property (strong, nonatomic) IBOutlet UIImageView *imageBackground;
 
+@property (strong, nonatomic) IBOutlet UIView *containerView;
+
 
 @end
