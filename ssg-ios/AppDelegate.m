@@ -17,6 +17,16 @@
     self.navigationController =(UINavigationController *) self.window.rootViewController;
     [FBLoginView class];
     [FBProfilePictureView class];
+    
+    
+   
+    [[UINavigationBar appearance] setBackgroundImage: [UIImage imageNamed:@"nav_bar.png"]  forBarMetrics:UIBarMetricsDefault];
+   
+    
+//    [[UINavigationBar appearance] setBackIndicatorImage:[UIImage imageNamed:@"arrow_left.png"]];
+//    [[UINavigationBar appearance] setBackIndicatorTransitionMaskImage:[UIImage imageNamed:@"arrow_left.png"]];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor] ];
+    
    
     return YES;
 }
