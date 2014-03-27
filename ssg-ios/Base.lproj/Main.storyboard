@@ -4,6 +4,25 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
+        <!--Sign Up Email View Controller-->
+        <scene sceneID="wfd-Kd-5KA">
+            <objects>
+                <viewController id="PBE-Rk-jnX" customClass="SignUpEmailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NhG-pj-8dz"/>
+                        <viewControllerLayoutGuide type="bottom" id="4aa-iX-Ori"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="KhU-Gh-g3z">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="cac-W9-aCr"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="N1o-Op-3Uo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1327" y="363"/>
+        </scene>
         <!--Login View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
@@ -13,7 +32,7 @@
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="login_bg1" translatesAutoresizingMaskIntoConstraints="NO" id="bds-cM-STH">
@@ -21,7 +40,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aSH-uX-ID8">
-                                <rect key="frame" x="186" y="509" width="84" height="34"/>
+                                <rect key="frame" x="186" y="421" width="84" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -35,10 +54,11 @@
                                 </state>
                                 <connections>
                                     <action selector="btnSignUpWithEmailOnTouch:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="z78-Od-Brn"/>
+                                    <segue destination="PBE-Rk-jnX" kind="push" id="lfo-FK-JPI"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don’t have ulica.ba account?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zzz-9G-zAZ">
-                                <rect key="frame" x="50" y="515" width="128" height="21"/>
+                                <rect key="frame" x="50" y="427" width="128" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="jse-w6-MrU"/>
@@ -136,28 +156,59 @@
                         <viewControllerLayoutGuide type="bottom" id="vdY-Fy-Sw5"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Y7W-eS-yyb">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Logged in with:" lineBreakMode="tailTruncation" numberOfLines="12" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="193" translatesAutoresizingMaskIntoConstraints="NO" id="nT8-WW-KdC">
-                                <rect key="frame" x="64" y="183" width="193" height="119"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="login_bg4" translatesAutoresizingMaskIntoConstraints="NO" id="Mzj-Ax-eh1">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3zG-ZF-TWd">
+                                <rect key="frame" x="14" y="29" width="25" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <state key="normal" backgroundImage="settings">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZCU-TD-hQH">
+                                <rect key="frame" x="0.0" y="362" width="320" height="79"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="6eo-xH-ayE"/>
+                                    <constraint firstAttribute="height" constant="79" id="oxb-Y9-HeD"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="camera_main">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ulica_logo" translatesAutoresizingMaskIntoConstraints="NO" id="eL9-O9-13S">
+                                <rect key="frame" x="108" y="98" width="90" height="91"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fpv-DL-P4e">
+                                <rect key="frame" x="40" y="197" width="240" height="186"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <string key="text">Welcome to ULICA.BAYou can report issue in your local environment in few simple steps by clicking camera button below!Sredi Svoj Grad!</string>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="ZCU-TD-hQH" secondAttribute="trailing" id="3ia-JB-ZSx"/>
+                            <constraint firstItem="ZCU-TD-hQH" firstAttribute="leading" secondItem="Y7W-eS-yyb" secondAttribute="leading" id="8vr-2g-8sp"/>
+                            <constraint firstAttribute="bottom" secondItem="ZCU-TD-hQH" secondAttribute="bottom" constant="39" id="Pih-Aj-Aow"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Y3x-bi-ZNq">
                         <barButtonItem key="backBarButtonItem" title="BACK" id="RK4-DR-Agw"/>
                     </navigationItem>
-                    <connections>
-                        <outlet property="lblStatus" destination="nT8-WW-KdC" id="RrV-bf-Jih"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hKh-Z7-SM6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1165" y="30"/>
+            <point key="canvasLocation" x="1327" y="-404"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0jR-WH-Oe7">
@@ -180,8 +231,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="camera_main" width="320" height="79"/>
         <image name="login" width="220" height="35"/>
         <image name="login_bg1" width="320" height="568"/>
+        <image name="login_bg4" width="320" height="568"/>
+        <image name="settings" width="25" height="25"/>
         <image name="sign_up" width="84" height="34"/>
         <image name="textbox_bg" width="220" height="35"/>
         <image name="ulica_logo" width="90" height="91"/>
@@ -189,6 +243,6 @@
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
+        <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
 </document>

@@ -1,18 +1,18 @@
 //
-//  MainViewController.m
+//  SignUpEmailViewController.m
 //  ssg-ios
 //
-//  Created by Haris Dautovic on 25/03/14.
+//  Created by Haris Dautovic on 27/03/14.
 //  Copyright (c) 2014 SSG. All rights reserved.
 //
 
-#import "MainViewController.h"
+#import "SignUpEmailViewController.h"
 
-@interface MainViewController ()
+@interface SignUpEmailViewController ()
 
 @end
 
-@implementation MainViewController
+@implementation SignUpEmailViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -23,26 +23,16 @@
     return self;
 }
 
-
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.navigationController.navigationBarHidden=YES;
     // Do any additional setup after loading the view.
-   
-   
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-
--(UIStatusBarStyle)preferredStatusBarStyle{
-    return UIStatusBarStyleLightContent;
 }
 
 /*

@@ -23,6 +23,7 @@
 		6607384718E18772003EA07C /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6607384618E18772003EA07C /* FacebookSDK.framework */; };
 		6607384B18E190C9003EA07C /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6607384A18E190C9003EA07C /* LoginViewController.m */; };
 		6607384E18E1949C003EA07C /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6607384D18E1949C003EA07C /* MainViewController.m */; };
+		6618299D18E4CC1A0088AB34 /* SignUpEmailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6618299C18E4CC1A0088AB34 /* SignUpEmailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,8 @@
 		6607384A18E190C9003EA07C /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		6607384C18E1949C003EA07C /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		6607384D18E1949C003EA07C /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		6618299B18E4CC1A0088AB34 /* SignUpEmailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpEmailViewController.h; sourceTree = "<group>"; };
+		6618299C18E4CC1A0088AB34 /* SignUpEmailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpEmailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +168,8 @@
 				6607384A18E190C9003EA07C /* LoginViewController.m */,
 				6607384C18E1949C003EA07C /* MainViewController.h */,
 				6607384D18E1949C003EA07C /* MainViewController.m */,
+				6618299B18E4CC1A0088AB34 /* SignUpEmailViewController.h */,
+				6618299C18E4CC1A0088AB34 /* SignUpEmailViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -268,6 +273,7 @@
 			files = (
 				6607382218E18491003EA07C /* AppDelegate.m in Sources */,
 				6607381E18E18491003EA07C /* main.m in Sources */,
+				6618299D18E4CC1A0088AB34 /* SignUpEmailViewController.m in Sources */,
 				6607384B18E190C9003EA07C /* LoginViewController.m in Sources */,
 				6607384E18E1949C003EA07C /* MainViewController.m in Sources */,
 			);
@@ -482,6 +488,7 @@
 				6607384218E18492003EA07C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6607384318E18492003EA07C /* Build configuration list for PBXNativeTarget "ssg-iosTests" */ = {
 			isa = XCConfigurationList;
@@ -490,6 +497,7 @@
 				6607384518E18492003EA07C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

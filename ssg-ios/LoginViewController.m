@@ -45,6 +45,7 @@
     
    
     self.customFacebookLogin=[[FBLoginView alloc] initWithReadPermissions:@[@"basic_info", @"email", @"user_likes"]];
+      self.customFacebookLogin.delegate=self;
    
     //set facebook  button backgorund
     for (id obj in self.customFacebookLogin.subviews)
@@ -81,9 +82,7 @@
       
         self.containerView.frame=CGRectMake(self.containerView.frame.origin.x, self.containerView.frame.origin.y-15, self.containerView.frame.size.width, self.containerView.frame.size.height);
     }
-    
 }
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -102,7 +101,7 @@
 -(void) initFacebook{
    
     
-    self.customFacebookLogin.delegate=self;
+  
 }
 
 #pragma - Action methods
@@ -132,6 +131,9 @@
     [main.dataFromLogin appendString:@"Logged in with Facebook... "];
     [main.dataFromLogin appendString:user.name];
     [self.navigationController pushViewController: (UIViewController *)main animated:YES];
+    
+    
+    
 }
 
 // Logged-in user experience
@@ -200,7 +202,7 @@
 - (void)initImageChanger{
     current_image=5;
     backgroundImagesArray=[NSArray arrayWithObjects:@"login_bg1.png",@"login_bg2.png",@"login_bg3.png",@"login_bg4.png",nil];
-    imageTimer = [NSTimer scheduledTimerWithTimeInterval:(4.0) target:self selector:@selector(changeImage) userInfo:nil repeats:YES];
+    imageTimer = [NSTimer scheduledTimerWithTimeInterval:(7.0) target:self selector:@selector(changeImage) userInfo:nil repeats:YES];
     [imageTimer fire];
 }
 

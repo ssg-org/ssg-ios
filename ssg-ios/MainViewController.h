@@ -10,7 +10,7 @@
 
 @interface MainViewController : UIViewController
 
-@property (strong, nonatomic) IBOutlet UILabel *lblStatus;
+
 @property NSMutableString* dataFromLogin;
 
 @end
