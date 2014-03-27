@@ -17,6 +17,7 @@
     self.navigationController =(UINavigationController *) self.window.rootViewController;
     [FBLoginView class];
     [FBProfilePictureView class];
+   
     return YES;
 }
 

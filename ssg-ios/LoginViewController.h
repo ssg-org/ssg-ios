@@ -9,16 +9,26 @@
 #import <UIKit/UIKit.h>
 #import <FacebookSDK/FacebookSDK.h>
 
-@interface LoginViewController : UIViewController<FBLoginViewDelegate>
+@interface LoginViewController : UIViewController<FBLoginViewDelegate>{
+
+    NSArray* backgroundImagesArray;
+    NSTimer* imageTimer;
+    int current_image;
+
+}
 
 //Property
 @property (strong, nonatomic) IBOutlet UITextField *txtUsername;
 @property (strong, nonatomic) IBOutlet UITextField *txtPassword;
-@property (strong, nonatomic) IBOutlet FBLoginView *btnFacebookLogin;
+@property (strong, nonatomic) IBOutlet UIView *btnFacebookLogin;
+@property (strong,nonatomic) FBLoginView *customFacebookLogin;
 
 //Actions
 - (IBAction)btnEmailLoginOnTouch:(UIButton *)sender;
 - (IBAction)btnSignUpWithEmailOnTouch:(UIButton *)sender;
+
+
+@property (strong, nonatomic) IBOutlet UIImageView *imageBackground;
 
 
 @end

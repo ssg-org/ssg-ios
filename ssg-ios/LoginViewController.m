@@ -24,10 +24,63 @@
     return self;
 }
 
+-(void)viewDidLayoutSubviews{
+    
+    [[self navigationController] setNavigationBarHidden:YES animated:YES];
+
+    CGRect frameRect = self.txtUsername.frame;
+    frameRect.size.height =35;
+    self.txtUsername.frame = frameRect;
+    
+    frameRect = self.txtPassword.frame;
+    frameRect.size.height =35;
+    self.txtPassword.frame = frameRect;
+    
+    UIColor *color = [UIColor whiteColor];
+    self.txtPassword.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Password" attributes:@{NSForegroundColorAttributeName: color}];
+    
+    self.txtUsername.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Username" attributes:@{NSForegroundColorAttributeName: color}];
+    
+   
+    self.customFacebookLogin=[[FBLoginView alloc] initWithReadPermissions:@[@"basic_info", @"email", @"user_likes"]];
+   
+    //set facebook  button backgorund
+    for (id obj in self.customFacebookLogin.subviews)
+    {
+        if ([obj isKindOfClass:[UIButton class]])
+        {
+            UIImage *loginImage = [UIImage imageNamed:@"facebook.png"];
+            [obj setBackgroundImage:loginImage forState:UIControlStateNormal];
+            [obj setBackgroundImage:nil forState:UIControlStateSelected];
+            [obj setBackgroundImage:nil forState:UIControlStateHighlighted];
+            [obj sizeToFit];
+            
+        }
+        if ([obj isKindOfClass:[UILabel class]])
+        {
+            UILabel * loginLabel =  obj;
+            loginLabel.text = @"";
+            loginLabel.textColor=[UIColor clearColor];
+            //loginLabel.textAlignment = UITextAlignmentCenter;
+           // loginLabel.frame = CGRectMake(0, 0, 271, 37);
+        }
+        
+    }
+    
+    //set facebook custom button frame
+    CGRect frame =CGRectMake(self.customFacebookLogin.frame.origin.x, self.customFacebookLogin.frame.origin.y
+                             , 220, 35);
+    
+    [self.customFacebookLogin setFrame:frame];
+    [ self.btnFacebookLogin addSubview:self.customFacebookLogin];
+    
+}
+
 - (void)viewDidLoad
 {
-    [super viewDidLoad];     
+    [super viewDidLoad];
     [self initFacebook];
+    [self initImageChanger];
 }
 
 - (void)didReceiveMemoryWarning
@@ -39,9 +92,9 @@
 
 #pragma - Private methods
 -(void) initFacebook{
-    self.btnFacebookLogin=[[FBLoginView alloc] initWithReadPermissions:@[@"basic_info", @"email", @"user_likes"]];
+   
     
-    self.btnFacebookLogin.delegate=self;
+    self.customFacebookLogin.delegate=self;
 }
 
 #pragma - Action methods
@@ -130,5 +183,27 @@
     }
 }
 
+-(UIStatusBarStyle)preferredStatusBarStyle{
+    return UIStatusBarStyleLightContent;
+}
+
+
+
+- (void)initImageChanger{
+    current_image=5;
+    backgroundImagesArray=[NSArray arrayWithObjects:@"login_bg1.png",@"login_bg2.png",@"login_bg3.png",@"login_bg4.png",nil];
+    imageTimer = [NSTimer scheduledTimerWithTimeInterval:(4.0) target:self selector:@selector(changeImage) userInfo:nil repeats:YES];
+    [imageTimer fire];
+}
+
+-(void)changeImage{
+    current_image=current_image>=[backgroundImagesArray count]?0:current_image++;
+    [UIImageView beginAnimations:nil context:NULL];
+    [UIImageView setAnimationDuration:0.6];
+    self.imageBackground.alpha=1;
+    self.imageBackground.image =[UIImage imageNamed:[backgroundImagesArray objectAtIndex:current_image]];
+    [UIImageView commitAnimations];
+    current_image++;
+}
 
 @end
