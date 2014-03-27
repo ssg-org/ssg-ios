@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>32D77DEB-70A0-4760-9FE4-B87F9B89A158</string>
+	<key>IDESourceControlProjectName</key>
+	<string>ssg-ios</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>C93BD166-8E68-4E9D-B13E-FDB3701A727E</key>
+		<string>https://github.com/ssg-org/ssg-ios.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>ssg-ios.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>C93BD166-8E68-4E9D-B13E-FDB3701A727E</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/ssg-org/ssg-ios.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>C93BD166-8E68-4E9D-B13E-FDB3701A727E</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>C93BD166-8E68-4E9D-B13E-FDB3701A727E</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ssg-ios</string>
+		</dict>
+	</array>
+</dict>
+</plist>
