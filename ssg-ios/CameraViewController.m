@@ -52,4 +52,25 @@
 }
 */
 
+- (IBAction)btnSettingsOnTouch:(id)sender {
+    
+    camera_settings_state=camera_settings_state?false:true;
+    
+    if (camera_settings_state) {
+        
+        self.cameraSettingsContainer.hidden=NO;
+    
+    }
+    else{
+    
+        self.cameraSettingsContainer.hidden=YES;
+    }
+    
+}
+
+- (IBAction)btnOpenGalleryOnTouch:(id)sender {
+}
+
+- (IBAction)btnTakePictureOnTouch:(id)sender {
+}
 @end
