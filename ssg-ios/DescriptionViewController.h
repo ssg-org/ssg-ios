@@ -10,4 +10,10 @@
 
 @interface DescriptionViewController : UIViewController
 
+
+@property (strong, nonatomic) IBOutlet UITextField *txtTitle;
+@property (strong, nonatomic) IBOutlet UITextField *txtCity;
+@property (strong, nonatomic) IBOutlet UITextField *txtDescription;
+
+
 @end

@@ -481,21 +481,42 @@ Sredi Svoj Grad!</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Category" minimumFontSize="17" background="category_bg" translatesAutoresizingMaskIntoConstraints="NO" id="5Ao-jo-3k7">
-                                <rect key="frame" x="17" y="130" width="303" height="43"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <segue destination="c5Z-tB-hKt" kind="push" id="50j-yY-QU1"/>
-                                </connections>
-                            </textField>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qBb-hV-Oun">
                                 <rect key="frame" x="0.0" y="86" width="17" height="263"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="odc-IJ-aqP">
+                                <rect key="frame" x="17" y="130" width="303" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <state key="normal" title="Category" backgroundImage="category_bg">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="c5Z-tB-hKt" kind="push" id="qly-fT-Crk"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="grey_line" translatesAutoresizingMaskIntoConstraints="NO" id="u05-eU-mv8">
+                                <rect key="frame" x="0.0" y="86" width="320" height="1"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="grey_line" translatesAutoresizingMaskIntoConstraints="NO" id="zfQ-cT-lwC">
+                                <rect key="frame" x="0.0" y="129" width="320" height="1"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="grey_line" translatesAutoresizingMaskIntoConstraints="NO" id="pTc-gD-doF">
+                                <rect key="frame" x="0.0" y="173" width="320" height="1"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="grey_line" translatesAutoresizingMaskIntoConstraints="NO" id="hmb-RU-lHY">
+                                <rect key="frame" x="0.0" y="217" width="320" height="1"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="grey_line" translatesAutoresizingMaskIntoConstraints="NO" id="JSB-Sf-ndg">
+                                <rect key="frame" x="0.0" y="348" width="320" height="1"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -511,6 +532,11 @@ Sredi Svoj Grad!</string>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <connections>
+                        <outlet property="txtCity" destination="OUI-4t-48h" id="wk6-GN-vu3"/>
+                        <outlet property="txtDescription" destination="ibu-G7-avB" id="3Re-yb-mf9"/>
+                        <outlet property="txtTitle" destination="yJS-oJ-IOE" id="Ab6-VF-SaV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JMB-JV-apV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -704,6 +730,7 @@ Share it with your friends</string>
         <image name="check_ico" width="50" height="50"/>
         <image name="facebook_share" width="50" height="50"/>
         <image name="grey_bg" width="320" height="500"/>
+        <image name="grey_line" width="320" height="1"/>
         <image name="login" width="220" height="35"/>
         <image name="login_bg1" width="320" height="568"/>
         <image name="login_bg4" width="320" height="568"/>

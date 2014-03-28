@@ -39,6 +39,20 @@
 -(UIStatusBarStyle)preferredStatusBarStyle{
     return UIStatusBarStyleLightContent;
 }
+
+
+-(void)viewWillAppear:(BOOL)animated{
+
+    UIColor *color = [UIColor blackColor];
+    self.txtCity.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"City" attributes:@{NSForegroundColorAttributeName: color}];
+    
+    self.txtDescription.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Description" attributes:@{NSForegroundColorAttributeName: color}];
+
+     self.txtTitle.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Title" attributes:@{NSForegroundColorAttributeName: color}];
+    
+
+}
+
 /*
 #pragma mark - Navigation
 
