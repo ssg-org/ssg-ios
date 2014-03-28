@@ -1,18 +1,18 @@
 //
-//  CameraViewController.m
+//  SettingsViewController.m
 //  ssg-ios
 //
-//  Created by Haris Dautovic on 27/03/14.
+//  Created by Haris Dautovic on 28/03/14.
 //  Copyright (c) 2014 SSG. All rights reserved.
 //
 
-#import "CameraViewController.h"
+#import "SettingsViewController.h"
 
-@interface CameraViewController ()
+@interface SettingsViewController ()
 
 @end
 
-@implementation CameraViewController
+@implementation SettingsViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -26,7 +26,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-     self.navigationController.navigationBarHidden=NO;
     // Do any additional setup after loading the view.
 }
 
@@ -34,11 +33,6 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-
--(UIStatusBarStyle)preferredStatusBarStyle{
-    return UIStatusBarStyleLightContent;
 }
 
 /*

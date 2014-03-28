@@ -25,6 +25,9 @@
 		6607384E18E1949C003EA07C /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6607384D18E1949C003EA07C /* MainViewController.m */; };
 		6618299D18E4CC1A0088AB34 /* SignUpEmailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6618299C18E4CC1A0088AB34 /* SignUpEmailViewController.m */; };
 		661829A018E4D40F0088AB34 /* DescriptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6618299F18E4D40F0088AB34 /* DescriptionViewController.m */; };
+		664802D218E50FAE007B23EB /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 664802D118E50FAE007B23EB /* SettingsViewController.m */; };
+		664802D518E51166007B23EB /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 664802D418E51166007B23EB /* MapViewController.m */; };
+		664802D718E516A8007B23EB /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 664802D618E516A8007B23EB /* MapKit.framework */; };
 		66C4945D18E4E0A0009DFDFC /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C4945C18E4E0A0009DFDFC /* CameraViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +68,11 @@
 		6618299C18E4CC1A0088AB34 /* SignUpEmailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpEmailViewController.m; sourceTree = "<group>"; };
 		6618299E18E4D40F0088AB34 /* DescriptionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DescriptionViewController.h; sourceTree = "<group>"; };
 		6618299F18E4D40F0088AB34 /* DescriptionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DescriptionViewController.m; sourceTree = "<group>"; };
+		664802D018E50FAE007B23EB /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		664802D118E50FAE007B23EB /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		664802D318E51166007B23EB /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		664802D418E51166007B23EB /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		664802D618E516A8007B23EB /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		66C4945B18E4E0A0009DFDFC /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
 		66C4945C18E4E0A0009DFDFC /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -74,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				664802D718E516A8007B23EB /* MapKit.framework in Frameworks */,
 				6607381418E18491003EA07C /* CoreGraphics.framework in Frameworks */,
 				6607384718E18772003EA07C /* FacebookSDK.framework in Frameworks */,
 				6607381618E18491003EA07C /* UIKit.framework in Frameworks */,
@@ -116,6 +125,7 @@
 		6607381018E18491003EA07C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				664802D618E516A8007B23EB /* MapKit.framework */,
 				6607384618E18772003EA07C /* FacebookSDK.framework */,
 				6607381118E18491003EA07C /* Foundation.framework */,
 				6607381318E18491003EA07C /* CoreGraphics.framework */,
@@ -180,6 +190,10 @@
 				6618299F18E4D40F0088AB34 /* DescriptionViewController.m */,
 				66C4945B18E4E0A0009DFDFC /* CameraViewController.h */,
 				66C4945C18E4E0A0009DFDFC /* CameraViewController.m */,
+				664802D018E50FAE007B23EB /* SettingsViewController.h */,
+				664802D118E50FAE007B23EB /* SettingsViewController.m */,
+				664802D318E51166007B23EB /* MapViewController.h */,
+				664802D418E51166007B23EB /* MapViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -284,6 +298,8 @@
 				6607382218E18491003EA07C /* AppDelegate.m in Sources */,
 				6607381E18E18491003EA07C /* main.m in Sources */,
 				6618299D18E4CC1A0088AB34 /* SignUpEmailViewController.m in Sources */,
+				664802D518E51166007B23EB /* MapViewController.m in Sources */,
+				664802D218E50FAE007B23EB /* SettingsViewController.m in Sources */,
 				6607384B18E190C9003EA07C /* LoginViewController.m in Sources */,
 				6607384E18E1949C003EA07C /* MainViewController.m in Sources */,
 				66C4945D18E4E0A0009DFDFC /* CameraViewController.m in Sources */,

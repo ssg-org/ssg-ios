@@ -23,10 +23,29 @@
             </objects>
             <point key="canvasLocation" x="1327" y="363"/>
         </scene>
-        <!--View Controller-->
+        <!--Settings View Controller - ULICA.BA-->
+        <scene sceneID="uJS-2Q-Bkh">
+            <objects>
+                <viewController id="NzU-0o-YQW" customClass="SettingsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="v8j-wH-QLc"/>
+                        <viewControllerLayoutGuide type="bottom" id="vQO-ru-5E6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Y36-iE-gXZ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="ULICA.BA" id="oXQ-pt-R5I"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wek-Yi-eMY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1327" y="-1077"/>
+        </scene>
+        <!--Camera View Controller - ULICA.BA-->
         <scene sceneID="H1K-8p-5Sc">
             <objects>
-                <viewController id="WZV-Dk-Pmx" sceneMemberID="viewController">
+                <viewController id="WZV-Dk-Pmx" customClass="CameraViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Qyg-o3-f13"/>
                         <viewControllerLayoutGuide type="bottom" id="xaN-f2-zZ2"/>
@@ -88,13 +107,18 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="NZ0-Ko-Zen">
+                    <navigationItem key="navigationItem" title="ULICA.BA" id="NZ0-Ko-Zen">
                         <barButtonItem key="backBarButtonItem" title="BACK" id="vhr-hE-9oa"/>
+                        <barButtonItem key="rightBarButtonItem" title="NEXT" id="dKw-Wh-oGP">
+                            <connections>
+                                <segue destination="u9U-Xg-Bw0" kind="push" id="i2K-D2-f2P"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="euu-JF-flx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2259" y="-404"/>
+            <point key="canvasLocation" x="1797" y="-404"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="ufC-wZ-h7g">
@@ -241,6 +265,9 @@
                                 <state key="normal" backgroundImage="settings">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="NzU-0o-YQW" kind="push" id="XoH-FP-jxy"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZCU-TD-hQH">
                                 <rect key="frame" x="0.0" y="450" width="320" height="79"/>
@@ -253,7 +280,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="u9U-Xg-Bw0" kind="push" id="jal-DO-b7Q"/>
+                                    <segue destination="WZV-Dk-Pmx" kind="push" id="Ick-yC-tzs"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ulica_logo" translatesAutoresizingMaskIntoConstraints="NO" id="eL9-O9-13S">
@@ -313,7 +340,7 @@ Sredi Svoj Grad!</string>
                     <navigationItem key="navigationItem" title="ULICA.BA" id="Ym0-Q7-ze8">
                         <barButtonItem key="rightBarButtonItem" title="NEXT" id="5t9-g8-JzB">
                             <connections>
-                                <segue destination="WZV-Dk-Pmx" kind="push" id="RP4-q1-QoN"/>
+                                <segue destination="Dcz-xb-Ao0" kind="push" id="azf-lH-NhO"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -321,7 +348,56 @@ Sredi Svoj Grad!</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JMB-JV-apV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1725" y="-404"/>
+            <point key="canvasLocation" x="2209" y="-404"/>
+        </scene>
+        <!--View Controller - ULICA.BA-->
+        <scene sceneID="ZNb-Tn-O0O">
+            <objects>
+                <viewController id="Dcz-xb-Ao0" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gze-SD-cEd"/>
+                        <viewControllerLayoutGuide type="bottom" id="0xZ-2h-tSd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="W7c-0U-1zq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="axf-iZ-YsA">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="512"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="1C5-Wg-bqr"/>
+                                </constraints>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pfc-WB-pUk">
+                                <rect key="frame" x="0.0" y="512" width="320" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="2PW-eM-tsm"/>
+                                    <constraint firstAttribute="width" constant="320" id="uG3-g9-a1W"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="report_issue">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="pfc-WB-pUk" firstAttribute="leading" secondItem="W7c-0U-1zq" secondAttribute="leading" id="9gK-Vs-FZT"/>
+                            <constraint firstItem="axf-iZ-YsA" firstAttribute="top" secondItem="W7c-0U-1zq" secondAttribute="top" id="Dkr-Um-4V5"/>
+                            <constraint firstItem="axf-iZ-YsA" firstAttribute="leading" secondItem="W7c-0U-1zq" secondAttribute="leading" id="G9I-aW-F1k"/>
+                            <constraint firstItem="pfc-WB-pUk" firstAttribute="top" secondItem="axf-iZ-YsA" secondAttribute="bottom" id="GKM-l7-lUG"/>
+                            <constraint firstAttribute="bottom" secondItem="pfc-WB-pUk" secondAttribute="bottom" id="JzB-pK-8DI"/>
+                            <constraint firstAttribute="trailing" secondItem="pfc-WB-pUk" secondAttribute="trailing" id="Nt7-QP-44m"/>
+                            <constraint firstAttribute="trailing" secondItem="axf-iZ-YsA" secondAttribute="trailing" id="cbx-e6-xgd"/>
+                            <constraint firstItem="axf-iZ-YsA" firstAttribute="top" secondItem="W7c-0U-1zq" secondAttribute="top" id="vUd-O3-eUx"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="ULICA.BA" id="0hZ-sP-E8f"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ypz-2U-O3i" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2627" y="-398"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0jR-WH-Oe7">
@@ -355,6 +431,7 @@ Sredi Svoj Grad!</string>
         <image name="login" width="220" height="35"/>
         <image name="login_bg1" width="320" height="568"/>
         <image name="login_bg4" width="320" height="568"/>
+        <image name="report_issue" width="320" height="56"/>
         <image name="settings" width="25" height="25"/>
         <image name="sign_up" width="84" height="34"/>
         <image name="take_image" width="78" height="78"/>
