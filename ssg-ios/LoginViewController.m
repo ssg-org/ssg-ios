@@ -74,6 +74,8 @@
     CGRect frame =CGRectMake(self.customFacebookLogin.frame.origin.x, self.customFacebookLogin.frame.origin.y
                              , 220, 35);
     
+   
+    
     [self.customFacebookLogin setFrame:frame];
     [ self.btnFacebookLogin addSubview:self.customFacebookLogin];
     

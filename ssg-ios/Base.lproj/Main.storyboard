@@ -75,7 +75,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera_sample" translatesAutoresizingMaskIntoConstraints="NO" id="G8O-pl-goq">
-                                <rect key="frame" x="0.0" y="62" width="320" height="372"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="370"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="320" id="uOj-Va-D25"/>
@@ -115,6 +115,26 @@
                                             <action selector="btnSettingsOnTouch:" destination="WZV-Dk-Pmx" eventType="touchUpInside" id="Of2-i2-VOW"/>
                                         </connections>
                                     </button>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FaS-4K-LF1">
+                                        <rect key="frame" x="86" y="43" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" backgroundImage="x_ico">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnDeclinePhotoOnTouch:" destination="WZV-Dk-Pmx" eventType="touchUpInside" id="7cL-4q-7PU"/>
+                                        </connections>
+                                    </button>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pyy-XH-EJB">
+                                        <rect key="frame" x="185" y="43" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" backgroundImage="check_ico">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnAcceptPhotoOnTouch:" destination="WZV-Dk-Pmx" eventType="touchUpInside" id="uq5-eU-taW"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -136,6 +156,9 @@
                                         <state key="normal" backgroundImage="camera_auto">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="btnCameraAutoOnTouch:" destination="WZV-Dk-Pmx" eventType="touchUpInside" id="m2h-7j-0xb"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ldJ-gt-9aF">
                                         <rect key="frame" x="204" y="14" width="29" height="22"/>
@@ -143,6 +166,9 @@
                                         <state key="normal" backgroundImage="camera_toogle">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="btnCameraToggleOnTouch:" destination="WZV-Dk-Pmx" eventType="touchUpInside" id="nuX-hr-GQV"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -156,7 +182,7 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="G8O-pl-goq" secondAttribute="trailing" id="DDA-2G-jeX"/>
                             <constraint firstItem="G8O-pl-goq" firstAttribute="leading" secondItem="SmR-n8-ueA" secondAttribute="leading" id="PvX-pJ-FY8"/>
-                            <constraint firstItem="G8O-pl-goq" firstAttribute="top" secondItem="SmR-n8-ueA" secondAttribute="top" constant="62" id="RI1-NL-6PK"/>
+                            <constraint firstItem="G8O-pl-goq" firstAttribute="top" secondItem="SmR-n8-ueA" secondAttribute="top" constant="64" id="RI1-NL-6PK"/>
                             <constraint firstItem="RZi-BX-Nfl" firstAttribute="leading" secondItem="SmR-n8-ueA" secondAttribute="leading" id="WeK-ro-cq8"/>
                             <constraint firstAttribute="trailing" secondItem="RZi-BX-Nfl" secondAttribute="trailing" id="X3a-DL-Y0L"/>
                             <constraint firstAttribute="bottom" secondItem="G8O-pl-goq" secondAttribute="bottom" constant="134" id="XZZ-9l-nDe"/>
@@ -178,12 +204,18 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="btnAcceptPhoto" destination="Pyy-XH-EJB" id="Ixs-zr-mwh"/>
+                        <outlet property="btnDeclinePhoto" destination="FaS-4K-LF1" id="g27-Rf-aPd"/>
+                        <outlet property="btnGallery" destination="5qz-bN-poF" id="nv7-Qb-uaW"/>
+                        <outlet property="btnSettings" destination="2Eu-12-x42" id="5KL-Yr-B2j"/>
+                        <outlet property="btnTakePhoto" destination="mAy-eC-NME" id="yMH-iG-UpO"/>
                         <outlet property="cameraSettingsContainer" destination="gAA-Iu-XmS" id="WRc-16-uld"/>
+                        <outlet property="imagePreview" destination="G8O-pl-goq" id="SHq-OC-hBP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="euu-JF-flx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1885" y="-404"/>
+            <point key="canvasLocation" x="1911" y="-426"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="ufC-wZ-h7g">
@@ -251,7 +283,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TWD-ON-ve6">
                                         <rect key="frame" x="0.0" y="228" width="220" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" backgroundImage="login">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -419,7 +451,7 @@ Sredi Svoj Grad!</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JMB-JV-apV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2405" y="-398"/>
+            <point key="canvasLocation" x="2419" y="-492"/>
         </scene>
         <!--View Controller - ULICA.BA-->
         <scene sceneID="ZNb-Tn-O0O">
@@ -605,6 +637,7 @@ Share it with your friends</string>
         <image name="camera_settings_bg" width="320" height="51"/>
         <image name="camera_share" width="37" height="37"/>
         <image name="camera_toogle" width="29" height="22"/>
+        <image name="check_ico" width="50" height="50"/>
         <image name="facebook_share" width="50" height="50"/>
         <image name="grey_bg" width="320" height="500"/>
         <image name="login" width="220" height="35"/>
@@ -617,6 +650,7 @@ Share it with your friends</string>
         <image name="textbox_bg" width="220" height="35"/>
         <image name="twitter_share" width="50" height="50"/>
         <image name="ulica_logo" width="90" height="91"/>
+        <image name="x_ico" width="50" height="50"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
@@ -624,6 +658,6 @@ Share it with your friends</string>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="wLr-7b-jus"/>
+        <segue reference="HUx-Um-17X"/>
     </inferredMetricsTieBreakers>
 </document>
