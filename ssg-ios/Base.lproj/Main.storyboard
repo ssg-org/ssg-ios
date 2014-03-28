@@ -215,7 +215,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="euu-JF-flx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1911" y="-426"/>
+            <point key="canvasLocation" x="1926" y="-474"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="ufC-wZ-h7g">
@@ -417,6 +417,33 @@ Sredi Svoj Grad!</string>
             </objects>
             <point key="canvasLocation" x="1347" y="-398"/>
         </scene>
+        <!--Category View Controller - ULICA.BA-->
+        <scene sceneID="GYR-O3-eJ8">
+            <objects>
+                <viewController id="c5Z-tB-hKt" customClass="CategoryViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pSZ-lE-LoN"/>
+                        <viewControllerLayoutGuide type="bottom" id="NWQ-y5-OOF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FDC-zq-YnF">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="grey_bg" translatesAutoresizingMaskIntoConstraints="NO" id="be9-25-AKd">
+                                <rect key="frame" x="0.0" y="62" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="ULICA.BA" id="agd-Gi-1bj">
+                        <barButtonItem key="backBarButtonItem" title="BACK" id="2IZ-i2-vNu"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D2d-cb-LJe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2421" y="-1130"/>
+        </scene>
         <!--Description View Controller - ULICA.BA-->
         <scene sceneID="eaa-QZ-W8T">
             <objects>
@@ -433,6 +460,42 @@ Sredi Svoj Grad!</string>
                                 <rect key="frame" x="0.0" y="62" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yJS-oJ-IOE">
+                                <rect key="frame" x="17" y="86" width="302" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="City" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OUI-4t-48h">
+                                <rect key="frame" x="17" y="174" width="303" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Description" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ibu-G7-avB">
+                                <rect key="frame" x="17" y="218" width="303" height="131"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Category" minimumFontSize="17" background="category_bg" translatesAutoresizingMaskIntoConstraints="NO" id="5Ao-jo-3k7">
+                                <rect key="frame" x="17" y="130" width="303" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <segue destination="c5Z-tB-hKt" kind="push" id="50j-yY-QU1"/>
+                                </connections>
+                            </textField>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qBb-hV-Oun">
+                                <rect key="frame" x="0.0" y="86" width="17" height="263"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -451,7 +514,7 @@ Sredi Svoj Grad!</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JMB-JV-apV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2419" y="-492"/>
+            <point key="canvasLocation" x="2413" y="-474"/>
         </scene>
         <!--View Controller - ULICA.BA-->
         <scene sceneID="ZNb-Tn-O0O">
@@ -507,7 +570,7 @@ Sredi Svoj Grad!</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ypz-2U-O3i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2867" y="-404"/>
+            <point key="canvasLocation" x="2893" y="-474"/>
         </scene>
         <!--Share View Controller-->
         <scene sceneID="JYX-Fb-JOD">
@@ -536,7 +599,7 @@ Sredi Svoj Grad!</string>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="2Xd-PB-dNt" kind="push" id="wLr-7b-jus"/>
+                                    <segue destination="WZV-Dk-Pmx" kind="push" id="Bda-6i-sbI"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ulica_logo" translatesAutoresizingMaskIntoConstraints="NO" id="UYT-28-3Vg">
@@ -637,6 +700,7 @@ Share it with your friends</string>
         <image name="camera_settings_bg" width="320" height="51"/>
         <image name="camera_share" width="37" height="37"/>
         <image name="camera_toogle" width="29" height="22"/>
+        <image name="category_bg" width="320" height="43"/>
         <image name="check_ico" width="50" height="50"/>
         <image name="facebook_share" width="50" height="50"/>
         <image name="grey_bg" width="320" height="500"/>
@@ -658,6 +722,6 @@ Share it with your friends</string>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="HUx-Um-17X"/>
+        <segue reference="Bda-6i-sbI"/>
     </inferredMetricsTieBreakers>
 </document>

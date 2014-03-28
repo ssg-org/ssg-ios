@@ -30,6 +30,7 @@
 		664802D718E516A8007B23EB /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 664802D618E516A8007B23EB /* MapKit.framework */; };
 		664802DA18E5174D007B23EB /* ShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 664802D918E5174D007B23EB /* ShareViewController.m */; };
 		66C4945D18E4E0A0009DFDFC /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C4945C18E4E0A0009DFDFC /* CameraViewController.m */; };
+		66C9BA8F18E5CD0500C4D747 /* CategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C9BA8E18E5CD0500C4D747 /* CategoryViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,8 @@
 		664802D918E5174D007B23EB /* ShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareViewController.m; sourceTree = "<group>"; };
 		66C4945B18E4E0A0009DFDFC /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
 		66C4945C18E4E0A0009DFDFC /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
+		66C9BA8D18E5CD0500C4D747 /* CategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryViewController.h; sourceTree = "<group>"; };
+		66C9BA8E18E5CD0500C4D747 /* CategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +202,8 @@
 				664802D418E51166007B23EB /* MapViewController.m */,
 				664802D818E5174D007B23EB /* ShareViewController.h */,
 				664802D918E5174D007B23EB /* ShareViewController.m */,
+				66C9BA8D18E5CD0500C4D747 /* CategoryViewController.h */,
+				66C9BA8E18E5CD0500C4D747 /* CategoryViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -303,6 +308,7 @@
 				6607382218E18491003EA07C /* AppDelegate.m in Sources */,
 				6607381E18E18491003EA07C /* main.m in Sources */,
 				6618299D18E4CC1A0088AB34 /* SignUpEmailViewController.m in Sources */,
+				66C9BA8F18E5CD0500C4D747 /* CategoryViewController.m in Sources */,
 				664802D518E51166007B23EB /* MapViewController.m in Sources */,
 				664802D218E50FAE007B23EB /* SettingsViewController.m in Sources */,
 				6607384B18E190C9003EA07C /* LoginViewController.m in Sources */,
