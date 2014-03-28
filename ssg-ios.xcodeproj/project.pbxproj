@@ -28,6 +28,7 @@
 		664802D218E50FAE007B23EB /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 664802D118E50FAE007B23EB /* SettingsViewController.m */; };
 		664802D518E51166007B23EB /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 664802D418E51166007B23EB /* MapViewController.m */; };
 		664802D718E516A8007B23EB /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 664802D618E516A8007B23EB /* MapKit.framework */; };
+		664802DA18E5174D007B23EB /* ShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 664802D918E5174D007B23EB /* ShareViewController.m */; };
 		66C4945D18E4E0A0009DFDFC /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C4945C18E4E0A0009DFDFC /* CameraViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +74,8 @@
 		664802D318E51166007B23EB /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		664802D418E51166007B23EB /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		664802D618E516A8007B23EB /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		664802D818E5174D007B23EB /* ShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareViewController.h; sourceTree = "<group>"; };
+		664802D918E5174D007B23EB /* ShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareViewController.m; sourceTree = "<group>"; };
 		66C4945B18E4E0A0009DFDFC /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
 		66C4945C18E4E0A0009DFDFC /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -194,6 +197,8 @@
 				664802D118E50FAE007B23EB /* SettingsViewController.m */,
 				664802D318E51166007B23EB /* MapViewController.h */,
 				664802D418E51166007B23EB /* MapViewController.m */,
+				664802D818E5174D007B23EB /* ShareViewController.h */,
+				664802D918E5174D007B23EB /* ShareViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -303,6 +308,7 @@
 				6607384B18E190C9003EA07C /* LoginViewController.m in Sources */,
 				6607384E18E1949C003EA07C /* MainViewController.m in Sources */,
 				66C4945D18E4E0A0009DFDFC /* CameraViewController.m in Sources */,
+				664802DA18E5174D007B23EB /* ShareViewController.m in Sources */,
 				661829A018E4D40F0088AB34 /* DescriptionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
