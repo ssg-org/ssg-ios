@@ -11,6 +11,8 @@
 
 @interface MapViewController : UIViewController<GMSMapViewDelegate,CLLocationManagerDelegate>{
  CLLocationManager *locationManager;
+    BOOL first_marker;
+    GMSMarker *marker ;
 }
 
 

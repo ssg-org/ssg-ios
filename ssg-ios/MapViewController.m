@@ -27,6 +27,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.mapContainer.delegate=self;
     [self initLocationManager];
 }
 
@@ -50,25 +51,43 @@
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
 {
-    NSLog(@"didUpdateToLocation: %@", newLocation);
+   // NSLog(@"didUpdateToLocation: %@", newLocation);
     CLLocation *currentLocation = newLocation;
     
     if (currentLocation != nil) {
-        //Init camera
-        GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:currentLocation.coordinate.latitude
-                                                                longitude:currentLocation.coordinate.longitude
-                                                                     zoom:6];
-        //Set camera
-        [self.mapContainer setCamera:camera];
         
-        //Create marker
-        GMSMarker *marker = [[GMSMarker alloc] init];
-        marker.position =  currentLocation.coordinate;
-        marker.snippet = @"Hello World";
-        marker.map=self.mapContainer;
+        if (!first_marker) {
+            //Init camera
+            GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:currentLocation.coordinate.latitude
+                                                                    longitude:currentLocation.coordinate.longitude
+                                                                         zoom:6];
+            //Set camera
+            [self.mapContainer setCamera:camera];
+            
+            //Create marker
+            marker = [[GMSMarker alloc] init];
+            marker.position =  currentLocation.coordinate;
+            marker.snippet = @"Hello World";
+            marker.icon=[UIImage imageNamed:@"map_marker.png"];
+            marker.map=self.mapContainer;
+            first_marker=true;
+        }
+       
+        
     }
 }
 
+- (void) mapView:		(GMSMapView *) 	mapView
+didTapAtCoordinate:		(CLLocationCoordinate2D) 	coordinate{
+    
+    [mapView clear];
+    //Create marker
+    marker = [[GMSMarker alloc] init];
+    marker.position =  coordinate;
+    marker.snippet = @"Hello World";
+    marker.icon=[UIImage imageNamed:@"map_marker.png"];
+    marker.map=mapView;
+}
 
 
 @end
