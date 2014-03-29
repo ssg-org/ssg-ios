@@ -8,7 +8,9 @@
 
 #import "MapViewController.h"
 
+
 @interface MapViewController ()
+
 
 @end
 
@@ -23,27 +25,50 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self initLocationManager];
 }
 
-- (void)didReceiveMemoryWarning
+
+-(void)initLocationManager{
+    locationManager = [[CLLocationManager alloc] init];
+    locationManager.delegate = self;
+    //locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    [locationManager startUpdatingLocation];
+}
+
+#pragma mark - CLLocationManagerDelegate
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    NSLog(@"didFailWithError: %@", error);
+    UIAlertView *errorAlert = [[UIAlertView alloc]
+                               initWithTitle:@"Error" message:@"Failed to Get Your Location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [errorAlert show];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    NSLog(@"didUpdateToLocation: %@", newLocation);
+    CLLocation *currentLocation = newLocation;
+    
+    if (currentLocation != nil) {
+        //Init camera
+        GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:currentLocation.coordinate.latitude
+                                                                longitude:currentLocation.coordinate.longitude
+                                                                     zoom:6];
+        //Set camera
+        [self.mapContainer setCamera:camera];
+        
+        //Create marker
+        GMSMarker *marker = [[GMSMarker alloc] init];
+        marker.position =  currentLocation.coordinate;
+        marker.snippet = @"Hello World";
+        marker.map=self.mapContainer;
+    }
 }
-*/
+
+
 
 @end

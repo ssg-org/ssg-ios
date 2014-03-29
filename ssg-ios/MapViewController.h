@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <GoogleMaps/GoogleMaps.h>
 
-@interface MapViewController : UIViewController
+@interface MapViewController : UIViewController<GMSMapViewDelegate,CLLocationManagerDelegate>{
+ CLLocationManager *locationManager;
+}
+
+
+@property (nonatomic, retain) IBOutlet GMSMapView *mapContainer;
+
+
 
 @end

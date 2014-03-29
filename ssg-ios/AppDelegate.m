@@ -8,21 +8,20 @@
 
 #import "AppDelegate.h"
 #import <FacebookSDK/FacebookSDK.h>
+#import <GoogleMaps/GoogleMaps.h>
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
-   
+     //Google maps API Key
+    [GMSServices provideAPIKey:@"AIzaSyD7lqvVBatbAQbX0oTStokyRn2JHBBDAYQ"];
     [FBLoginView class];
     [FBProfilePictureView class];
-    
-    
+    [GMSMapView class];
    
     [[UINavigationBar appearance] setBackgroundImage: [UIImage imageNamed:@"nav_bar.png"]  forBarMetrics:UIBarMetricsDefault];
     
-   
     
 //    [[UINavigationBar appearance] setBackIndicatorImage:[UIImage imageNamed:@"arrow_left.png"]];
 //    [[UINavigationBar appearance] setBackIndicatorTransitionMaskImage:[UIImage imageNamed:@"arrow_left.png"]];

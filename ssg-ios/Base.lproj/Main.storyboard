@@ -542,10 +542,10 @@ Sredi Svoj Grad!</string>
             </objects>
             <point key="canvasLocation" x="2413" y="-474"/>
         </scene>
-        <!--View Controller - ULICA.BA-->
+        <!--Map View Controller - ULICA.BA-->
         <scene sceneID="ZNb-Tn-O0O">
             <objects>
-                <viewController id="Dcz-xb-Ao0" sceneMemberID="viewController">
+                <viewController id="Dcz-xb-Ao0" customClass="MapViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gze-SD-cEd"/>
                         <viewControllerLayoutGuide type="bottom" id="0xZ-2h-tSd"/>
@@ -554,13 +554,11 @@ Sredi Svoj Grad!</string>
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="axf-iZ-YsA">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Ea-Lb-oqn" customClass="GMSMapView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="512"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="320" id="1C5-Wg-bqr"/>
-                                </constraints>
-                            </mapView>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pfc-WB-pUk">
                                 <rect key="frame" x="0.0" y="512" width="320" height="56"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -579,13 +577,8 @@ Sredi Svoj Grad!</string>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="pfc-WB-pUk" firstAttribute="leading" secondItem="W7c-0U-1zq" secondAttribute="leading" id="9gK-Vs-FZT"/>
-                            <constraint firstItem="axf-iZ-YsA" firstAttribute="top" secondItem="W7c-0U-1zq" secondAttribute="top" id="Dkr-Um-4V5"/>
-                            <constraint firstItem="axf-iZ-YsA" firstAttribute="leading" secondItem="W7c-0U-1zq" secondAttribute="leading" id="G9I-aW-F1k"/>
-                            <constraint firstItem="pfc-WB-pUk" firstAttribute="top" secondItem="axf-iZ-YsA" secondAttribute="bottom" id="GKM-l7-lUG"/>
                             <constraint firstAttribute="bottom" secondItem="pfc-WB-pUk" secondAttribute="bottom" id="JzB-pK-8DI"/>
                             <constraint firstAttribute="trailing" secondItem="pfc-WB-pUk" secondAttribute="trailing" id="Nt7-QP-44m"/>
-                            <constraint firstAttribute="trailing" secondItem="axf-iZ-YsA" secondAttribute="trailing" id="cbx-e6-xgd"/>
-                            <constraint firstItem="axf-iZ-YsA" firstAttribute="top" secondItem="W7c-0U-1zq" secondAttribute="top" id="vUd-O3-eUx"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="ULICA.BA" id="0hZ-sP-E8f">
@@ -593,6 +586,9 @@ Sredi Svoj Grad!</string>
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="mapContainer" destination="4Ea-Lb-oqn" id="bu1-7x-NGe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ypz-2U-O3i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
