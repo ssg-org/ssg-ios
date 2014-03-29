@@ -10,7 +10,6 @@
 
 @interface MainViewController : UIViewController
 
-
 @property NSMutableString* dataFromLogin;
 
 @end
