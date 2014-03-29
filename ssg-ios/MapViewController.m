@@ -72,10 +72,10 @@
             marker.map=self.mapContainer;
             first_marker=true;
         }
-       
-        
     }
 }
+
+#pragma mark - GMSMapViewDelegate
 
 - (void) mapView:		(GMSMapView *) 	mapView
 didTapAtCoordinate:		(CLLocationCoordinate2D) 	coordinate{

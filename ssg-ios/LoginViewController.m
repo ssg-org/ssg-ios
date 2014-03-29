@@ -8,6 +8,9 @@
 
 #import "LoginViewController.h"
 #import "MainViewController.h"
+#import "Person.h"
+#import "SyncData.h"
+#import "AppDelegate.h"
 
 @interface LoginViewController ()
 
@@ -90,6 +93,41 @@
     [super viewDidLoad];
     [self initFacebook];
     [self initImageChanger];
+    [self coreDataTest];
+    
+    
+    
+}
+-(void)coreDataTest{
+// add object to database
+    
+    AppDelegate * appDelagate  = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    NSManagedObjectContext *context =appDelagate.managedObjectContext;
+    Person *person = [NSEntityDescription
+                                      insertNewObjectForEntityForName:@"Person"
+                                      inManagedObjectContext:context];
+   person.firstname=@"haris";
+   person.lastname=@"dautovic";
+    
+    NSError *error;
+    [context save:nil];
+    
+   
+    if (![context save:&error]) {
+        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+    }
+    
+  
+    //get object from database
+    // Test listing all FailedBankInfos from the store
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Person"
+                                              inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+    for (Person *info in fetchedObjects) {
+        NSLog(@"First name and last name: %@ %@", info.firstname,info.lastname);
+    }
 }
 
 - (void)didReceiveMemoryWarning
