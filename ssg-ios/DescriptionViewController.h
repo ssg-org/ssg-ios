@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DescriptionViewController : UIViewController
+@interface DescriptionViewController : UIViewController<UITextFieldDelegate>
 
 
 @property (strong, nonatomic) IBOutlet UITextField *txtTitle;

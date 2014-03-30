@@ -27,7 +27,10 @@
 {
     [super viewDidLoad];
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
-    // Do any additional setup after loading the view.
+    
+    self.txtCity.delegate=self;
+    self.txtDescription.delegate=self;
+    self.txtTitle.delegate=self;
 }
 
 - (void)didReceiveMemoryWarning
@@ -53,15 +56,11 @@
 
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    [textField resignFirstResponder];
+    return YES;
 }
-*/
+
 
 @end
