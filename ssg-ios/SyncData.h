@@ -10,9 +10,12 @@
 
 @interface SyncData : NSObject
 
+
 - (void)mock;
 
 + (SyncData*)get;
+
++(NSMutableArray*)getAllCity;
 
 
 @end

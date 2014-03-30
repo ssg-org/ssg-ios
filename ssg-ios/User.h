@@ -1,19 +1,22 @@
 //
-//  Person.h
+//  User.h
 //  ssg-ios
 //
-//  Created by Haris Dautovic on 29/03/14.
+//  Created by Haris Dautovic on 30/03/14.
 //  Copyright (c) 2014 SSG. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+@class City;
 
-@interface Person : NSManagedObject
+@interface User : NSManagedObject
 
-@property (nonatomic, retain) NSNumber * id;
+@property (nonatomic, retain) NSString * email;
 @property (nonatomic, retain) NSString * firstname;
 @property (nonatomic, retain) NSString * lastname;
+@property (nonatomic, retain) NSString * password;
+@property (nonatomic, retain) City *city;
 
 @end
