@@ -26,7 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.navigationController.navigationBarHidden=NO;
+     [[self navigationController] setNavigationBarHidden:YES animated:YES];
     // Do any additional setup after loading the view.
 }
 
