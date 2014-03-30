@@ -39,6 +39,9 @@
                                     <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="btnBackToLogin:" destination="PBE-Rk-jnX" eventType="touchUpInside" id="nCO-oN-Blx"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4re-0b-ghw">
                                 <rect key="frame" x="33" y="90" width="260" height="336"/>
@@ -87,6 +90,9 @@
                                         <state key="normal" image="signup_button">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="btnSignUpOnTouch:" destination="PBE-Rk-jnX" eventType="touchUpInside" id="rad-hU-ITv"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -108,6 +114,14 @@
                         </barButtonItem>
                     </navigationItem>
                     <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="textBoxContainer" destination="4re-0b-ghw" id="Bx3-TP-ueK"/>
+                        <outlet property="txtCity" destination="YhY-gW-Hjv" id="1Lo-01-sZb"/>
+                        <outlet property="txtEmail" destination="hs1-nx-2I5" id="3lG-6b-fWf"/>
+                        <outlet property="txtFirstName" destination="UGS-Pp-ASS" id="Wfw-Af-gHs"/>
+                        <outlet property="txtLastName" destination="MZi-7f-G6p" id="ayE-x0-b1T"/>
+                        <outlet property="txtPassword" destination="b2Y-IZ-FZV" id="br4-tD-2W5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N1o-Op-3Uo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

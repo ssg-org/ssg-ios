@@ -23,11 +23,22 @@
     return self;
 }
 
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
      [[self navigationController] setNavigationBarHidden:YES animated:YES];
+    [self setDelagate];
     // Do any additional setup after loading the view.
+}
+
+-(void)setDelagate {
+    self.txtCity.delegate=self;
+    self.txtEmail.delegate=self;
+    self.txtFirstName.delegate=self;
+    self.txtLastName.delegate=self;
+    self.txtPassword.delegate=self;
 }
 
 - (void)didReceiveMemoryWarning
@@ -39,4 +50,18 @@
     return UIStatusBarStyleLightContent;
 }
 
+- (IBAction)btnSignUpOnTouch:(id)sender {
+}
+
+- (IBAction)btnBackToLogin:(id)sender {
+    
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    
+    return YES;
+}
 @end
