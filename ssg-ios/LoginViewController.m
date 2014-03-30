@@ -29,27 +29,25 @@
     return self;
 }
 
--(void)viewDidLayoutSubviews{
+-(void)viewWillLayoutSubviews{
+
+    if (!isiPhone5) {
+        
+        self.containerView.frame=CGRectMake(self.containerView.frame.origin.x, self.containerView.frame.origin.y-15, self.containerView.frame.size.width, self.containerView.frame.size.height);
+    }
     
     [[self navigationController] setNavigationBarHidden:YES animated:YES];
-
-    CGRect frameRect = self.txtUsername.frame;
-    frameRect.size.height =35;
-    self.txtUsername.frame = frameRect;
     
-    frameRect = self.txtPassword.frame;
-    frameRect.size.height =35;
-    self.txtPassword.frame = frameRect;
     
     UIColor *color = [UIColor whiteColor];
     self.txtPassword.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Password" attributes:@{NSForegroundColorAttributeName: color}];
     
     self.txtUsername.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Username" attributes:@{NSForegroundColorAttributeName: color}];
     
-   
+    
     self.customFacebookLogin=[[FBLoginView alloc] initWithReadPermissions:@[@"basic_info", @"email", @"user_likes"]];
-      self.customFacebookLogin.delegate=self;
-   
+    self.customFacebookLogin.delegate=self;
+    
     //set facebook  button backgorund
     for (id obj in self.customFacebookLogin.subviews)
     {
@@ -68,7 +66,7 @@
             loginLabel.text = @"";
             loginLabel.textColor=[UIColor clearColor];
             //loginLabel.textAlignment = UITextAlignmentCenter;
-           // loginLabel.frame = CGRectMake(0, 0, 271, 37);
+            // loginLabel.frame = CGRectMake(0, 0, 271, 37);
         }
         
     }
@@ -77,16 +75,14 @@
     CGRect frame =CGRectMake(self.customFacebookLogin.frame.origin.x, self.customFacebookLogin.frame.origin.y
                              , 220, 35);
     
-   
+    
     
     [self.customFacebookLogin setFrame:frame];
     [ self.btnFacebookLogin addSubview:self.customFacebookLogin];
+}
+
+-(void)viewDidLayoutSubviews{
     
-    
-    if (!isiPhone5) {
-      
-        self.containerView.frame=CGRectMake(self.containerView.frame.origin.x, self.containerView.frame.origin.y-15, self.containerView.frame.size.width, self.containerView.frame.size.height);
-    }
 }
 - (void)viewDidLoad
 {
@@ -95,7 +91,8 @@
     [self initImageChanger];
     [self coreDataTest];
     
-    
+    self.txtPassword.delegate=self;
+    self.txtUsername.delegate=self;
     
 }
 -(void)coreDataTest{
@@ -187,7 +184,6 @@
     //self.nameLabel.text = @"";
     //self.statusLabel.text= @"You're not logged in!";
     
-    
 }
 
 // Handle possible errors that can occur during login
@@ -254,6 +250,12 @@
     self.imageBackground.image =[UIImage imageNamed:[backgroundImagesArray objectAtIndex:current_image]];
     [UIImageView commitAnimations];
     current_image++;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
 }
 
 @end
