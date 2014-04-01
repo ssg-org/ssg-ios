@@ -8,7 +8,6 @@
 
 #import "MapViewController.h"
 
-
 @interface MapViewController ()
 
 
@@ -51,22 +50,29 @@
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
 {
-   // NSLog(@"didUpdateToLocation: %@", newLocation);
+    // NSLog(@"didUpdateToLocation: %@", newLocation);
     CLLocation *currentLocation = newLocation;
     
     if (currentLocation != nil) {
         
         if (!first_marker) {
             //Init camera
-            GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:currentLocation.coordinate.latitude
-                                                                    longitude:currentLocation.coordinate.longitude
-                                                                         zoom:6];
+            
+            CLLocation *newLocation = [[CLLocation alloc] initWithCoordinate:CLLocationCoordinate2DMake(43.831183366766496, 18.308372497558594)
+                                                                     altitude:0
+                                                           horizontalAccuracy:0
+                                                             verticalAccuracy:0
+                                                                    timestamp:[NSDate date]];
+            
+            GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:newLocation.coordinate.latitude
+                                                                    longitude:newLocation.coordinate.longitude
+                                                                         zoom:15];
             //Set camera
             [self.mapContainer setCamera:camera];
             
             //Create marker
             marker = [[GMSMarker alloc] init];
-            marker.position =  currentLocation.coordinate;
+            marker.position =  newLocation.coordinate;
             marker.snippet = @"Hello World";
             marker.icon=[UIImage imageNamed:@"map_marker.png"];
             marker.map=self.mapContainer;

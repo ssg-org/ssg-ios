@@ -41,7 +41,7 @@ static SyncData *__mainData;
     
     AppDelegate * appDelagate  = (AppDelegate *)[UIApplication sharedApplication].delegate;
     NSManagedObjectContext *context =appDelagate.managedObjectContext;
-
+    
     
     //get object from database
     NSError *error;

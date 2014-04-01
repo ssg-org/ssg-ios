@@ -16,6 +16,7 @@
 + (SyncData*)get;
 
 +(NSMutableArray*)getAllCity;
++(BOOL)addNewObjectToDatabase:(NSObject*)object : (NSString*)entityName;
 
 
 @end

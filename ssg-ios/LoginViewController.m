@@ -63,8 +63,6 @@
             UILabel * loginLabel =  obj;
             loginLabel.text = @"";
             loginLabel.textColor=[UIColor clearColor];
-            //loginLabel.textAlignment = UITextAlignmentCenter;
-            // loginLabel.frame = CGRectMake(0, 0, 271, 37);
         }
         
     }
@@ -77,15 +75,14 @@
     
     [self.customFacebookLogin setFrame:frame];
     [ self.btnFacebookLogin addSubview:self.customFacebookLogin];
-    
-    if (!isiPhone5) {
-        
-        self.containerView.frame=CGRectMake(self.containerView.frame.origin.x, self.containerView.frame.origin.y-15, self.containerView.frame.size.width, self.containerView.frame.size.height);
-    }
+   
 }
 
 -(void)viewDidLayoutSubviews{
     
+    if (!isiPhone5) {
+        self.containerView.frame=CGRectMake(self.containerView.frame.origin.x, self.containerView.frame.origin.y-15, self.containerView.frame.size.width, self.containerView.frame.size.height);
+    }
 }
 - (void)viewDidLoad
 {
@@ -156,6 +153,9 @@
 
 #pragma - Action methods
 - (IBAction)btnEmailLoginOnTouch:(UIButton *)sender {
+    
+    //Login user with email
+    
     
     
 }

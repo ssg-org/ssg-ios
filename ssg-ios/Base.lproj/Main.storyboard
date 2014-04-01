@@ -78,12 +78,21 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="city" textAlignment="center" minimumFontSize="17" background="signup_textbox" translatesAutoresizingMaskIntoConstraints="NO" id="YhY-gW-Hjv">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="signup_textbox" translatesAutoresizingMaskIntoConstraints="NO" id="h2o-YG-zzk">
                                         <rect key="frame" x="20" y="237" width="220" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
+                                    </imageView>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eAl-NO-E0y">
+                                        <rect key="frame" x="20" y="237" width="220" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <subviews>
+                                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Taf-a8-Q4z">
+                                                <rect key="frame" x="0.0" y="-90" width="220" height="216"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                            </pickerView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </scrollView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FRV-U1-1v8">
                                         <rect key="frame" x="20" y="280" width="220" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -116,7 +125,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="textBoxContainer" destination="4re-0b-ghw" id="Bx3-TP-ueK"/>
-                        <outlet property="txtCity" destination="YhY-gW-Hjv" id="1Lo-01-sZb"/>
+                        <outlet property="txtCity" destination="Taf-a8-Q4z" id="7wI-YW-csG"/>
                         <outlet property="txtEmail" destination="hs1-nx-2I5" id="3lG-6b-fWf"/>
                         <outlet property="txtFirstName" destination="UGS-Pp-ASS" id="Wfw-Af-gHs"/>
                         <outlet property="txtLastName" destination="MZi-7f-G6p" id="ayE-x0-b1T"/>
@@ -648,10 +657,10 @@ Sredi Svoj Grad!</string>
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Ea-Lb-oqn" customClass="GMSMapView">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="512"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rov-Qf-ZlC" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="513"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pfc-WB-pUk">
                                 <rect key="frame" x="0.0" y="512" width="320" height="56"/>
@@ -681,7 +690,7 @@ Sredi Svoj Grad!</string>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="mapContainer" destination="4Ea-Lb-oqn" id="bu1-7x-NGe"/>
+                        <outlet property="mapContainer" destination="rov-Qf-ZlC" id="23x-fO-Pm6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ypz-2U-O3i" userLabel="First Responder" sceneMemberID="firstResponder"/>

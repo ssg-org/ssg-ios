@@ -15,8 +15,12 @@
 		6607383318E18492003EA07C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6607381518E18491003EA07C /* UIKit.framework */; };
 		6607383B18E18492003EA07C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6607383918E18492003EA07C /* InfoPlist.strings */; };
 		6607383D18E18492003EA07C /* ssg_iosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6607383C18E18492003EA07C /* ssg_iosTests.m */; };
+		663CE51618E988D900418F29 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 663CE51518E988D900418F29 /* MapKit.framework */; };
+		663CE51C18E98BD400418F29 /* TileOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 663CE51918E98BD400418F29 /* TileOverlay.m */; };
+		663CE51D18E98BD400418F29 /* TileOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 663CE51B18E98BD400418F29 /* TileOverlayView.m */; };
 		664F2E3518E74B9700B8083F /* SyncData.m in Sources */ = {isa = PBXBuildFile; fileRef = 664F2E3418E74B9700B8083F /* SyncData.m */; };
 		664F2E3818E74D4100B8083F /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 664F2E3618E74D4100B8083F /* CoreDataModel.xcdatamodeld */; };
+		668C94C418EA9FDA0073D1A4 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 668C94C318EA9FDA0073D1A4 /* libsqlite3.dylib */; };
 		66908D9D18E65C2800F0848E /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6607384A18E190C9003EA07C /* LoginViewController.m */; };
 		66908D9E18E65C2800F0848E /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6607384D18E1949C003EA07C /* MainViewController.m */; };
 		66908D9F18E65C2800F0848E /* SignUpEmailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6618299C18E4CC1A0088AB34 /* SignUpEmailViewController.m */; };
@@ -85,6 +89,11 @@
 		6618299C18E4CC1A0088AB34 /* SignUpEmailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpEmailViewController.m; sourceTree = "<group>"; };
 		6618299E18E4D40F0088AB34 /* DescriptionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DescriptionViewController.h; sourceTree = "<group>"; };
 		6618299F18E4D40F0088AB34 /* DescriptionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DescriptionViewController.m; sourceTree = "<group>"; };
+		663CE51518E988D900418F29 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		663CE51818E98BD400418F29 /* TileOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TileOverlay.h; sourceTree = "<group>"; };
+		663CE51918E98BD400418F29 /* TileOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TileOverlay.m; sourceTree = "<group>"; };
+		663CE51A18E98BD400418F29 /* TileOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TileOverlayView.h; sourceTree = "<group>"; };
+		663CE51B18E98BD400418F29 /* TileOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TileOverlayView.m; sourceTree = "<group>"; };
 		664802D018E50FAE007B23EB /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		664802D118E50FAE007B23EB /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		664802D318E51166007B23EB /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
@@ -94,6 +103,7 @@
 		664F2E3318E74B9700B8083F /* SyncData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyncData.h; sourceTree = "<group>"; };
 		664F2E3418E74B9700B8083F /* SyncData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyncData.m; sourceTree = "<group>"; };
 		664F2E3718E74D4100B8083F /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
+		668C94C318EA9FDA0073D1A4 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = System/Library/Frameworks/libsqlite3.dylib; sourceTree = SDKROOT; };
 		66908D8D18E6590900F0848E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		66908D8F18E6591A00F0848E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		66908EBD18E66B5300F0848E /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -133,6 +143,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				668C94C418EA9FDA0073D1A4 /* libsqlite3.dylib in Frameworks */,
+				663CE51618E988D900418F29 /* MapKit.framework in Frameworks */,
 				66908ED418E700CC00F0848E /* SystemConfiguration.framework in Frameworks */,
 				66908ED218E700BB00F0848E /* OpenGLES.framework in Frameworks */,
 				66908ED018E700A600F0848E /* libicucore.dylib in Frameworks */,
@@ -176,6 +188,8 @@
 		6607381018E18491003EA07C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				668C94C318EA9FDA0073D1A4 /* libsqlite3.dylib */,
+				663CE51518E988D900418F29 /* MapKit.framework */,
 				66908ED718E7042F00F0848E /* GoogleMaps.bundle */,
 				66908ED318E700CC00F0848E /* SystemConfiguration.framework */,
 				66908ED118E700BB00F0848E /* OpenGLES.framework */,
@@ -202,6 +216,8 @@
 		6607381718E18491003EA07C /* ssg-ios */ = {
 			isa = PBXGroup;
 			children = (
+				66DC89D918EAFC7A001EA678 /* CoreDataHelper */,
+				663CE51718E98B4200418F29 /* MapOverlay */,
 				664F2E3218E749FF00B8083F /* Model */,
 				6607382018E18491003EA07C /* AppDelegate.h */,
 				6607384818E1903A003EA07C /* Controllers */,
@@ -268,6 +284,17 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
+		663CE51718E98B4200418F29 /* MapOverlay */ = {
+			isa = PBXGroup;
+			children = (
+				663CE51818E98BD400418F29 /* TileOverlay.h */,
+				663CE51918E98BD400418F29 /* TileOverlay.m */,
+				663CE51A18E98BD400418F29 /* TileOverlayView.h */,
+				663CE51B18E98BD400418F29 /* TileOverlayView.m */,
+			);
+			name = MapOverlay;
+			sourceTree = "<group>";
+		};
 		664F2E3218E749FF00B8083F /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -279,6 +306,13 @@
 				664F2E3418E74B9700B8083F /* SyncData.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		66DC89D918EAFC7A001EA678 /* CoreDataHelper */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = CoreDataHelper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -387,6 +421,7 @@
 				66E3681B18E82FD100B206E5 /* User.m in Sources */,
 				66908D9F18E65C2800F0848E /* SignUpEmailViewController.m in Sources */,
 				66908DA018E65C2800F0848E /* DescriptionViewController.m in Sources */,
+				663CE51C18E98BD400418F29 /* TileOverlay.m in Sources */,
 				66908DA118E65C2800F0848E /* CameraViewController.m in Sources */,
 				66908DA218E65C2800F0848E /* SettingsViewController.m in Sources */,
 				66908DA318E65C2800F0848E /* MapViewController.m in Sources */,
@@ -394,6 +429,7 @@
 				66908DA518E65C2800F0848E /* CategoryViewController.m in Sources */,
 				66E3681818E82FD100B206E5 /* City.m in Sources */,
 				66908DA618E65C2800F0848E /* AppDelegate.m in Sources */,
+				663CE51D18E98BD400418F29 /* TileOverlayView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -525,8 +561,21 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ssg-ios/ssg-ios-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
 				INFOPLIST_FILE = "ssg-ios/ssg-ios-Info.plist";
-				OTHER_LDFLAGS = "-ObjC";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					/Users/haris/Downloads,
+					"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -544,8 +593,21 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ssg-ios/ssg-ios-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
 				INFOPLIST_FILE = "ssg-ios/ssg-ios-Info.plist";
-				OTHER_LDFLAGS = "-ObjC";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					/Users/haris/Downloads,
+					"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
