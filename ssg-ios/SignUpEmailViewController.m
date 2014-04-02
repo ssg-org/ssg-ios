@@ -39,7 +39,7 @@
     _ssgCommunicator=[[SsgCommunicator alloc]init];
     _ssgCommunicator.delegate=self;
     
-    [_ssgCommunicator loadCities];
+    [_ssgCommunicator loadCitiesAndCategories];
    
   
 // NSMutableArray * array_temp=   [SyncData getAllCity];

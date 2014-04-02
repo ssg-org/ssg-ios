@@ -8,11 +8,12 @@
 
 #import "SsgCommunicator.h"
 #import "CitiesBuilder.h"
+#import "CategoriesBuilder.h"
 
 @implementation SsgCommunicator
 
 
-- (void)loadCities{
+- (void)loadCitiesAndCategories{
 
   
     NSString *urlAsString = @"http://10.0.1.55:3000/api/v1/info";
@@ -45,9 +46,9 @@
                 
                 SyncData *syncData = [SyncData get];
                 syncData.cities = [CitiesBuilder build:json data:data];
-                [self.delegate receivedCategoriesAndCities:syncData];
-               
+                syncData.categories=[CategoriesBuilder build:json data:data];
                 
+                [self.delegate receivedCategoriesAndCities:syncData];
                
                
             }
@@ -57,11 +58,4 @@
 
 }
 
-- (void)loadCategories{
-
-
-
-
-
-}
 @end

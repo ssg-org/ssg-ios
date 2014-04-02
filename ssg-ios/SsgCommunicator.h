@@ -15,7 +15,7 @@
 
 @property (weak, nonatomic) id<SsgCommunicatorDelegate> delegate;
 
-- (void)loadCities;
-- (void)loadCategories;
+- (void)loadCitiesAndCategories;
+
 
 @end

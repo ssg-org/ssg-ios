@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface CategoriesBuilder : NSObject
-
++ (NSMutableArray*) build:(NSDictionary*)json data:(NSData*)data;
 @end
