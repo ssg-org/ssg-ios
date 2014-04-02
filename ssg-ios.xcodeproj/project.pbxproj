@@ -59,6 +59,7 @@
 		66908ED818E7042F00F0848E /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 66908ED718E7042F00F0848E /* GoogleMaps.bundle */; };
 		66F4BF4D18ECA4410090D776 /* CitiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66F4BF4C18ECA4410090D776 /* CitiesViewController.m */; };
 		66F4BF5018ECA5AB0090D776 /* TableViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 66F4BF4F18ECA5AB0090D776 /* TableViewControllerTest.m */; };
+		66F4BF5318ECA9E20090D776 /* Endpoints.m in Sources */ = {isa = PBXBuildFile; fileRef = 66F4BF5218ECA9E20090D776 /* Endpoints.m */; };
 		66F70A9A18EB53270034B7C1 /* FuturaStd-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 66F70A9918EB53270034B7C1 /* FuturaStd-Heavy.otf */; };
 		66F70A9C18EB53410034B7C1 /* FuturaStd-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 66F70A9B18EB53410034B7C1 /* FuturaStd-Light.otf */; };
 		66F70AA018EBEF660034B7C1 /* CustomTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 66F70A9F18EBEF660034B7C1 /* CustomTextField.m */; };
@@ -157,6 +158,8 @@
 		66F4BF4C18ECA4410090D776 /* CitiesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CitiesViewController.m; sourceTree = "<group>"; };
 		66F4BF4E18ECA5AB0090D776 /* TableViewControllerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewControllerTest.h; sourceTree = "<group>"; };
 		66F4BF4F18ECA5AB0090D776 /* TableViewControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewControllerTest.m; sourceTree = "<group>"; };
+		66F4BF5118ECA9E20090D776 /* Endpoints.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Endpoints.h; sourceTree = "<group>"; };
+		66F4BF5218ECA9E20090D776 /* Endpoints.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Endpoints.m; sourceTree = "<group>"; };
 		66F70A9918EB53270034B7C1 /* FuturaStd-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FuturaStd-Heavy.otf"; sourceTree = "<group>"; };
 		66F70A9B18EB53410034B7C1 /* FuturaStd-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FuturaStd-Light.otf"; sourceTree = "<group>"; };
 		66F70A9E18EBEF660034B7C1 /* CustomTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTextField.h; sourceTree = "<group>"; };
@@ -351,6 +354,8 @@
 				6667C87F18EC402000F84CBF /* SsgCommunicatorDelegate.h */,
 				6667C88018EC410000F84CBF /* SsgCommunicator.h */,
 				6667C88118EC410000F84CBF /* SsgCommunicator.m */,
+				66F4BF5118ECA9E20090D776 /* Endpoints.h */,
+				66F4BF5218ECA9E20090D776 /* Endpoints.m */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -543,6 +548,7 @@
 				66908DA418E65C2800F0848E /* ShareViewController.m in Sources */,
 				663931DB18EC3C620072513A /* Categories.m in Sources */,
 				66908DA518E65C2800F0848E /* CategoryViewController.m in Sources */,
+				66F4BF5318ECA9E20090D776 /* Endpoints.m in Sources */,
 				6667C88518EC436C00F84CBF /* CitiesBuilder.m in Sources */,
 				663DF8F618EC9A13009452B0 /* CitiesTableViewCell.m in Sources */,
 				66908DA618E65C2800F0848E /* AppDelegate.m in Sources */,
