@@ -24,6 +24,10 @@
 		663CE51D18E98BD400418F29 /* TileOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 663CE51B18E98BD400418F29 /* TileOverlayView.m */; };
 		664F2E3518E74B9700B8083F /* SyncData.m in Sources */ = {isa = PBXBuildFile; fileRef = 664F2E3418E74B9700B8083F /* SyncData.m */; };
 		664F2E3818E74D4100B8083F /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 664F2E3618E74D4100B8083F /* CoreDataModel.xcdatamodeld */; };
+		6667C88218EC410000F84CBF /* SsgCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 6667C88118EC410000F84CBF /* SsgCommunicator.m */; };
+		6667C88518EC436C00F84CBF /* CitiesBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 6667C88418EC436C00F84CBF /* CitiesBuilder.m */; };
+		6667C88818EC437800F84CBF /* CategoriesBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 6667C88718EC437800F84CBF /* CategoriesBuilder.m */; };
+		6667C88B18EC442B00F84CBF /* Builder.m in Sources */ = {isa = PBXBuildFile; fileRef = 6667C88A18EC442B00F84CBF /* Builder.m */; };
 		668C94C418EA9FDA0073D1A4 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 668C94C318EA9FDA0073D1A4 /* libsqlite3.dylib */; };
 		66908D9D18E65C2800F0848E /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6607384A18E190C9003EA07C /* LoginViewController.m */; };
 		66908D9E18E65C2800F0848E /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6607384D18E1949C003EA07C /* MainViewController.m */; };
@@ -116,6 +120,15 @@
 		664F2E3318E74B9700B8083F /* SyncData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyncData.h; sourceTree = "<group>"; };
 		664F2E3418E74B9700B8083F /* SyncData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyncData.m; sourceTree = "<group>"; };
 		664F2E3718E74D4100B8083F /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
+		6667C87F18EC402000F84CBF /* SsgCommunicatorDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SsgCommunicatorDelegate.h; sourceTree = "<group>"; };
+		6667C88018EC410000F84CBF /* SsgCommunicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SsgCommunicator.h; sourceTree = "<group>"; };
+		6667C88118EC410000F84CBF /* SsgCommunicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SsgCommunicator.m; sourceTree = "<group>"; };
+		6667C88318EC436C00F84CBF /* CitiesBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CitiesBuilder.h; sourceTree = "<group>"; };
+		6667C88418EC436C00F84CBF /* CitiesBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CitiesBuilder.m; sourceTree = "<group>"; };
+		6667C88618EC437800F84CBF /* CategoriesBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoriesBuilder.h; sourceTree = "<group>"; };
+		6667C88718EC437800F84CBF /* CategoriesBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoriesBuilder.m; sourceTree = "<group>"; };
+		6667C88918EC442B00F84CBF /* Builder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Builder.h; sourceTree = "<group>"; };
+		6667C88A18EC442B00F84CBF /* Builder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Builder.m; sourceTree = "<group>"; };
 		668C94C318EA9FDA0073D1A4 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = System/Library/Frameworks/libsqlite3.dylib; sourceTree = SDKROOT; };
 		66908D8D18E6590900F0848E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		66908D8F18E6591A00F0848E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -229,6 +242,7 @@
 		6607381718E18491003EA07C /* ssg-ios */ = {
 			isa = PBXGroup;
 			children = (
+				663931E218EC3DE70072513A /* API */,
 				66F70A9D18EBEF390034B7C1 /* Subclass */,
 				6630EA8B18EB4890009368B5 /* Resources */,
 				66DC89D918EAFC7A001EA678 /* CoreDataHelper */,
@@ -316,6 +330,17 @@
 			name = Fonts;
 			sourceTree = "<group>";
 		};
+		663931E218EC3DE70072513A /* API */ = {
+			isa = PBXGroup;
+			children = (
+				6667C87B18EC3F0700F84CBF /* Builder */,
+				6667C87F18EC402000F84CBF /* SsgCommunicatorDelegate.h */,
+				6667C88018EC410000F84CBF /* SsgCommunicator.h */,
+				6667C88118EC410000F84CBF /* SsgCommunicator.m */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
 		663CE51718E98B4200418F29 /* MapOverlay */ = {
 			isa = PBXGroup;
 			children = (
@@ -342,6 +367,19 @@
 				664F2E3418E74B9700B8083F /* SyncData.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		6667C87B18EC3F0700F84CBF /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				6667C88918EC442B00F84CBF /* Builder.h */,
+				6667C88A18EC442B00F84CBF /* Builder.m */,
+				6667C88318EC436C00F84CBF /* CitiesBuilder.h */,
+				6667C88418EC436C00F84CBF /* CitiesBuilder.m */,
+				6667C88618EC437800F84CBF /* CategoriesBuilder.h */,
+				6667C88718EC437800F84CBF /* CategoriesBuilder.m */,
+			);
+			name = Builder;
 			sourceTree = "<group>";
 		};
 		66DC89D918EAFC7A001EA678 /* CoreDataHelper */ = {
@@ -463,8 +501,10 @@
 				664F2E3518E74B9700B8083F /* SyncData.m in Sources */,
 				66908DAD18E65E8F00F0848E /* main.m in Sources */,
 				66908D9D18E65C2800F0848E /* LoginViewController.m in Sources */,
+				6667C88B18EC442B00F84CBF /* Builder.m in Sources */,
 				664F2E3818E74D4100B8083F /* CoreDataModel.xcdatamodeld in Sources */,
 				663931D818EC3C610072513A /* User.m in Sources */,
+				6667C88818EC437800F84CBF /* CategoriesBuilder.m in Sources */,
 				66908D9E18E65C2800F0848E /* MainViewController.m in Sources */,
 				66908D9F18E65C2800F0848E /* SignUpEmailViewController.m in Sources */,
 				663931DE18EC3C620072513A /* Issue.m in Sources */,
@@ -474,9 +514,11 @@
 				66908DA118E65C2800F0848E /* CameraViewController.m in Sources */,
 				66908DA218E65C2800F0848E /* SettingsViewController.m in Sources */,
 				66908DA318E65C2800F0848E /* MapViewController.m in Sources */,
+				6667C88218EC410000F84CBF /* SsgCommunicator.m in Sources */,
 				66908DA418E65C2800F0848E /* ShareViewController.m in Sources */,
 				663931DB18EC3C620072513A /* Categories.m in Sources */,
 				66908DA518E65C2800F0848E /* CategoryViewController.m in Sources */,
+				6667C88518EC436C00F84CBF /* CitiesBuilder.m in Sources */,
 				66908DA618E65C2800F0848E /* AppDelegate.m in Sources */,
 				66F70AA018EBEF660034B7C1 /* CustomTextField.m in Sources */,
 				663CE51D18E98BD400418F29 /* TileOverlayView.m in Sources */,

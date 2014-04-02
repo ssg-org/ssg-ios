@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SsgCommunicatorDelegate.h"
+#import "SsgCommunicator.h"
 
-@interface SignUpEmailViewController : UIViewController<UITextFieldDelegate,UIPickerViewDataSource>{
+@interface SignUpEmailViewController : UIViewController<UITextFieldDelegate,UIPickerViewDataSource,SsgCommunicatorDelegate>{
 
     long last_city_index;
-
+    SsgCommunicator* _ssgCommunicator;
+   
 }
 
 @property (strong, nonatomic) IBOutlet UIView *textBoxContainer;

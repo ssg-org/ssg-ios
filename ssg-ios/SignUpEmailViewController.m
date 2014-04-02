@@ -35,6 +35,11 @@
     last_city_index=0;
      [[self navigationController] setNavigationBarHidden:YES animated:YES];
     [self setDelagate];
+    
+    _ssgCommunicator=[[SsgCommunicator alloc]init];
+    _ssgCommunicator.delegate=self;
+    
+    [_ssgCommunicator loadCities];
    
   
 // NSMutableArray * array_temp=   [SyncData getAllCity];
@@ -226,4 +231,20 @@
 
 - (IBAction)btnCityOnTouch:(id)sender {
 }
+
+
+#pragma - SSG Communicator delegate functions 
+
+- (void)receivedCategoriesAndCities:(SyncData*)syncData{
+
+    
+
+
+}
+- (void)fetchingCategoriesAndCitiesFailed:(NSError *)error{
+
+
+
+}
+
 @end
