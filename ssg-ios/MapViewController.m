@@ -26,8 +26,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.mapContainer.delegate=self;
+     self.mapContainer.delegate=self;
     [self initLocationManager];
+    
 }
 
 

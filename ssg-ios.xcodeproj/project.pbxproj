@@ -50,6 +50,9 @@
 		66908ED818E7042F00F0848E /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 66908ED718E7042F00F0848E /* GoogleMaps.bundle */; };
 		66E3681818E82FD100B206E5 /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = 66E3681718E82FD100B206E5 /* City.m */; };
 		66E3681B18E82FD100B206E5 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 66E3681A18E82FD100B206E5 /* User.m */; };
+		66F70A9A18EB53270034B7C1 /* FuturaStd-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 66F70A9918EB53270034B7C1 /* FuturaStd-Heavy.otf */; };
+		66F70A9C18EB53410034B7C1 /* FuturaStd-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 66F70A9B18EB53410034B7C1 /* FuturaStd-Light.otf */; };
+		66F70AA018EBEF660034B7C1 /* CustomTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 66F70A9F18EBEF660034B7C1 /* CustomTextField.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,6 +129,10 @@
 		66E3681718E82FD100B206E5 /* City.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = City.m; sourceTree = "<group>"; };
 		66E3681918E82FD100B206E5 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		66E3681A18E82FD100B206E5 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		66F70A9918EB53270034B7C1 /* FuturaStd-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FuturaStd-Heavy.otf"; sourceTree = "<group>"; };
+		66F70A9B18EB53410034B7C1 /* FuturaStd-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FuturaStd-Light.otf"; sourceTree = "<group>"; };
+		66F70A9E18EBEF660034B7C1 /* CustomTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTextField.h; sourceTree = "<group>"; };
+		66F70A9F18EBEF660034B7C1 /* CustomTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTextField.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,6 +223,8 @@
 		6607381718E18491003EA07C /* ssg-ios */ = {
 			isa = PBXGroup;
 			children = (
+				66F70A9D18EBEF390034B7C1 /* Subclass */,
+				6630EA8B18EB4890009368B5 /* Resources */,
 				66DC89D918EAFC7A001EA678 /* CoreDataHelper */,
 				663CE51718E98B4200418F29 /* MapOverlay */,
 				664F2E3218E749FF00B8083F /* Model */,
@@ -284,6 +293,23 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
+		6630EA8B18EB4890009368B5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6630EA8C18EB489A009368B5 /* Fonts */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		6630EA8C18EB489A009368B5 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				66F70A9B18EB53410034B7C1 /* FuturaStd-Light.otf */,
+				66F70A9918EB53270034B7C1 /* FuturaStd-Heavy.otf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
 		663CE51718E98B4200418F29 /* MapOverlay */ = {
 			isa = PBXGroup;
 			children = (
@@ -313,6 +339,15 @@
 			children = (
 			);
 			name = CoreDataHelper;
+			sourceTree = "<group>";
+		};
+		66F70A9D18EBEF390034B7C1 /* Subclass */ = {
+			isa = PBXGroup;
+			children = (
+				66F70A9E18EBEF660034B7C1 /* CustomTextField.h */,
+				66F70A9F18EBEF660034B7C1 /* CustomTextField.m */,
+			);
+			name = Subclass;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -391,8 +426,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66F70A9A18EB53270034B7C1 /* FuturaStd-Heavy.otf in Resources */,
 				6607382A18E18491003EA07C /* Images.xcassets in Resources */,
 				6607381C18E18491003EA07C /* InfoPlist.strings in Resources */,
+				66F70A9C18EB53410034B7C1 /* FuturaStd-Light.otf in Resources */,
 				6607382518E18491003EA07C /* Main.storyboard in Resources */,
 				66908ED818E7042F00F0848E /* GoogleMaps.bundle in Resources */,
 			);
@@ -429,6 +466,7 @@
 				66908DA518E65C2800F0848E /* CategoryViewController.m in Sources */,
 				66E3681818E82FD100B206E5 /* City.m in Sources */,
 				66908DA618E65C2800F0848E /* AppDelegate.m in Sources */,
+				66F70AA018EBEF660034B7C1 /* CustomTextField.m in Sources */,
 				663CE51D18E98BD400418F29 /* TileOverlayView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

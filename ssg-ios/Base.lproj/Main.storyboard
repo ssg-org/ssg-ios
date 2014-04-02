@@ -54,45 +54,43 @@
                                         <color key="textColor" red="0.26274511218070984" green="0.85882359743118286" blue="0.53333336114883423" alpha="1" colorSpace="deviceRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="first name" textAlignment="center" minimumFontSize="17" background="signup_textbox" translatesAutoresizingMaskIntoConstraints="NO" id="UGS-Pp-ASS">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="first name" textAlignment="center" minimumFontSize="17" background="signup_textbox" translatesAutoresizingMaskIntoConstraints="NO" id="UGS-Pp-ASS" customClass="CustomTextField">
                                         <rect key="frame" x="20" y="64" width="220" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="last name" textAlignment="center" minimumFontSize="17" background="signup_textbox" translatesAutoresizingMaskIntoConstraints="NO" id="MZi-7f-G6p">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="last name" textAlignment="center" minimumFontSize="17" background="signup_textbox" translatesAutoresizingMaskIntoConstraints="NO" id="MZi-7f-G6p" customClass="CustomTextField">
                                         <rect key="frame" x="20" y="108" width="220" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="email" textAlignment="center" minimumFontSize="17" background="signup_textbox" translatesAutoresizingMaskIntoConstraints="NO" id="hs1-nx-2I5">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="email" textAlignment="center" minimumFontSize="17" background="signup_textbox" translatesAutoresizingMaskIntoConstraints="NO" id="hs1-nx-2I5" customClass="CustomTextField">
                                         <rect key="frame" x="20" y="151" width="220" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password" textAlignment="center" minimumFontSize="17" background="signup_textbox" translatesAutoresizingMaskIntoConstraints="NO" id="b2Y-IZ-FZV">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password" textAlignment="center" minimumFontSize="17" background="signup_textbox" translatesAutoresizingMaskIntoConstraints="NO" id="b2Y-IZ-FZV" customClass="CustomTextField">
                                         <rect key="frame" x="20" y="194" width="220" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="signup_textbox" translatesAutoresizingMaskIntoConstraints="NO" id="h2o-YG-zzk">
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8dT-yE-RtF">
                                         <rect key="frame" x="20" y="237" width="220" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eAl-NO-E0y">
-                                        <rect key="frame" x="20" y="237" width="220" height="35"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <subviews>
-                                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Taf-a8-Q4z">
-                                                <rect key="frame" x="0.0" y="-90" width="220" height="216"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                            </pickerView>
-                                        </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    </scrollView>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
+                                        <state key="normal" title="city" backgroundImage="category_bg">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnCityOnTouch:" destination="PBE-Rk-jnX" eventType="touchUpInside" id="TSB-yA-WSG"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FRV-U1-1v8">
                                         <rect key="frame" x="20" y="280" width="220" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -124,8 +122,11 @@
                     </navigationItem>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="btnBackToLogin" destination="iDL-fg-nK2" id="bWF-QX-mam"/>
+                        <outlet property="btnCity" destination="8dT-yE-RtF" id="c6D-Vb-eSY"/>
+                        <outlet property="btnSignUp" destination="FRV-U1-1v8" id="dRS-Tg-B4R"/>
+                        <outlet property="lblGetStarted" destination="gXD-gi-yTx" id="jKT-hO-UCx"/>
                         <outlet property="textBoxContainer" destination="4re-0b-ghw" id="Bx3-TP-ueK"/>
-                        <outlet property="txtCity" destination="Taf-a8-Q4z" id="7wI-YW-csG"/>
                         <outlet property="txtEmail" destination="hs1-nx-2I5" id="3lG-6b-fWf"/>
                         <outlet property="txtFirstName" destination="UGS-Pp-ASS" id="Wfw-Af-gHs"/>
                         <outlet property="txtLastName" destination="MZi-7f-G6p" id="ayE-x0-b1T"/>

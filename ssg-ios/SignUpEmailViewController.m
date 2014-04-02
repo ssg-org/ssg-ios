@@ -35,18 +35,47 @@
     last_city_index=0;
      [[self navigationController] setNavigationBarHidden:YES animated:YES];
     [self setDelagate];
-    self.txtCity.delegate=self;
+   
+  
+// NSMutableArray * array_temp=   [SyncData getAllCity];
     
- NSMutableArray * array_temp=   [SyncData getAllCity];
     
-    
-    self.colorArray  = [[NSArray alloc]         initWithObjects:@"Blue",@"Green",@"Orange",@"Purple",@"Red",@"Yellow" , nil];
+   
     // Do any additional setup after loading the view.
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    
+   
+}
+-(void)viewDidAppear:(BOOL)animated{
+    
+//    
+//    UIColor *color = [UIColor blackColor];
+//    self.txtFirstName.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"First name" attributes:@{NSForegroundColorAttributeName: color,NSFontAttributeName:[UIFont fontWithName:@"FuturaStd-Light" size:12]}];
+    
+    
+    
+}
+
+-(void)viewDidLayoutSubviews{
+
+    
+    
 }
 -(void)viewWillLayoutSubviews{
 
-
+    self.btnCity.layer.cornerRadius=3.00f;
+    [self setFonts];
+   
     
+}
+-(void)setFonts {
+    self.lblGetStarted.font=[UIFont fontWithName:@"FuturaStd-Light" size:17];
+    self.btnCity.titleLabel.font=[UIFont fontWithName:@"FuturaStd-Light" size:14];
+    self.btnSignUp.titleLabel.font=[UIFont fontWithName:@"FuturaStd-Heavy" size:16];
+    self.btnBackToLogin.titleLabel.font=[UIFont fontWithName:@"FuturaStd-Light" size:16];
+    [self.btnBackToLogin setTitle:@"Back to login" forState:UIControlStateNormal];
 }
 
 -(void)setDelagate {
@@ -175,35 +204,7 @@
     return YES;
 }
 
-//Picker View delegate function
-// returns the number of 'columns' to display.
-- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
-{
-    return 1;
-    
-}
 
-// returns the # of rows in each component..
-- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent: (NSInteger)component
-{
-    return [[SyncData getAllCity]count];
-    
-}
--(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row   forComponent:(NSInteger)component
-{
-    //return [self.colorArray objectAtIndex:row];
-    
-    City * city =[[SyncData getAllCity ] objectAtIndex:row];
-    last_city_index=row;
-    return city.city;
-    
-    
-}
-- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row   inComponent:(NSInteger)component
-{
-    
-  
-}
 
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
@@ -212,4 +213,6 @@
     return YES;
 }
 
+- (IBAction)btnCityOnTouch:(id)sender {
+}
 @end
