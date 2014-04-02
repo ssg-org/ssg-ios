@@ -1,5 +1,5 @@
 //
-//  City.h
+//  Categories.h
 //  ssg-ios
 //
 //  Created by Haris Dautovic on 02/04/14.
@@ -10,10 +10,13 @@
 #import <CoreData/CoreData.h>
 
 
-@interface City : NSManagedObject
+@interface Categories : NSManagedObject
 
-@property (nonatomic, retain) NSString * city;
 @property (nonatomic, retain) NSNumber * id_;
+@property (nonatomic, retain) NSString * color;
+@property (nonatomic, retain) NSString * descript;
+@property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSNumber * parent_id;
 @property (nonatomic, retain) NSString * icon;
 
 @end

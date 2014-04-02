@@ -112,7 +112,7 @@
                   inManagedObjectContext:context];
 
     city.city=@"Velika Kladusa";
-    user.city=city;
+    //user.city=city;
     
     NSError *error;
     [context save:nil];
@@ -133,7 +133,7 @@
     for (User *info in fetchedObjects) {
         
         
-        NSLog(@"First name, last name, city : %@ %@ %@", info.firstname,info.lastname, info.city.city);
+       // NSLog(@"First name, last name, city : %@ %@ %@", info.firstname,info.lastname, info.city.city);
     }
 }
 

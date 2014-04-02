@@ -11,6 +11,10 @@
 @interface SyncData : NSObject
 
 
+@property (nonatomic,strong) NSMutableArray * cities;
+@property (nonatomic,strong) NSMutableArray * categories;
+
+
 - (void)mock;
 
 + (SyncData*)get;

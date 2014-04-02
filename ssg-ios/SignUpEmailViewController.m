@@ -76,6 +76,13 @@
     self.btnSignUp.titleLabel.font=[UIFont fontWithName:@"FuturaStd-Heavy" size:16];
     self.btnBackToLogin.titleLabel.font=[UIFont fontWithName:@"FuturaStd-Light" size:16];
     [self.btnBackToLogin setTitle:@"Back to login" forState:UIControlStateNormal];
+    
+    
+    self.txtEmail.font=[UIFont fontWithName:@"FuturaStd-Light" size:14];
+    self.txtFirstName.font=[UIFont fontWithName:@"FuturaStd-Light" size:14];
+    self.txtLastName.font=[UIFont fontWithName:@"FuturaStd-Light" size:14];
+    self.txtPassword.font=[UIFont fontWithName:@"FuturaStd-Light" size:14];
+    
 }
 
 -(void)setDelagate {
@@ -111,7 +118,7 @@
         newUser.lastname=self.txtLastName.text;
         newUser.email=self.txtEmail.text;
         newUser.password=self.txtPassword.text;
-        newUser.city = [[SyncData getAllCity]objectAtIndex:last_city_index];
+        //newUser.city = [[SyncData getAllCity]objectAtIndex:last_city_index];
         
         //Save to database
         NSError *error;
@@ -148,6 +155,8 @@
 -(BOOL)validateUserInputData {
 
 
+   
+    
     [self  setTextFieldError:self.txtFirstName :false];
     [self setTextFieldError:self.txtLastName :false];
     [self setTextFieldError:self.txtEmail :false];
@@ -176,6 +185,8 @@
         
         UIColor *color = [UIColor redColor];
         textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:textField.placeholder attributes:@{NSForegroundColorAttributeName: color}];
+        
+        
         
     }
     else{

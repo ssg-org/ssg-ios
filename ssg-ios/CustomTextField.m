@@ -34,6 +34,8 @@
     
     NSDictionary *attributes = @{ NSFontAttributeName: [UIFont fontWithName:@"FuturaStd-Light" size:14], NSParagraphStyleAttributeName: paragraphStyle
                                   };
+    
+    
     [[self placeholder] drawInRect:placeholderRect withAttributes:attributes];
 }
 
