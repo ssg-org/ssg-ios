@@ -13,7 +13,7 @@
 
 @interface SsgCommunicator : NSObject
 
-@property (weak, nonatomic) id<SsgCommunicatorDelegate> delegate;
+@property (strong, nonatomic) id<SsgCommunicatorDelegate> delegate;
 
 - (void)loadCitiesAndCategories;
 

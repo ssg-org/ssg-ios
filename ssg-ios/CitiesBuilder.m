@@ -47,10 +47,42 @@
         
     }
     
+    if ([all_cities count]> [self getAllCitiesFromDatabase].count ) {
+       [context save:nil];
+    }
+    
     
     [Builder serialize:data filePath:@"cities.json"];
     
     return all_cities;
 }
+
++(NSMutableArray *)getAllCitiesFromDatabase{
+  
+    NSMutableArray * object_from_db= [[NSMutableArray alloc]init];
+    
+    AppDelegate * appDelagate  = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    NSManagedObjectContext *context =appDelagate.managedObjectContext;
+    
+    
+    //get object from database
+    NSError *error;
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"City"
+                                              inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+    for (City *city in fetchedObjects) {
+        
+        
+        [object_from_db addObject:city];
+        
+    }
+
+    return object_from_db;
+}
+
+
+
 
 @end

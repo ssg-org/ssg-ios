@@ -23,9 +23,6 @@
     [NSURLConnection sendAsynchronousRequest:[[NSURLRequest alloc] initWithURL:url] queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
         
         
-       
-        
-        
         if (error) {
             [self.delegate fetchingCategoriesAndCitiesFailed:error];
             

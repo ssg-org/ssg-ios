@@ -74,6 +74,7 @@ static SyncData *__mainData;
                 NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
             }
             else{
+                
                 [temp addObject:city];
             }
             

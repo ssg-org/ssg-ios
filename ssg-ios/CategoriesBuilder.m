@@ -36,8 +36,6 @@
         
         @try {
            
-            
-            
             [c setColor:[category objectForKey:@"color"]];
             [c setDescript: [category objectForKey:@"description"]];
             [c setId_:[category objectForKey:@"id"]];
@@ -52,13 +50,45 @@
         @finally {
            
             [all_categories addObject:c];
+           
+            
         }
 
     }
     
     
+    if ( [all_categories count]>[self getAllCategoriesFromDatabase].count) {
+        
+        [context save:nil];
+    }
+    
     [Builder serialize:data filePath:@"categories.json"];
     return all_categories;
+}
+
++(NSMutableArray *)getAllCategoriesFromDatabase{
+    
+    NSMutableArray * object_from_db= [[NSMutableArray alloc]init];
+    
+    AppDelegate * appDelagate  = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    NSManagedObjectContext *context =appDelagate.managedObjectContext;
+    
+    
+    //get object from database
+    NSError *error;
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Categories"
+                                              inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+    for (Categories *category in fetchedObjects) {
+        
+        
+        [object_from_db addObject:category];
+        
+    }
+    
+    return object_from_db;
 }
 
 @end

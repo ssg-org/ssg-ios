@@ -51,7 +51,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     
-   
+    self.navigationController.navigationBarHidden=YES;
 }
 -(void)viewDidAppear:(BOOL)animated{
     
@@ -237,6 +237,7 @@
 
 - (void)receivedCategoriesAndCities:(SyncData*)syncData{
 
+
     
 
 
@@ -244,7 +245,9 @@
 - (void)fetchingCategoriesAndCitiesFailed:(NSError *)error{
 
 
+    NSLog(@" %@",error);
 
 }
+
 
 @end

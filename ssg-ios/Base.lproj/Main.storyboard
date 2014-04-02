@@ -89,6 +89,7 @@
                                         </state>
                                         <connections>
                                             <action selector="btnCityOnTouch:" destination="PBE-Rk-jnX" eventType="touchUpInside" id="TSB-yA-WSG"/>
+                                            <segue destination="Xnj-QT-h34" kind="push" id="f3j-IK-zME"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FRV-U1-1v8">
@@ -137,6 +138,58 @@
             </objects>
             <point key="canvasLocation" x="1359" y="363"/>
         </scene>
+        <!--Cities View Controller-->
+        <scene sceneID="dIu-CJ-Et1">
+            <objects>
+                <viewController id="Xnj-QT-h34" customClass="CitiesViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ahf-Yb-nRK"/>
+                        <viewControllerLayoutGuide type="bottom" id="0Ss-53-A8J"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gCM-nE-xlz">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="52" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="qJY-PQ-bDh">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CityCell" rowHeight="52" id="aCi-j5-n9y" customClass="CitiesTableViewCell">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="52"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aCi-j5-n9y" id="bXx-04-uvT">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="51"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g3P-t0-vXO">
+                                                    <rect key="frame" x="20" y="15" width="280" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="lblCityName" destination="g3P-t0-vXO" id="XV5-9D-6Bg"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Xnj-QT-h34" id="O3P-K0-Leg"/>
+                                    <outlet property="delegate" destination="Xnj-QT-h34" id="y5B-Fm-Y8r"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Z7x-gd-pjX"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aKX-dR-pL8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1757" y="363"/>
+        </scene>
         <!--Settings View Controller - ULICA.BA-->
         <scene sceneID="uJS-2Q-Bkh">
             <objects>
@@ -164,7 +217,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wek-Yi-eMY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1791" y="-1097"/>
+            <point key="canvasLocation" x="1811" y="-1138"/>
         </scene>
         <!--Camera View Controller - ULICA.BA-->
         <scene sceneID="H1K-8p-5Sc">
@@ -796,7 +849,7 @@ Share it with your friends</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="win-D1-9zT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2083" y="458"/>
+            <point key="canvasLocation" x="2601" y="347"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0jR-WH-Oe7">
@@ -852,6 +905,6 @@ Share it with your friends</string>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Ick-yC-tzs"/>
+        <segue reference="Bda-6i-sbI"/>
     </inferredMetricsTieBreakers>
 </document>
