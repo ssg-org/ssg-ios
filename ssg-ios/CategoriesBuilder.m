@@ -34,25 +34,35 @@
                           insertNewObjectForEntityForName:@"Categories"
                           inManagedObjectContext:context];
         
-        @try {
+       // @try {
            
             [c setColor:[category objectForKey:@"color"]];
-            [c setDescript: [category objectForKey:@"description"]];
+            if ([category objectForKey:@"description"] != [NSNull null]) {
+                  [c setDescript: [category objectForKey:@"description"]];
+                
+                
+            }
+            
+          
             [c setId_:[category objectForKey:@"id"]];
             [c setName:[category objectForKey:@"name"]];
-            [c setParent_id:[category objectForKey:@"parent_id"]];
             
-            
-        }
-        @catch (NSException *exception) {
-            
-        }
-        @finally {
+            if ([category objectForKey:@"parent_id"]!= [NSNull null]) {
+                [c setParent_id:[category objectForKey:@"parent_id"]];
+            }
            
+            
+            
+//        }
+//        @catch (NSException *exception) {
+//            
+//        }
+//        @finally {
+        
             [all_categories addObject:c];
            
             
-        }
+       // }
 
     }
     

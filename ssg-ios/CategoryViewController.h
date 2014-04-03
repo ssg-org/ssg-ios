@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SsgCommunicator.h"
+#import "SsgCommunicatorDelegate.h"
 
-@interface CategoryViewController : UIViewController
-
+@interface CategoryViewController : UIViewController<SsgCommunicatorDelegate>
+{
+    SsgCommunicator * _ssgCommunicator;
+}
 @end

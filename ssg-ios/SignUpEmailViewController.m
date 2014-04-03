@@ -238,8 +238,6 @@
 - (void)receivedCategoriesAndCities:(SyncData*)syncData{
 
 
-    
-
 
 }
 - (void)fetchingCategoriesAndCitiesFailed:(NSError *)error{

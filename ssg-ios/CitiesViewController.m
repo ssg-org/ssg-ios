@@ -8,6 +8,7 @@
 
 #import "CitiesViewController.h"
 #import "CitiesTableViewCell.h"
+#import "City.h"
 
 @interface CitiesViewController ()
 
@@ -52,7 +53,7 @@
 {
 
     // Return the number of rows in the section.
-    return 4;
+    return [[SyncData get].cities count];
 }
 
 
@@ -60,8 +61,13 @@
  {
  CitiesTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CityCell" forIndexPath:indexPath];
  
- cell.lblCityName.text=@"Velika Kladusaaaa";
+     
+     City * current = [[SyncData get].cities objectAtIndex:indexPath.row];
  
+     cell.lblCityName.text= current.city;
+ 
+ 
+     
  return cell;
  }
 

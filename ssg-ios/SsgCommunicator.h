@@ -16,6 +16,7 @@
 @property (strong, nonatomic) id<SsgCommunicatorDelegate> delegate;
 
 - (void)loadCitiesAndCategories;
+- (void) loginWithFacebook: (NSString *)email : (NSString *)token;
 
 
 @end
