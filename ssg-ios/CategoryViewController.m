@@ -86,7 +86,6 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 1;
 }
@@ -166,6 +165,14 @@
  */
 
 
-
+#pragma  - SSG COMMUNICATOR DELEGATE FUNCTION
+- (void)recivedData:(SyncData*)syncData {
+    
+    
+}
+- (void)fetchingData:(NSError *)error {
+    
+    
+}
 
 @end

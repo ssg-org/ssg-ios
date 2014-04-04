@@ -28,7 +28,7 @@
         if (error) {
             
             
-            [self.info_delegate fetchingCategoriesAndCitiesFailed:error];
+            [self.info_delegate fetchingData:error];
             
         } else {
             
@@ -45,7 +45,7 @@
                 
                 
                 
-                [self.info_delegate fetchingCategoriesAndCitiesFailed:jsonError];
+                [self.info_delegate fetchingData:jsonError];
             }
             else {
                 
@@ -55,7 +55,7 @@
                 
                 
                 
-                [self.info_delegate receivedCategoriesAndCities:syncData];
+                [self.info_delegate recivedData:syncData];
             }
         }
     }];

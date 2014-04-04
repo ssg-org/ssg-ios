@@ -233,18 +233,14 @@
 }
 
 
-#pragma - SSG Communicator delegate functions 
-
-- (void)receivedCategoriesAndCities:(SyncData*)syncData{
-
-
-
+#pragma  - SSG COMMUNICATOR DELEGATE FUNCTION
+- (void)recivedData:(SyncData*)syncData {
+    
+    
 }
-- (void)fetchingCategoriesAndCitiesFailed:(NSError *)error{
-
-
-    NSLog(@" %@",error);
-
+- (void)fetchingData:(NSError *)error {
+    
+    
 }
 
 

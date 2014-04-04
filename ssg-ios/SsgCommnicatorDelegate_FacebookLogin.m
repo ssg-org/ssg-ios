@@ -26,7 +26,7 @@
     [SsgAPI ssgApiCall:@"/sessions/fb_create"  requestType:@"POST" params:params  completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
         
         if (error) {
-            [self.facebook_delegate fetchingCategoriesAndCitiesFailed:error];
+            [self.facebook_delegate fetchingData:error];
             
         } else {
             NSError* jsonError;
@@ -35,11 +35,11 @@
                                   options:kNilOptions
                                   error:&jsonError];
             
-            // NSLog(@"%@ ",json);
+             NSLog(@"%@ ",json);
             
             if (jsonError != NULL) {
                 
-                [self.facebook_delegate fetchingCategoriesAndCitiesFailed:jsonError];
+                [self.facebook_delegate fetchingData:jsonError];
             }
             else {
                 

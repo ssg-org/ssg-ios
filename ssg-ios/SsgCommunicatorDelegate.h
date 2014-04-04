@@ -14,8 +14,8 @@
 @protocol SsgCommunicatorDelegate
 
 
-- (void)receivedCategoriesAndCities:(SyncData*)syncData;
-- (void)fetchingCategoriesAndCitiesFailed:(NSError *)error;
+- (void)recivedData:(SyncData*)syncData;
+- (void)fetchingData:(NSError *)error;
 
 
 @end

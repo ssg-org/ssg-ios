@@ -100,47 +100,6 @@
    
     
 }
--(void)coreDataTest{
-// add object to database
-    
-    AppDelegate * appDelagate  = (AppDelegate *)[UIApplication sharedApplication].delegate;
-    NSManagedObjectContext *context =appDelagate.managedObjectContext;
-    User *user = [NSEntityDescription
-                                      insertNewObjectForEntityForName:@"User"
-                                      inManagedObjectContext:context];
- 
-    user.firstname=@"haris";
-    user.lastname=@"dautovic";
-    
-    City *city = [NSEntityDescription
-                  insertNewObjectForEntityForName:@"City"
-                  inManagedObjectContext:context];
-
-    city.city=@"Velika Kladusa";
-    //user.city=city;
-    
-    NSError *error;
-    [context save:nil];
-    
-   
-    if (![context save:&error]) {
-        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
-    }
-    
-  
-    //get object from database
-    // Test listing all FailedBankInfos from the store
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"User"
-                                              inManagedObjectContext:context];
-    [fetchRequest setEntity:entity];
-    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
-    for (User *info in fetchedObjects) {
-        
-        
-       // NSLog(@"First name, last name, city : %@ %@ %@", info.firstname,info.lastname, info.city.city);
-    }
-}
 
 - (void)didReceiveMemoryWarning
 {
@@ -278,6 +237,16 @@
 {
     [textField resignFirstResponder];
     return YES;
+}
+
+#pragma  - SSG COMMUNICATOR DELEGATE FUNCTION
+- (void)recivedData:(SyncData*)syncData {
+
+
+}
+- (void)fetchingData:(NSError *)error {
+
+
 }
 
 @end

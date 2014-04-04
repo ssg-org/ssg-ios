@@ -10,7 +10,7 @@
 #import "SsgCommunicatorDelegate.h"
 #import "SsgCommnicatorDelegate_Info.h"
 
-@interface SignUpEmailViewController : UIViewController<UITextFieldDelegate,UIPickerViewDataSource,SsgCommunicatorDelegate>{
+@interface SignUpEmailViewController : UIViewController<UITextFieldDelegate,SsgCommunicatorDelegate>{
 
     long last_city_index;
     SsgCommnicatorDelegate_Info* _ssgCommunicator;

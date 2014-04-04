@@ -44,8 +44,6 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
     return 1;
 }
 
@@ -129,20 +127,16 @@
     self.navigationController.navigationBarHidden=NO;
 }
 
+#pragma  - SSG COMMUNICATOR DELEGATE FUNCTION
+- (void)recivedData:(SyncData*)syncData {
+    
+    
+}
+- (void)fetchingData:(NSError *)error {
+    
+    
+}
 
-#pragma - SSG Communicator delegate functions
-- (void)receivedCategoriesAndCities:(SyncData*)syncData{
-    
-    
-    
-    
-    
-}
-- (void)fetchingCategoriesAndCitiesFailed:(NSError *)error{
-    
-    
-    NSLog(@" %@",error);
-    
-}
+
 
 @end
