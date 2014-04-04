@@ -28,10 +28,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    _ssgCommunicator =[[SsgCommunicator alloc]init];
-    _ssgCommunicator.delegate=self;
-    [_ssgCommunicator loadCitiesAndCategories];
-    // Do any additional setup after loading the view.
+    _ssgCommunicator =[[SsgCommnicatorDelegate_Info alloc]init];
+    _ssgCommunicator.info_delegate=self;
+    [_ssgCommunicator getCategoriesAndCities];
+   
 }
 
 - (void)didReceiveMemoryWarning

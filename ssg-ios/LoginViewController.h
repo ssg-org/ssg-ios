@@ -8,12 +8,16 @@
 
 #import <UIKit/UIKit.h>
 #import <FacebookSDK/FacebookSDK.h>
+#import "SsgCommunicatorDelegate.h"
+#import "SsgCommnicatorDelegate_FacebookLogin.h"
 
-@interface LoginViewController : UIViewController<FBLoginViewDelegate,UITextFieldDelegate>{
+@interface LoginViewController : UIViewController<FBLoginViewDelegate,UITextFieldDelegate,SsgCommunicatorDelegate>{
 
     NSArray* backgroundImagesArray;
     NSTimer* imageTimer;
     int current_image;
+     SsgCommnicatorDelegate_FacebookLogin * _ssgCommunicator;
+    
 }
 
 //Property

@@ -7,11 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SsgCommunicator.h"
+#import "SsgCommnicatorDelegate_Info.h"
 #import "SsgCommunicatorDelegate.h"
 
 @interface CategoryViewController : UIViewController<SsgCommunicatorDelegate>
 {
-    SsgCommunicator * _ssgCommunicator;
+    SsgCommnicatorDelegate_Info * _ssgCommunicator;
+    NSMutableArray * categories;
 }
-@end
+
+@property (strong, nonatomic) IBOutlet UITableView *tblComponent;
+
+@end 

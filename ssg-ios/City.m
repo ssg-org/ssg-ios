@@ -2,7 +2,7 @@
 //  City.m
 //  ssg-ios
 //
-//  Created by Haris Dautovic on 02/04/14.
+//  Created by Haris Dautovic on 04/04/14.
 //  Copyright (c) 2014 SSG. All rights reserved.
 //
 
@@ -12,7 +12,7 @@
 @implementation City
 
 @dynamic city;
-@dynamic id_;
 @dynamic icon;
+@dynamic id_;
 
 @end

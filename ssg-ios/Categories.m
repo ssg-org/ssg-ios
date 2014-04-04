@@ -2,7 +2,7 @@
 //  Categories.m
 //  ssg-ios
 //
-//  Created by Haris Dautovic on 02/04/14.
+//  Created by Haris Dautovic on 04/04/14.
 //  Copyright (c) 2014 SSG. All rights reserved.
 //
 
@@ -11,11 +11,11 @@
 
 @implementation Categories
 
-@dynamic id_;
 @dynamic color;
 @dynamic descript;
+@dynamic icon;
+@dynamic id_;
 @dynamic name;
 @dynamic parent_id;
-@dynamic icon;
 
 @end

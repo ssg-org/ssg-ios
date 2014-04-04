@@ -23,6 +23,7 @@
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="User" representedClassName="User" syncable="YES">
+        <attribute name="access_token" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="city_id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="firstname" optional="YES" attributeType="String" syncable="YES"/>
@@ -30,9 +31,9 @@
         <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="City" positionX="-1586" positionY="-855" width="128" height="88"/>
-        <element name="User" positionX="-1793" positionY="-684" width="128" height="118"/>
         <element name="Categories" positionX="-1791" positionY="-889" width="128" height="133"/>
+        <element name="City" positionX="-1586" positionY="-855" width="128" height="88"/>
         <element name="Issue" positionX="-1595" positionY="-673" width="128" height="148"/>
+        <element name="User" positionX="-1800" positionY="-684" width="128" height="133"/>
     </elements>
 </model>

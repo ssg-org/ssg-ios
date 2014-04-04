@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "SsgCommunicatorDelegate.h"
-#import "SsgCommunicator.h"
+#import "SsgCommnicatorDelegate_Info.h"
 
 @interface CitiesViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,SsgCommunicatorDelegate>
 {
    
-    SsgCommunicator * _ssgCommunicator;
+    SsgCommnicatorDelegate_Info * _ssgCommunicator;
     
 }
 

@@ -1,46 +1,51 @@
 //
-//  SsgCommunicator.m
+//  SsgCommnicatorDelegate_Info.m
 //  ssg-ios
 //
-//  Created by Haris Dautovic on 02/04/14.
+//  Created by Haris Dautovic on 04/04/14.
 //  Copyright (c) 2014 SSG. All rights reserved.
 //
 
-#import "SsgCommunicator.h"
-#import "CitiesBuilder.h"
-#import "CategoriesBuilder.h"
+#import "SsgCommnicatorDelegate_Info.h"
 #import "SsgAPI.h"
+#import "Builder.h"
+#import "CategoriesBuilder.h"
+#import "CitiesBuilder.h"
+
+@implementation SsgCommnicatorDelegate_Info
 
 
+-(void)getCategoriesAndCities{
 
-@implementation SsgCommunicator
-
-
-- (void)loadCitiesAndCategories{
-    
     //Set params
     NSMutableDictionary * params = [[NSMutableDictionary alloc]init];
-    [params setValue:@"haris" forKey:@"user"];
-    [params setValue:@"1234" forKey:@"password"];
-    [params setValue:@"1234" forKey:@"aa"];
+    //    [params setValue:@"haris" forKey:@"user"];
+    //    [params setValue:@"1234" forKey:@"password"];
+    //    [params setValue:@"1234" forKey:@"aa"];
     
     [SsgAPI ssgApiCall:@"/info"  requestType:@"GET" params:params  completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
         
         if (error) {
-            [self.delegate fetchingCategoriesAndCitiesFailed:error];
+            
+            
+            [self.info_delegate fetchingCategoriesAndCitiesFailed:error];
             
         } else {
+            
+            
             NSError* jsonError;
             NSDictionary* json = [NSJSONSerialization
                                   JSONObjectWithData:data
                                   options:kNilOptions
                                   error:&jsonError];
             
-            NSLog(@"%@ ",json);
+            // NSLog(@"%@ ",json);
             
             if (jsonError != NULL) {
                 
-                [self.delegate fetchingCategoriesAndCitiesFailed:jsonError];
+                
+                
+                [self.info_delegate fetchingCategoriesAndCitiesFailed:jsonError];
             }
             else {
                 
@@ -48,19 +53,13 @@
                 syncData.cities = [CitiesBuilder build:json data:data];
                 syncData.categories=[CategoriesBuilder build:json data:data];
                 
-                [self.delegate receivedCategoriesAndCities:syncData];
                 
+                
+                [self.info_delegate receivedCategoriesAndCities:syncData];
             }
         }
     }];
-}
-
-- (void) loginWithFacebook: (NSString *)email : (NSString *)token {
-
-
-
 
 
 }
-
 @end

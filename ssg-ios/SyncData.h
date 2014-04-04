@@ -13,6 +13,7 @@
 
 @property (nonatomic,strong) NSMutableArray * cities;
 @property (nonatomic,strong) NSMutableArray * categories;
+@property (nonatomic,strong) NSMutableDictionary *keyCharForFontAwesome;
 
 
 - (void)mock;

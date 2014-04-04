@@ -602,7 +602,7 @@ Sredi Svoj Grad!</string>
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="63"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Hz-w4-ir8">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Hz-w4-ir8" customClass="FAImageView">
                                                     <rect key="frame" x="7" y="5" width="54" height="53"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 </imageView>
@@ -615,7 +615,7 @@ Sredi Svoj Grad!</string>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="imgCategory" destination="1Hz-w4-ir8" id="zZ0-JO-BNY"/>
+                                            <outlet property="imgCategory" destination="1Hz-w4-ir8" id="WSx-u3-1mH"/>
                                             <outlet property="lblCategoryName" destination="8Bf-mQ-lMB" id="umm-7S-gSh"/>
                                         </connections>
                                     </tableViewCell>
@@ -631,6 +631,9 @@ Sredi Svoj Grad!</string>
                     <navigationItem key="navigationItem" title="ULICA.BA" id="agd-Gi-1bj">
                         <barButtonItem key="backBarButtonItem" title="BACK" id="2IZ-i2-vNu"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tblComponent" destination="BfI-bG-56r" id="5qz-6n-ZKH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D2d-cb-LJe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

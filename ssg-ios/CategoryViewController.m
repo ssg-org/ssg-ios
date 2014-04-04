@@ -9,6 +9,9 @@
 #import "CategoryViewController.h"
 #import "CategoriesTableViewCell.h"
 #import "Categories.h"
+#import "FAImageView.h"
+#import "NSString+FontAwesome.h"
+#import "UIFont+FontAwesome.h"
 
 @interface CategoryViewController ()
 
@@ -28,9 +31,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    _ssgCommunicator= [[SsgCommunicator alloc]init];
-    _ssgCommunicator.delegate=self;
-    [ _ssgCommunicator loadCitiesAndCategories];
+    _ssgCommunicator= [[SsgCommnicatorDelegate_Info alloc]init];
+    _ssgCommunicator.info_delegate=self;
+    categories=[SyncData get].categories;
+    [_ssgCommunicator getCategoriesAndCities];
+    
+//  NSMutableDictionary *tempdict=  [SyncData get].keyCharForFontAwesome;
+    
+    
+  
 }
 
 - (void)didReceiveMemoryWarning
@@ -47,11 +56,29 @@
 - (void)receivedCategoriesAndCities:(SyncData*)syncData{
     
     
+    
+   
+    [self.tblComponent performSelector:@selector(reloadTableView) onThread:nil withObject:nil waitUntilDone:YES];
+    
+    categories=[[NSMutableArray alloc]init];
+    categories=syncData.categories;
+    
 }
+
+-(void)reloadTableView{
+
+    [self.tblComponent reloadData];
+
+}
+
+
 - (void)fetchingCategoriesAndCitiesFailed:(NSError *)error{
     
     
+    
     NSLog(@" %@",error);
+    
+    
     
 }
 
@@ -68,7 +95,7 @@
 {
     
     // Return the number of rows in the section.
-    return [[SyncData get].categories count];
+    return [categories count];
 }
 
 
@@ -76,10 +103,17 @@
 {
     CategoriesTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CategoryCell" forIndexPath:indexPath];
     
-    Categories * current = [[SyncData get].categories objectAtIndex:indexPath.row];
+    Categories * current = [categories objectAtIndex:indexPath.row];
     cell.lblCategoryName.text=current.name;
+    
+    cell.imgCategory.image=nil;
+    [cell.imgCategory setDefaultIconIdentifier:current.icon];
+    
+    
     return cell;
 }
+
+
 
 
 /*
@@ -130,6 +164,8 @@
  // Pass the selected object to the new view controller.
  }
  */
+
+
 
 
 @end

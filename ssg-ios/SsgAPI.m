@@ -13,6 +13,7 @@
 @implementation SsgAPI
 
 +(NSString*)buildSingature:(NSMutableDictionary*)params {
+    
     //Sort keys
     NSArray *sortedKeys = [[params allKeys] sortedArrayUsingSelector: @selector(compare:)];
     NSMutableString * signature = [[NSMutableString alloc]init];
@@ -82,15 +83,13 @@
     NSLog(@" %@",generatedURL);
     
     //Create URL
-    NSString *urlAsString = [NSString stringWithFormat:@"http://10.0.1.83:3000/api/v1%@?%@", path,generatedURL];
+    NSString *urlAsString = [NSString stringWithFormat:@"http://10.0.1.55:3000/api/v1%@?%@", path,generatedURL];
     NSURL *url = [[NSURL alloc] initWithString:urlAsString];
     NSLog(@"%@", urlAsString);
     
     //Send Request
-    
     NSMutableURLRequest * request = [[NSMutableURLRequest alloc] initWithURL:url ];
     [request setHTTPMethod:requestType];
-    
     [NSURLConnection sendAsynchronousRequest:request queue:[[NSOperationQueue alloc] init] completionHandler:callback];
 }
 

@@ -34,42 +34,27 @@
                           insertNewObjectForEntityForName:@"Categories"
                           inManagedObjectContext:context];
         
-       // @try {
            
             [c setColor:[category objectForKey:@"color"]];
             if ([category objectForKey:@"description"] != [NSNull null]) {
                   [c setDescript: [category objectForKey:@"description"]];
-                
-                
             }
-            
-          
+        
+       // NSLog(@"Ikona: %@",[category objectForKey:@"icon"]);
+            [c setIcon:[category objectForKey:@"icon"]];
             [c setId_:[category objectForKey:@"id"]];
             [c setName:[category objectForKey:@"name"]];
             
             if ([category objectForKey:@"parent_id"]!= [NSNull null]) {
                 [c setParent_id:[category objectForKey:@"parent_id"]];
             }
-           
-            
-            
-//        }
-//        @catch (NSException *exception) {
-//            
-//        }
-//        @finally {
-        
             [all_categories addObject:c];
-           
-            
-       // }
 
     }
     
-    
     if ( [all_categories count]>[self getAllCategoriesFromDatabase].count) {
         
-        [context save:nil];
+        //[context save:nil];
     }
     
     [Builder serialize:data filePath:@"categories.json"];

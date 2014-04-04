@@ -36,10 +36,10 @@
      [[self navigationController] setNavigationBarHidden:YES animated:YES];
     [self setDelagate];
     
-    _ssgCommunicator=[[SsgCommunicator alloc]init];
-    _ssgCommunicator.delegate=self;
+    _ssgCommunicator=[[SsgCommnicatorDelegate_Info alloc]init];
+    _ssgCommunicator.info_delegate=self;
     
-    [_ssgCommunicator loadCitiesAndCategories];
+    [_ssgCommunicator getCategoriesAndCities];
    
   
 // NSMutableArray * array_temp=   [SyncData getAllCity];

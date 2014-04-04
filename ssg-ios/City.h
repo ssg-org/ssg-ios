@@ -2,7 +2,7 @@
 //  City.h
 //  ssg-ios
 //
-//  Created by Haris Dautovic on 02/04/14.
+//  Created by Haris Dautovic on 04/04/14.
 //  Copyright (c) 2014 SSG. All rights reserved.
 //
 
@@ -13,7 +13,7 @@
 @interface City : NSManagedObject
 
 @property (nonatomic, retain) NSString * city;
-@property (nonatomic, retain) NSNumber * id_;
 @property (nonatomic, retain) NSString * icon;
+@property (nonatomic, retain) NSNumber * id_;
 
 @end

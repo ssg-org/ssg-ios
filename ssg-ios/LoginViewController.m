@@ -30,7 +30,7 @@
     return self;
 }
 
--(void)viewWillLayoutSubviews{
+- (void)viewWillLayoutSubviews{
 
     
     
@@ -43,7 +43,7 @@
     self.txtUsername.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Username" attributes:@{NSForegroundColorAttributeName: color}];
     
     
-    self.customFacebookLogin=[[FBLoginView alloc] initWithReadPermissions:@[@"basic_info", @"email", @"user_likes"]];
+    self.customFacebookLogin=[[FBLoginView alloc] initWithReadPermissions:@[@"basic_info", @"email"]];
     self.customFacebookLogin.delegate=self;
     
     //set facebook  button backgorund
@@ -93,6 +93,11 @@
     
     self.txtPassword.delegate=self;
     self.txtUsername.delegate=self;
+    
+    _ssgCommunicator =[[SsgCommnicatorDelegate_FacebookLogin alloc]init];
+    _ssgCommunicator.facebook_delegate=self;
+    
+   
     
 }
 -(void)coreDataTest{
@@ -174,13 +179,17 @@
    // self.profilePictureView.profileID = user.id;
     //self.nameLabel.text = user.name;
     
+    [_ssgCommunicator loginWithFacebook:user];
     
-    MainViewController *main= [ self.storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
     
-    main.dataFromLogin=[[NSMutableString alloc]init];
-    [main.dataFromLogin appendString:@"Logged in with Facebook... "];
-    [main.dataFromLogin appendString:user.name];
-    [self.navigationController pushViewController: (UIViewController *)main animated:YES];
+    
+    
+//    MainViewController *main= [ self.storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
+//    
+//    main.dataFromLogin=[[NSMutableString alloc]init];
+//    [main.dataFromLogin appendString:@"Logged in with Facebook... "];
+//    [main.dataFromLogin appendString:user.name];
+//    [self.navigationController pushViewController: (UIViewController *)main animated:YES];
     
     
     
