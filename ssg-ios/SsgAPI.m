@@ -83,7 +83,7 @@
     NSLog(@" %@",generatedURL);
     
     //Create URL
-    NSString *urlAsString = [NSString stringWithFormat:@"http://10.0.1.55:3000/api/v1%@?%@", path,generatedURL];
+    NSString *urlAsString = [NSString stringWithFormat:@"http://127.0.0.1:3000/api/v1%@?%@", path,generatedURL];
     NSURL *url = [[NSURL alloc] initWithString:urlAsString];
     NSLog(@"%@", urlAsString);
     

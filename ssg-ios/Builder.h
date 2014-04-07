@@ -14,5 +14,4 @@
 + (void)serialize:(NSData*)data  filePath:(NSString*)filename;
 + (NSData*)deserialize:(NSString*)filename;
 
-
 @end

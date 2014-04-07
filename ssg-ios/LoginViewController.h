@@ -10,13 +10,15 @@
 #import <FacebookSDK/FacebookSDK.h>
 #import "SsgCommunicatorDelegate.h"
 #import "SsgCommnicatorDelegate_FacebookLogin.h"
+#import "SsgCommunicatorDelegate_EmailLogin.h"
 
 @interface LoginViewController : UIViewController<FBLoginViewDelegate,UITextFieldDelegate,SsgCommunicatorDelegate>{
 
     NSArray* backgroundImagesArray;
     NSTimer* imageTimer;
     int current_image;
-     SsgCommnicatorDelegate_FacebookLogin * _ssgCommunicator;
+    SsgCommnicatorDelegate_FacebookLogin * _ssgCommunicator;
+    SsgCommunicatorDelegate_EmailLogin * _ssgCommunicatorEmailLogin;
     
 }
 

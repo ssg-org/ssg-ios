@@ -12,6 +12,9 @@
 #import "FAImageView.h"
 #import "NSString+FontAwesome.h"
 #import "UIFont+FontAwesome.h"
+#import  "SubCategoryViewController.h"
+#import  "DescriptionViewController.h"
+#import "HelperFunctions.h"
 
 @interface CategoryViewController ()
 
@@ -31,14 +34,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.tblComponent.delegate=self;
+    self.tblComponent.dataSource=self;
+    
     _ssgCommunicator= [[SsgCommnicatorDelegate_Info alloc]init];
     _ssgCommunicator.info_delegate=self;
-    categories=[SyncData get].categories;
     [_ssgCommunicator getCategoriesAndCities];
-    
-//  NSMutableDictionary *tempdict=  [SyncData get].keyCharForFontAwesome;
-    
-    
   
 }
 
@@ -51,36 +53,7 @@
     return UIStatusBarStyleLightContent;
 }
 
-#pragma - SSG Communicator delegate functions
 
-- (void)receivedCategoriesAndCities:(SyncData*)syncData{
-    
-    
-    
-   
-    [self.tblComponent performSelector:@selector(reloadTableView) onThread:nil withObject:nil waitUntilDone:YES];
-    
-    categories=[[NSMutableArray alloc]init];
-    categories=syncData.categories;
-    
-}
-
--(void)reloadTableView{
-
-    [self.tblComponent reloadData];
-
-}
-
-
-- (void)fetchingCategoriesAndCitiesFailed:(NSError *)error{
-    
-    
-    
-    NSLog(@" %@",error);
-    
-    
-    
-}
 
 #pragma mark - Table view data source
 
@@ -104,15 +77,50 @@
     
     Categories * current = [categories objectAtIndex:indexPath.row];
     cell.lblCategoryName.text=current.name;
-    
+ 
     cell.imgCategory.image=nil;
     [cell.imgCategory setDefaultIconIdentifier:current.icon];
-    
+    cell.imgCategory.defaultView.backgroundColor=[HelperFunctions colorWithHexString:current.color];
     
     return cell;
 }
 
+-(NSMutableArray *) getSubcategoryForSelectedRow: (NSInteger)row {
 
+    
+    Categories *current = [categories objectAtIndex:row];
+    
+    NSMutableArray * subcategory =[[NSMutableArray alloc]init];
+    
+    
+    for ( Categories * obj  in categoriesAndSubcategories) {
+        
+        if (obj.parent_id == current.id_) {
+            
+            [subcategory addObject:obj];
+        }
+        
+    }
+    return subcategory;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if ([[self getSubcategoryForSelectedRow:indexPath.row] count ]>0) {
+       // SubCategoryViewController *subcategory;
+      //  subcategory = [ self.storyboard instantiateViewControllerWithIdentifier:@"SubCategoryViewController"];
+        self.subcategoryViewController.subcategory=[self getSubcategoryForSelectedRow:indexPath.row];
+        [self.navigationController pushViewController: (UIViewController *)self.subcategoryViewController animated:YES];
+        // [tableViewComponent deselectRowAtIndexPath:indexPath animated:YES];//Remove selection
+    }
+    else
+    {
+    
+        [self.navigationController popViewControllerAnimated:YES];
+        [self.delegate_category selectCategory: [categories objectAtIndex:indexPath.row]];
+        
+    }
+}
 
 
 /*
@@ -165,10 +173,31 @@
  */
 
 
+-(NSMutableArray *)getCategories {
+
+    NSMutableArray * cat = [[NSMutableArray alloc]init];
+    for ( Categories * obj in categoriesAndSubcategories) {
+        
+       if ([obj.parent_id intValue]==0) {
+           [cat addObject:obj];
+        }
+    }
+
+    return cat;
+}
+
+
 #pragma  - SSG COMMUNICATOR DELEGATE FUNCTION
 - (void)recivedData:(SyncData*)syncData {
     
+    categoriesAndSubcategories=[[NSMutableArray alloc]init];
+    categoriesAndSubcategories=syncData.categories;
+    categories=[[NSMutableArray alloc]init];
+    categories = [self getCategories];
+
     
+    [self.tblComponent performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
+   
 }
 - (void)fetchingData:(NSError *)error {
     

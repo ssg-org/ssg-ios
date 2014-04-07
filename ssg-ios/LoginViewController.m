@@ -97,7 +97,18 @@
     _ssgCommunicator =[[SsgCommnicatorDelegate_FacebookLogin alloc]init];
     _ssgCommunicator.facebook_delegate=self;
     
-   
+    _ssgCommunicatorEmailLogin =[[SsgCommunicatorDelegate_EmailLogin alloc]init
+                                 ];
+    _ssgCommunicatorEmailLogin.email_delegate=self;
+    
+    self.txtPassword.text=@"admin";
+    self.txtUsername.text=@"administrator@sredisvojgrad.com";
+    
+    if ([self isUserLoggedWithEmail]) {
+            MainViewController *main= [ self.storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
+            [self.navigationController pushViewController: (UIViewController *)main animated:YES];
+    }
+    
     
 }
 
@@ -119,14 +130,40 @@
 - (IBAction)btnEmailLoginOnTouch:(UIButton *)sender {
     
     //Login user with email
-    
-    
+     [_ssgCommunicatorEmailLogin loginWithEmail:self.txtUsername.text :self.txtPassword.text];
     
 }
 
 - (IBAction)btnSignUpWithEmailOnTouch:(UIButton *)sender {
     
+   
+
+}
+
+
+-(BOOL)isUserLoggedWithEmail {
     
+    AppDelegate * appDelagate  = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    NSManagedObjectContext *context =appDelagate.managedObjectContext;
+    
+    
+    //get object from database
+    NSError *error;
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"User"
+                                              inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+    for (User *user in fetchedObjects) {
+        
+        if (user.access_token!=nil) {
+           
+            return YES;
+        }
+        
+    }
+    
+    return NO;
 }
 
 

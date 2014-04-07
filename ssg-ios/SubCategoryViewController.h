@@ -7,7 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Categories.h"
+
+@protocol SubCategoryDelegate <NSObject>
+
+-(void)selectSubCategory:(Categories*)category;
+
+@end
+
 
 @interface SubCategoryViewController : UIViewController
+
+@property NSMutableArray * subcategory;
+
+@property (retain) id<SubCategoryDelegate> delegate_subcategory;
 
 @end

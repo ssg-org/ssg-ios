@@ -39,7 +39,7 @@
                                   options:kNilOptions
                                   error:&jsonError];
             
-            // NSLog(@"%@ ",json);
+             NSLog(@"%@ ",json);
             
             if (jsonError != NULL) {
                 

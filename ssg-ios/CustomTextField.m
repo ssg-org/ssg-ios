@@ -20,9 +20,7 @@
 }
 
 - (void) drawPlaceholderInRect:(CGRect)rect {
-   // [[self placeholder] drawInRect:rect withFont:[UIFont systemFontOfSize:16.0]];
-    
-    
+   
     NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
     // Set line break mode
     paragraphStyle.lineBreakMode = NSLineBreakByTruncatingMiddle;
@@ -34,11 +32,8 @@
     
     NSDictionary *attributes = @{ NSFontAttributeName: [UIFont fontWithName:@"FuturaStd-Light" size:14], NSParagraphStyleAttributeName: paragraphStyle
                                   };
-    
-    
     [[self placeholder] drawInRect:placeholderRect withAttributes:attributes];
 }
-
 
 
 @end

@@ -7,6 +7,10 @@
 //
 
 #import "SubCategoryViewController.h"
+#import "SubCategoriesCellTableViewCell.h"
+#import "Categories.h"
+#import "DescriptionViewController.h"
+#import "HelperFunctions.h"
 
 @interface SubCategoryViewController ()
 
@@ -35,15 +39,44 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
+#pragma mark - Table view data source
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    // Return the number of sections.
+    return 1;
 }
-*/
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    
+    // Return the number of rows in the section.
+    return [self.subcategory count];
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    SubCategoriesCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SubcategoryCell" forIndexPath:indexPath];
+    
+    Categories * current = [self.subcategory objectAtIndex:indexPath.row];
+    cell.lblSubcategoryName.text=current.name;
+    
+    cell.imgSubcategory.image=nil;
+    [cell.imgSubcategory setDefaultIconIdentifier:current.icon];
+    cell.imgSubcategory.defaultView.backgroundColor=[HelperFunctions colorWithHexString:current.color];
+    
+    return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+
+
+    [self.delegate_subcategory selectSubCategory:[self.subcategory objectAtIndex:indexPath.row]];
+    
+    NSInteger count=[[self.navigationController viewControllers] count];
+    
+    [self.navigationController  popToViewController:[[self.navigationController viewControllers] objectAtIndex:count-3 ] animated:YES];
+}
 
 @end

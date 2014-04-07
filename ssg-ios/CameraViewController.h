@@ -34,6 +34,7 @@
     bool isFront;
     bool isFlashActive;
 
+    UIAlertView *infoAlertView;
 }
 
 @property (strong, nonatomic) IBOutlet UIView *cameraSettingsContainer;

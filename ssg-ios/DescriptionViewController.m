@@ -8,6 +8,7 @@
 
 #import "DescriptionViewController.h"
 
+
 @interface DescriptionViewController ()
 
 @end
@@ -31,6 +32,12 @@
     self.txtCity.delegate=self;
     self.txtDescription.delegate=self;
     self.txtTitle.delegate=self;
+    
+    
+    
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -53,8 +60,12 @@
 
      self.txtTitle.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Title" attributes:@{NSForegroundColorAttributeName: color}];
     
-
+    
+    if (self.selectedCategory!=nil) {
+        self.btnCategory.titleLabel.text=self.selectedCategory.name;
+    }
 }
+
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
@@ -62,5 +73,29 @@
     return YES;
 }
 
+#pragma Category and Subcategory delgate methods
 
+-(void)selectCategory:(Categories*)category{
+
+    self.selectedCategory=category;
+}
+
+-(void)selectSubCategory:(Categories*)category{
+
+    self.selectedCategory=category;
+}
+
+
+
+
+- (IBAction)btnCategoryOnTouch:(id)sender {
+    
+    SubCategoryViewController *subcategory =[ self.storyboard instantiateViewControllerWithIdentifier:@"SubCategoryViewController"];
+    subcategory.delegate_subcategory=self;
+    
+    CategoryViewController *categoryViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"CategoryViewController" ];
+    categoryViewController.delegate_category=self;
+    categoryViewController.subcategoryViewController=subcategory;
+    [self.navigationController pushViewController:categoryViewController animated:YES];
+}
 @end

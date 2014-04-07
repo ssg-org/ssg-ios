@@ -9,13 +9,27 @@
 #import <UIKit/UIKit.h>
 #import "SsgCommnicatorDelegate_Info.h"
 #import "SsgCommunicatorDelegate.h"
+#import "Categories.h"
+#import "SubCategoryViewController.h"
 
-@interface CategoryViewController : UIViewController<SsgCommunicatorDelegate>
+@protocol CategoryDelegate <NSObject>
+
+-(void)selectCategory:(Categories*)category;
+
+@end
+
+
+@interface CategoryViewController : UIViewController<SsgCommunicatorDelegate,UITableViewDataSource,UITableViewDelegate>
 {
     SsgCommnicatorDelegate_Info * _ssgCommunicator;
     NSMutableArray * categories;
+    NSMutableArray *categoriesAndSubcategories;
 }
 
 @property (strong, nonatomic) IBOutlet UITableView *tblComponent;
+@property (retain) id<CategoryDelegate>delegate_category;
+
+@property SubCategoryViewController*subcategoryViewController;
+
 
 @end 

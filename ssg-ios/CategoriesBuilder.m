@@ -49,6 +49,8 @@
                 [c setParent_id:[category objectForKey:@"parent_id"]];
             }
             [all_categories addObject:c];
+        
+        
 
     }
     

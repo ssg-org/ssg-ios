@@ -26,7 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-     self.navigationController.navigationBarHidden=NO;
+    
     // Do any additional setup after loading the view.
     
     // Init camera capturing
@@ -42,13 +42,13 @@
     }
     else {
         
-        UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Error"
+        infoAlertView = [[UIAlertView alloc] initWithTitle:@"Error"
                                                               message:@"Device has no camera"
-                                                             delegate:nil
+                                                             delegate:self
                                                     cancelButtonTitle:@"OK"
                                                     otherButtonTitles: nil];
-        [myAlertView show];
-        return;
+        //[infoAlertView show];
+       // return;
     }
 }
 
@@ -214,6 +214,8 @@
 }
 
 - (IBAction)btnOpenGalleryOnTouch:(id)sender {
+    
+    
 }
 
 - (IBAction)btnTakePictureOnTouch:(id)sender {
@@ -370,4 +372,12 @@
     }
 }
 
+
+
+
+
+
+-(void)viewWillAppear:(BOOL)animated{
+[[self navigationController] setNavigationBarHidden:NO animated:NO];
+}
 @end

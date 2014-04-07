@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FAImageView.h"
 
 @interface SubCategoriesCellTableViewCell : UITableViewCell
+
+@property (strong, nonatomic) IBOutlet UILabel *lblSubcategoryName;
+
+@property (strong, nonatomic) IBOutlet FAImageView *imgSubcategory;
+
+
 
 @end

@@ -75,6 +75,7 @@
 - (void)setDefaultIconIdentifier:(NSString*)defaultIconIdentifier
 {
     self.defaultIcon = [NSString fontAwesomeEnumForIconIdentifier:defaultIconIdentifier];
+    
 }
 
 - (void)setDefaultIcon:(FAIcon)defaultIcon

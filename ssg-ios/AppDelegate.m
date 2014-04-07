@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import <FacebookSDK/FacebookSDK.h>
 #import <GoogleMaps/GoogleMaps.h>
-
+#import "FAImageView.h"
 
 
 @implementation AppDelegate
@@ -20,10 +20,11 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
      //Google maps API Key
-   [GMSServices provideAPIKey:@"AIzaSyD7lqvVBatbAQbX0oTStokyRn2JHBBDAYQ"];
+    [GMSServices provideAPIKey:@"AIzaSyD7lqvVBatbAQbX0oTStokyRn2JHBBDAYQ"];
     [FBLoginView class];
     [FBProfilePictureView class];
     [GMSMapView class];
+    [FAImageView class];
 
     [[UINavigationBar appearance] setBackgroundImage: [UIImage imageNamed:@"nav_bar.png"]  forBarMetrics:UIBarMetricsDefault];
     
@@ -37,6 +38,17 @@
     
     //Init core data
     [self managedObjectContext];
+    
+   
+    //Set navigation button font
+    [[UIBarButtonItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                                          
+                                                          [UIFont fontWithName:@"FuturaStd-Book" size:14.0f],NSFontAttributeName,
+                                                          
+                                                          nil] forState:UIControlStateNormal];
+    
+     //Set navigation title font
+     [[[self navigationController] navigationBar] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor], NSFontAttributeName: [UIFont fontWithName:@"FuturaStd-Medium" size:16.0f]}];
     return YES;
 }
 

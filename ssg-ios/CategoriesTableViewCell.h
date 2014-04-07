@@ -13,7 +13,6 @@
 
 
 @property (strong, nonatomic) IBOutlet FAImageView *imgCategory;
-
 @property (strong, nonatomic) IBOutlet UILabel *lblCategoryName;
 
 

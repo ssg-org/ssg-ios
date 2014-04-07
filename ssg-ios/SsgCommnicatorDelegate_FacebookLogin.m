@@ -14,7 +14,6 @@
 
 
 - (void) loginWithFacebook: (id<FBGraphUser>)user {
-
     
     //Set params
     NSMutableDictionary * params = [[NSMutableDictionary alloc]init];
@@ -43,17 +42,18 @@
             }
             else {
                 
+                
+               
+                
+                
                 // SyncData *syncData = [SyncData get];
                 //syncData.cities = [CitiesBuilder build:json data:data];
                 //syncData.categories=[CategoriesBuilder build:json data:data];
                 
                 // [self.delegate receivedCategoriesAndCities:syncData];
-                
             }
         }
     }];
-
-
 
 }
 
