@@ -12,6 +12,7 @@
 #import "AppDelegate.h"
 #import "User.h"
 #import "City.h"
+#import "CustomTextField.h"
 
 @interface LoginViewController ()
 
@@ -37,11 +38,30 @@
     [[self navigationController] setNavigationBarHidden:YES animated:YES];
     
     
-    UIColor *color = [UIColor whiteColor];
-    self.txtPassword.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Password" attributes:@{NSForegroundColorAttributeName: color}];
+    //UIColor *color = [UIColor whiteColor];
+    //self.txtPassword.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Password" attributes:@{NSForegroundColorAttributeName: color}];
     
-    self.txtUsername.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Username" attributes:@{NSForegroundColorAttributeName: color}];
+    //self.txtUsername.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Username" attributes:@{NSForegroundColorAttributeName: color}];
     
+    
+//    NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+//    // Set line break mode
+//    paragraphStyle.lineBreakMode = NSLineBreakByTruncatingMiddle;
+//    // Set text alignment
+//    paragraphStyle.alignment = NSTextAlignmentCenter;
+//    
+//    // Set font
+//    CGRect placeholderRect = CGRectMake(self.txtPassword.origin.x, (rect.size.height- self.font.pointSize)/2, rect.size.width, self.font.pointSize);
+//    
+//    NSDictionary *attributes = @{ NSFontAttributeName: [UIFont fontWithName:@"FuturaStd-Light" size:14], NSParagraphStyleAttributeName: paragraphStyle
+//                                  ,NSForegroundColorAttributeName :self.placeholderColor };
+    
+    
+    
+    
+   // [self.txtPassword setPlaceholderColor:[UIColor redColor]];
+    
+  
     
     self.customFacebookLogin=[[FBLoginView alloc] initWithReadPermissions:@[@"basic_info", @"email"]];
     self.customFacebookLogin.delegate=self;
@@ -55,7 +75,14 @@
             [obj setBackgroundImage:loginImage forState:UIControlStateNormal];
             [obj setBackgroundImage:nil forState:UIControlStateSelected];
             [obj setBackgroundImage:nil forState:UIControlStateHighlighted];
-            [obj sizeToFit];
+           
+            
+            CGRect rect =CGRectMake(self.customFacebookLogin.frame.origin.x, self.customFacebookLogin.frame.origin.y, 218, 35);
+            
+            
+            //[obj setSize:rect.size];
+            [obj setFrame:rect];
+          
             
         }
         if ([obj isKindOfClass:[UILabel class]])
@@ -83,6 +110,14 @@
     if (!isiPhone5) {
         self.containerView.frame=CGRectMake(self.containerView.frame.origin.x, self.containerView.frame.origin.y-15, self.containerView.frame.size.width, self.containerView.frame.size.height);
     }
+    
+    [self.txtPassword setPlaceholderColor:[UIColor whiteColor]];
+    [self.txtUsername setPlaceholderColor:[UIColor whiteColor]];
+    
+    self.lblOrQuickLogin.font = [UIFont fontWithName:@"FuturaStd-Light" size:10];
+    self.lblDontHaveUlica.font = [UIFont fontWithName:@"FuturaStd-Light" size:10];
+    self.txtUsername.font = [UIFont fontWithName:@"FuturaStd-Light" size:14];
+    self.txtPassword.font = [UIFont fontWithName:@"FuturaStd-Light" size:14];
 }
 - (void)viewDidLoad
 {
@@ -101,8 +136,8 @@
                                  ];
     _ssgCommunicatorEmailLogin.email_delegate=self;
     
-    self.txtPassword.text=@"admin";
-    self.txtUsername.text=@"administrator@sredisvojgrad.com";
+   // self.txtPassword.text=@"admin";
+   // self.txtUsername.text=@"administrator@sredisvojgrad.com";
     
     if ([self isUserLoggedWithEmail]) {
             MainViewController *main= [ self.storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];

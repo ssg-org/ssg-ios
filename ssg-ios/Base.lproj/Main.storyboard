@@ -422,14 +422,14 @@
                                 <rect key="frame" x="50" y="68" width="220" height="357"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="center" minimumFontSize="17" background="textbox_bg" translatesAutoresizingMaskIntoConstraints="NO" id="6eq-H1-AAt">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="center" minimumFontSize="17" background="textbox_bg" translatesAutoresizingMaskIntoConstraints="NO" id="6eq-H1-AAt" customClass="CustomTextField">
                                         <rect key="frame" x="0.0" y="131" width="220" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Passsword" textAlignment="center" minimumFontSize="17" background="textbox_bg" translatesAutoresizingMaskIntoConstraints="NO" id="zzz-Vv-F8d">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Passsword" textAlignment="center" minimumFontSize="17" background="textbox_bg" translatesAutoresizingMaskIntoConstraints="NO" id="zzz-Vv-F8d" customClass="CustomTextField">
                                         <rect key="frame" x="0.0" y="175" width="220" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -451,9 +451,9 @@
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HXg-eD-085">
-                                        <rect key="frame" x="0.0" y="321" width="220" height="35"/>
+                                        <rect key="frame" x="0.0" y="321" width="221" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ulica_logo" translatesAutoresizingMaskIntoConstraints="NO" id="A1j-vC-dhs">
                                         <rect key="frame" x="65" y="0.0" width="90" height="91"/>
@@ -488,6 +488,8 @@
                         <outlet property="btnFacebookLogin" destination="HXg-eD-085" id="1X2-GW-Z9s"/>
                         <outlet property="containerView" destination="D6n-7S-irC" id="XB0-1n-Foo"/>
                         <outlet property="imageBackground" destination="bds-cM-STH" id="YVI-Ut-hVW"/>
+                        <outlet property="lblDontHaveUlica" destination="Zzz-9G-zAZ" id="UIO-eZ-VSU"/>
+                        <outlet property="lblOrQuickLogin" destination="tOw-gw-OjM" id="pTd-0y-96e"/>
                         <outlet property="txtPassword" destination="zzz-Vv-F8d" id="PqF-gU-Std"/>
                         <outlet property="txtUsername" destination="6eq-H1-AAt" id="fxH-vO-mZd"/>
                     </connections>

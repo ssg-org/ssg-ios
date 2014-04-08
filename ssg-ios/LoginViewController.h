@@ -12,6 +12,7 @@
 #import "SsgCommnicatorDelegate_FacebookLogin.h"
 #import "SsgCommunicatorDelegate_EmailLogin.h"
 #import "SsgCommunicatorDelegate_CreateIssue.h"
+#import "CustomTextField.h"
 
 @interface LoginViewController : UIViewController<FBLoginViewDelegate,UITextFieldDelegate,SsgCommunicatorDelegate>{
 
@@ -25,8 +26,8 @@
 }
 
 //Property
-@property (strong, nonatomic) IBOutlet UITextField *txtUsername;
-@property (strong, nonatomic) IBOutlet UITextField *txtPassword;
+@property (strong, nonatomic) IBOutlet CustomTextField *txtUsername;
+@property (strong, nonatomic) IBOutlet CustomTextField *txtPassword;
 @property (strong, nonatomic) IBOutlet UIView *btnFacebookLogin;
 @property (strong,nonatomic) FBLoginView *customFacebookLogin;
 
@@ -37,6 +38,12 @@
 
 @property (strong, nonatomic) IBOutlet UIImageView *imageBackground;
 @property (strong, nonatomic) IBOutlet UIView *containerView;
+
+@property (strong, nonatomic) IBOutlet UILabel *lblOrQuickLogin;
+@property (strong, nonatomic) IBOutlet UILabel *lblDontHaveUlica;
+
+
+
 
 
 @end

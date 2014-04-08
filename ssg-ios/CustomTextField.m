@@ -8,6 +8,7 @@
 
 #import "CustomTextField.h"
 
+
 @implementation CustomTextField
 
 - (id)initWithFrame:(CGRect)frame
@@ -15,12 +16,20 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
+       
+        
+        
     }
     return self;
 }
 
+
 - (void) drawPlaceholderInRect:(CGRect)rect {
    
+    if (!self.placeholderColor) {
+    [self setPlaceholderColor:[UIColor blackColor]];
+    }
+    
     NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
     // Set line break mode
     paragraphStyle.lineBreakMode = NSLineBreakByTruncatingMiddle;
@@ -31,7 +40,7 @@
     CGRect placeholderRect = CGRectMake(rect.origin.x, (rect.size.height- self.font.pointSize)/2, rect.size.width, self.font.pointSize);
     
     NSDictionary *attributes = @{ NSFontAttributeName: [UIFont fontWithName:@"FuturaStd-Light" size:14], NSParagraphStyleAttributeName: paragraphStyle
-                                  };
+                                  ,NSForegroundColorAttributeName :self.placeholderColor };
     [[self placeholder] drawInRect:placeholderRect withAttributes:attributes];
 }
 

@@ -10,5 +10,8 @@
 
 @interface CustomTextField : UITextField
 
+@property (nonatomic,retain) UIColor * placeholderColor;
+
+//-(void)setPlaceholderTextColor : (UIColor *)color;
 
 @end

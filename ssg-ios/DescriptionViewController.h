@@ -24,6 +24,7 @@
 
 
 
+
 @property (strong, nonatomic) IBOutlet UITextField *txtTitle;
 @property (strong, nonatomic) IBOutlet UITextField *txtCity;
 
