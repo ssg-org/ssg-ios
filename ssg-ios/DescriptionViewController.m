@@ -56,15 +56,35 @@
     else
     {
     
-       UIAlertView* infoAlertView = [[UIAlertView alloc] initWithTitle:@"Info"
+   alertView = [[UIAlertView alloc] initWithTitle:@"Info"
                                                    message:@"User validation false"
                                                   delegate:self
                                          cancelButtonTitle:@"OK"
                                          otherButtonTitles: nil];
-        [infoAlertView show];
+        
+        
+        
+        [alertView show];
     }
 }
 
+
+
+
+-(void)setSelectedCategoriesAndCity {
+
+    if (self.selectedCategory!=nil) {
+        //self.btnCategory.titleLabel.text=self.selectedCategory.name;
+        
+        [self.btnCategory setTitle:self.selectedCategory.name forState:UIControlStateNormal];
+    }
+    
+    if (self.selectedCity!=nil) {
+        //self.btnCity.titleLabel.text=self.selectedCity.city;
+        [self.btnCity setTitle:self.selectedCity.city forState:UIControlStateNormal];
+    }
+
+}
 
 -(BOOL)validateUserInput {
 
@@ -103,19 +123,10 @@
     [self.txtCustomDescription setPlaceholderColor:color];
     
     
-
      self.txtTitle.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Title" attributes:@{NSForegroundColorAttributeName: color}];
     
     
-    if (self.selectedCategory!=nil) {
-        self.btnCategory.titleLabel.text=self.selectedCategory.name;
-    }
-    
-    if (self.selectedCity!=nil) {
-        self.btnCity.titleLabel.text=self.selectedCity.city;
-    }
-    
-    
+    [self setSelectedCategoriesAndCity];
 }
 
 

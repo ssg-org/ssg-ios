@@ -16,6 +16,11 @@
 
 
 @interface DescriptionViewController : UIViewController<UITextFieldDelegate,UITextViewDelegate,CategoryDelegate,SubCategoryDelegate,CitiesDelegate>
+{
+
+    UIAlertView * alertView;
+
+}
 
 
 
