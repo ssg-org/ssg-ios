@@ -52,6 +52,12 @@
 -(void)viewWillAppear:(BOOL)animated{
     
     self.navigationController.navigationBarHidden=YES;
+    
+    if (selectedCity!=nil) {
+        [self.btnCity.titleLabel setText:selectedCity.city];
+        
+    }
+
 }
 -(void)viewDidAppear:(BOOL)animated{
     
@@ -59,12 +65,6 @@
 //    UIColor *color = [UIColor blackColor];
 //    self.txtFirstName.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"First name" attributes:@{NSForegroundColorAttributeName: color,NSFontAttributeName:[UIFont fontWithName:@"FuturaStd-Light" size:12]}];
     
-    
-    
-}
-
--(void)viewDidLayoutSubviews{
-
     
     
 }
@@ -230,6 +230,10 @@
 }
 
 - (IBAction)btnCityOnTouch:(id)sender {
+    
+    CitiesViewController *categoryViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"CitiesViewController" ];
+    categoryViewController.delegate_cities=self;
+    [self.navigationController pushViewController:categoryViewController animated:YES];
 }
 
 
@@ -240,6 +244,13 @@
 }
 - (void)fetchingData:(NSError *)error {
     
+    
+}
+
+#pragma - Cities delegate 
+
+-(void)getSelectedCity :(City*)city{
+    selectedCity=city;
     
 }
 

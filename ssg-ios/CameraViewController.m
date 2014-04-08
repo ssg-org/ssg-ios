@@ -7,6 +7,7 @@
 //
 
 #import "CameraViewController.h"
+#import "SyncData.h"
 
 @interface CameraViewController ()
 
@@ -158,20 +159,8 @@
     return UIStatusBarStyleLightContent;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 - (void)setPreviewImage:(UIImage*)image {
-    
-    
     
    // CGSize imageSize = image.size;
 //    CGFloat width = imageSize.width;
@@ -186,10 +175,12 @@
 //        [image drawAtPoint:CGPointMake(-widthOffset, -heightOffset)
 //                 blendMode:kCGBlendModeCopy
 //                     alpha:1.];
-        image = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
+       // image = UIGraphicsGetImageFromCurrentImageContext();
+      //  UIGraphicsEndImageContext();
    // }
+    
     self.imagePreview.image = image;
+    
 }
 
 - (IBAction)btnCameraAutoOnTouch:(id)sender {
@@ -320,10 +311,6 @@
         
     }
     
-    
-    
-    
-    
 }
 
 
@@ -356,7 +343,8 @@
 - (IBAction)btnAcceptPhotoOnTouch:(id)sender {
     
     //Accept photo from camera
-    
+    [SyncData get].issue_image=[[UIImage alloc]init];
+    [SyncData get].issue_image=self.imagePreview.image;
     
 }
 
@@ -373,11 +361,9 @@
 }
 
 
-
-
-
-
 -(void)viewWillAppear:(BOOL)animated{
+    
 [[self navigationController] setNavigationBarHidden:NO animated:NO];
+    
 }
 @end

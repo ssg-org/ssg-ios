@@ -19,7 +19,8 @@
     NSMutableString * signature = [[NSMutableString alloc]init];
     
     for (NSString *key in sortedKeys){
-        
+        NSLog(@"KEY %@", key);
+        NSLog(@"VAL %@", [params objectForKey:key]);
         [signature appendString: key];
         [signature appendString:@"="];
         [signature appendString:[params objectForKey:key]];
@@ -83,7 +84,7 @@
     NSLog(@" %@",generatedURL);
     
     //Create URL
-    NSString *urlAsString = [NSString stringWithFormat:@"http://127.0.0.1:3000/api/v1%@?%@", path,generatedURL];
+    NSString *urlAsString = [NSString stringWithFormat:@"http://10.0.1.59:3000/api/v1%@?%@", path,generatedURL];
     NSURL *url = [[NSURL alloc] initWithString:urlAsString];
     NSLog(@"%@", urlAsString);
     

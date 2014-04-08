@@ -43,9 +43,8 @@
             
             if (jsonError != NULL) {
                 
-                
-                
                 [self.info_delegate fetchingData:jsonError];
+                
             }
             else {
                 

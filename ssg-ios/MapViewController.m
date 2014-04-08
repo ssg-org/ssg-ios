@@ -7,6 +7,7 @@
 //
 
 #import "MapViewController.h"
+#import "SyncData.h"
 
 @interface MapViewController ()
 
@@ -28,6 +29,19 @@
     [super viewDidLoad];
      self.mapContainer.delegate=self;
     [self initLocationManager];
+    
+    NSLog(@"Kategorija: %@", [SyncData get].current_issue.category_id);
+    NSLog(@"Grad: %@",[SyncData get].current_issue.city_id );
+    NSLog(@"Title: %@",[SyncData get].current_issue.title);
+    NSLog(@"Description: %@",[SyncData get].current_issue.descript);
+    
+    
+    _ssgCommunicatorCreateIssueDelegate = [[SsgCommunicatorDelegate_CreateIssue alloc]init];
+    _ssgCommunicatorCreateIssueDelegate.createIssue_delegate=self;
+
+    
+    
+  
     
 }
 
@@ -59,11 +73,11 @@
         if (!first_marker) {
             //Init camera
             
-            CLLocation *newLocation = [[CLLocation alloc] initWithCoordinate:CLLocationCoordinate2DMake(43.831183366766496, 18.308372497558594)
-                                                                     altitude:0
-                                                           horizontalAccuracy:0
-                                                             verticalAccuracy:0
-                                                                    timestamp:[NSDate date]];
+           // CLLocation *newLocation = [[CLLocation alloc] initWithCoordinate:CLLocationCoordinate2DMake(43.831183366766496, 18.308372497558594)
+                                                                   //  altitude:0
+                                                         //  horizontalAccuracy:0
+                                                           //  verticalAccuracy:0
+                                                             //       timestamp:[NSDate date]];
             
             GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:newLocation.coordinate.latitude
                                                                     longitude:newLocation.coordinate.longitude
@@ -73,11 +87,16 @@
             
             //Create marker
             marker = [[GMSMarker alloc] init];
-            marker.position =  newLocation.coordinate;
+            marker.position =  currentLocation.coordinate;
             marker.snippet = @"Hello World";
             marker.icon=[UIImage imageNamed:@"map_marker.png"];
             marker.map=self.mapContainer;
             first_marker=true;
+            
+            [SyncData get].current_issue.location_lat =@(currentLocation.coordinate.latitude);
+            [SyncData get].current_issue.location_lng =@(currentLocation.coordinate.longitude);
+
+
         }
     }
 }
@@ -94,7 +113,26 @@ didTapAtCoordinate:		(CLLocationCoordinate2D) 	coordinate{
     marker.snippet = @"Hello World";
     marker.icon=[UIImage imageNamed:@"map_marker.png"];
     marker.map=mapView;
+    
+    [SyncData get].current_issue.location_lat =@(coordinate.latitude);
+    [SyncData get].current_issue.location_lng =@(coordinate.longitude);
+
 }
 
 
+- (IBAction)btnCreateIssueOnTouch:(id)sender {
+
+    [_ssgCommunicatorCreateIssueDelegate createIssue:[SyncData get].current_issue :[SyncData get].issue_image ];
+    
+}
+
+#pragma SSG COMMUNICATOR DELEGATES
+- (void)recivedData:(SyncData*)syncData{
+
+
+}
+- (void)fetchingData:(NSError *)error{
+
+
+}
 @end

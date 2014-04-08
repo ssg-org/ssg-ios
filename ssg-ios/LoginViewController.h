@@ -11,6 +11,7 @@
 #import "SsgCommunicatorDelegate.h"
 #import "SsgCommnicatorDelegate_FacebookLogin.h"
 #import "SsgCommunicatorDelegate_EmailLogin.h"
+#import "SsgCommunicatorDelegate_CreateIssue.h"
 
 @interface LoginViewController : UIViewController<FBLoginViewDelegate,UITextFieldDelegate,SsgCommunicatorDelegate>{
 
@@ -19,6 +20,7 @@
     int current_image;
     SsgCommnicatorDelegate_FacebookLogin * _ssgCommunicator;
     SsgCommunicatorDelegate_EmailLogin * _ssgCommunicatorEmailLogin;
+   
     
 }
 

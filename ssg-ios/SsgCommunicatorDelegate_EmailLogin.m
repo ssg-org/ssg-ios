@@ -52,6 +52,8 @@
                 
                 NSString *access_token=[documents objectForKey:@"access_token"];
                 
+                // ako je code 0  access token je OK
+                
                 
                 if (access_token==nil) {
                     

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Issue.h"
 
 @interface SyncData : NSObject
 
@@ -14,6 +15,9 @@
 @property (nonatomic,strong) NSMutableArray * cities;
 @property (nonatomic,strong) NSMutableArray * categories;
 @property (nonatomic,strong) NSMutableDictionary *keyCharForFontAwesome;
+@property (nonatomic,strong) Issue * current_issue;
+@property (nonatomic,strong)UIImage * issue_image;
+
 
 
 - (void)mock;

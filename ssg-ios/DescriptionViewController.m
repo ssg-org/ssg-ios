@@ -7,7 +7,9 @@
 //
 
 #import "DescriptionViewController.h"
-
+#import "AppDelegate.h"
+#import "MapViewController.h"
+#import "CitiesViewController.h"
 
 @interface DescriptionViewController ()
 
@@ -32,12 +34,50 @@
     self.txtCity.delegate=self;
     self.txtDescription.delegate=self;
     self.txtTitle.delegate=self;
+   
     
+    UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"NEXT" style:UIBarButtonItemStylePlain target:self action:@selector(Next)];
+    self.navigationItem.rightBarButtonItem = anotherButton;
+}
+
+
+-(IBAction)Next
+{
     
+    if ([self validateUserInput]) {
+        
+        [SyncData get].current_issue.title = self.txtTitle.text;
+        [SyncData get].current_issue.descript=self.txtDescription.text;
     
+        MapViewController *categoryViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"MapViewController" ];
+        [self.navigationController pushViewController:categoryViewController animated:YES];
+    }
+    else
+    {
     
+       UIAlertView* infoAlertView = [[UIAlertView alloc] initWithTitle:@"Info"
+                                                   message:@"User validation false"
+                                                  delegate:self
+                                         cancelButtonTitle:@"OK"
+                                         otherButtonTitles: nil];
+        [infoAlertView show];
+    }
+}
+
+
+-(BOOL)validateUserInput {
+
+
+    if ([self.txtTitle.text length]==0 ||
+        [self.txtDescription.text length] == 0 ||
+        [[SyncData get].current_issue.category_id  intValue]==0 ||
+        [[SyncData get].current_issue.city_id intValue]==0 )
     
-    
+    {
+        return NO;
+    }
+    return YES;
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -64,6 +104,12 @@
     if (self.selectedCategory!=nil) {
         self.btnCategory.titleLabel.text=self.selectedCategory.name;
     }
+    
+    if (self.selectedCity!=nil) {
+        self.btnCity.titleLabel.text=self.selectedCity.city;
+    }
+    
+    
 }
 
 
@@ -78,15 +124,14 @@
 -(void)selectCategory:(Categories*)category{
 
     self.selectedCategory=category;
+    [SyncData get].current_issue.category_id=self.selectedCategory.id_;
 }
 
 -(void)selectSubCategory:(Categories*)category{
 
     self.selectedCategory=category;
+    [SyncData get].current_issue.category_id=self.selectedCategory.id_;
 }
-
-
-
 
 - (IBAction)btnCategoryOnTouch:(id)sender {
     
@@ -98,4 +143,23 @@
     categoryViewController.subcategoryViewController=subcategory;
     [self.navigationController pushViewController:categoryViewController animated:YES];
 }
+
+
+
+- (IBAction)btnCityOnTouch:(id)sender {
+    
+    CitiesViewController *categoryViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"CitiesViewController" ];
+    categoryViewController.delegate_cities=self;
+    [self.navigationController pushViewController:categoryViewController animated:YES];
+}
+
+#pragma CityController delegate function 
+
+-(void)getSelectedCity :(City*)city {
+    
+    self.selectedCity=city;
+    [SyncData get].current_issue.city_id = self.selectedCity.id_;
+    
+}
+
 @end

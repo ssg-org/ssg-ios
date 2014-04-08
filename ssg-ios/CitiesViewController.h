@@ -9,13 +9,26 @@
 #import <UIKit/UIKit.h>
 #import "SsgCommunicatorDelegate.h"
 #import "SsgCommnicatorDelegate_Info.h"
+#import "City.h"
+
+
+@protocol CitiesDelegate <NSObject>
+
+-(void)getSelectedCity :(City*)city;
+
+@end
 
 @interface CitiesViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,SsgCommunicatorDelegate>
 {
    
     SsgCommnicatorDelegate_Info * _ssgCommunicator;
     
+    
 }
+
+@property (strong, nonatomic) IBOutlet UITableView *tblComponent;
+@property (retain) id<CitiesDelegate> delegate_cities;
+
 
 
 @end

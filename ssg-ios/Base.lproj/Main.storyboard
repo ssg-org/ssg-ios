@@ -78,7 +78,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8dT-yE-RtF">
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="headTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8dT-yE-RtF">
                                         <rect key="frame" x="20" y="237" width="220" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -89,7 +89,6 @@
                                         </state>
                                         <connections>
                                             <action selector="btnCityOnTouch:" destination="PBE-Rk-jnX" eventType="touchUpInside" id="TSB-yA-WSG"/>
-                                            <segue destination="Xnj-QT-h34" kind="push" id="f3j-IK-zME"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FRV-U1-1v8">
@@ -141,7 +140,7 @@
         <!--Cities View Controller-->
         <scene sceneID="dIu-CJ-Et1">
             <objects>
-                <viewController id="Xnj-QT-h34" customClass="CitiesViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CitiesViewController" id="Xnj-QT-h34" customClass="CitiesViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ahf-Yb-nRK"/>
                         <viewControllerLayoutGuide type="bottom" id="0Ss-53-A8J"/>
@@ -185,10 +184,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Z7x-gd-pjX"/>
+                    <connections>
+                        <outlet property="tblComponent" destination="qJY-PQ-bDh" id="AfY-rf-PDt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aKX-dR-pL8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1757" y="363"/>
+            <point key="canvasLocation" x="1743" y="363"/>
         </scene>
         <!--Settings View Controller - ULICA.BA-->
         <scene sceneID="uJS-2Q-Bkh">
@@ -754,13 +756,6 @@ Sredi Svoj Grad!</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="City" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OUI-4t-48h">
-                                <rect key="frame" x="17" y="174" width="303" height="43"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Description" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ibu-G7-avB">
                                 <rect key="frame" x="17" y="218" width="303" height="131"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -782,6 +777,17 @@ Sredi Svoj Grad!</string>
                                 </state>
                                 <connections>
                                     <action selector="btnCategoryOnTouch:" destination="u9U-Xg-Bw0" eventType="touchUpInside" id="hjO-dI-al4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wEg-Lb-NhC">
+                                <rect key="frame" x="17" y="174" width="303" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <state key="normal" title="City                                  " backgroundImage="category_bg">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnCityOnTouch:" destination="u9U-Xg-Bw0" eventType="touchUpInside" id="Oms-th-NRA"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="grey_line" translatesAutoresizingMaskIntoConstraints="NO" id="u05-eU-mv8">
@@ -811,17 +817,11 @@ Sredi Svoj Grad!</string>
                         <barButtonItem key="backBarButtonItem" title="BACK" id="SjF-Nk-fOH">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="NEXT" id="5t9-g8-JzB">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                            <connections>
-                                <segue destination="Dcz-xb-Ao0" kind="push" id="azf-lH-NhO"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="btnCategory" destination="odc-IJ-aqP" id="2pN-u5-1b6"/>
-                        <outlet property="txtCity" destination="OUI-4t-48h" id="wk6-GN-vu3"/>
+                        <outlet property="btnCity" destination="wEg-Lb-NhC" id="o9I-6c-zPY"/>
                         <outlet property="txtDescription" destination="ibu-G7-avB" id="3Re-yb-mf9"/>
                         <outlet property="txtTitle" destination="yJS-oJ-IOE" id="Ab6-VF-SaV"/>
                     </connections>
@@ -833,7 +833,7 @@ Sredi Svoj Grad!</string>
         <!--Map View Controller - ULICA.BA-->
         <scene sceneID="ZNb-Tn-O0O">
             <objects>
-                <viewController id="Dcz-xb-Ao0" customClass="MapViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapViewController" id="Dcz-xb-Ao0" customClass="MapViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gze-SD-cEd"/>
                         <viewControllerLayoutGuide type="bottom" id="0xZ-2h-tSd"/>
@@ -858,6 +858,7 @@ Sredi Svoj Grad!</string>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="btnCreateIssueOnTouch:" destination="Dcz-xb-Ao0" eventType="touchUpInside" id="Mt5-Le-gD0"/>
                                     <segue destination="7S5-da-5Ub" kind="push" id="w35-HI-0WG"/>
                                 </connections>
                             </button>
