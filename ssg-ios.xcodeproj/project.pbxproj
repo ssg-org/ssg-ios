@@ -39,6 +39,7 @@
 		663CE51C18E98BD400418F29 /* TileOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 663CE51918E98BD400418F29 /* TileOverlay.m */; };
 		663CE51D18E98BD400418F29 /* TileOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 663CE51B18E98BD400418F29 /* TileOverlayView.m */; };
 		663DF8F618EC9A13009452B0 /* CitiesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 663DF8F518EC9A13009452B0 /* CitiesTableViewCell.m */; };
+		664C8B9C18F419AC005BAD84 /* SsgCommunicatorDelegate_EmailSignUp.m in Sources */ = {isa = PBXBuildFile; fileRef = 664C8B9B18F419AC005BAD84 /* SsgCommunicatorDelegate_EmailSignUp.m */; };
 		664F2E3518E74B9700B8083F /* SyncData.m in Sources */ = {isa = PBXBuildFile; fileRef = 664F2E3418E74B9700B8083F /* SyncData.m */; };
 		664F2E3818E74D4100B8083F /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 664F2E3618E74D4100B8083F /* CoreDataModel.xcdatamodeld */; };
 		6667C88518EC436C00F84CBF /* CitiesBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 6667C88418EC436C00F84CBF /* CitiesBuilder.m */; };
@@ -189,6 +190,8 @@
 		664802D418E51166007B23EB /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		664802D818E5174D007B23EB /* ShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareViewController.h; sourceTree = "<group>"; };
 		664802D918E5174D007B23EB /* ShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareViewController.m; sourceTree = "<group>"; };
+		664C8B9A18F419AC005BAD84 /* SsgCommunicatorDelegate_EmailSignUp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SsgCommunicatorDelegate_EmailSignUp.h; sourceTree = "<group>"; };
+		664C8B9B18F419AC005BAD84 /* SsgCommunicatorDelegate_EmailSignUp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SsgCommunicatorDelegate_EmailSignUp.m; sourceTree = "<group>"; };
 		664F2E3318E74B9700B8083F /* SyncData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyncData.h; sourceTree = "<group>"; };
 		664F2E3418E74B9700B8083F /* SyncData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyncData.m; sourceTree = "<group>"; };
 		664F2E3718E74D4100B8083F /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
@@ -518,6 +521,8 @@
 				66AD5E9518EF32FE001596D0 /* SsgCommnicatorDelegate_FacebookLogin.m */,
 				66362E7018F2E9ED00921AB2 /* SsgCommunicatorDelegate_CreateIssue.h */,
 				66362E7118F2E9ED00921AB2 /* SsgCommunicatorDelegate_CreateIssue.m */,
+				664C8B9A18F419AC005BAD84 /* SsgCommunicatorDelegate_EmailSignUp.h */,
+				664C8B9B18F419AC005BAD84 /* SsgCommunicatorDelegate_EmailSignUp.m */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -759,6 +764,7 @@
 				66908DA318E65C2800F0848E /* MapViewController.m in Sources */,
 				66D5ECD418EEB756009CD054 /* City.m in Sources */,
 				66F4BF5618ED4D8C0090D776 /* CategoriesTableViewCell.m in Sources */,
+				664C8B9C18F419AC005BAD84 /* SsgCommunicatorDelegate_EmailSignUp.m in Sources */,
 				66AD5E8318EEF216001596D0 /* FAImageView.m in Sources */,
 				66908DA418E65C2800F0848E /* ShareViewController.m in Sources */,
 				66AD5E9318EF32E3001596D0 /* SsgCommunicatorDelegate_EmailLogin.m in Sources */,

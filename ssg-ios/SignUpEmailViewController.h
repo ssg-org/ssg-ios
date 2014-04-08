@@ -11,13 +11,14 @@
 #import "SsgCommnicatorDelegate_Info.h"
 #import "CitiesViewController.h"
 #import "City.h"
+#import "SsgCommunicatorDelegate_EmailSignUp.h"
 
 @interface SignUpEmailViewController : UIViewController<UITextFieldDelegate,SsgCommunicatorDelegate,CitiesDelegate>{
 
     long last_city_index;
     SsgCommnicatorDelegate_Info* _ssgCommunicator;
+    SsgCommunicatorDelegate_EmailSignUp * _ssgCommunicatorEmailSignup;
     City * selectedCity;
-    
    
 }
 

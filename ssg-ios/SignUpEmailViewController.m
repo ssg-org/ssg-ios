@@ -40,13 +40,10 @@
     _ssgCommunicator.info_delegate=self;
     
     [_ssgCommunicator getCategoriesAndCities];
-   
-  
-// NSMutableArray * array_temp=   [SyncData getAllCity];
     
-    
-   
-    // Do any additional setup after loading the view.
+    _ssgCommunicatorEmailSignup = [[SsgCommunicatorDelegate_EmailSignUp alloc]init];
+    _ssgCommunicatorEmailSignup.emailSignup_delegate=self;
+
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -54,8 +51,8 @@
     self.navigationController.navigationBarHidden=YES;
     
     if (selectedCity!=nil) {
-        [self.btnCity.titleLabel setText:selectedCity.city];
-        
+        [self.btnCity setTitle:selectedCity.city forState:UIControlStateNormal];
+         self.btnCity.titleLabel.font=[UIFont fontWithName:@"FuturaStd-Light" size:14];
     }
 
 }
@@ -116,45 +113,18 @@
         NSManagedObjectContext *context =appDelagate.managedObjectContext;
 
         //Set newUser object
-        User *newUser = [NSEntityDescription
+        User *user = [NSEntityDescription
                       insertNewObjectForEntityForName:@"User"
                       inManagedObjectContext:context];
-        newUser.firstname=self.txtFirstName.text;
-        newUser.lastname=self.txtLastName.text;
-        newUser.email=self.txtEmail.text;
-        newUser.password=self.txtPassword.text;
-        //newUser.city = [[SyncData getAllCity]objectAtIndex:last_city_index];
+        user.firstname=self.txtFirstName.text;
+        user.lastname=self.txtLastName.text;
+        user.email=self.txtEmail.text;
+        user.password=self.txtPassword.text;
+        user.city_id = selectedCity.id_;
         
-        //Save to database
-        NSError *error;
-        [context save:nil];
-        if (![context save:&error]) {
-            
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                            message:@"Whoops, couldn't save :(."
-                                                           delegate:nil
-                                                  cancelButtonTitle:@"OK"
-                                                  otherButtonTitles:nil];
-            [alert show];
-            
+        [_ssgCommunicatorEmailSignup signUpWithEmail:user];
+        
         }
-        else{
-            
-            
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info"
-                                                            message:@"You have successfuly registred :))."
-                                                           delegate:nil
-                                                  cancelButtonTitle:@"OK"
-                                                  otherButtonTitles:nil];
-            [alert show];
-
-           
-        }
-        
-        
-        
-        
-    }
     
 }
 -(BOOL)validateUserInputData {
