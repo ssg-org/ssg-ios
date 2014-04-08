@@ -40,6 +40,7 @@
 		663CE51D18E98BD400418F29 /* TileOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 663CE51B18E98BD400418F29 /* TileOverlayView.m */; };
 		663DF8F618EC9A13009452B0 /* CitiesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 663DF8F518EC9A13009452B0 /* CitiesTableViewCell.m */; };
 		664C8B9C18F419AC005BAD84 /* SsgCommunicatorDelegate_EmailSignUp.m in Sources */ = {isa = PBXBuildFile; fileRef = 664C8B9B18F419AC005BAD84 /* SsgCommunicatorDelegate_EmailSignUp.m */; };
+		664C8B9F18F434EF005BAD84 /* UIPlaceHolderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 664C8B9E18F434EF005BAD84 /* UIPlaceHolderTextView.m */; };
 		664F2E3518E74B9700B8083F /* SyncData.m in Sources */ = {isa = PBXBuildFile; fileRef = 664F2E3418E74B9700B8083F /* SyncData.m */; };
 		664F2E3818E74D4100B8083F /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 664F2E3618E74D4100B8083F /* CoreDataModel.xcdatamodeld */; };
 		6667C88518EC436C00F84CBF /* CitiesBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 6667C88418EC436C00F84CBF /* CitiesBuilder.m */; };
@@ -192,6 +193,8 @@
 		664802D918E5174D007B23EB /* ShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareViewController.m; sourceTree = "<group>"; };
 		664C8B9A18F419AC005BAD84 /* SsgCommunicatorDelegate_EmailSignUp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SsgCommunicatorDelegate_EmailSignUp.h; sourceTree = "<group>"; };
 		664C8B9B18F419AC005BAD84 /* SsgCommunicatorDelegate_EmailSignUp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SsgCommunicatorDelegate_EmailSignUp.m; sourceTree = "<group>"; };
+		664C8B9D18F434EF005BAD84 /* UIPlaceHolderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPlaceHolderTextView.h; sourceTree = "<group>"; };
+		664C8B9E18F434EF005BAD84 /* UIPlaceHolderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPlaceHolderTextView.m; sourceTree = "<group>"; };
 		664F2E3318E74B9700B8083F /* SyncData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyncData.h; sourceTree = "<group>"; };
 		664F2E3418E74B9700B8083F /* SyncData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyncData.m; sourceTree = "<group>"; };
 		664F2E3718E74D4100B8083F /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
@@ -617,6 +620,8 @@
 				66F70A9F18EBEF660034B7C1 /* CustomTextField.m */,
 				662AD17E18EDA77E00433265 /* NSString+NSString_Extended.h */,
 				662AD17F18EDA77E00433265 /* NSString+NSString_Extended.m */,
+				664C8B9D18F434EF005BAD84 /* UIPlaceHolderTextView.h */,
+				664C8B9E18F434EF005BAD84 /* UIPlaceHolderTextView.m */,
 			);
 			name = Subclass;
 			sourceTree = "<group>";
@@ -753,6 +758,7 @@
 				6667C88818EC437800F84CBF /* CategoriesBuilder.m in Sources */,
 				66362E9518F322DF00921AB2 /* AFSecurityPolicy.m in Sources */,
 				66908D9E18E65C2800F0848E /* MainViewController.m in Sources */,
+				664C8B9F18F434EF005BAD84 /* UIPlaceHolderTextView.m in Sources */,
 				66DB730E18F29600008D2922 /* HelperFunctions.m in Sources */,
 				66362EAD18F3232500921AB2 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				66908D9F18E65C2800F0848E /* SignUpEmailViewController.m in Sources */,

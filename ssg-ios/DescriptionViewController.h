@@ -12,15 +12,15 @@
 #import "SubCategoryViewController.h"
 #import "City.h"
 #import "CitiesViewController.h"
+#import "UIPlaceHolderTextView.h"
 
 
-@interface DescriptionViewController : UIViewController<UITextFieldDelegate,CategoryDelegate,SubCategoryDelegate,CitiesDelegate>
+@interface DescriptionViewController : UIViewController<UITextFieldDelegate,UITextViewDelegate,CategoryDelegate,SubCategoryDelegate,CitiesDelegate>
 
 
 
 @property (strong, nonatomic) IBOutlet UITextField *txtTitle;
 @property (strong, nonatomic) IBOutlet UITextField *txtCity;
-@property (strong, nonatomic) IBOutlet UITextField *txtDescription;
 
 @property Categories * selectedCategory;
 @property City * selectedCity;
@@ -32,6 +32,10 @@
 @property (strong, nonatomic) IBOutlet UIButton *btnCity;
 
 - (IBAction)btnCityOnTouch:(id)sender;
+
+
+@property (strong, nonatomic) IBOutlet UIPlaceHolderTextView *txtCustomDescription;
+
 
 
 

@@ -13,6 +13,7 @@
 @property (strong, nonatomic) IBOutlet UIImageView *imgLogo;
 
 
+- (IBAction)createNewIssue:(id)sender;
 
 
 

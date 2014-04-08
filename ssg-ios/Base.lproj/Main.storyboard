@@ -224,7 +224,7 @@
         <!--Camera View Controller - ULICA.BA-->
         <scene sceneID="H1K-8p-5Sc">
             <objects>
-                <viewController id="WZV-Dk-Pmx" customClass="CameraViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CameraViewController" id="WZV-Dk-Pmx" customClass="CameraViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Qyg-o3-f13"/>
                         <viewControllerLayoutGuide type="bottom" id="xaN-f2-zZ2"/>
@@ -753,16 +753,16 @@ Sredi Svoj Grad!</string>
                                 <rect key="frame" x="17" y="86" width="302" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Description" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ibu-G7-avB">
-                                <rect key="frame" x="17" y="218" width="303" height="131"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GB2-nu-DFV" customClass="UIPlaceHolderTextView">
+                                <rect key="frame" x="14" y="218" width="306" height="131"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qBb-hV-Oun">
                                 <rect key="frame" x="0.0" y="86" width="17" height="263"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -822,7 +822,7 @@ Sredi Svoj Grad!</string>
                     <connections>
                         <outlet property="btnCategory" destination="odc-IJ-aqP" id="2pN-u5-1b6"/>
                         <outlet property="btnCity" destination="wEg-Lb-NhC" id="o9I-6c-zPY"/>
-                        <outlet property="txtDescription" destination="ibu-G7-avB" id="3Re-yb-mf9"/>
+                        <outlet property="txtCustomDescription" destination="GB2-nu-DFV" id="Rg3-dx-Hf4"/>
                         <outlet property="txtTitle" destination="yJS-oJ-IOE" id="Ab6-VF-SaV"/>
                     </connections>
                 </viewController>
@@ -910,7 +910,7 @@ Sredi Svoj Grad!</string>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="WZV-Dk-Pmx" kind="push" id="Bda-6i-sbI"/>
+                                    <action selector="createNewIssue:" destination="7S5-da-5Ub" eventType="touchUpInside" id="OVd-JK-cc3"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ulica_logo" translatesAutoresizingMaskIntoConstraints="NO" id="UYT-28-3Vg">
@@ -1036,7 +1036,4 @@ Share it with your friends</string>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="Ick-yC-tzs"/>
-    </inferredMetricsTieBreakers>
 </document>

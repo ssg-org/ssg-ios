@@ -8,6 +8,7 @@
 
 #import "CameraViewController.h"
 #import "SyncData.h"
+#import "DescriptionViewController.h"
 
 @interface CameraViewController ()
 
@@ -27,6 +28,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    
     
     // Do any additional setup after loading the view.
     
@@ -51,6 +54,7 @@
         //[infoAlertView show];
        // return;
     }
+    
 }
 
 
@@ -346,6 +350,13 @@
     [SyncData get].issue_image=[[UIImage alloc]init];
     [SyncData get].issue_image=self.imagePreview.image;
     
+    
+   
+    DescriptionViewController *descriptionViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"DescriptionViewController" ];
+    [self.navigationController pushViewController:descriptionViewController animated:YES];
+    
+    [self btnDeclinePhotoOnTouch:self];
+    
 }
 
 - (void)hideCameraButtons:(BOOL)show {
@@ -356,6 +367,7 @@
     self.btnDeclinePhoto.hidden = !show;
    
     if (!show) {
+        
         self.imagePreview.image = NULL;
     }
 }

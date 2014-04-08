@@ -32,7 +32,8 @@
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
     
     self.txtCity.delegate=self;
-    self.txtDescription.delegate=self;
+    //self.txtDescription.delegate=self;
+    self.txtCustomDescription.delegate=self;
     self.txtTitle.delegate=self;
    
     
@@ -47,7 +48,7 @@
     if ([self validateUserInput]) {
         
         [SyncData get].current_issue.title = self.txtTitle.text;
-        [SyncData get].current_issue.descript=self.txtDescription.text;
+        [SyncData get].current_issue.descript=self.txtCustomDescription.text;
     
         MapViewController *categoryViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"MapViewController" ];
         [self.navigationController pushViewController:categoryViewController animated:YES];
@@ -69,7 +70,7 @@
 
 
     if ([self.txtTitle.text length]==0 ||
-        [self.txtDescription.text length] == 0 ||
+        [self.txtCustomDescription.text length] == 0 ||
         [[SyncData get].current_issue.category_id  intValue]==0 ||
         [[SyncData get].current_issue.city_id intValue]==0 )
     
@@ -96,7 +97,12 @@
     UIColor *color = [UIColor blackColor];
     self.txtCity.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"City" attributes:@{NSForegroundColorAttributeName: color}];
     
-    self.txtDescription.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Description" attributes:@{NSForegroundColorAttributeName: color}];
+   // self.txtCustomDescription.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Description" attributes:@{NSForegroundColorAttributeName: color}];
+    
+    [self.txtCustomDescription setPlaceholder:@"Description"];
+    [self.txtCustomDescription setPlaceholderColor:color];
+    
+    
 
      self.txtTitle.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Title" attributes:@{NSForegroundColorAttributeName: color}];
     
@@ -117,6 +123,22 @@
 {
     [textField resignFirstResponder];
     return YES;
+}
+
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range
+ replacementText:(NSString *)text
+{
+    // Any new character added is passed in as the "text" parameter
+    if ([text isEqualToString:@"\n"]) {
+        // Be sure to test for equality using the "isEqualToString" message
+        [textView resignFirstResponder];
+        
+        // Return FALSE so that the final '\n' character doesn't get added
+        return FALSE;
+    }
+    // For any other character return TRUE so that the text gets added to the view
+    return TRUE;
 }
 
 #pragma Category and Subcategory delgate methods
