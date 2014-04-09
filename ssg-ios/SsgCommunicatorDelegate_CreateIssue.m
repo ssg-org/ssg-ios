@@ -11,7 +11,7 @@
 #import "AFHTTPRequestOperation.h"
 #import "AFHTTPRequestOperationManager.h"
 #import "SsgAPI.h"
-
+#import "SyncData.h"
 
 @implementation SsgCommunicatorDelegate_CreateIssue
 
@@ -45,6 +45,25 @@
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"Success: %@ ***** %@", operation.responseString, responseObject);
         
+   
+        /*
+        document =     {
+            url = "http://10.0.1.59:3000/issues/cfhchf--2";
+        };
+        status =     {
+            code = 0;
+            message = ok;
+        };
+         */
+        NSDictionary * documents = [[NSDictionary alloc]init];
+        documents=[responseObject objectForKey:@"document"];
+        
+        NSString *url=[documents objectForKey:@"url"];
+        [SyncData get].issueResponseUrl=url;
+        
+    
+    
+    
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@ ***** %@", operation.responseString, error);
         

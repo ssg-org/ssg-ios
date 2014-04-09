@@ -10,6 +10,7 @@
 #import "CameraViewController.h"
 #import "DescriptionViewController.h"
 #import "MapViewController.h"
+#import <Social/Social.h>
 
 @interface ShareViewController ()
 
@@ -32,6 +33,9 @@
     [super viewDidLoad];
     
     // Do any additional setup after loading the view.
+    [self.lblThankYou setFont:[UIFont fontWithName:@"FuturaStd-Medium" size:17]];
+    [self.lblOrReport setFont:[UIFont fontWithName:@"FuturaStd-Light" size:15]];
+    [self.lblYourIssue setFont:[UIFont fontWithName:@"FuturaStd-Light" size:15]];
 }
 
 -(void)viewDidLayoutSubviews{
@@ -61,5 +65,59 @@
     NSInteger count=[[self.navigationController viewControllers] count];
     
     [self.navigationController  popToViewController:[[self.navigationController viewControllers] objectAtIndex:count-4 ] animated:YES];
+}
+- (IBAction)btnFacebookShare:(id)sender {
+    
+    
+    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook])
+    {
+        SLComposeViewController *fbSheet = [SLComposeViewController
+                                            composeViewControllerForServiceType:SLServiceTypeFacebook];
+       [fbSheet setInitialText: [SyncData get].issueResponseUrl];
+       // if (![fbSheet addImage:self.imageToShare]) {
+            NSLog(@"Unable to add the image!");
+      //  }
+        [self presentViewController:fbSheet animated:YES completion:nil];
+    }
+    else {
+        NSLog(@"FB not Installed");
+        UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Warning"
+                                                              message:@"Cannot share - no Facebook app installed."
+                                                             delegate:self
+                                                    cancelButtonTitle:@"OK"
+                                                    otherButtonTitles: nil];
+        [myAlertView show];
+        
+    }
+
+    
+}
+
+- (IBAction)btnTwitterShare:(id)sender {
+    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter])
+    {
+        SLComposeViewController *tweetSheet = [SLComposeViewController
+                                               composeViewControllerForServiceType:SLServiceTypeTwitter];
+        
+        [tweetSheet setInitialText:[SyncData get].issueResponseUrl];
+        
+        //if (![tweetSheet addImage:self.imageToShare]) {
+            NSLog(@"Unable to add the image!");
+       // }
+        
+        [self presentViewController:tweetSheet animated:YES completion:nil];
+    }
+    else {
+        NSLog(@"Twitter not Installed");
+        UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Warning"
+                                                              message:@"Cannot share - no Twitter app installed."
+                                                             delegate:self
+                                                    cancelButtonTitle:@"OK"
+                                                    otherButtonTitles: nil];
+        [myAlertView show];
+        
+    }
+
+    
 }
 @end

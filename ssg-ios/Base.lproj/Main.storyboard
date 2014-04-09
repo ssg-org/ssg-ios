@@ -548,20 +548,21 @@
                                 <rect key="frame" x="108" y="98" width="90" height="91"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fpv-DL-P4e">
-                                <rect key="frame" x="40" y="197" width="240" height="186"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="You can report issue in your local environment in few simple steps by clicking camera button below!" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fpv-DL-P4e">
+                                <rect key="frame" x="43" y="238" width="240" height="92"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <string key="text">Welcome to ULICA.BA
-
-You can report issue in your local environment in few simple steps by clicking camera button below!
-
-
-Sredi Svoj Grad!</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome to ULICA.BA" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ikz-vJ-Uof">
+                                <rect key="frame" x="75" y="205" width="177" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -576,6 +577,10 @@ Sredi Svoj Grad!</string>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <connections>
+                        <outlet property="lblWelcome" destination="ikz-vJ-Uof" id="ZTC-RQ-Ask"/>
+                        <outlet property="lblYouCan" destination="Fpv-DL-P4e" id="fZU-fd-3BW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hKh-Z7-SM6" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationBar contentMode="scaleToFill" id="6Hq-TW-8oJ">
@@ -934,6 +939,9 @@ Sredi Svoj Grad!</string>
                                         <state key="normal" backgroundImage="facebook_share">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="btnFacebookShare:" destination="7S5-da-5Ub" eventType="touchUpInside" id="gU2-xf-IhE"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZNA-TJ-mcq">
                                         <rect key="frame" x="160" y="99" width="50" height="50"/>
@@ -941,14 +949,15 @@ Sredi Svoj Grad!</string>
                                         <state key="normal" backgroundImage="twitter_share">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="btnTwitterShare:" destination="7S5-da-5Ub" eventType="touchUpInside" id="TAu-qh-IGy"/>
+                                        </connections>
                                     </button>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="me2-EX-reT">
-                                        <rect key="frame" x="20" y="5" width="240" height="91"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="me2-EX-reT">
+                                        <rect key="frame" x="20" y="34" width="240" height="55"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <string key="text">Thank you!
-
-Your issue has been reported. 
+                                        <string key="text">Your issue has been reported. 
 Share it with your friends</string>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -962,6 +971,13 @@ Share it with your friends</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Thank you!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E7N-tg-SSW">
+                                        <rect key="frame" x="96" y="12" width="89" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -984,6 +1000,9 @@ Share it with your friends</string>
                     <navigationItem key="navigationItem" id="F30-dx-lL8"/>
                     <connections>
                         <outlet property="imgLogo" destination="UYT-28-3Vg" id="yZs-yz-YGR"/>
+                        <outlet property="lblOrReport" destination="lpA-J6-UGr" id="hWv-yJ-Uc0"/>
+                        <outlet property="lblThankYou" destination="E7N-tg-SSW" id="aVO-ko-cHv"/>
+                        <outlet property="lblYourIssue" destination="me2-EX-reT" id="RAw-Jm-pdy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="win-D1-9zT" userLabel="First Responder" sceneMemberID="firstResponder"/>

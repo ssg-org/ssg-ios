@@ -12,4 +12,8 @@
 
 @property NSMutableString* dataFromLogin;
 
+@property (strong, nonatomic) IBOutlet UILabel *lblWelcome;
+@property (strong, nonatomic) IBOutlet UITextView *lblYouCan;
+
+
 @end

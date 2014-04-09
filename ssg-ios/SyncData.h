@@ -17,6 +17,8 @@
 @property (nonatomic,strong) NSMutableDictionary *keyCharForFontAwesome;
 @property (nonatomic,strong) Issue * current_issue;
 @property (nonatomic,strong)UIImage * issue_image;
+@property (nonatomic,strong) NSString * issueResponseUrl;
+
 
 
 
