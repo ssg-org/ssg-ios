@@ -37,9 +37,14 @@
                                       NSLog(@"Success: %@ ***** %@", operation.responseString, responseObject);
                                        
                                        
+                                       NSDictionary * documents = [[NSDictionary alloc]init];
+                                       documents=[responseObject objectForKey:@"status"];
+                                       NSInteger code=[[documents objectForKey:@"code"] integerValue];
+                                       [self.emailSignup_delegate apiStatusCode:code];
                                        
-                                      
+                                       
                                   } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                    
                                       NSLog(@"Error: %@ ***** %@", operation.responseString, error);
                                       
                                   }];

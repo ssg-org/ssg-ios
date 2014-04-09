@@ -214,7 +214,7 @@
    // self.profilePictureView.profileID = user.id;
     //self.nameLabel.text = user.name;
     
-    [_ssgCommunicator loginWithFacebook:user];
+   // [_ssgCommunicator loginWithFacebook:user];
     
     
     

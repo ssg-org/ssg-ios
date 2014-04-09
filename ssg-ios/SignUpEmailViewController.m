@@ -107,6 +107,8 @@
 - (IBAction)btnSignUpOnTouch:(id)sender {
     
     if ([self validateUserInputData]) {
+        //disable all controlls
+        [self disableAllControlls];
         
         //Get CoreData context
         AppDelegate * appDelagate  = (AppDelegate *)[UIApplication sharedApplication].delegate;
@@ -121,60 +123,87 @@
         user.email=self.txtEmail.text;
         user.password=self.txtPassword.text;
         user.city_id = selectedCity.id_;
-        
         [_ssgCommunicatorEmailSignup signUpWithEmail:user];
-        
-        }
-    
-}
--(BOOL)validateUserInputData {
-
-
-   
-    
-    [self  setTextFieldError:self.txtFirstName :false];
-    [self setTextFieldError:self.txtLastName :false];
-    [self setTextFieldError:self.txtEmail :false];
-    [self setTextFieldError:self.txtPassword :false];
-    
-    if ([self.txtFirstName.text length]==0 || [self.txtLastName.text length]==0 || [self.txtEmail.text length]==0 || [self.txtPassword.text length]==0) {
-    
-        [self  setTextFieldError:self.txtFirstName :true];
-        [self setTextFieldError:self.txtLastName :true];
-        [self setTextFieldError:self.txtEmail :true];
-        [self setTextFieldError:self.txtPassword :true];
-        return false;
-    }
-    
-
-    return true;
-}
-
--(void)setTextFieldError:(UITextField*)textField : (BOOL)state {
-
-    if (state) {
-//        textField.layer.masksToBounds=YES;
-//        textField.layer.borderColor=[[UIColor redColor]CGColor];
-//        textField.layer.borderWidth= 1.0f;
-        
-        
-        UIColor *color = [UIColor redColor];
-        textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:textField.placeholder attributes:@{NSForegroundColorAttributeName: color}];
         
         
         
     }
     else{
         
-        UIColor *color = [UIColor blackColor];
-        textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:textField.placeholder attributes:@{NSForegroundColorAttributeName: color}];
         
+       UIAlertView* infoAlertView = [[UIAlertView alloc] initWithTitle:@"Info"
+                                                   message:validationMessage
+                                                  delegate:self
+                                         cancelButtonTitle:@"OK"
+                                         otherButtonTitles: nil];
         
-//        textField.layer.masksToBounds=NO;
-//        textField.layer.borderColor=[[UIColor whiteColor]CGColor];
-//        textField.layer.borderWidth= 0.0f;
+        infoAlertView.delegate=nil;
+        
+        [infoAlertView show];
+    
+    
     }
-   
+    
+}
+
+-(void)disableAllControlls {
+
+    self.txtPassword.enabled=NO;
+    self.txtLastName.enabled=NO;
+    self.txtFirstName.enabled=NO;
+    self.txtEmail.enabled=NO;
+    self.btnCity.enabled=NO;
+    self.btnSignUp.enabled=NO;
+    self.btnBackToLogin.enabled=NO;
+}
+
+-(BOOL)validateUserInputData {
+
+    if ([self.txtFirstName.text length]==0
+        || [self.txtLastName.text length]==0
+        || [self.txtPassword.text length]==0
+        || selectedCity==nil
+        || [self validateEmail:self.txtEmail.text]==NO
+        ) {
+        
+        
+        if ([self.txtFirstName.text length] ==0) {
+            
+            validationMessage = @"Firstname is empty...";
+             return false;
+        }
+        
+        if ([self.txtLastName.text length] ==0) {
+            
+            validationMessage = @"Lastname is empty...";
+             return false;
+        }
+        
+        if ( [self validateEmail:self.txtEmail.text] ==NO ) {
+            
+            validationMessage = @"Email address  incorrect format...";
+             return false;
+        }
+        
+        
+        if ([self.txtPassword.text length] ==0) {
+            
+            validationMessage = @"Password is empty...";
+             return false;
+        }
+        
+        if (selectedCity==nil) {
+            
+            validationMessage = @"City is empty...";
+             return false;
+        }
+       
+        
+        return false;
+    }
+    
+
+    return true;
 }
 
 
@@ -186,15 +215,6 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
-    
-    return YES;
-}
-
-
-
-
-- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
-    [self  setTextFieldError:textField :false];
     
     return YES;
 }
@@ -222,6 +242,44 @@
 -(void)getSelectedCity :(City*)city{
     selectedCity=city;
     
+}
+
+- (BOOL) validateEmail: (NSString *) candidate {
+    NSString *emailRegex =
+    @"(?:[a-z0-9!#$%\\&'*+/=?\\^_`{|}~-]+(?:\\.[a-z0-9!#$%\\&'*+/=?\\^_`{|}"
+    @"~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\"
+    @"x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-"
+    @"z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5"
+    @"]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-"
+    @"9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21"
+    @"-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])";
+    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES[c] %@", emailRegex];
+    
+    return [emailTest evaluateWithObject:candidate];
+}
+
+- (void)apiStatusCode:(NSInteger)code{
+
+    if (code == 0) {
+        
+        UIAlertView* infoAlertView = [[UIAlertView alloc] initWithTitle:@"Info"
+                                                                message:@"Confirmation code was sent, please check your email address!"
+                                                               delegate:self
+                                                      cancelButtonTitle:@"OK"
+             
+                                                      otherButtonTitles: nil];
+        
+        infoAlertView.delegate=self;
+        [infoAlertView show];
+    }
+
+}
+
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+
+    [self.navigationController popViewControllerAnimated:YES];
+
 }
 
 
