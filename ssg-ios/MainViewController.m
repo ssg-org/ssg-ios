@@ -46,7 +46,15 @@
 
 
 -(void)viewWillAppear:(BOOL)animated{
-self.navigationController.navigationBarHidden=YES;
+//self.navigationController.navigationBarHidden=YES;
+  
+
+    
 }
 
+-(void)viewWillLayoutSubviews{
+
+  [[self navigationController] setNavigationBarHidden:YES animated:YES];
+    self.navigationItem.backBarButtonItem.title=@"Back";
+}
 @end

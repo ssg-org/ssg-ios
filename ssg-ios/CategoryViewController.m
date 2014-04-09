@@ -76,6 +76,7 @@
     CategoriesTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CategoryCell" forIndexPath:indexPath];
     
     Categories * current = [categories objectAtIndex:indexPath.row];
+    cell.lblCategoryName.font=[UIFont fontWithName:@"FuturaStd-Light" size:14];
     cell.lblCategoryName.text=current.name;
  
     cell.imgCategory.image=nil;

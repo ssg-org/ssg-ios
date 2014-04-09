@@ -24,25 +24,37 @@
 }
 
 
+
+
 - (void) drawPlaceholderInRect:(CGRect)rect {
    
     if (!self.placeholderColor) {
-    [self setPlaceholderColor:[UIColor blackColor]];
+    
+        [self setPlaceholderColor:[UIColor lightGrayColor]];
     }
     
-    NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
-    // Set line break mode
-    paragraphStyle.lineBreakMode = NSLineBreakByTruncatingMiddle;
-    // Set text alignment
-    paragraphStyle.alignment = NSTextAlignmentCenter;
+
+    if (!self.paragraphStyle) {
+        self.paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+        // Set line break mode
+        self.paragraphStyle.lineBreakMode = NSLineBreakByTruncatingMiddle;
+        // Set text alignment
+        self.paragraphStyle.alignment = NSTextAlignmentCenter;
+    }
+   
    
     // Set font
     CGRect placeholderRect = CGRectMake(rect.origin.x, (rect.size.height- self.font.pointSize)/2, rect.size.width, self.font.pointSize);
     
-    NSDictionary *attributes = @{ NSFontAttributeName: [UIFont fontWithName:@"FuturaStd-Light" size:14], NSParagraphStyleAttributeName: paragraphStyle
+    NSDictionary *attributes = @{ NSFontAttributeName: [UIFont fontWithName:@"FuturaStd-Light" size:14], NSParagraphStyleAttributeName: self.paragraphStyle
                                   ,NSForegroundColorAttributeName :self.placeholderColor };
     [[self placeholder] drawInRect:placeholderRect withAttributes:attributes];
+    
+    
 }
+
+
+
 
 
 @end

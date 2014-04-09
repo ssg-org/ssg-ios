@@ -28,7 +28,7 @@
                                     <constraint firstAttribute="width" constant="320" id="YEe-Mb-F4U"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iDL-fg-nK2">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iDL-fg-nK2">
                                 <rect key="frame" x="0.0" y="526" width="320" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
@@ -78,13 +78,13 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="headTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8dT-yE-RtF">
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="headTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8dT-yE-RtF">
                                         <rect key="frame" x="20" y="237" width="220" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
                                         <state key="normal" title="city" backgroundImage="category_bg">
-                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -116,7 +116,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="ULICA.BA" id="cac-W9-aCr">
-                        <barButtonItem key="backBarButtonItem" title="BACK" id="Hkx-za-uzi">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="Hkx-za-uzi">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         </barButtonItem>
                     </navigationItem>
@@ -149,10 +149,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="52" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="qJY-PQ-bDh">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="52" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="qJY-PQ-bDh">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="eIA-Ab-AAG"/>
+                                </constraints>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CityCell" rowHeight="52" id="aCi-j5-n9y" customClass="CitiesTableViewCell">
                                         <rect key="frame" x="0.0" y="22" width="320" height="52"/>
@@ -182,6 +185,13 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="0Ss-53-A8J" firstAttribute="top" secondItem="qJY-PQ-bDh" secondAttribute="bottom" id="StV-ye-ifg"/>
+                            <constraint firstItem="qJY-PQ-bDh" firstAttribute="top" secondItem="gCM-nE-xlz" secondAttribute="top" id="TcG-sC-yWP"/>
+                            <constraint firstAttribute="trailing" secondItem="qJY-PQ-bDh" secondAttribute="trailing" id="m1T-EL-5cf"/>
+                            <constraint firstItem="qJY-PQ-bDh" firstAttribute="leading" secondItem="gCM-nE-xlz" secondAttribute="leading" id="qK2-Nv-5yd"/>
+                            <constraint firstAttribute="bottom" secondItem="qJY-PQ-bDh" secondAttribute="bottom" id="smd-q6-xI8"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Z7x-gd-pjX"/>
                     <connections>
@@ -212,7 +222,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="ULICA.BA" id="oXQ-pt-R5I">
-                        <barButtonItem key="backBarButtonItem" title="BACK" id="Pix-DS-drm">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="Pix-DS-drm">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         </barButtonItem>
                     </navigationItem>
@@ -352,13 +362,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="ULICA.BA" id="NZ0-Ko-Zen">
-                        <barButtonItem key="backBarButtonItem" title="BACK" id="9US-yo-I4K"/>
-                        <barButtonItem key="rightBarButtonItem" title="NEXT" style="plain" id="w58-Vm-8Ss">
-                            <connections>
-                                <segue destination="u9U-Xg-Bw0" kind="push" id="6kd-we-A0Z"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="backBarButtonItem" title="Back" id="g5O-D3-2OL"/>
                     </navigationItem>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="btnAcceptPhoto" destination="Pyy-XH-EJB" id="Ixs-zr-mwh"/>
                         <outlet property="btnDeclinePhoto" destination="FaS-4K-LF1" id="g27-Rf-aPd"/>
@@ -577,8 +583,7 @@ Sredi Svoj Grad!</string>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <items>
                         <navigationItem title="Title" id="zLF-U4-qTq">
-                            <barButtonItem key="backBarButtonItem" title="BACK" id="d1m-u0-1Qb"/>
-                            <barButtonItem key="rightBarButtonItem" title="NEXT" id="ElF-I6-JK2"/>
+                            <barButtonItem key="backBarButtonItem" title="Back" id="atd-U6-biQ"/>
                         </navigationItem>
                     </items>
                 </navigationBar>
@@ -751,7 +756,7 @@ Sredi Svoj Grad!</string>
                                 <rect key="frame" x="0.0" y="62" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yJS-oJ-IOE">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yJS-oJ-IOE" customClass="CustomTextField">
                                 <rect key="frame" x="17" y="86" width="302" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -770,23 +775,23 @@ Sredi Svoj Grad!</string>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="odc-IJ-aqP">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="odc-IJ-aqP">
                                 <rect key="frame" x="17" y="130" width="303" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <state key="normal" title="Category                                   " backgroundImage="category_bg">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="btnCategoryOnTouch:" destination="u9U-Xg-Bw0" eventType="touchUpInside" id="hjO-dI-al4"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wEg-Lb-NhC">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wEg-Lb-NhC">
                                 <rect key="frame" x="17" y="174" width="303" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <state key="normal" title="City                                  " backgroundImage="category_bg">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="btnCityOnTouch:" destination="u9U-Xg-Bw0" eventType="touchUpInside" id="Oms-th-NRA"/>
@@ -816,7 +821,7 @@ Sredi Svoj Grad!</string>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="ULICA.BA" id="Ym0-Q7-ze8">
-                        <barButtonItem key="backBarButtonItem" title="BACK" id="SjF-Nk-fOH">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="SjF-Nk-fOH">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         </barButtonItem>
                     </navigationItem>
@@ -873,7 +878,7 @@ Sredi Svoj Grad!</string>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="ULICA.BA" id="0hZ-sP-E8f">
-                        <barButtonItem key="backBarButtonItem" title="BACK" id="UNp-S2-sfT">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="UNp-S2-sfT">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         </barButtonItem>
                     </navigationItem>

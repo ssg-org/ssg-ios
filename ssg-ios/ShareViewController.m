@@ -54,6 +54,10 @@
 
 - (IBAction)createNewIssue:(id)sender {
 
+    //Remove info for last issue
+    [SyncData get].issue_image=nil;
+    [SyncData get].current_issue=nil;
+    
     NSInteger count=[[self.navigationController viewControllers] count];
     
     [self.navigationController  popToViewController:[[self.navigationController viewControllers] objectAtIndex:count-4 ] animated:YES];

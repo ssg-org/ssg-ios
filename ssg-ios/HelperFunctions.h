@@ -7,11 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface HelperFunctions : NSObject
 
 
 +(UIColor*)colorWithHexString:(NSString*)hex;
-
 
 @end

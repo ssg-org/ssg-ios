@@ -47,6 +47,10 @@
                                                           
                                                           nil] forState:UIControlStateNormal];
     
+    
+    
+    
+    
      //Set navigation title font
      [[[self navigationController] navigationBar] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor], NSFontAttributeName: [UIFont fontWithName:@"FuturaStd-Medium" size:16.0f]}];
     return YES;

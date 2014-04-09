@@ -55,6 +55,11 @@
        // return;
     }
     
+    //Create  next button
+    self.navigationItem.rightBarButtonItem = [self createNextButton];
+    
+  
+    
 }
 
 
@@ -375,7 +380,70 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     
-[[self navigationController] setNavigationBarHidden:NO animated:NO];
+ 
     
 }
+
+-(void)viewWillLayoutSubviews{
+[[self navigationController] setNavigationBarHidden:NO animated:YES];
+    
+}
+
+
+-(UIBarButtonItem*)createNextButton{
+    
+    //Get icon
+    UIImage *nextIcon = [UIImage imageNamed:@"next_icon.png"];
+    
+    //Create button
+    UIButton *button =  [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [button setImage:nextIcon forState:UIControlStateNormal];
+    [button setTitle:@" Next" forState:UIControlStateNormal];
+    
+    //Set button selector function
+    [button addTarget:self action:@selector(Next)forControlEvents:UIControlEventTouchUpInside];
+    [button setFrame:CGRectMake(0, 2.5f, 75, 31)];
+    button.titleLabel.font=[UIFont fontWithName:@"FuturaStd-Book" size:14.0f];
+    
+    //set image position
+    button.imageEdgeInsets = UIEdgeInsetsMake(0., button.frame.size.width - (nextIcon.size.width  ), 0., 0.);
+    button.titleEdgeInsets = UIEdgeInsetsMake(0., 0., 0., nextIcon.size.width);
+    
+    //Create button View - set  UIBarButtonItem custom position
+    UIView *backButtonView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 63, 33)];
+    backButtonView.bounds = CGRectOffset(backButtonView.bounds, 5, 0);
+    [backButtonView addSubview:button];
+    
+    //Create UIBarButtonItem
+    UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithCustomView:backButtonView];
+    
+    return barButton;
+    
+}
+
+-(void)Next{
+
+    if ([SyncData get].issue_image!=nil) {
+        
+        DescriptionViewController *descriptionViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"DescriptionViewController" ];
+        [self.navigationController pushViewController:descriptionViewController animated:YES];
+    }
+    else{
+        infoAlertView = [[UIAlertView alloc] initWithTitle:@"Info"
+                                                   message:@"Please take picture!"
+                                                  delegate:self
+                                         cancelButtonTitle:@"OK"
+                                         otherButtonTitles: nil];
+        [infoAlertView show];
+
+    
+    
+    }
+    
+    
+}
+
+
+
+
 @end

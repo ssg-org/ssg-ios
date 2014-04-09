@@ -13,6 +13,7 @@
 #import "City.h"
 #import "CitiesViewController.h"
 #import "UIPlaceHolderTextView.h"
+#import "CustomTextField.h"
 
 
 @interface DescriptionViewController : UIViewController<UITextFieldDelegate,UITextViewDelegate,CategoryDelegate,SubCategoryDelegate,CitiesDelegate>
@@ -25,7 +26,7 @@
 
 
 
-@property (strong, nonatomic) IBOutlet UITextField *txtTitle;
+@property (strong, nonatomic) IBOutlet CustomTextField *txtTitle;
 @property (strong, nonatomic) IBOutlet UITextField *txtCity;
 
 @property Categories * selectedCategory;
