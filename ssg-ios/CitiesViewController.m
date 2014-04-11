@@ -62,7 +62,7 @@
      
      City * current = [[SyncData get].cities objectAtIndex:indexPath.row];
  
-     cell.lblCityName.font=[UIFont fontWithName:@"FuturaStd-Light" size:14];
+    // cell.lblCityName.font=[UIFont fontWithName:@"FuturaStd-Light" size:14];
      cell.lblCityName.text= current.city;
  
  

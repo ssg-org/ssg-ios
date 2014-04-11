@@ -13,6 +13,7 @@
 #import "SsgCommunicatorDelegate_EmailLogin.h"
 #import "SsgCommunicatorDelegate_CreateIssue.h"
 #import "CustomTextField.h"
+#import "AppDelegate.h"
 
 @interface LoginViewController : UIViewController<FBLoginViewDelegate,UITextFieldDelegate,SsgCommunicatorDelegate>{
 
@@ -21,7 +22,10 @@
     int current_image;
     SsgCommnicatorDelegate_FacebookLogin * _ssgCommunicator;
     SsgCommunicatorDelegate_EmailLogin * _ssgCommunicatorEmailLogin;
-   
+    
+   // NSString* _code;
+   // id _responseObject;
+    id<FBGraphUser> cachedUser;
     
 }
 
@@ -41,9 +45,6 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *lblOrQuickLogin;
 @property (strong, nonatomic) IBOutlet UILabel *lblDontHaveUlica;
-
-
-
 
 
 @end

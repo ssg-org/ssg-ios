@@ -12,6 +12,13 @@
 
 @implementation SsgAPI
 
++(NSString*)getHostName{
+
+    return @"http://username:pass@dev.ulica.ba";
+
+}
+
+
 +(NSString*)buildSingature:(NSMutableDictionary*)params {
     
     //Sort keys
@@ -84,7 +91,7 @@
     NSLog(@" %@",generatedURL);
     
     //Create URL
-    NSString *urlAsString = [NSString stringWithFormat:@"http://10.0.1.59:3000/api/v1%@?%@", path,generatedURL];
+    NSString *urlAsString = [NSString stringWithFormat:[[self getHostName] stringByAppendingString:@"/api/v1%@?%@"] , path,generatedURL];
     NSURL *url = [[NSURL alloc] initWithString:urlAsString];
     NSLog(@"%@", urlAsString);
     

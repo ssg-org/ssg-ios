@@ -77,6 +77,7 @@
 		669B570E18F2107A00EDC91A /* FuturaStd-Book.otf in Resources */ = {isa = PBXBuildFile; fileRef = 669B570D18F2107A00EDC91A /* FuturaStd-Book.otf */; };
 		669B571018F216F800EDC91A /* FuturaStd-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 669B570F18F216F800EDC91A /* FuturaStd-Medium.otf */; };
 		669E893918EDAE0600C5D751 /* SsgAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 669E893818EDAE0600C5D751 /* SsgAPI.m */; };
+		66A3401718F7D928005BA06C /* KSCrash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66A3401618F7D928005BA06C /* KSCrash.framework */; };
 		66AD5E8318EEF216001596D0 /* FAImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 66AD5E7E18EEF216001596D0 /* FAImageView.m */; };
 		66AD5E8418EEF216001596D0 /* NSString+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 66AD5E8018EEF216001596D0 /* NSString+FontAwesome.m */; };
 		66AD5E8518EEF216001596D0 /* UIFont+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 66AD5E8218EEF216001596D0 /* UIFont+FontAwesome.m */; };
@@ -92,6 +93,7 @@
 		66D5ECD418EEB756009CD054 /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D5ECD318EEB756009CD054 /* City.m */; };
 		66DB730A18F290B9008D2922 /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = 66DB730918F290B9008D2922 /* FontAwesome.otf */; };
 		66DB730E18F29600008D2922 /* HelperFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 66DB730D18F29600008D2922 /* HelperFunctions.m */; };
+		66E1F01118F7D62C002A4062 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66E1F01018F7D62C002A4062 /* MessageUI.framework */; };
 		66F4BF4D18ECA4410090D776 /* CitiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66F4BF4C18ECA4410090D776 /* CitiesViewController.m */; };
 		66F4BF5018ECA5AB0090D776 /* TableViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 66F4BF4F18ECA5AB0090D776 /* TableViewControllerTest.m */; };
 		66F4BF5618ED4D8C0090D776 /* CategoriesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 66F4BF5518ED4D8C0090D776 /* CategoriesTableViewCell.m */; };
@@ -225,6 +227,11 @@
 		669B570F18F216F800EDC91A /* FuturaStd-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FuturaStd-Medium.otf"; sourceTree = "<group>"; };
 		669E893718EDAE0600C5D751 /* SsgAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SsgAPI.h; sourceTree = "<group>"; };
 		669E893818EDAE0600C5D751 /* SsgAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SsgAPI.m; sourceTree = "<group>"; };
+		66A056E018F82FE600C22C18 /* hr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hr; path = hr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		66A056E218F82FE700C22C18 /* hr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hr; path = hr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		66A056EB18F837B900C22C18 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		66A056ED18F837BB00C22C18 /* hr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hr; path = hr.lproj/Main.strings; sourceTree = "<group>"; };
+		66A3401618F7D928005BA06C /* KSCrash.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KSCrash.framework; sourceTree = "<group>"; };
 		66AD5E7D18EEF216001596D0 /* FAImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FAImageView.h; sourceTree = "<group>"; };
 		66AD5E7E18EEF216001596D0 /* FAImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FAImageView.m; sourceTree = "<group>"; };
 		66AD5E7F18EEF216001596D0 /* NSString+FontAwesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FontAwesome.h"; sourceTree = "<group>"; };
@@ -257,6 +264,7 @@
 		66DB730918F290B9008D2922 /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.otf; sourceTree = "<group>"; };
 		66DB730C18F29600008D2922 /* HelperFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelperFunctions.h; sourceTree = "<group>"; };
 		66DB730D18F29600008D2922 /* HelperFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelperFunctions.m; sourceTree = "<group>"; };
+		66E1F01018F7D62C002A4062 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		66F4BF4B18ECA4410090D776 /* CitiesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CitiesViewController.h; sourceTree = "<group>"; };
 		66F4BF4C18ECA4410090D776 /* CitiesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CitiesViewController.m; sourceTree = "<group>"; };
 		66F4BF4E18ECA5AB0090D776 /* TableViewControllerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewControllerTest.h; sourceTree = "<group>"; };
@@ -284,6 +292,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66E1F01118F7D62C002A4062 /* MessageUI.framework in Frameworks */,
 				66C1714218F57BB700151D8C /* Social.framework in Frameworks */,
 				668C94C418EA9FDA0073D1A4 /* libsqlite3.dylib in Frameworks */,
 				663CE51618E988D900418F29 /* MapKit.framework in Frameworks */,
@@ -291,13 +300,14 @@
 				66908ED218E700BB00F0848E /* OpenGLES.framework in Frameworks */,
 				66908ED018E700A600F0848E /* libicucore.dylib in Frameworks */,
 				66908ECE18E7009800F0848E /* libc++.dylib in Frameworks */,
+				66A3401718F7D928005BA06C /* KSCrash.framework in Frameworks */,
 				66908ECC18E7008400F0848E /* ImageIO.framework in Frameworks */,
 				66908ECA18E7007A00F0848E /* GLKit.framework in Frameworks */,
 				66908EC818E7007000F0848E /* CoreText.framework in Frameworks */,
 				66908EC618E7006600F0848E /* CoreData.framework in Frameworks */,
+				66908DAC18E65E1000F0848E /* FacebookSDK.framework in Frameworks */,
 				66908EC418E7005100F0848E /* AVFoundation.framework in Frameworks */,
 				66908EBE18E66B5300F0848E /* libz.dylib in Frameworks */,
-				66908DAC18E65E1000F0848E /* FacebookSDK.framework in Frameworks */,
 				66908DA918E65CE200F0848E /* CoreGraphics.framework in Frameworks */,
 				66908DA818E65CC500F0848E /* CoreLocation.framework in Frameworks */,
 				66908EC218E7002000F0848E /* GoogleMaps.framework in Frameworks */,
@@ -330,6 +340,8 @@
 		6607381018E18491003EA07C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				66A3401618F7D928005BA06C /* KSCrash.framework */,
+				66E1F01018F7D62C002A4062 /* MessageUI.framework */,
 				66C1714118F57BB700151D8C /* Social.framework */,
 				668C94C318EA9FDA0073D1A4 /* libsqlite3.dylib */,
 				663CE51518E988D900418F29 /* MapKit.framework */,
@@ -681,6 +693,7 @@
 			knownRegions = (
 				en,
 				Base,
+				hr,
 			);
 			mainGroup = 6607380518E18491003EA07C;
 			productRefGroup = 6607380F18E18491003EA07C /* Products */;
@@ -810,6 +823,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				6607381B18E18491003EA07C /* en */,
+				66A056E018F82FE600C22C18 /* hr */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -818,6 +832,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				6607382418E18491003EA07C /* Base */,
+				66A056EB18F837B900C22C18 /* en */,
+				66A056ED18F837BB00C22C18 /* hr */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -826,6 +842,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				6607383A18E18492003EA07C /* en */,
+				66A056E218F82FE700C22C18 /* hr */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -915,6 +932,10 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ssg-ios/ssg-ios-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -947,6 +968,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ssg-ios/ssg-ios-Prefix.pch";
+				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = "";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,

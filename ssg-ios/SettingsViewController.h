@@ -10,4 +10,10 @@
 
 @interface SettingsViewController : UIViewController
 
+
+- (IBAction)btnLogOut:(id)sender;
+
+
+
+
 @end

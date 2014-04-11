@@ -7,8 +7,12 @@
 //
 
 #import "SettingsViewController.h"
+#import "User.h"
+#import "AppDelegate.h"
+#import <FacebookSDK/FacebookSDK.h>
 
 @interface SettingsViewController ()
+
 
 @end
 
@@ -39,15 +43,37 @@
     return UIStatusBarStyleLightContent;
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+
+- (IBAction)btnLogOut:(id)sender {
+    
+    //Get
+    NSMutableArray * object_from_db= [[NSMutableArray alloc]init];
+    AppDelegate * appDelagate  = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    NSManagedObjectContext *context =appDelagate.managedObjectContext;
+    NSError *error;
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"User"
+                                              inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+    for (User *user in fetchedObjects) {
+        [context deleteObject:user];
+    }
+    
+    //Clear facebook session
+    [FBSession.activeSession closeAndClearTokenInformation];
+    [FBSession.activeSession close];
+    [FBSession setActiveSession:nil];
+    
+    if (![context save:&error]) {
+        NSLog(@"Couldn't save: %@", error);
+    }
+
+    //Go to login
+     NSInteger count=[[self.navigationController viewControllers] count];
+     [self.navigationController  popToViewController:[[self.navigationController viewControllers] objectAtIndex:count-3 ] animated:YES];
 }
-*/
+
 
 @end

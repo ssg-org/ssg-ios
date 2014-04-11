@@ -10,6 +10,7 @@
 
 @interface SsgAPI : NSObject
 
++(NSString*)getHostName;
 
 +(NSString*)buildSingature:(NSMutableDictionary*)params;
 

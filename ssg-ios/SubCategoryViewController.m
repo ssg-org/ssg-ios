@@ -60,7 +60,7 @@
     SubCategoriesCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SubcategoryCell" forIndexPath:indexPath];
     
     Categories * current = [self.subcategory objectAtIndex:indexPath.row];
-    cell.lblSubcategoryName.font=[UIFont fontWithName:@"FuturaStd-Light" size:14];
+   // cell.lblSubcategoryName.font=[UIFont fontWithName:@"FuturaStd-Light" size:14];
     cell.lblSubcategoryName.text=current.name;
     
     cell.imgSubcategory.image=nil;

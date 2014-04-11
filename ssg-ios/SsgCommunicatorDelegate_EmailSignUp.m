@@ -15,7 +15,7 @@
 
 -(void)signUpWithEmail:(User *)user{
 
-    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:[NSURL URLWithString:@"http://10.0.1.59:3000"]];
+    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:[NSURL URLWithString:[SsgAPI getHostName]]];
     
     NSMutableDictionary * params = [[NSMutableDictionary alloc]init];
     [params setValue:user.email forKey:@"email"];
@@ -39,8 +39,8 @@
                                        
                                        NSDictionary * documents = [[NSDictionary alloc]init];
                                        documents=[responseObject objectForKey:@"status"];
-                                       NSInteger code=[[documents objectForKey:@"code"] integerValue];
-                                       [self.emailSignup_delegate apiStatusCode:code];
+                                       NSString* code=[[documents objectForKey:@"code"]stringValue] ;
+                                       [self.emailSignup_delegate getResponse:code :responseObject];
                                        
                                        
                                   } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

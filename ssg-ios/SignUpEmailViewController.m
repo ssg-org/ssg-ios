@@ -32,6 +32,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     last_city_index=0;
      [[self navigationController] setNavigationBarHidden:YES animated:YES];
     [self setDelagate];
@@ -52,7 +53,7 @@
     
     if (selectedCity!=nil) {
         [self.btnCity setTitle:selectedCity.city forState:UIControlStateNormal];
-         self.btnCity.titleLabel.font=[UIFont fontWithName:@"FuturaStd-Light" size:14];
+       //  self.btnCity.titleLabel.font=[UIFont fontWithName:@"FuturaStd-Light" size:14];
     }
 
 }
@@ -74,16 +75,16 @@
 }
 -(void)setFonts {
     self.lblGetStarted.font=[UIFont fontWithName:@"FuturaStd-Light" size:17];
-    self.btnCity.titleLabel.font=[UIFont fontWithName:@"FuturaStd-Light" size:14];
+    //self.btnCity.titleLabel.font=[UIFont fontWithName:@"FuturaStd-Light" size:14];
     self.btnSignUp.titleLabel.font=[UIFont fontWithName:@"FuturaStd-Heavy" size:16];
     self.btnBackToLogin.titleLabel.font=[UIFont fontWithName:@"FuturaStd-Light" size:16];
     [self.btnBackToLogin setTitle:@"Back to login" forState:UIControlStateNormal];
     
     
-    self.txtEmail.font=[UIFont fontWithName:@"FuturaStd-Light" size:14];
-    self.txtFirstName.font=[UIFont fontWithName:@"FuturaStd-Light" size:14];
-    self.txtLastName.font=[UIFont fontWithName:@"FuturaStd-Light" size:14];
-    self.txtPassword.font=[UIFont fontWithName:@"FuturaStd-Light" size:14];
+   // self.txtEmail.font=[UIFont fontWithName:@"FuturaStd-Light" size:14];
+   // self.txtFirstName.font=[UIFont fontWithName:@"FuturaStd-Light" size:14];
+   // self.txtLastName.font=[UIFont fontWithName:@"FuturaStd-Light" size:14];
+   // self.txtPassword.font=[UIFont fontWithName:@"FuturaStd-Light" size:14];
     
 }
 
@@ -258,9 +259,9 @@
     return [emailTest evaluateWithObject:candidate];
 }
 
-- (void)apiStatusCode:(NSInteger)code{
+- (void)getResponse:(NSString*)code : (id)responseObject{
 
-    if (code == 0) {
+    if ([code isEqualToString:@"0"]) {
         
         UIAlertView* infoAlertView = [[UIAlertView alloc] initWithTitle:@"Info"
                                                                 message:@"Confirmation code was sent, please check your email address!"
@@ -278,8 +279,9 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
 
+    [SyncData get].signupEmail=self.txtEmail.text;
+    [SyncData get].signupPassword=self.txtPassword.text;
     [self.navigationController popViewControllerAnimated:YES];
-
 }
 
 

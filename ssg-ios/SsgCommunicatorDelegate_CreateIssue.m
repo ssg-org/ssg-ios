@@ -18,7 +18,7 @@
 
 -(void)createIssue:(Issue*)issue : (UIImage *)image{
 
-    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:[NSURL URLWithString:@"http://10.0.1.59:3000"]];
+    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:[NSURL URLWithString: [SsgAPI getHostName]]];
     NSData *imageData = UIImageJPEGRepresentation(image, 0.5);
     
     NSMutableDictionary * params = [[NSMutableDictionary alloc]init];
@@ -72,35 +72,6 @@
     //Start request
     [op start];
     
-    
-    
-    
-//    NSData *imageToUpload = UIImageJPEGRepresentation(image, 1.0);
-//    
-//    NSMutableDictionary * params = [[NSMutableDictionary alloc]init];
-//    [params setValue:issue.title forKey:@"title"];
-//    [params setValue:issue.descript forKey:@"description"];
-//    [params setValue:issue.city_id forKey:@"city_id"];
-//    [params setValue:issue.category_id forKey:@"category_id"];
-//    [params setValue:issue.location_lat forKey:@"lat"];
-//    [params setValue:issue.location_lng forKey:@"lng"];
-//    
-//    AFAppDotNetAPIClient *client= [AFAppDotNetAPIClient sharedClient:@"http://127.0.0.1:3000/api/v1"];
-//                                
-//    
-//    [client POST:@"/create_issue"
-//    parameters: params constructingBodyWithBlock:^(id <AFMultipartFormData>formData) {[formData appendPartWithFileData: imageToUpload name:@"image" fileName:@"temp.jpeg"mimeType:@"image/jpeg"];}
-//    success:^(NSURLSessionDataTask *task, id responseObject) {
-//                                         
-//                                         
-//                                         
-//    }
-//                                 
-//    failure:^(NSURLSessionDataTask *task, NSError *error) {
-//                                         
-//                                         
-//                                         
-//    }];
 }
 
 @end

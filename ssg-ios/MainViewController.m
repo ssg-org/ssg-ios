@@ -7,12 +7,16 @@
 //
 
 #import "MainViewController.h"
+#import "AppDelegate.h"
+#import "CameraViewController.h"
 
 @interface MainViewController ()
 
 @end
 
 @implementation MainViewController
+
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -28,7 +32,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-   
+    
+
+  
+    
+    //[[BWQuincyManager sharedQuincyManager] setDelegate:self];
+    
     // Do any additional setup after loading the view.
     //set fonts
    // self.lblWelcome.font=[UIFont fontWithName:@"FurturaStd-Medium" size:15];
@@ -36,6 +45,16 @@
     
     [self.lblYouCan setFont:[UIFont fontWithName:@"FuturaStd-Light" size:15]];
     [self.lblWelcome setFont:[UIFont fontWithName:@"FuturaStd-Medium" size:17]];
+    
+    
+    
+   // NSMutableArray * array = [[NSMutableArray alloc]init];
+    
+    //NSObject * object = [array objectAtIndex:5];
+    
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -63,6 +82,16 @@
   [[self navigationController] setNavigationBarHidden:YES animated:YES];
     self.navigationItem.backBarButtonItem.title=@"Back";
     
+    NSArray *viewControllers = self.navigationController.viewControllers;
+
+    
     
 }
+- (IBAction)btnCameraOnTouch:(id)sender {
+    
+    CameraViewController *main= [ self.storyboard instantiateViewControllerWithIdentifier:@"CameraViewController"];
+    [self.navigationController pushViewController: (UIViewController *)main animated:YES];
+}
+
+
 @end

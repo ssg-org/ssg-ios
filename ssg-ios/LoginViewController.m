@@ -34,39 +34,14 @@
 - (void)viewWillLayoutSubviews{
 
     
-    
+    //Hide navigation bar
     [[self navigationController] setNavigationBarHidden:YES animated:YES];
     
     
-    //UIColor *color = [UIColor whiteColor];
-    //self.txtPassword.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Password" attributes:@{NSForegroundColorAttributeName: color}];
-    
-    //self.txtUsername.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Username" attributes:@{NSForegroundColorAttributeName: color}];
-    
-    
-//    NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
-//    // Set line break mode
-//    paragraphStyle.lineBreakMode = NSLineBreakByTruncatingMiddle;
-//    // Set text alignment
-//    paragraphStyle.alignment = NSTextAlignmentCenter;
-//    
-//    // Set font
-//    CGRect placeholderRect = CGRectMake(self.txtPassword.origin.x, (rect.size.height- self.font.pointSize)/2, rect.size.width, self.font.pointSize);
-//    
-//    NSDictionary *attributes = @{ NSFontAttributeName: [UIFont fontWithName:@"FuturaStd-Light" size:14], NSParagraphStyleAttributeName: paragraphStyle
-//                                  ,NSForegroundColorAttributeName :self.placeholderColor };
-    
-    
-    
-    
-   // [self.txtPassword setPlaceholderColor:[UIColor redColor]];
-    
-  
-    
+    //Create custom facebook login button
     self.customFacebookLogin=[[FBLoginView alloc] initWithReadPermissions:@[@"basic_info", @"email"]];
     self.customFacebookLogin.delegate=self;
     
-    //set facebook  button backgorund
     for (id obj in self.customFacebookLogin.subviews)
     {
         if ([obj isKindOfClass:[UIButton class]])
@@ -122,9 +97,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     [self initFacebook];
     [self initImageChanger];
-   // [self coreDataTest];
     
     self.txtPassword.delegate=self;
     self.txtUsername.delegate=self;
@@ -132,25 +107,24 @@
     _ssgCommunicator =[[SsgCommnicatorDelegate_FacebookLogin alloc]init];
     _ssgCommunicator.facebook_delegate=self;
     
-    _ssgCommunicatorEmailLogin =[[SsgCommunicatorDelegate_EmailLogin alloc]init
-                                 ];
+    _ssgCommunicatorEmailLogin =[[SsgCommunicatorDelegate_EmailLogin alloc]init];
     _ssgCommunicatorEmailLogin.email_delegate=self;
     
-   // self.txtPassword.text=@"admin";
-   // self.txtUsername.text=@"administrator@sredisvojgrad.com";
+
     
-    if ([self isUserLoggedWithEmail]) {
+    if ([self isUserLoggedWithEmailOrFacebook]) {
+        
+        
             MainViewController *main= [ self.storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
             [self.navigationController pushViewController: (UIViewController *)main animated:YES];
+        
+        
     }
     
     
-   
-    
-  
-    
     
 }
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -169,19 +143,53 @@
 #pragma - Action methods
 - (IBAction)btnEmailLoginOnTouch:(UIButton *)sender {
     
-    //Login user with email
-     [_ssgCommunicatorEmailLogin loginWithEmail:self.txtUsername.text :self.txtPassword.text];
+
+    if ([self validateUserInput]) {
+        //Login user with email
+        [_ssgCommunicatorEmailLogin loginWithEmail:self.txtUsername.text :self.txtPassword.text];
+        
+    }
+    else{
     
+      UIAlertView*  infoAlertView = [[UIAlertView alloc] initWithTitle:@"Info"
+                                                   message:@"Validation false"
+                                                  delegate:self
+                                         cancelButtonTitle:@"OK"
+                                         otherButtonTitles: nil];
+      [infoAlertView show];
+        
+    }
+   
+    
+}
+
+-(BOOL)validateUserInput {
+
+
+    if ([self.txtPassword.text length]==0 || [self.txtUsername.text length]==0) {
+     
+        return NO;
+    }
+    
+    return YES;
+    
+
 }
 
 - (IBAction)btnSignUpWithEmailOnTouch:(UIButton *)sender {
     
    
+    
+    
 
 }
 
 
--(BOOL)isUserLoggedWithEmail {
+
+
+
+
+-(BOOL)isUserLoggedWithEmailOrFacebook {
     
     AppDelegate * appDelagate  = (AppDelegate *)[UIApplication sharedApplication].delegate;
     NSManagedObjectContext *context =appDelagate.managedObjectContext;
@@ -194,6 +202,8 @@
                                               inManagedObjectContext:context];
     [fetchRequest setEntity:entity];
     NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+    
+    
     for (User *user in fetchedObjects) {
         
         if (user.access_token!=nil) {
@@ -211,24 +221,24 @@
 // This method will be called when the user information has been fetched
 - (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
                             user:(id<FBGraphUser>)user {
-   // self.profilePictureView.profileID = user.id;
-    //self.nameLabel.text = user.name;
     
-   // [_ssgCommunicator loginWithFacebook:user];
-    
-    
-    
-    
-//    MainViewController *main= [ self.storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
-//    
-//    main.dataFromLogin=[[NSMutableString alloc]init];
-//    [main.dataFromLogin appendString:@"Logged in with Facebook... "];
-//    [main.dataFromLogin appendString:user.name];
-//    [self.navigationController pushViewController: (UIViewController *)main animated:YES];
-    
-    
-    
+    if (![self isUser:cachedUser equalToUser:user]) {
+        cachedUser = user;
+        
+          NSLog(@"loginWithFetchedUserInfo  --------------------------");
+         [_ssgCommunicator loginWithFacebook:user];
+    }
 }
+
+
+- (BOOL)isUser:(id<FBGraphUser>)firstUser equalToUser:(id<FBGraphUser>)secondUser {
+    return
+    [firstUser.id isEqual:secondUser.id] &&
+    [firstUser.first_name isEqual:secondUser.first_name]&&
+    [firstUser.last_name isEqual:secondUser.last_name] &&
+    [firstUser[@"email"]  isEqual:secondUser[@"email"]];
+}
+
 
 // Logged-in user experience
 - (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView {
@@ -322,6 +332,60 @@
 }
 - (void)fetchingData:(NSError *)error {
 
+    
+
+}
+
+
+-(void)openMainScreen{
+
+
+}
+- (void)getResponse:(NSString*)code : (id)responseObject{
+    
+   // _code=code;
+   // _responseObject=responseObject;
+    if ([code isEqualToString:@"0"]) {
+        
+        
+        
+        MainViewController *main= [ self.storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
+        [self.navigationController pushViewController:main animated:NO];
+        
+       // [self.navigationController presentViewController:main animated:NO completion:nil];
+        
+    }
+    else{
+        
+        NSDictionary * documents = [[NSDictionary alloc]init];
+        documents=[responseObject objectForKey:@"status"];
+        NSString* message=[documents objectForKey:@"message"];
+        
+        UIAlertView*  infoAlertView = [[UIAlertView alloc] initWithTitle:@"Info"
+                                                                 message:message
+                                                                delegate:self
+                                                       cancelButtonTitle:@"OK"
+                                                       otherButtonTitles: nil];
+        [infoAlertView show];
+        
+        self.txtPassword.text=@"";
+        self.txtUsername.text=@"";
+        
+        
+        
+    }
+    
+}
+
+
+
+-(void)viewDidAppear:(BOOL)animated{
+
+    if ([SyncData get].signupEmail !=nil) {
+        self.txtUsername.text=[SyncData get].signupEmail;
+        self.txtPassword.text=[SyncData get].signupPassword;
+    }
+    
 
 }
 

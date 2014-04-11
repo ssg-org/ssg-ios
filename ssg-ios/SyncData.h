@@ -19,6 +19,13 @@
 @property (nonatomic,strong)UIImage * issue_image;
 @property (nonatomic,strong) NSString * issueResponseUrl;
 
+@property (nonatomic,strong) NSString * signupPassword;
+@property (nonatomic,strong) NSString * signupEmail;
+
+
+@property NSMutableDictionary * languageDictionary;
+
+
 
 
 

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+//#import "BWQuincyManager.h"
 
 @interface MainViewController : UIViewController
 
@@ -15,5 +16,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *lblWelcome;
 @property (strong, nonatomic) IBOutlet UITextView *lblYouCan;
 
+- (IBAction)btnCameraOnTouch:(id)sender;
 
 @end

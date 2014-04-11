@@ -89,6 +89,27 @@ static SyncData *__mainData;
     return temp;
 }
 
+-(void)initLanguageDictionary {
+
+
+    
+    typedef enum : NSUInteger {
+        zdravo,
+        lampa,
+        kuca,
+    } MojaEnumeracija;
+    
+    self.languageDictionary = [[NSMutableDictionary  alloc]init];
+    
+    
+    NSEnumerator * enumtest = [[NSEnumerator alloc]init];
+    
+    [enumtest setValue:zdravo forKey:@"bos"];
+    
+
+
+}
+
 
 
 @end

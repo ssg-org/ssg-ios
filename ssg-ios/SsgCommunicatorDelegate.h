@@ -16,7 +16,7 @@
 
 - (void)recivedData:(SyncData*)syncData;
 - (void)fetchingData:(NSError *)error;
-- (void)apiStatusCode:(NSInteger)code;
+- (void)getResponse:(NSString*)code : (id)responseObject;
 
 
 @end
