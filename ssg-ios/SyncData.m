@@ -24,6 +24,10 @@ static SyncData *__mainData;
                           insertNewObjectForEntityForName:@"Issue"
                           inManagedObjectContext:context];
         
+        
+        
+        self.numberOfFacebookRequest=0;
+        
     }
     return self;
 }

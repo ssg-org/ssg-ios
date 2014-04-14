@@ -24,6 +24,7 @@
 
 
 @property NSMutableDictionary * languageDictionary;
+@property int numberOfFacebookRequest;
 
 
 

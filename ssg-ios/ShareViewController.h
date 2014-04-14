@@ -17,9 +17,11 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *lblThankYou;
 
-@property (strong, nonatomic) IBOutlet UITextView *lblYourIssue;
+@property (strong, nonatomic) IBOutlet UILabel *lblYourIssue;
 
-@property (strong, nonatomic) IBOutlet UITextView *lblOrReport;
+
+@property (strong, nonatomic) IBOutlet UILabel *lblOrReport;
+
 
 
 - (IBAction)btnFacebookShare:(id)sender;

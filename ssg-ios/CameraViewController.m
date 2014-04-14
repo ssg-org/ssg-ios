@@ -386,6 +386,7 @@
 
 -(void)viewWillLayoutSubviews{
 [[self navigationController] setNavigationBarHidden:NO animated:YES];
+self.navigationItem.backBarButtonItem.title=[[NSBundle mainBundle] localizedStringForKey:@"mykeyback" value:@"" table:nil];
     
 }
 
@@ -398,7 +399,7 @@
     //Create button
     UIButton *button =  [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [button setImage:nextIcon forState:UIControlStateNormal];
-    [button setTitle:@" Next" forState:UIControlStateNormal];
+    [button setTitle: self.navigationItem.backBarButtonItem.title=[[NSBundle mainBundle] localizedStringForKey:@"mykeynext" value:@"" table:nil] forState:UIControlStateNormal];
     
     //Set button selector function
     [button addTarget:self action:@selector(Next)forControlEvents:UIControlEventTouchUpInside];

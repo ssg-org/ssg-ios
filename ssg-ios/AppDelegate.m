@@ -11,7 +11,8 @@
 #import <GoogleMaps/GoogleMaps.h>
 #import "FAImageView.h"
 #import <KSCrash/KSCrashInstallationEmail.h>
-
+#import "MainViewController.h"
+#import "MCLocalization.h"
 
 
 
@@ -65,7 +66,15 @@
     
     [self installCrashHandler];
     
+    [self setDefaultLanguage];
+    
     return YES;
+}
+
+
+-(void)setDefaultLanguage{
+    NSString * path = [[NSBundle mainBundle] pathForResource:@"strings.json" ofType:nil];
+    [MCLocalization loadFromJSONFile:path defaultLanguage:@"en"];
 }
 
 - (void) installCrashHandler
@@ -229,6 +238,13 @@
 }
 
 
+- (void)resetAppToFirstController
+{
+//    //self.window.rootViewController = [[MyMainViewController alloc] initWithNibName:nil bundle:nil];
+//    MainViewController *main= [ self instantiateViewControllerWithIdentifier:@"MainViewController"];
+//    [self.navigationController pushViewController:main animated:NO];
+    self.navigationController =(UINavigationController *) self.window.rootViewController;
+}
 
 
 @end

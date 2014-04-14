@@ -13,6 +13,7 @@
 
 - (IBAction)btnLogOut:(id)sender;
 
+@property (strong, nonatomic) IBOutlet UIButton *btnLanguage;
 
 
 

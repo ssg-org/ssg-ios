@@ -10,6 +10,8 @@
 #import "User.h"
 #import "AppDelegate.h"
 #import <FacebookSDK/FacebookSDK.h>
+#import "MCLocalization.h"
+#import "SyncData.h"
 
 @interface SettingsViewController ()
 
@@ -65,6 +67,7 @@
     [FBSession.activeSession closeAndClearTokenInformation];
     [FBSession.activeSession close];
     [FBSession setActiveSession:nil];
+    [SyncData get].numberOfFacebookRequest=0;
     
     if (![context save:&error]) {
         NSLog(@"Couldn't save: %@", error);
@@ -73,6 +76,12 @@
     //Go to login
      NSInteger count=[[self.navigationController viewControllers] count];
      [self.navigationController  popToViewController:[[self.navigationController viewControllers] objectAtIndex:count-3 ] animated:YES];
+}
+
+
+-(void)viewWillAppear:(BOOL)animated{
+  self.btnLanguage.titleLabel.text=[MCLocalization stringForKey:@"lang"];
+
 }
 
 

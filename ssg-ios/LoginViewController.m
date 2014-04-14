@@ -93,10 +93,15 @@
     self.lblDontHaveUlica.font = [UIFont fontWithName:@"FuturaStd-Light" size:10];
     self.txtUsername.font = [UIFont fontWithName:@"FuturaStd-Light" size:14];
     self.txtPassword.font = [UIFont fontWithName:@"FuturaStd-Light" size:14];
+    
 }
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    cachedUser=nil;
+    
+    
     
     [self initFacebook];
     [self initImageChanger];
@@ -222,12 +227,18 @@
 - (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
                             user:(id<FBGraphUser>)user {
     
-    if (![self isUser:cachedUser equalToUser:user]) {
+    
+    [SyncData get].numberOfFacebookRequest ++;
+    if ([SyncData get].numberOfFacebookRequest  == 1) {
         cachedUser = user;
+        NSLog(@"loginWithFetchedUserInfo  --------------------------");
         
-          NSLog(@"loginWithFetchedUserInfo  --------------------------");
-         [_ssgCommunicator loginWithFacebook:user];
+        [_ssgCommunicator loginWithFacebook:user];
     }
+    
+   // if (![self isUser:cachedUser equalToUser:user]) {
+    
+  //  }
 }
 
 
@@ -347,12 +358,10 @@
    // _responseObject=responseObject;
     if ([code isEqualToString:@"0"]) {
         
-        
-        
         MainViewController *main= [ self.storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
         [self.navigationController pushViewController:main animated:NO];
         
-       // [self.navigationController presentViewController:main animated:NO completion:nil];
+    
         
     }
     else{

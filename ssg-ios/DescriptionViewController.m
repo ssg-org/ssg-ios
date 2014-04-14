@@ -50,7 +50,7 @@
     //Create button
     UIButton *button =  [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [button setImage:nextIcon forState:UIControlStateNormal];
-    [button setTitle:@" Next" forState:UIControlStateNormal];
+    [button setTitle: self.navigationItem.backBarButtonItem.title=[[NSBundle mainBundle] localizedStringForKey:@"mykeynext" value:@"" table:nil] forState:UIControlStateNormal];
     
     //Set button selector function
     [button addTarget:self action:@selector(Next)forControlEvents:UIControlEventTouchUpInside];
@@ -125,6 +125,8 @@
     
     //Set selected category and city
     [self setSelectedCategoriesAndCity];
+    
+     self.navigationItem.backBarButtonItem.title=[[NSBundle mainBundle] localizedStringForKey:@"mykeyback" value:@"" table:nil];
 }
 
 -(void)setSelectedCategoriesAndCity {

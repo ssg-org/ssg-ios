@@ -1,0 +1,22 @@
+{
+    "en": {
+        "greeting": "Hello!",
+        "message": "Tap on the buttons below to switch languages",
+        "glory": "Glory Glory, %name%!",
+        "mustache": "mustache",
+        "lovely-mustache": "What a wonderful {{mustache}} you have!",
+        "back":"Back",
+        "lang":"Language"
+        
+        
+    },
+    "bos": {
+        "greeting": "Привет!",
+        "message": "Нажимайте на кнопки для смены языка",
+        "glory": "Славься славься, %name%!",
+        "mustache": "усы",
+        "lovely-mustache": "Какие замечательные у Вас {{mustache}}!",
+        "back":"Nazad",
+        "lang":"Jezik"
+    }
+}

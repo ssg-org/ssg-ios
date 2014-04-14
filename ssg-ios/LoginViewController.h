@@ -27,6 +27,7 @@
    // id _responseObject;
     id<FBGraphUser> cachedUser;
     
+    
 }
 
 //Property
