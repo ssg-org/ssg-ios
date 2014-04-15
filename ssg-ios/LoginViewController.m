@@ -13,6 +13,7 @@
 #import "User.h"
 #import "City.h"
 #import "CustomTextField.h"
+#import "MCLocalization.h"
 
 @interface LoginViewController ()
 
@@ -148,6 +149,7 @@
 #pragma - Action methods
 - (IBAction)btnEmailLoginOnTouch:(UIButton *)sender {
     
+    
 
     if ([self validateUserInput]) {
         //Login user with email
@@ -164,8 +166,6 @@
       [infoAlertView show];
         
     }
-   
-    
 }
 
 -(BOOL)validateUserInput {
@@ -308,6 +308,7 @@
 }
 
 -(UIStatusBarStyle)preferredStatusBarStyle{
+    
     return UIStatusBarStyleLightContent;
 }
 
@@ -354,8 +355,7 @@
 }
 - (void)getResponse:(NSString*)code : (id)responseObject{
     
-   // _code=code;
-   // _responseObject=responseObject;
+  
     if ([code isEqualToString:@"0"]) {
         
         MainViewController *main= [ self.storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
@@ -387,6 +387,15 @@
 }
 
 
+-(void)viewWillAppear:(BOOL)animated{
+
+
+    [self.btnLogin setBackgroundImage:[UIImage imageNamed:[MCLocalization stringForKey:@"loginbtn"]] forState:UIControlStateNormal];
+    self.lblDontHaveUlica.text=[MCLocalization  stringForKey:@"donthave"];
+    self.lblOrQuickLogin.text = [MCLocalization stringForKey:@"orquicklogin"];
+    self.txtPassword.placeholder=[MCLocalization stringForKey:@"password"];
+    self.txtUsername.placeholder=[MCLocalization stringForKey:@"email"];
+}
 
 -(void)viewDidAppear:(BOOL)animated{
 
@@ -394,8 +403,6 @@
         self.txtUsername.text=[SyncData get].signupEmail;
         self.txtPassword.text=[SyncData get].signupPassword;
     }
-    
-
 }
 
 @end

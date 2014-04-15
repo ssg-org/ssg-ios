@@ -11,6 +11,7 @@
 #import "MapViewController.h"
 #import "CitiesViewController.h"
 #import "CustomTextField.h"
+#import "MCLocalization.h"
 
 @interface DescriptionViewController ()
 
@@ -50,7 +51,7 @@
     //Create button
     UIButton *button =  [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [button setImage:nextIcon forState:UIControlStateNormal];
-    [button setTitle: self.navigationItem.backBarButtonItem.title=[[NSBundle mainBundle] localizedStringForKey:@"mykeynext" value:@"" table:nil] forState:UIControlStateNormal];
+    [button setTitle:[MCLocalization stringForKey:@"next"] forState:UIControlStateNormal];
     
     //Set button selector function
     [button addTarget:self action:@selector(Next)forControlEvents:UIControlEventTouchUpInside];
@@ -100,33 +101,16 @@
     }
 }
 
--(void)viewDidAppear:(BOOL)animated{
 
-   
-    
-    
-    
-}
 -(void)viewDidLayoutSubviews{
-   
-    //Change  title label property
-    self.txtTitle.paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
-    self.txtTitle.paragraphStyle.lineBreakMode = NSLineBreakByTruncatingMiddle;
-    self.txtTitle.paragraphStyle.alignment = NSTextAlignmentLeft;
     
-    //Set font
-    self.txtTitle.font=[UIFont fontWithName:@"FuturaStd-Light" size:14];
-    self.btnCategory.titleLabel.font=[UIFont fontWithName:@"FuturaStd-Light" size:14];
-    self.btnCity.titleLabel.font=[UIFont fontWithName:@"FuturaStd-Light" size:14];
-    self.txtCustomDescription.font =[UIFont fontWithName:@"FuturaStd-Light" size:14];
+    [self.txtTitle setValue:[UIColor  lightGrayColor] forKeyPath:@"_placeholderLabel.textColor"];
     
     //Set custom description placeholder
     [self.txtCustomDescription setPlaceholder:@"Description"];
     
     //Set selected category and city
     [self setSelectedCategoriesAndCity];
-    
-     self.navigationItem.backBarButtonItem.title=[[NSBundle mainBundle] localizedStringForKey:@"mykeyback" value:@"" table:nil];
 }
 
 -(void)setSelectedCategoriesAndCity {
@@ -153,6 +137,26 @@
         [[SyncData get].current_issue.city_id intValue]==0 )
     
     {
+        
+        if ([self.txtTitle.text length]==0 ) {
+         
+            NSLog(@"title je prazan");
+            
+        }
+        
+        if ([self.txtCustomDescription.text length] == 0) {
+             NSLog(@"description je prazan");
+        }
+        
+        if ( [[SyncData get].current_issue.category_id  intValue]==0) {
+             NSLog(@"kategorija je prazan");
+        }
+        if ( [[SyncData get].current_issue.city_id intValue]==0) {
+             NSLog(@"grad je prazan");
+        }
+        
+        
+        
         return NO;
     }
     return YES;
@@ -172,7 +176,14 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     
-   
+    
+   self.navigationItem.backBarButtonItem.title= [MCLocalization stringForKey:@"back"];
+    self.txtTitle.placeholder=[MCLocalization stringForKey:@"title"];
+    [self.btnCategory setTitle:[MCLocalization stringForKey:@"category"] forState:UIControlStateNormal];
+    [self.btnCity setTitle:[MCLocalization stringForKey:@"city"] forState:UIControlStateNormal];
+    [self.txtCustomDescription setPlaceholder:[MCLocalization stringForKey:@"description"]];
+    
+    
   
 }
 
@@ -205,6 +216,8 @@
 
     self.selectedCategory=category;
     [SyncData get].current_issue.category_id=self.selectedCategory.id_;
+    
+    NSLog(@"delegat za kategoriju pozvan");
 }
 
 -(void)selectSubCategory:(Categories*)category{

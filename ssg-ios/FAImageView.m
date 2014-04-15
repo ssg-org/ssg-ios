@@ -54,9 +54,9 @@
     //The default icon is the ban icon
     [self setDefaultIcon:FABan];
     
-    _defaultView.font = [UIFont fontAwesomeFontOfSize:self.bounds.size.height];
+    _defaultView.font = [UIFont fontAwesomeFontOfSize:self.bounds.size.height/2];
     _defaultView.textAlignment = NSTextAlignmentCenter;
-    _defaultView.adjustsFontSizeToFitWidth = YES;
+    //_defaultView.adjustsFontSizeToFitWidth = YES;
     
     //UIAppearance selectors
     _defaultView.textColor = [UIColor whiteColor];

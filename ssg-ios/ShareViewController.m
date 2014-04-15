@@ -11,6 +11,8 @@
 #import "DescriptionViewController.h"
 #import "MapViewController.h"
 #import <Social/Social.h>
+#import "MCLocalization.h"
+
 
 @interface ShareViewController ()
 
@@ -26,6 +28,20 @@
         // Custom initialization
     }
     return self;
+}
+
+
+-(void)viewWillAppear:(BOOL)animated{
+    
+  //  "thankyou": "Thank you!",
+   // "yourissue": "Your issue has been reported. Share it with your friends",
+   // "orreportanother": "or report another one",
+
+    
+    self.lblThankYou.text =[MCLocalization stringForKey:@"thankyou"];
+    self.lblYourIssue.text=[MCLocalization stringForKey:@"yourissue"];
+    self.lblOrReport.text=[MCLocalization stringForKey:@"orreportanother"];
+
 }
 
 - (void)viewDidLoad
@@ -60,8 +76,10 @@
 
     //Remove info for last issue
     [SyncData get].issue_image=nil;
-    [SyncData get].current_issue=nil;
+    [SyncData get].current_issue.city_id=nil;
+    [SyncData get].current_issue.category_id=nil;
     
+
     NSInteger count=[[self.navigationController viewControllers] count];
     
     [self.navigationController  popToViewController:[[self.navigationController viewControllers] objectAtIndex:count-4 ] animated:YES];

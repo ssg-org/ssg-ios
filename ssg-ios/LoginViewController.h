@@ -47,5 +47,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *lblOrQuickLogin;
 @property (strong, nonatomic) IBOutlet UILabel *lblDontHaveUlica;
 
+@property (strong, nonatomic) IBOutlet UIButton *btnLogin;
+
+
 
 @end

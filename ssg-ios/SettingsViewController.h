@@ -15,6 +15,8 @@
 
 @property (strong, nonatomic) IBOutlet UIButton *btnLanguage;
 
+@property (strong, nonatomic) IBOutlet UIButton *btnAbout;
 
+@property (strong, nonatomic) IBOutlet UIButton *btnLogout;
 
 @end

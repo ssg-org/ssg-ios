@@ -26,7 +26,7 @@
 
 
 
-@property (strong, nonatomic) IBOutlet CustomTextField *txtTitle;
+@property (strong, nonatomic) IBOutlet UITextField *txtTitle;
 @property (strong, nonatomic) IBOutlet UITextField *txtCity;
 
 @property Categories * selectedCategory;

@@ -63,9 +63,18 @@
         
     
     
+        NSDictionary * status = [[NSDictionary alloc]init];
+        status=[responseObject objectForKey:@"status"];
+        NSString* code=[[status objectForKey:@"code"]stringValue] ;
+        [self.createIssue_delegate getResponse:code :responseObject];
     
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
         NSLog(@"Error: %@ ***** %@", operation.responseString, error);
+        NSDictionary * status = [[NSDictionary alloc]init];
+        status=[operation.responseObject objectForKey:@"status"];
+        NSString* code=[[status objectForKey:@"code"]stringValue] ;
+        [self.createIssue_delegate getResponse:code :operation.responseObject];
         
     }];
     

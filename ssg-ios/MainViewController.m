@@ -9,6 +9,7 @@
 #import "MainViewController.h"
 #import "AppDelegate.h"
 #import "CameraViewController.h"
+#import "MCLocalization.h"
 
 @interface MainViewController ()
 
@@ -72,6 +73,9 @@
 -(void)viewWillAppear:(BOOL)animated{
 
     
+    self.lblWelcome.text=[MCLocalization stringForKey:@"welcome"];
+    self.lblYouCan.text=[MCLocalization stringForKey:@"youcan"];
+    self.navigationItem.backBarButtonItem.title= [MCLocalization stringForKey:@"back"];
 }
 
 
@@ -79,7 +83,8 @@
 -(void)viewWillLayoutSubviews{
 
   [[self navigationController] setNavigationBarHidden:YES animated:YES];
-   
+   // [self.navigationController.navigationItem.backBarButtonItem setTitle:[MCLocalization stringForKey:@"back"]];
+ 
     
     
     

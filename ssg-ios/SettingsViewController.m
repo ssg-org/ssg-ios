@@ -80,7 +80,13 @@
 
 
 -(void)viewWillAppear:(BOOL)animated{
-  self.btnLanguage.titleLabel.text=[MCLocalization stringForKey:@"lang"];
+    
+   //self.btnLanguage.titleLabel.text=[MCLocalization stringForKey:@"lang"];
+    [self.btnLanguage setTitle:[MCLocalization stringForKey:@"lang"] forState:UIControlStateNormal];
+    [self.btnAbout setTitle:[MCLocalization stringForKey:@"about"] forState:UIControlStateNormal];
+    [self.btnLogout setTitle:[MCLocalization stringForKey:@"logout"] forState:UIControlStateNormal];
+  
+    
 
 }
 

@@ -8,6 +8,12 @@
 
 #import "MapViewController.h"
 #import "SyncData.h"
+#import "SsgAPI.h"
+#import "MCLocalization.h"
+#import "Reachability.h"
+#import <SystemConfiguration/SystemConfiguration.h>
+#import "ShareViewController.h"
+
 
 @interface MapViewController ()
 
@@ -120,9 +126,37 @@ didTapAtCoordinate:		(CLLocationCoordinate2D) 	coordinate{
 }
 
 
+
+//Class.m
+- (BOOL)connected
+{
+    Reachability *reachability = [Reachability reachabilityForInternetConnection];
+    NetworkStatus networkStatus = [reachability currentReachabilityStatus];
+    return networkStatus != NotReachable;
+}
 - (IBAction)btnCreateIssueOnTouch:(id)sender {
 
-    [_ssgCommunicatorCreateIssueDelegate createIssue:[SyncData get].current_issue :[SyncData get].issue_image ];
+    self.btnReportIssue.enabled=NO;
+    
+    
+    if (![self connected]) {
+        // not connected
+       UIAlertView* infoAlertView = [[UIAlertView alloc] initWithTitle:@"Info"
+                                                   message:[MCLocalization stringForKey:@"no_internet"]
+                                                  delegate:self
+                                         cancelButtonTitle:[MCLocalization stringForKey:@"ok"]
+                                         otherButtonTitles: nil];
+        [infoAlertView show];
+        
+        self.btnReportIssue.enabled=YES;
+
+        
+    } else {
+        
+        // connected, do some internet stuff
+         [_ssgCommunicatorCreateIssueDelegate createIssue:[SyncData get].current_issue :[SyncData get].issue_image ];
+        
+    }
     
 }
 
@@ -135,4 +169,43 @@ didTapAtCoordinate:		(CLLocationCoordinate2D) 	coordinate{
 
 
 }
+
+- (void)getResponse:(NSString*)code : (id)responseObject{
+
+
+    
+    if ([code isEqualToString:@"0"]) {
+        
+        //Open share controller
+        
+        
+        ShareViewController *main= [ self.storyboard instantiateViewControllerWithIdentifier:@"ShareViewController"];
+        [self.navigationController pushViewController:main animated:NO];
+
+        
+    }
+    else{
+        
+        NSDictionary * documents = [[NSDictionary alloc]init];
+        documents=[responseObject objectForKey:@"status"];
+        NSString* message=[documents objectForKey:@"message"];
+        
+        UIAlertView*  infoAlertView = [[UIAlertView alloc] initWithTitle:@"Info"
+                                                                 message:message
+                                                                delegate:self
+                                                       cancelButtonTitle:@"OK"
+                                                       otherButtonTitles: nil];
+        [infoAlertView show];
+        
+         self.btnReportIssue.enabled=YES;
+      
+    
+    }
+
+    
+    
+}
+
+
+
 @end

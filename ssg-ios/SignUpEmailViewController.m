@@ -11,6 +11,7 @@
 #import "City.h"
 #import "User.h"
 #import "AppDelegate.h"
+#import "MCLocalization.h"
 
 @interface SignUpEmailViewController ()
 
@@ -53,23 +54,28 @@
     
     if (selectedCity!=nil) {
         [self.btnCity setTitle:selectedCity.city forState:UIControlStateNormal];
-       //  self.btnCity.titleLabel.font=[UIFont fontWithName:@"FuturaStd-Light" size:14];
     }
+    else
+    {
+        [self.btnCity setTitle:[[MCLocalization stringForKey:@"city"]lowercaseString ] forState:UIControlStateNormal] ;
+    }
+    
+    self.txtFirstName.placeholder=[MCLocalization stringForKey:@"firstname"];
+    self.txtLastName.placeholder=[MCLocalization stringForKey:@"lastname"];
+    self.txtEmail.placeholder=[[MCLocalization stringForKey:@"email"]lowercaseString ];
+    self.txtPassword.placeholder=[[MCLocalization stringForKey:@"password"] lowercaseString] ;
+    self.lblGetStarted.text=[MCLocalization stringForKey:@"getstarted"];
+    [self.btnBackToLogin setTitle:[MCLocalization stringForKey:@"backtologin"] forState:UIControlStateNormal];
+    [self.btnSignUp setBackgroundImage:[UIImage imageNamed:[MCLocalization stringForKey:@"signupbutton"]] forState:UIControlStateNormal];
+    
 
 }
--(void)viewDidAppear:(BOOL)animated{
-    
-//    
-//    UIColor *color = [UIColor blackColor];
-//    self.txtFirstName.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"First name" attributes:@{NSForegroundColorAttributeName: color,NSFontAttributeName:[UIFont fontWithName:@"FuturaStd-Light" size:12]}];
-    
-    
-    
-}
+
 -(void)viewWillLayoutSubviews{
 
     self.btnCity.layer.cornerRadius=3.00f;
     [self setFonts];
+    
    
     
 }
@@ -78,14 +84,7 @@
     //self.btnCity.titleLabel.font=[UIFont fontWithName:@"FuturaStd-Light" size:14];
     self.btnSignUp.titleLabel.font=[UIFont fontWithName:@"FuturaStd-Heavy" size:16];
     self.btnBackToLogin.titleLabel.font=[UIFont fontWithName:@"FuturaStd-Light" size:16];
-    [self.btnBackToLogin setTitle:@"Back to login" forState:UIControlStateNormal];
-    
-    
-   // self.txtEmail.font=[UIFont fontWithName:@"FuturaStd-Light" size:14];
-   // self.txtFirstName.font=[UIFont fontWithName:@"FuturaStd-Light" size:14];
-   // self.txtLastName.font=[UIFont fontWithName:@"FuturaStd-Light" size:14];
-   // self.txtPassword.font=[UIFont fontWithName:@"FuturaStd-Light" size:14];
-    
+   // [self.btnBackToLogin setTitle:@"Back to login" forState:UIControlStateNormal];
 }
 
 -(void)setDelagate {
@@ -238,9 +237,9 @@
     
 }
 
-#pragma - Cities delegate 
-
+#pragma - Cities delegate
 -(void)getSelectedCity :(City*)city{
+    
     selectedCity=city;
     
 }
@@ -283,6 +282,7 @@
     [SyncData get].signupPassword=self.txtPassword.text;
     [self.navigationController popViewControllerAnimated:YES];
 }
+
 
 
 @end

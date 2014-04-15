@@ -73,6 +73,7 @@
 
 
 -(void)setDefaultLanguage{
+    
     NSString * path = [[NSBundle mainBundle] pathForResource:@"strings.json" ofType:nil];
     [MCLocalization loadFromJSONFile:path defaultLanguage:@"en"];
 }

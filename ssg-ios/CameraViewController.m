@@ -9,6 +9,7 @@
 #import "CameraViewController.h"
 #import "SyncData.h"
 #import "DescriptionViewController.h"
+#import "MCLocalization.h"
 
 @interface CameraViewController ()
 
@@ -370,6 +371,7 @@
     self.btnSettings.hidden=show;
     self.btnAcceptPhoto.hidden = !show;
     self.btnDeclinePhoto.hidden = !show;
+    button.hidden=!show;
    
     if (!show) {
         
@@ -380,26 +382,26 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     
- 
+ self.navigationItem.backBarButtonItem.title= [MCLocalization stringForKey:@"back"];
     
 }
 
 -(void)viewWillLayoutSubviews{
 [[self navigationController] setNavigationBarHidden:NO animated:YES];
-self.navigationItem.backBarButtonItem.title=[[NSBundle mainBundle] localizedStringForKey:@"mykeyback" value:@"" table:nil];
     
 }
 
-
+UIButton *button;
 -(UIBarButtonItem*)createNextButton{
     
     //Get icon
     UIImage *nextIcon = [UIImage imageNamed:@"next_icon.png"];
     
     //Create button
-    UIButton *button =  [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    button =  [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [button setImage:nextIcon forState:UIControlStateNormal];
-    [button setTitle: self.navigationItem.backBarButtonItem.title=[[NSBundle mainBundle] localizedStringForKey:@"mykeynext" value:@"" table:nil] forState:UIControlStateNormal];
+    [button setTitle:[MCLocalization stringForKey:@"next"] forState:UIControlStateNormal];
+     //self.navigationItem.backBarButtonItem.title=[[NSBundle mainBundle] localizedStringForKey:@"next" value:@"" table:nil] forState:UIControlStateNormal];
     
     //Set button selector function
     [button addTarget:self action:@selector(Next)forControlEvents:UIControlEventTouchUpInside];
@@ -418,28 +420,42 @@ self.navigationItem.backBarButtonItem.title=[[NSBundle mainBundle] localizedStri
     //Create UIBarButtonItem
     UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithCustomView:backButtonView];
     
+    button.hidden=YES;
     return barButton;
     
 }
 
 -(void)Next{
 
-    if ([SyncData get].issue_image!=nil) {
-        
-        DescriptionViewController *descriptionViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"DescriptionViewController" ];
-        [self.navigationController pushViewController:descriptionViewController animated:YES];
-    }
-    else{
-        infoAlertView = [[UIAlertView alloc] initWithTitle:@"Info"
-                                                   message:@"Please take picture!"
-                                                  delegate:self
-                                         cancelButtonTitle:@"OK"
-                                         otherButtonTitles: nil];
-        [infoAlertView show];
+//    if ([SyncData get].issue_image!=nil) {
+//        
+//        DescriptionViewController *descriptionViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"DescriptionViewController" ];
+//        [self.navigationController pushViewController:descriptionViewController animated:YES];
+//    }
+//    else{
+//        infoAlertView = [[UIAlertView alloc] initWithTitle:@"Info"
+//                                                   message:[MCLocalization stringForKey:@"camera_validation"]
+//                                                  delegate:self
+//                                         cancelButtonTitle:[MCLocalization stringForKey:@"ok"]
+//                                         otherButtonTitles: nil];
+//        [infoAlertView show];
+//
+//    
+//    
+//    }
+    
+    
+    //Accept photo from camera
+    [SyncData get].issue_image=[[UIImage alloc]init];
+    [SyncData get].issue_image=self.imagePreview.image;
+    
+    
+    
+    DescriptionViewController *descriptionViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"DescriptionViewController" ];
+    [self.navigationController pushViewController:descriptionViewController animated:YES];
+    
+    [self btnDeclinePhotoOnTouch:self];
 
-    
-    
-    }
     
     
 }
