@@ -47,7 +47,11 @@
     _ssgCommunicatorCreateIssueDelegate.createIssue_delegate=self;
 
     
-    
+    //Init loading animation
+    spinner=[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    spinner.center=CGPointMake(160.0,240.0 );
+    spinner.hidesWhenStopped=YES;
+    [self.view addSubview:spinner];
   
     
 }
@@ -137,11 +141,13 @@ didTapAtCoordinate:		(CLLocationCoordinate2D) 	coordinate{
 }
 - (IBAction)btnCreateIssueOnTouch:(id)sender {
 
+    [spinner startAnimating];
     self.btnReportIssue.enabled=NO;
     
     
     if (![self connected]) {
         // not connected
+       [spinner stopAnimating];
        UIAlertView* infoAlertView = [[UIAlertView alloc] initWithTitle:@"Info"
                                                    message:[MCLocalization stringForKey:@"no_internet"]
                                                   delegate:self
@@ -150,6 +156,8 @@ didTapAtCoordinate:		(CLLocationCoordinate2D) 	coordinate{
         [infoAlertView show];
         
         self.btnReportIssue.enabled=YES;
+        
+        
 
         
     } else {
@@ -178,7 +186,7 @@ didTapAtCoordinate:		(CLLocationCoordinate2D) 	coordinate{
     if ([code isEqualToString:@"0"]) {
         
         //Open share controller
-        
+        [spinner stopAnimating];
         
         ShareViewController *main= [ self.storyboard instantiateViewControllerWithIdentifier:@"ShareViewController"];
         [self.navigationController pushViewController:main animated:NO];
@@ -186,7 +194,7 @@ didTapAtCoordinate:		(CLLocationCoordinate2D) 	coordinate{
         
     }
     else{
-        
+        [spinner stopAnimating];
         NSDictionary * documents = [[NSDictionary alloc]init];
         documents=[responseObject objectForKey:@"status"];
         NSString* message=[documents objectForKey:@"message"];

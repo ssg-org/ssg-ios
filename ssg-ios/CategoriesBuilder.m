@@ -54,10 +54,10 @@
 
     }
     
-    if ( [all_categories count]>[self getAllCategoriesFromDatabase].count) {
+    //if ( [all_categories count]>[self getAllCategoriesFromDatabase].count) {
         
         //[context save:nil];
-    }
+   // }
     
     [Builder serialize:data filePath:@"categories.json"];
     return all_categories;

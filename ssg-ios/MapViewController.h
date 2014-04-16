@@ -18,6 +18,7 @@
     GMSMarker *marker ;
     
     SsgCommunicatorDelegate_CreateIssue * _ssgCommunicatorCreateIssueDelegate;
+    UIActivityIndicatorView *spinner;
   
     
 }
