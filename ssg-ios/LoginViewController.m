@@ -150,25 +150,25 @@
 - (IBAction)btnEmailLoginOnTouch:(UIButton *)sender {
     
     
-    MainViewController *main= [ self.storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
-    [self.navigationController pushViewController: (UIViewController *)main animated:YES];
+   // MainViewController *main= [ self.storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
+    //[self.navigationController pushViewController: (UIViewController *)main animated:YES];
     
     
-//    if ([self validateUserInput]) {
-//        //Login user with email
-//        [_ssgCommunicatorEmailLogin loginWithEmail:self.txtUsername.text :self.txtPassword.text];
-//        
-//    }
-//    else{
-//    
-//      UIAlertView*  infoAlertView = [[UIAlertView alloc] initWithTitle:@"Info"
-//                                                   message:@"Validation false"
-//                                                  delegate:self
-//                                         cancelButtonTitle:@"OK"
-//                                         otherButtonTitles: nil];
-//      [infoAlertView show];
-//        
-//    }
+   if ([self validateUserInput]) {
+        //Login user with email
+        [_ssgCommunicatorEmailLogin loginWithEmail:self.txtUsername.text :self.txtPassword.text];
+        
+    }
+    else{
+    
+      UIAlertView*  infoAlertView = [[UIAlertView alloc] initWithTitle:@"Info"
+                                                   message:[MCLocalization stringForKey:@"descrption_validation"]
+                                                  delegate:self
+                                         cancelButtonTitle:[MCLocalization stringForKey:@"ok"]
+                                         otherButtonTitles: nil];
+      [infoAlertView show];
+        
+    }
 }
 
 -(BOOL)validateUserInput {

@@ -32,15 +32,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    
     // Init camera capturing
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         
         //Init cameras
         [self initBackCamera];
         [self initFrontCamera];
-        
-        //Start default camera
         [self startBackCamera];
+       
         
     }
     else {
@@ -304,7 +305,7 @@
 - (IBAction)btnDeclinePhotoOnTouch:(id)sender {
     
     [self hideCameraButtons:FALSE];
-    imagePreview.hidden=YES;
+    //imagePreview.hidden=YES;
     
     if (isFront) {
         [session_front startRunning];
@@ -324,7 +325,7 @@
     DescriptionViewController *descriptionViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"DescriptionViewController" ];
     [self.navigationController pushViewController:descriptionViewController animated:YES];
     
-    [self btnDeclinePhotoOnTouch:self];
+    //[self btnDeclinePhotoOnTouch:self];
     
 }
 
@@ -340,19 +341,24 @@
     if (!show) {
         
         imagePreview.image = NULL;
+       //imagePreview.hidden=YES;
+        
+        
     }
 }
+
 
 
 -(void)viewWillAppear:(BOOL)animated{
     
  self.navigationItem.backBarButtonItem.title= [MCLocalization stringForKey:@"back"];
     self.navigationItem.title = [MCLocalization stringForKey:@"camera_bar"];
-   
+    
     
 }
 
 -(void)viewWillLayoutSubviews{
+    
 [[self navigationController] setNavigationBarHidden:NO animated:YES];
     
 }
@@ -399,7 +405,7 @@ UIButton *button;
     DescriptionViewController *descriptionViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"DescriptionViewController" ];
     [self.navigationController pushViewController:descriptionViewController animated:YES];
     
-    [self btnDeclinePhotoOnTouch:self];
+   // [self btnDeclinePhotoOnTouch:self];
 
 }
 
@@ -422,7 +428,7 @@ UIButton *button;
     
     [picker dismissModalViewControllerAnimated:YES];
     [self hideCameraButtons:TRUE];
-    imagePreview.hidden=NO;
+    //imagePreview.hidden=NO;
     [self setPreviewImage:img];
 }
 
@@ -431,16 +437,11 @@ UIButton *button;
     [super viewDidAppear:animated];
 }
 
--(IBAction)resetCamera:(id)sender {
-    imagePreview.image = NULL;
-    //[session startRunning];
-    if (isFront) {
-        [session_front startRunning];
-    }
-    else{
-        [session_back startRunning];
-    }
-}
+
+
+
+
+
 
 - (IBAction)btnOpenGalleryOnTouch:(id)sender {
     

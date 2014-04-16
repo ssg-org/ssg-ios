@@ -363,25 +363,19 @@
                         <viewControllerLayoutGuide type="top" id="Qyg-o3-f13"/>
                         <viewControllerLayoutGuide type="bottom" id="xaN-f2-zZ2"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="SmR-n8-ueA">
+                    <view key="view" clipsSubviews="YES" contentMode="scaleAspectFill" id="SmR-n8-ueA">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mQr-s3-VzC" userLabel="Camera View">
-                                <rect key="frame" x="0.0" y="64" width="320" height="370"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mQr-s3-VzC" userLabel="Camera View">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="320" id="OEA-a0-ZOh"/>
-                                </constraints>
+                                <color key="backgroundColor" red="0.26274511218070984" green="0.85882359743118286" blue="0.53333336114883423" alpha="1" colorSpace="deviceRGB"/>
                             </view>
-                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera_sample" translatesAutoresizingMaskIntoConstraints="NO" id="G8O-pl-goq">
-                                <rect key="frame" x="0.0" y="64" width="320" height="370"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G8O-pl-goq">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="320" id="uOj-Va-D25"/>
-                                </constraints>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RZi-BX-Nfl">
                                 <rect key="frame" x="0.0" y="434" width="320" height="134"/>
@@ -482,20 +476,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="mQr-s3-VzC" firstAttribute="leading" secondItem="SmR-n8-ueA" secondAttribute="leading" id="85v-NO-hCt"/>
-                            <constraint firstAttribute="trailing" secondItem="mQr-s3-VzC" secondAttribute="trailing" id="BrO-gm-2X4"/>
-                            <constraint firstAttribute="trailing" secondItem="G8O-pl-goq" secondAttribute="trailing" id="DDA-2G-jeX"/>
-                            <constraint firstItem="RZi-BX-Nfl" firstAttribute="top" secondItem="mQr-s3-VzC" secondAttribute="bottom" id="LUJ-Mi-5HL"/>
-                            <constraint firstItem="G8O-pl-goq" firstAttribute="leading" secondItem="SmR-n8-ueA" secondAttribute="leading" id="PvX-pJ-FY8"/>
-                            <constraint firstItem="G8O-pl-goq" firstAttribute="top" secondItem="SmR-n8-ueA" secondAttribute="top" constant="64" id="RI1-NL-6PK"/>
                             <constraint firstItem="RZi-BX-Nfl" firstAttribute="leading" secondItem="SmR-n8-ueA" secondAttribute="leading" id="WeK-ro-cq8"/>
                             <constraint firstAttribute="trailing" secondItem="RZi-BX-Nfl" secondAttribute="trailing" id="X3a-DL-Y0L"/>
-                            <constraint firstAttribute="bottom" secondItem="G8O-pl-goq" secondAttribute="bottom" constant="134" id="XZZ-9l-nDe"/>
                             <constraint firstAttribute="trailing" secondItem="gAA-Iu-XmS" secondAttribute="trailing" id="bFO-MD-WXm"/>
-                            <constraint firstItem="mQr-s3-VzC" firstAttribute="top" secondItem="Qyg-o3-f13" secondAttribute="bottom" constant="44" id="c49-c0-EOh"/>
                             <constraint firstItem="gAA-Iu-XmS" firstAttribute="leading" secondItem="SmR-n8-ueA" secondAttribute="leading" id="dRH-rC-tPd"/>
                             <constraint firstAttribute="bottom" secondItem="gAA-Iu-XmS" secondAttribute="bottom" constant="134" id="ixi-eA-Dvk"/>
-                            <constraint firstItem="mQr-s3-VzC" firstAttribute="top" secondItem="SmR-n8-ueA" secondAttribute="top" constant="64" id="oz8-Fi-lFL"/>
                             <constraint firstItem="xaN-f2-zZ2" firstAttribute="top" secondItem="RZi-BX-Nfl" secondAttribute="bottom" id="rIy-o3-CDR"/>
                         </constraints>
                     </view>
@@ -904,14 +889,14 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GB2-nu-DFV" customClass="UIPlaceHolderTextView">
                                 <rect key="frame" x="14" y="218" width="306" height="131"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                             </textView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qBb-hV-Oun">
                                 <rect key="frame" x="0.0" y="86" width="17" height="263"/>
@@ -1170,7 +1155,6 @@ Share it with your friends</string>
     <resources>
         <image name="camera_auto" width="50" height="23"/>
         <image name="camera_main" width="320" height="79"/>
-        <image name="camera_sample" width="320" height="372"/>
         <image name="camera_settings" width="37" height="37"/>
         <image name="camera_settings_bg" width="320" height="51"/>
         <image name="camera_share" width="37" height="37"/>
