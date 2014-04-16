@@ -102,6 +102,9 @@
     
 }
 
+- (void)getResponse:(NSString*)code : (id)responseObject{
+
+}
 
 
 @end

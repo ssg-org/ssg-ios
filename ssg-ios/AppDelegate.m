@@ -13,6 +13,7 @@
 #import <KSCrash/KSCrashInstallationEmail.h>
 #import "MainViewController.h"
 #import "MCLocalization.h"
+#import "DefaultLanguage.h"
 
 
 
@@ -72,10 +73,58 @@
 }
 
 
+
+
 -(void)setDefaultLanguage{
     
     NSString * path = [[NSBundle mainBundle] pathForResource:@"strings.json" ofType:nil];
-    [MCLocalization loadFromJSONFile:path defaultLanguage:@"en"];
+    
+  [MCLocalization loadFromJSONFile:path defaultLanguage:@"bos"];
+    
+    if (![self checkDefaultLanguage]) {
+        //Default language not exist
+        
+        DefaultLanguage *language = [NSEntityDescription
+                                     insertNewObjectForEntityForName:@"DefaultLanguage"
+                                     inManagedObjectContext:self.managedObjectContext];
+    
+        
+        language.language=@"bos";
+        
+        [self.managedObjectContext save:nil];
+        [MCLocalization sharedInstance].language = @"bos";
+        
+    }
+    }
+
+-(BOOL)checkDefaultLanguage {
+
+
+
+    
+    AppDelegate * appDelagate  = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    NSManagedObjectContext *context =appDelagate.managedObjectContext;
+    
+    
+    //get object from database
+    NSError *error;
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"DefaultLanguage"
+                                              inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+    
+    
+    for (DefaultLanguage * obj in fetchedObjects) {
+        
+        if (obj.language!=nil) {
+            
+            return YES;
+        }
+    }
+    
+    return NO;
+
 }
 
 - (void) installCrashHandler

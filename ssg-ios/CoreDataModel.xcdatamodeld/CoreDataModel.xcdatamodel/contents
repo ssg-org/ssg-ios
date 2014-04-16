@@ -13,6 +13,9 @@
         <attribute name="icon" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id_" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
     </entity>
+    <entity name="DefaultLanguage" representedClassName="DefaultLanguage" syncable="YES">
+        <attribute name="language" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="Issue" representedClassName="Issue" syncable="YES">
         <attribute name="category_id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="city_id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -34,6 +37,7 @@
         <element name="Categories" positionX="-1791" positionY="-889" width="128" height="133"/>
         <element name="City" positionX="-1586" positionY="-855" width="128" height="88"/>
         <element name="Issue" positionX="-1595" positionY="-673" width="128" height="148"/>
-        <element name="User" positionX="-1800" positionY="-684" width="128" height="133"/>
+        <element name="User" positionX="-1800" positionY="-738" width="128" height="133"/>
+        <element name="DefaultLanguage" positionX="-1800" positionY="-583" width="128" height="58"/>
     </elements>
 </model>
