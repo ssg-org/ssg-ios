@@ -9,6 +9,7 @@
 #import "CitiesViewController.h"
 #import "CitiesTableViewCell.h"
 #import "City.h"
+#import "MCLocalization.h"
 
 @interface CitiesViewController ()
 
@@ -85,6 +86,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     self.navigationController.navigationBarHidden=NO;
+    self.navigationItem.title = [MCLocalization stringForKey:@"city_bar"];
 }
 
 #pragma  - SSG COMMUNICATOR DELEGATE FUNCTION

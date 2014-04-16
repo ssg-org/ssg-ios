@@ -347,6 +347,8 @@
 -(void)viewWillAppear:(BOOL)animated{
     
  self.navigationItem.backBarButtonItem.title= [MCLocalization stringForKey:@"back"];
+    self.navigationItem.title = [MCLocalization stringForKey:@"camera_bar"];
+   
     
 }
 

@@ -86,7 +86,7 @@
     [self.btnAbout setTitle:[MCLocalization stringForKey:@"about"] forState:UIControlStateNormal];
     [self.btnLogout setTitle:[MCLocalization stringForKey:@"logout"] forState:UIControlStateNormal];
   
-    
+      self.navigationItem.title = [MCLocalization stringForKey:@"settings_bar"];
 
 }
 

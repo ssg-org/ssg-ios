@@ -11,6 +11,7 @@
 #import "Categories.h"
 #import "DescriptionViewController.h"
 #import "HelperFunctions.h"
+#import "MCLocalization.h"
 
 @interface SubCategoryViewController ()
 
@@ -80,4 +81,8 @@
     [self.navigationController  popToViewController:[[self.navigationController viewControllers] objectAtIndex:count-3 ] animated:YES];
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+
+ self.navigationItem.title = [MCLocalization stringForKey:@"subcategory_bar"];
+}
 @end

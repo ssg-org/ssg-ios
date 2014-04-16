@@ -15,6 +15,7 @@
 #import  "SubCategoryViewController.h"
 #import  "DescriptionViewController.h"
 #import "HelperFunctions.h"
+#import "MCLocalization.h"
 
 @interface CategoryViewController ()
 
@@ -205,4 +206,8 @@
     
 }
 
+
+-(void)viewWillAppear:(BOOL)animated{
+ self.navigationItem.title = [MCLocalization stringForKey:@"category_bar"];
+}
 @end

@@ -202,7 +202,7 @@
             </objects>
             <point key="canvasLocation" x="1743" y="363"/>
         </scene>
-        <!--Settings View Controller - ULICA.BA-->
+        <!--Settings View Controller - SETTINGS-->
         <scene sceneID="uJS-2Q-Bkh">
             <objects>
                 <viewController id="NzU-0o-YQW" customClass="SettingsViewController" sceneMemberID="viewController">
@@ -272,7 +272,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="ULICA.BA" id="oXQ-pt-R5I">
+                    <navigationItem key="navigationItem" title="SETTINGS" id="oXQ-pt-R5I">
                         <barButtonItem key="backBarButtonItem" title="Back" id="Pix-DS-drm">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         </barButtonItem>
@@ -287,7 +287,7 @@
             </objects>
             <point key="canvasLocation" x="1429" y="-1204"/>
         </scene>
-        <!--Language View Controller-->
+        <!--Language View Controller - LANGUAGE-->
         <scene sceneID="8dS-M7-P5P">
             <objects>
                 <viewController id="b46-rv-hPM" customClass="LanguageViewController" sceneMemberID="viewController">
@@ -345,7 +345,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="vFh-KR-N6S"/>
+                    <navigationItem key="navigationItem" title="LANGUAGE" id="vFh-KR-N6S"/>
                     <connections>
                         <outlet property="btnBosnian" destination="UIp-eG-geA" id="L3Q-sS-wCV"/>
                         <outlet property="btnEnglish" destination="d6s-ea-ebQ" id="6Bb-yv-HRv"/>
@@ -355,7 +355,7 @@
             </objects>
             <point key="canvasLocation" x="1838" y="-1204"/>
         </scene>
-        <!--Camera View Controller - ULICA.BA-->
+        <!--Camera View Controller - CAMERA-->
         <scene sceneID="H1K-8p-5Sc">
             <objects>
                 <viewController storyboardIdentifier="CameraViewController" id="WZV-Dk-Pmx" customClass="CameraViewController" sceneMemberID="viewController">
@@ -499,7 +499,7 @@
                             <constraint firstItem="xaN-f2-zZ2" firstAttribute="top" secondItem="RZi-BX-Nfl" secondAttribute="bottom" id="rIy-o3-CDR"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="ULICA.BA" id="NZ0-Ko-Zen">
+                    <navigationItem key="navigationItem" title="CAMERA" id="NZ0-Ko-Zen">
                         <barButtonItem key="backBarButtonItem" title="Back" id="g5O-D3-2OL"/>
                     </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
@@ -980,7 +980,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JMB-JV-apV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2413" y="-474"/>
+            <point key="canvasLocation" x="2389" y="-398"/>
         </scene>
         <!--Map View Controller - ULICA.BA-->
         <scene sceneID="ZNb-Tn-O0O">

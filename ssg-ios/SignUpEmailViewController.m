@@ -68,6 +68,8 @@
     [self.btnBackToLogin setTitle:[MCLocalization stringForKey:@"backtologin"] forState:UIControlStateNormal];
     [self.btnSignUp setBackgroundImage:[UIImage imageNamed:[MCLocalization stringForKey:@"signupbutton"]] forState:UIControlStateNormal];
     
+    self.navigationItem.title = [MCLocalization stringForKey:@"signup_bar"];
+    
 
 }
 

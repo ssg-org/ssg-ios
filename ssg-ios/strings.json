@@ -29,7 +29,17 @@
         "ok": "OK",
         "no_internet": "You dont have internet connection!",
         "descrption_validation":"All fields are required!",
-        "progress_message":"Please wait..."
+        "progress_message":"Please wait...",
+        "settings_bar": "SETTINGS",
+        "language_bar": "LANGUAGE",
+        "camera_bar": "CAMERA",
+        "description_bar": "DESCRIPTION",
+        "map_bar": "CREATE ISSUE",
+        "signup_bar": "SIGNUP",
+        "category_bar":"CATEGORY",
+        "subcategory_bar":"SUBCATEGORY",
+        "city_bar":"CITY"
+        
         
     },
     "bos": {
@@ -62,6 +72,15 @@
         "ok": "Uredu",
         "no_internet": "Nemate internet konekciju!",
         "descrption_validation":"Popunite sva polja!",
-        "progress_message":"Molimo sačekejte..."
+        "progress_message":"Molimo sačekejte...",
+        "settings_bar": "POSTAVKE",
+        "language_bar": "JEZIK",
+        "camera_bar": "KAMERA",
+        "description_bar": "OPIS",
+        "map_bar": "KREIRANJE PROBLEMA",
+        "signup_bar": "REGISTRACIJA",
+        "category_bar":"KATEGORIJA",
+        "subcategory_bar":"PODKATEGORIJA",
+        "city_bar":"GRAD"
     }
 }

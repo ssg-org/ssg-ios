@@ -178,6 +178,8 @@
     
     
    self.navigationItem.backBarButtonItem.title= [MCLocalization stringForKey:@"back"];
+    
+    self.navigationItem.title = [MCLocalization stringForKey:@"description_bar"];
     self.txtTitle.placeholder=[MCLocalization stringForKey:@"title"];
     [self.btnCategory setTitle:[MCLocalization stringForKey:@"category"] forState:UIControlStateNormal];
     [self.btnCity setTitle:[MCLocalization stringForKey:@"city"] forState:UIControlStateNormal];
