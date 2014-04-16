@@ -63,7 +63,7 @@
     
     //Init session front
     session_front = [[AVCaptureSession alloc] init];
-    session_front.sessionPreset = AVCaptureSessionPresetMedium;
+    session_front.sessionPreset = AVCaptureSessionPresetHigh;
     
     //Init preview  layer for  front camera
     preview_layer_front= [[AVCaptureVideoPreviewLayer alloc] initWithSession:session_front];
@@ -95,7 +95,7 @@
     
     //Init session back
     session_back = [[AVCaptureSession alloc] init];
-    session_back.sessionPreset = AVCaptureSessionPresetMedium;
+    session_back.sessionPreset = AVCaptureSessionPresetHigh;
     
     //Init preview layer for back camera
     preview_layer_back= [[AVCaptureVideoPreviewLayer alloc] initWithSession:session_back];
