@@ -150,22 +150,25 @@
 - (IBAction)btnEmailLoginOnTouch:(UIButton *)sender {
     
     
-
-    if ([self validateUserInput]) {
-        //Login user with email
-        [_ssgCommunicatorEmailLogin loginWithEmail:self.txtUsername.text :self.txtPassword.text];
-        
-    }
-    else{
+    MainViewController *main= [ self.storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
+    [self.navigationController pushViewController: (UIViewController *)main animated:YES];
     
-      UIAlertView*  infoAlertView = [[UIAlertView alloc] initWithTitle:@"Info"
-                                                   message:@"Validation false"
-                                                  delegate:self
-                                         cancelButtonTitle:@"OK"
-                                         otherButtonTitles: nil];
-      [infoAlertView show];
-        
-    }
+    
+//    if ([self validateUserInput]) {
+//        //Login user with email
+//        [_ssgCommunicatorEmailLogin loginWithEmail:self.txtUsername.text :self.txtPassword.text];
+//        
+//    }
+//    else{
+//    
+//      UIAlertView*  infoAlertView = [[UIAlertView alloc] initWithTitle:@"Info"
+//                                                   message:@"Validation false"
+//                                                  delegate:self
+//                                         cancelButtonTitle:@"OK"
+//                                         otherButtonTitles: nil];
+//      [infoAlertView show];
+//        
+//    }
 }
 
 -(BOOL)validateUserInput {
@@ -188,10 +191,6 @@
     
 
 }
-
-
-
-
 
 
 -(BOOL)isUserLoggedWithEmailOrFacebook {
@@ -315,10 +314,10 @@
 
 
 - (void)initImageChanger{
-    current_image=5;
-    backgroundImagesArray=[NSArray arrayWithObjects:@"login_bg1.png",@"login_bg2.png",@"login_bg3.png",@"login_bg4.png",nil];
-    imageTimer = [NSTimer scheduledTimerWithTimeInterval:(7.0) target:self selector:@selector(changeImage) userInfo:nil repeats:YES];
-    [imageTimer fire];
+   // current_image=5;
+//    backgroundImagesArray=[NSArray arrayWithObjects:@"login_bg1.png",@"login_bg2.png",@"login_bg3.png",@"login_bg4.png",nil];
+//    imageTimer = [NSTimer scheduledTimerWithTimeInterval:(7.0) target:self selector:@selector(changeImage) userInfo:nil repeats:YES];
+//    [imageTimer fire];
 }
 
 -(void)changeImage{

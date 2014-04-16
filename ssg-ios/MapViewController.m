@@ -13,6 +13,7 @@
 #import "Reachability.h"
 #import <SystemConfiguration/SystemConfiguration.h>
 #import "ShareViewController.h"
+#import "MCLocalization.h"
 
 
 @interface MapViewController ()
@@ -204,6 +205,13 @@ didTapAtCoordinate:		(CLLocationCoordinate2D) 	coordinate{
 
     
     
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    
+    [self.btnReportIssue setBackgroundImage:[UIImage imageNamed:[MCLocalization stringForKey:@"report_issue_btn"]] forState:UIControlStateNormal];
+    
+
 }
 
 

@@ -27,7 +27,9 @@
         "logout":"Log out",
         "camera_validation": "Please take picture!",
         "ok": "OK",
-        "no_internet": "You dont have internet connection!"
+        "no_internet": "You dont have internet connection!",
+        "descrption_validation":"All fields are required!"
+        
     },
     "bos": {
         "back": "Nazad",
@@ -57,6 +59,7 @@
         "logout":"Odjavi se",
         "camera_validation": "Uslikajte sliku!",
         "ok": "Uredu",
-        "no_internet": "Nemate internet konekciju!"
+        "no_internet": "Nemate internet konekciju!",
+        "descrption_validation":"Popunite sva polja!"
     }
 }

@@ -17,7 +17,7 @@
     BOOL first_marker;
     GMSMarker *marker ;
     
-   SsgCommunicatorDelegate_CreateIssue * _ssgCommunicatorCreateIssueDelegate;
+    SsgCommunicatorDelegate_CreateIssue * _ssgCommunicatorCreateIssueDelegate;
   
     
 }

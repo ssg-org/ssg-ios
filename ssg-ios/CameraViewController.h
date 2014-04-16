@@ -9,15 +9,16 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 
-@interface CameraViewController : UIViewController{
-    
+@interface CameraViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate>{
     //Flag for camera state
     BOOL camera_settings_state;
     
     
     AVCaptureStillImageOutput *stillImageOutputFront;
     AVCaptureStillImageOutput *stillImageOutputBack;
-    UIImagePickerController* imagePicker;
+    
+    UIImagePickerController *imagePicker;
+   
     
     //front
     AVCaptureDeviceInput *inputdevice_front;
@@ -35,11 +36,13 @@
     bool isFlashActive;
 
     UIAlertView *infoAlertView;
+    
+   
 }
 
 @property (strong, nonatomic) IBOutlet UIView *cameraSettingsContainer;
 
-@property (strong, nonatomic) IBOutlet UIImageView *imagePreview;
+@property (strong,nonatomic) IBOutlet UIImageView *imagePreview;
 
 - (IBAction)btnCameraAutoOnTouch:(id)sender;
 
@@ -58,6 +61,8 @@
 @property (strong, nonatomic) IBOutlet UIButton *btnSettings;
 @property (strong, nonatomic) IBOutlet UIButton *btnDeclinePhoto;
 @property (strong, nonatomic) IBOutlet UIButton *btnAcceptPhoto;
+
+@property (strong, nonatomic) IBOutlet UIView *cameraPreview;
 
 
 

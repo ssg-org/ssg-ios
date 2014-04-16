@@ -3,12 +3,12 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "report_issue.png"
+      "filename" : "main_bg.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "report_issue@2x.png"
+      "filename" : "main_bg@2x.png"
     }
   ],
   "info" : {

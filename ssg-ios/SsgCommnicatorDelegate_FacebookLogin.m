@@ -28,7 +28,7 @@
     [params setValue: user[@"email"] forKey:@"email"];
     [params setValue:user.id forKey:@"fb_id"];
     [params setValue:user.first_name forKey:@"first_name"];
-    [params setValue:user.last_name forKey:@"last_name"];
+    [params setValue:@"Prezime" forKey:@"last_name"];
     
     //set time stamp
     [params setValue:@"12312312" forKey:@"ts"];

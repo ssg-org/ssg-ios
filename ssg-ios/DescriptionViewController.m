@@ -89,9 +89,9 @@
     {
     
    alertView = [[UIAlertView alloc] initWithTitle:@"Info"
-                                                   message:@"User validation false"
+                                                   message:[MCLocalization stringForKey:@"descrption_validation"]
                                                   delegate:self
-                                         cancelButtonTitle:@"OK"
+                                         cancelButtonTitle:[MCLocalization stringForKey:@"ok"]
                                          otherButtonTitles: nil];
         
         

@@ -367,9 +367,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera_sample" translatesAutoresizingMaskIntoConstraints="NO" id="G8O-pl-goq">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mQr-s3-VzC" userLabel="Camera View">
+                                <rect key="frame" x="0.0" y="64" width="320" height="370"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="OEA-a0-ZOh"/>
+                                </constraints>
+                            </view>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera_sample" translatesAutoresizingMaskIntoConstraints="NO" id="G8O-pl-goq">
                                 <rect key="frame" x="0.0" y="64" width="320" height="370"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="320" id="uOj-Va-D25"/>
                                 </constraints>
@@ -473,15 +482,20 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="mQr-s3-VzC" firstAttribute="leading" secondItem="SmR-n8-ueA" secondAttribute="leading" id="85v-NO-hCt"/>
+                            <constraint firstAttribute="trailing" secondItem="mQr-s3-VzC" secondAttribute="trailing" id="BrO-gm-2X4"/>
                             <constraint firstAttribute="trailing" secondItem="G8O-pl-goq" secondAttribute="trailing" id="DDA-2G-jeX"/>
+                            <constraint firstItem="RZi-BX-Nfl" firstAttribute="top" secondItem="mQr-s3-VzC" secondAttribute="bottom" id="LUJ-Mi-5HL"/>
                             <constraint firstItem="G8O-pl-goq" firstAttribute="leading" secondItem="SmR-n8-ueA" secondAttribute="leading" id="PvX-pJ-FY8"/>
                             <constraint firstItem="G8O-pl-goq" firstAttribute="top" secondItem="SmR-n8-ueA" secondAttribute="top" constant="64" id="RI1-NL-6PK"/>
                             <constraint firstItem="RZi-BX-Nfl" firstAttribute="leading" secondItem="SmR-n8-ueA" secondAttribute="leading" id="WeK-ro-cq8"/>
                             <constraint firstAttribute="trailing" secondItem="RZi-BX-Nfl" secondAttribute="trailing" id="X3a-DL-Y0L"/>
                             <constraint firstAttribute="bottom" secondItem="G8O-pl-goq" secondAttribute="bottom" constant="134" id="XZZ-9l-nDe"/>
                             <constraint firstAttribute="trailing" secondItem="gAA-Iu-XmS" secondAttribute="trailing" id="bFO-MD-WXm"/>
+                            <constraint firstItem="mQr-s3-VzC" firstAttribute="top" secondItem="Qyg-o3-f13" secondAttribute="bottom" constant="44" id="c49-c0-EOh"/>
                             <constraint firstItem="gAA-Iu-XmS" firstAttribute="leading" secondItem="SmR-n8-ueA" secondAttribute="leading" id="dRH-rC-tPd"/>
                             <constraint firstAttribute="bottom" secondItem="gAA-Iu-XmS" secondAttribute="bottom" constant="134" id="ixi-eA-Dvk"/>
+                            <constraint firstItem="mQr-s3-VzC" firstAttribute="top" secondItem="SmR-n8-ueA" secondAttribute="top" constant="64" id="oz8-Fi-lFL"/>
                             <constraint firstItem="xaN-f2-zZ2" firstAttribute="top" secondItem="RZi-BX-Nfl" secondAttribute="bottom" id="rIy-o3-CDR"/>
                         </constraints>
                     </view>
@@ -495,13 +509,14 @@
                         <outlet property="btnGallery" destination="5qz-bN-poF" id="nv7-Qb-uaW"/>
                         <outlet property="btnSettings" destination="2Eu-12-x42" id="5KL-Yr-B2j"/>
                         <outlet property="btnTakePhoto" destination="mAy-eC-NME" id="yMH-iG-UpO"/>
+                        <outlet property="cameraPreview" destination="mQr-s3-VzC" id="jF7-Y2-XvV"/>
                         <outlet property="cameraSettingsContainer" destination="gAA-Iu-XmS" id="WRc-16-uld"/>
                         <outlet property="imagePreview" destination="G8O-pl-goq" id="SHq-OC-hBP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="euu-JF-flx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1928" y="-446"/>
+            <point key="canvasLocation" x="1886" y="-398"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="ufC-wZ-h7g">
@@ -515,7 +530,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="login_bg1" translatesAutoresizingMaskIntoConstraints="NO" id="bds-cM-STH">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="main_bg" translatesAutoresizingMaskIntoConstraints="NO" id="bds-cM-STH">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -640,7 +655,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="login_bg4" translatesAutoresizingMaskIntoConstraints="NO" id="Mzj-Ax-eh1">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="main_bg" translatesAutoresizingMaskIntoConstraints="NO" id="Mzj-Ax-eh1">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
@@ -665,7 +680,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="btnCameraOnTouch:" destination="2Xd-PB-dNt" eventType="touchUpInside" id="X2n-ee-f32"/>
+                                    <segue destination="WZV-Dk-Pmx" kind="push" id="oiQ-2L-gNO"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ulica_logo" translatesAutoresizingMaskIntoConstraints="NO" id="eL9-O9-13S">
@@ -991,7 +1006,7 @@
                                     <constraint firstAttribute="height" constant="56" id="2PW-eM-tsm"/>
                                     <constraint firstAttribute="width" constant="320" id="uG3-g9-a1W"/>
                                 </constraints>
-                                <state key="normal" backgroundImage="report_issue">
+                                <state key="normal" backgroundImage="report_issue_eng">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -1032,7 +1047,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="login_bg4" translatesAutoresizingMaskIntoConstraints="NO" id="PX0-jj-m8s">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="main_bg" translatesAutoresizingMaskIntoConstraints="NO" id="PX0-jj-m8s">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
@@ -1165,10 +1180,9 @@ Share it with your friends</string>
         <image name="facebook_share" width="50" height="50"/>
         <image name="grey_bg" width="320" height="500"/>
         <image name="grey_line" width="320" height="1"/>
-        <image name="login_bg1" width="320" height="568"/>
-        <image name="login_bg4" width="320" height="568"/>
         <image name="login_eng" width="220" height="35"/>
-        <image name="report_issue" width="320" height="56"/>
+        <image name="main_bg" width="320" height="568"/>
+        <image name="report_issue_eng" width="320" height="56"/>
         <image name="settings" width="25" height="25"/>
         <image name="sign_up" width="84" height="34"/>
         <image name="signup_bottom_line" width="320" height="1"/>

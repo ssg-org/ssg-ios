@@ -17,6 +17,9 @@
 
 @implementation CameraViewController
 
+@synthesize imagePreview;
+@synthesize cameraPreview;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -29,11 +32,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    
-    
-    // Do any additional setup after loading the view.
-    
     // Init camera capturing
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         
@@ -52,15 +50,10 @@
                                                              delegate:self
                                                     cancelButtonTitle:@"OK"
                                                     otherButtonTitles: nil];
-        //[infoAlertView show];
-       // return;
     }
     
     //Create  next button
     self.navigationItem.rightBarButtonItem = [self createNextButton];
-    
-  
-    
 }
 
 
@@ -73,9 +66,9 @@
     
     //Init preview  layer for  front camera
     preview_layer_front= [[AVCaptureVideoPreviewLayer alloc] initWithSession:session_front];
-    preview_layer_front.frame = self.imagePreview.bounds;////////////////////////
+    preview_layer_front.frame = cameraPreview.bounds;////////////////////////
     preview_layer_front.videoGravity = AVLayerVideoGravityResizeAspectFill;
-    preview_layer_front.bounds = self.imagePreview.bounds;////////////////////
+    preview_layer_front.bounds = cameraPreview.bounds;////////////////////
     
     //Init front camera device
     NSArray *devices = [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo];
@@ -105,9 +98,9 @@
     
     //Init preview layer for back camera
     preview_layer_back= [[AVCaptureVideoPreviewLayer alloc] initWithSession:session_back];
-    preview_layer_back.frame = self.imagePreview.bounds;////////////////////////
+    preview_layer_back.frame = cameraPreview.bounds;////////////////////////
     preview_layer_back.videoGravity = AVLayerVideoGravityResizeAspectFill;
-    preview_layer_back.bounds = self.imagePreview.bounds;/////////////////////
+    preview_layer_back.bounds = cameraPreview.bounds;/////////////////////
     
     //Init back camera device
     device_back = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
@@ -131,7 +124,7 @@
 - (void)startFrontCamera {
     
     [session_back stopRunning];//STOP back camera
-    [self.imagePreview.layer addSublayer:preview_layer_front];//////////////////
+    [cameraPreview.layer addSublayer:preview_layer_front];//////////////////
     
     if (!inputdevice_front) {
         // Handle the error appropriately.
@@ -146,7 +139,7 @@
 -(void)startBackCamera {
     
     [session_front stopRunning]; //STOP front camera
-    [self.imagePreview.layer addSublayer:preview_layer_back];/////////////////////////
+    [cameraPreview.layer addSublayer:preview_layer_back];/////////////////////////
     
     if (!inputdevice_back) {
         // Handle the error appropriately.
@@ -158,39 +151,18 @@
     }
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 
+#pragma mark - Navigation bar
 -(UIStatusBarStyle)preferredStatusBarStyle{
     return UIStatusBarStyleLightContent;
 }
 
 
+#pragma mark - SET IMAGE
 - (void)setPreviewImage:(UIImage*)image {
-    
-   // CGSize imageSize = image.size;
-//    CGFloat width = imageSize.width;
-//    CGFloat height = imageSize.height;
-//    if (width != height) {
-//        CGFloat newDimension = MIN(width, height);
-//        CGFloat widthOffset = (width - newDimension) / 2;
-//        CGFloat heightOffset = (height - newDimension) / 2;
-    
-        //UIGraphicsBeginImageContextWithOptions(CGSizeMake(newDimension, newDimension), NO, 0.);
-        
-//        [image drawAtPoint:CGPointMake(-widthOffset, -heightOffset)
-//                 blendMode:kCGBlendModeCopy
-//                     alpha:1.];
-       // image = UIGraphicsGetImageFromCurrentImageContext();
-      //  UIGraphicsEndImageContext();
-   // }
-    
-    self.imagePreview.image = image;
-    
+
+    [imagePreview setImage:image];
 }
 
 - (IBAction)btnCameraAutoOnTouch:(id)sender {
@@ -203,21 +175,14 @@
     camera_settings_state=camera_settings_state?false:true;
     
     if (camera_settings_state) {
-        
         self.cameraSettingsContainer.hidden=NO;
-    
     }
-    else{
-    
+    else
+    {
         self.cameraSettingsContainer.hidden=YES;
     }
-    
 }
 
-- (IBAction)btnOpenGalleryOnTouch:(id)sender {
-    
-    
-}
 
 - (IBAction)btnTakePictureOnTouch:(id)sender {
     
@@ -323,7 +288,6 @@
     
 }
 
-
 - (IBAction)btnCameraToggleOnTouch:(id)sender {
     
     if(isFront){
@@ -340,24 +304,23 @@
 - (IBAction)btnDeclinePhotoOnTouch:(id)sender {
     
     [self hideCameraButtons:FALSE];
-    //[session startRunning];
+    imagePreview.hidden=YES;
+    
     if (isFront) {
         [session_front startRunning];
     }
-    else{
+    else
+    {
         [session_back startRunning];
     }
-    
 }
 
 - (IBAction)btnAcceptPhotoOnTouch:(id)sender {
     
     //Accept photo from camera
     [SyncData get].issue_image=[[UIImage alloc]init];
-    [SyncData get].issue_image=self.imagePreview.image;
+    [SyncData get].issue_image=imagePreview.image;
     
-    
-   
     DescriptionViewController *descriptionViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"DescriptionViewController" ];
     [self.navigationController pushViewController:descriptionViewController animated:YES];
     
@@ -366,6 +329,7 @@
 }
 
 - (void)hideCameraButtons:(BOOL)show {
+    
     self.btnTakePhoto.hidden = show;
     self.btnGallery.hidden = show;
     self.btnSettings.hidden=show;
@@ -375,7 +339,7 @@
    
     if (!show) {
         
-        self.imagePreview.image = NULL;
+        imagePreview.image = NULL;
     }
 }
 
@@ -426,40 +390,69 @@ UIButton *button;
 }
 
 -(void)Next{
-
-//    if ([SyncData get].issue_image!=nil) {
-//        
-//        DescriptionViewController *descriptionViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"DescriptionViewController" ];
-//        [self.navigationController pushViewController:descriptionViewController animated:YES];
-//    }
-//    else{
-//        infoAlertView = [[UIAlertView alloc] initWithTitle:@"Info"
-//                                                   message:[MCLocalization stringForKey:@"camera_validation"]
-//                                                  delegate:self
-//                                         cancelButtonTitle:[MCLocalization stringForKey:@"ok"]
-//                                         otherButtonTitles: nil];
-//        [infoAlertView show];
-//
-//    
-//    
-//    }
-    
-    
     //Accept photo from camera
     [SyncData get].issue_image=[[UIImage alloc]init];
-    [SyncData get].issue_image=self.imagePreview.image;
-    
-    
+    [SyncData get].issue_image=imagePreview.image;
     
     DescriptionViewController *descriptionViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"DescriptionViewController" ];
     [self.navigationController pushViewController:descriptionViewController animated:YES];
     
     [self btnDeclinePhotoOnTouch:self];
 
-    
-    
 }
 
+#pragma imagePicker delegate method
+
+-(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    
+    // [session_back startRunning];
+    if (isFront) {
+        [session_front startRunning];
+    }
+    else{
+        [session_back startRunning];
+    }
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)img editingInfo:(NSDictionary *)editInfo {
+    
+    
+    [picker dismissModalViewControllerAnimated:YES];
+    [self hideCameraButtons:TRUE];
+    imagePreview.hidden=NO;
+    [self setPreviewImage:img];
+}
+
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+}
+
+-(IBAction)resetCamera:(id)sender {
+    imagePreview.image = NULL;
+    //[session startRunning];
+    if (isFront) {
+        [session_front startRunning];
+    }
+    else{
+        [session_back startRunning];
+    }
+}
+
+- (IBAction)btnOpenGalleryOnTouch:(id)sender {
+    
+    //Stop camera session
+    [session_front stopRunning];
+    [session_back stopRunning];
+    
+    imagePicker=[[UIImagePickerController alloc]init];
+    imagePicker.delegate = self;
+    imagePicker.allowsEditing =NO;
+    imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    [self presentViewController:imagePicker animated:YES completion:nil];
+
+}
 
 
 
