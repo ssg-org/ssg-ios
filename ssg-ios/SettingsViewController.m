@@ -50,7 +50,7 @@
 - (IBAction)btnLogOut:(id)sender {
     
     //Get
-    NSMutableArray * object_from_db= [[NSMutableArray alloc]init];
+  //  NSMutableArray * object_from_db= [[NSMutableArray alloc]init];
     AppDelegate * appDelagate  = (AppDelegate *)[UIApplication sharedApplication].delegate;
     NSManagedObjectContext *context =appDelagate.managedObjectContext;
     NSError *error;

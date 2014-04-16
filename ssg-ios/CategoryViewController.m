@@ -210,4 +210,8 @@
 -(void)viewWillAppear:(BOOL)animated{
  self.navigationItem.title = [MCLocalization stringForKey:@"category_bar"];
 }
+
+- (void)getResponse:(NSString*)code : (id)responseObject{
+
+}
 @end

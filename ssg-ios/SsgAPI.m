@@ -30,10 +30,14 @@
         NSLog(@"VAL %@", [params objectForKey:key]);
         [signature appendString: key];
         [signature appendString:@"="];
+        
+      //  NSString * encodeValue=[key urlencode];
         [signature appendString:[params objectForKey:key]];
         [signature appendString:@"&"];
         
     }
+    
+    
     
     //Substring last char
     [signature deleteCharactersInRange:NSMakeRange([signature length]-1, 1)];
@@ -43,8 +47,8 @@
     NSString* key = @"secret";
     NSString* data = signature;
     
-    const char *cKey = [key cStringUsingEncoding:NSASCIIStringEncoding];
-    const char *cData = [data cStringUsingEncoding:NSASCIIStringEncoding];
+    const char *cKey = [key cStringUsingEncoding:NSUTF8StringEncoding];
+    const char *cData = [data cStringUsingEncoding:NSUTF8StringEncoding];
     unsigned char cHMAC[CC_SHA256_DIGEST_LENGTH];
     CCHmac(kCCHmacAlgSHA256, cKey, strlen(cKey), cData, strlen(cData), cHMAC);
     NSData *hash = [[NSData alloc] initWithBytes:cHMAC length:sizeof(cHMAC)];
@@ -75,7 +79,7 @@
         output[theIndex + 3] = (i + 2) < length ? table[(value >> 0) & 0x3F] : '=';
     }
     
-    return [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding]; }
+    return [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]; }
 
 + (void)ssgApiCall:(NSString*)path requestType:(NSString*)requestType params:(NSMutableDictionary*)params  completionHandler:(void (^)(NSURLResponse* response, NSData* data, NSError* connectionError))callback  {
     

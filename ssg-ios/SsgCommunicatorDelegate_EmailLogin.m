@@ -76,7 +76,7 @@
                                             NSString* code=[[documents objectForKey:@"code"]stringValue ] ;
                                            
                                            
-                                            NSString* message=[documents objectForKey:@"message"];
+                                           // NSString* message=[documents objectForKey:@"message"];
                                            
                                            
                                            //call delagete function
