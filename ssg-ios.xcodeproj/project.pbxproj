@@ -12,6 +12,7 @@
 		6607383218E18492003EA07C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6607381118E18491003EA07C /* Foundation.framework */; };
 		6607383318E18492003EA07C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6607381518E18491003EA07C /* UIKit.framework */; };
 		6607383D18E18492003EA07C /* ssg_iosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6607383C18E18492003EA07C /* ssg_iosTests.m */; };
+		6609CCD518FEA5F300163FBF /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 6609CCD418FEA5F300163FBF /* MBProgressHUD.m */; };
 		661953AD18FBE5600000586E /* LanguageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 661953AC18FBE5600000586E /* LanguageViewController.m */; };
 		661953B818FC4BAD0000586E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 661953B718FC4BAD0000586E /* Main.storyboard */; };
 		661953BB18FC4C580000586E /* MCLocalization.m in Sources */ = {isa = PBXBuildFile; fileRef = 661953BA18FC4C580000586E /* MCLocalization.m */; };
@@ -134,6 +135,8 @@
 		6607384A18E190C9003EA07C /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		6607384C18E1949C003EA07C /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		6607384D18E1949C003EA07C /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		6609CCD318FEA5F300163FBF /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		6609CCD418FEA5F300163FBF /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		6618299B18E4CC1A0088AB34 /* SignUpEmailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpEmailViewController.h; sourceTree = "<group>"; };
 		6618299C18E4CC1A0088AB34 /* SignUpEmailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpEmailViewController.m; sourceTree = "<group>"; };
 		6618299E18E4D40F0088AB34 /* DescriptionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DescriptionViewController.h; sourceTree = "<group>"; };
@@ -619,6 +622,8 @@
 		66DB730B18F295BD008D2922 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				6609CCD318FEA5F300163FBF /* MBProgressHUD.h */,
+				6609CCD418FEA5F300163FBF /* MBProgressHUD.m */,
 				6676A11318FD304F00AD5558 /* Reachability.h */,
 				6676A11418FD304F00AD5558 /* Reachability.m */,
 				661953B918FC4C580000586E /* MCLocalization.h */,
@@ -758,6 +763,7 @@
 				66AD5E9618EF32FE001596D0 /* SsgCommnicatorDelegate_FacebookLogin.m in Sources */,
 				66362EAE18F3232500921AB2 /* UIAlertView+AFNetworking.m in Sources */,
 				66362E9918F322DF00921AB2 /* AFURLSessionManager.m in Sources */,
+				6609CCD518FEA5F300163FBF /* MBProgressHUD.m in Sources */,
 				662AD18018EDA77E00433265 /* NSString+NSString_Extended.m in Sources */,
 				66362E9218F322DF00921AB2 /* AFHTTPRequestOperationManager.m in Sources */,
 				66D5ECCE18EEB756009CD054 /* Issue.m in Sources */,

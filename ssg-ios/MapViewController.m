@@ -14,6 +14,7 @@
 #import <SystemConfiguration/SystemConfiguration.h>
 #import "ShareViewController.h"
 #import "MCLocalization.h"
+#import "MBProgressHUD.h"
 
 
 @interface MapViewController ()
@@ -45,15 +46,14 @@
     
     _ssgCommunicatorCreateIssueDelegate = [[SsgCommunicatorDelegate_CreateIssue alloc]init];
     _ssgCommunicatorCreateIssueDelegate.createIssue_delegate=self;
+}
 
-    
-    //Init loading animation
-    spinner=[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    spinner.center=CGPointMake(160.0,240.0 );
-    spinner.hidesWhenStopped=YES;
-    [self.view addSubview:spinner];
-  
-    
+-(void)showProgressPopup:(BOOL)show{
+
+    hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDModeIndeterminate;
+    hud.labelText = [MCLocalization stringForKey:@"progress_message"];
+    [hud show:show];
 }
 
 
@@ -141,13 +141,13 @@ didTapAtCoordinate:		(CLLocationCoordinate2D) 	coordinate{
 }
 - (IBAction)btnCreateIssueOnTouch:(id)sender {
 
-    [spinner startAnimating];
+    [self showProgressPopup:YES];
     self.btnReportIssue.enabled=NO;
     
     
     if (![self connected]) {
         // not connected
-       [spinner stopAnimating];
+     [self showProgressPopup:NO];
        UIAlertView* infoAlertView = [[UIAlertView alloc] initWithTitle:@"Info"
                                                    message:[MCLocalization stringForKey:@"no_internet"]
                                                   delegate:self
@@ -162,6 +162,7 @@ didTapAtCoordinate:		(CLLocationCoordinate2D) 	coordinate{
         
     } else {
         
+      //  hud.progress=0.9;
         // connected, do some internet stuff
          [_ssgCommunicatorCreateIssueDelegate createIssue:[SyncData get].current_issue :[SyncData get].issue_image ];
         
@@ -186,7 +187,7 @@ didTapAtCoordinate:		(CLLocationCoordinate2D) 	coordinate{
     if ([code isEqualToString:@"0"]) {
         
         //Open share controller
-        [spinner stopAnimating];
+       [self showProgressPopup:NO];
         
         ShareViewController *main= [ self.storyboard instantiateViewControllerWithIdentifier:@"ShareViewController"];
         [self.navigationController pushViewController:main animated:NO];
@@ -194,7 +195,7 @@ didTapAtCoordinate:		(CLLocationCoordinate2D) 	coordinate{
         
     }
     else{
-        [spinner stopAnimating];
+         [self showProgressPopup:NO];
         NSDictionary * documents = [[NSDictionary alloc]init];
         documents=[responseObject objectForKey:@"status"];
         NSString* message=[documents objectForKey:@"message"];
@@ -218,8 +219,6 @@ didTapAtCoordinate:		(CLLocationCoordinate2D) 	coordinate{
 -(void)viewWillAppear:(BOOL)animated{
     
     [self.btnReportIssue setBackgroundImage:[UIImage imageNamed:[MCLocalization stringForKey:@"report_issue_btn"]] forState:UIControlStateNormal];
-    
-
 }
 
 

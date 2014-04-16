@@ -10,6 +10,7 @@
 #import "SsgCommunicatorDelegate_CreateIssue.h"
 #import "SsgCommunicatorDelegate.h"
 #import "SsgCommunicatorDelegate_CreateIssue.h"
+#import "MBProgressHUD.h"
 
 
 @interface MapViewController : UIViewController<GMSMapViewDelegate,CLLocationManagerDelegate,SsgCommunicatorDelegate >{
@@ -18,15 +19,14 @@
     GMSMarker *marker ;
     
     SsgCommunicatorDelegate_CreateIssue * _ssgCommunicatorCreateIssueDelegate;
-    UIActivityIndicatorView *spinner;
-  
-    
+    MBProgressHUD *hud;
 }
 
 @property (nonatomic, retain) IBOutlet GMSMapView *mapContainer;
+@property (strong, nonatomic) IBOutlet UIButton *btnReportIssue;
 
 - (IBAction)btnCreateIssueOnTouch:(id)sender;
-@property (strong, nonatomic) IBOutlet UIButton *btnReportIssue;
+
 
 
 @end
