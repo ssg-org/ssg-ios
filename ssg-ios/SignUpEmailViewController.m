@@ -45,7 +45,30 @@
     
     _ssgCommunicatorEmailSignup = [[SsgCommunicatorDelegate_EmailSignUp alloc]init];
     _ssgCommunicatorEmailSignup.emailSignup_delegate=self;
+    
+    //Gesture init
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closeKeyboard:)];
+    singleTap.numberOfTapsRequired = 1;
+    singleTap.numberOfTouchesRequired = 1;
+    [self.imgBackground addGestureRecognizer:singleTap];
+    [self.imgBackground setUserInteractionEnabled:YES];
+    
+    
+    
+    UITapGestureRecognizer *containerViewGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closeKeyboard:)];
+    containerViewGesture.numberOfTapsRequired = 1;
+    containerViewGesture.numberOfTouchesRequired = 1;
+    [self.textBoxContainer addGestureRecognizer:containerViewGesture];
+    [self.textBoxContainer setUserInteractionEnabled:YES];
 
+}
+
+- (void)closeKeyboard:(UIGestureRecognizer *)gestureRecognizer {
+    
+    [self textFieldShouldReturn:self.txtFirstName];
+    [self textFieldShouldReturn:self.txtLastName];
+    [self textFieldShouldReturn:self.txtEmail];
+    [self textFieldShouldReturn:self.txtPassword];
 }
 
 -(void)viewWillAppear:(BOOL)animated{

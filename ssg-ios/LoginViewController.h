@@ -49,6 +49,8 @@
 
 @property (strong, nonatomic) IBOutlet UIButton *btnLogin;
 
+- (IBAction)btnCloseKeyboard:(id)sender;
+
 
 
 @end

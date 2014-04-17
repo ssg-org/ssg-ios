@@ -127,8 +127,27 @@
         
     }
     
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closeKeyboard:)];
+    singleTap.numberOfTapsRequired = 1;
+    singleTap.numberOfTouchesRequired = 1;
+    [self.imageBackground addGestureRecognizer:singleTap];
+    [self.imageBackground setUserInteractionEnabled:YES];
     
     
+    
+    UITapGestureRecognizer *containerViewGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closeKeyboard:)];
+    containerViewGesture.numberOfTapsRequired = 1;
+    containerViewGesture.numberOfTouchesRequired = 1;
+    [self.containerView addGestureRecognizer:containerViewGesture];
+    [self.containerView setUserInteractionEnabled:YES];
+    
+    
+}
+
+- (void)closeKeyboard:(UIGestureRecognizer *)gestureRecognizer {
+   
+    [self textFieldShouldReturn:self.txtUsername];
+    [self textFieldShouldReturn:self.txtPassword];
 }
 
 
@@ -150,25 +169,25 @@
 - (IBAction)btnEmailLoginOnTouch:(UIButton *)sender {
     
     
-   // MainViewController *main= [ self.storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
-    //[self.navigationController pushViewController: (UIViewController *)main animated:YES];
+   MainViewController *main= [ self.storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
+    [self.navigationController pushViewController: (UIViewController *)main animated:YES];
     
     
-   if ([self validateUserInput]) {
-        //Login user with email
-        [_ssgCommunicatorEmailLogin loginWithEmail:self.txtUsername.text :self.txtPassword.text];
-        
-    }
-    else{
-    
-      UIAlertView*  infoAlertView = [[UIAlertView alloc] initWithTitle:@"Info"
-                                                   message:[MCLocalization stringForKey:@"descrption_validation"]
-                                                  delegate:self
-                                         cancelButtonTitle:[MCLocalization stringForKey:@"ok"]
-                                         otherButtonTitles: nil];
-      [infoAlertView show];
-        
-    }
+//   if ([self validateUserInput]) {
+//        //Login user with email
+//        [_ssgCommunicatorEmailLogin loginWithEmail:self.txtUsername.text :self.txtPassword.text];
+//        
+//    }
+//    else{
+//    
+//      UIAlertView*  infoAlertView = [[UIAlertView alloc] initWithTitle:@"Info"
+//                                                   message:[MCLocalization stringForKey:@"descrption_validation"]
+//                                                  delegate:self
+//                                         cancelButtonTitle:[MCLocalization stringForKey:@"ok"]
+//                                         otherButtonTitles: nil];
+//      [infoAlertView show];
+//        
+//    }
 }
 
 -(BOOL)validateUserInput {
@@ -404,4 +423,9 @@
     }
 }
 
+- (IBAction)btnCloseKeyboard:(id)sender {
+    
+  
+ 
+}
 @end

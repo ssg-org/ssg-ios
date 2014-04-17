@@ -43,5 +43,10 @@
 @property (strong, nonatomic) IBOutlet UIButton *btnSignUp;
 @property (strong, nonatomic) IBOutlet UIButton *btnBackToLogin;
 
+@property (strong, nonatomic) IBOutlet UIImageView *imgBackground;
+
+
+
+
 
 @end
