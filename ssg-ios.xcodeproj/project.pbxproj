@@ -50,6 +50,10 @@
 		6667C88818EC437800F84CBF /* CategoriesBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 6667C88718EC437800F84CBF /* CategoriesBuilder.m */; };
 		6667C88B18EC442B00F84CBF /* Builder.m in Sources */ = {isa = PBXBuildFile; fileRef = 6667C88A18EC442B00F84CBF /* Builder.m */; };
 		6676A11518FD304F00AD5558 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 6676A11418FD304F00AD5558 /* Reachability.m */; };
+		6681601518FFAF4900F9FEC1 /* FaqTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6681601418FFAF4900F9FEC1 /* FaqTableViewCell.m */; };
+		6681601818FFAF8D00F9FEC1 /* FaqViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6681601718FFAF8D00F9FEC1 /* FaqViewController.m */; };
+		6681601B18FFB11C00F9FEC1 /* Faq.m in Sources */ = {isa = PBXBuildFile; fileRef = 6681601A18FFB11C00F9FEC1 /* Faq.m */; };
+		6681601E18FFC87500F9FEC1 /* FaqDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6681601D18FFC87500F9FEC1 /* FaqDetailsViewController.m */; };
 		668C94C418EA9FDA0073D1A4 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 668C94C318EA9FDA0073D1A4 /* libsqlite3.dylib */; };
 		66908D9D18E65C2800F0848E /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6607384A18E190C9003EA07C /* LoginViewController.m */; };
 		66908D9E18E65C2800F0848E /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6607384D18E1949C003EA07C /* MainViewController.m */; };
@@ -221,6 +225,14 @@
 		6667C88A18EC442B00F84CBF /* Builder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Builder.m; sourceTree = "<group>"; };
 		6676A11318FD304F00AD5558 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		6676A11418FD304F00AD5558 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		6681601318FFAF4900F9FEC1 /* FaqTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaqTableViewCell.h; sourceTree = "<group>"; };
+		6681601418FFAF4900F9FEC1 /* FaqTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaqTableViewCell.m; sourceTree = "<group>"; };
+		6681601618FFAF8D00F9FEC1 /* FaqViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaqViewController.h; sourceTree = "<group>"; };
+		6681601718FFAF8D00F9FEC1 /* FaqViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaqViewController.m; sourceTree = "<group>"; };
+		6681601918FFB11C00F9FEC1 /* Faq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Faq.h; sourceTree = "<group>"; };
+		6681601A18FFB11C00F9FEC1 /* Faq.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Faq.m; sourceTree = "<group>"; };
+		6681601C18FFC87500F9FEC1 /* FaqDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaqDetailsViewController.h; sourceTree = "<group>"; };
+		6681601D18FFC87500F9FEC1 /* FaqDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaqDetailsViewController.m; sourceTree = "<group>"; };
 		668C94C318EA9FDA0073D1A4 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = System/Library/Frameworks/libsqlite3.dylib; sourceTree = SDKROOT; };
 		66908D8D18E6590900F0848E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		66908D8F18E6591A00F0848E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -456,6 +468,10 @@
 				66AD5E9B18EF39B2001596D0 /* SubCategoryViewController.m */,
 				661953AB18FBE5600000586E /* LanguageViewController.h */,
 				661953AC18FBE5600000586E /* LanguageViewController.m */,
+				6681601618FFAF8D00F9FEC1 /* FaqViewController.h */,
+				6681601718FFAF8D00F9FEC1 /* FaqViewController.m */,
+				6681601C18FFC87500F9FEC1 /* FaqDetailsViewController.h */,
+				6681601D18FFC87500F9FEC1 /* FaqDetailsViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -581,6 +597,8 @@
 				66D5ECCA18EEB756009CD054 /* User.m */,
 				664F2E3318E74B9700B8083F /* SyncData.h */,
 				664F2E3418E74B9700B8083F /* SyncData.m */,
+				6681601918FFB11C00F9FEC1 /* Faq.h */,
+				6681601A18FFB11C00F9FEC1 /* Faq.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -607,6 +625,8 @@
 				66F4BF5518ED4D8C0090D776 /* CategoriesTableViewCell.m */,
 				66AD5E9718EF398E001596D0 /* SubCategoriesCellTableViewCell.h */,
 				66AD5E9818EF398E001596D0 /* SubCategoriesCellTableViewCell.m */,
+				6681601318FFAF4900F9FEC1 /* FaqTableViewCell.h */,
+				6681601418FFAF4900F9FEC1 /* FaqTableViewCell.m */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -778,22 +798,26 @@
 				66362E9118F322DF00921AB2 /* AFHTTPRequestOperation.m in Sources */,
 				6609CCD818FEB5F500163FBF /* DefaultLanguage.m in Sources */,
 				66AD5E9918EF398E001596D0 /* SubCategoriesCellTableViewCell.m in Sources */,
+				6681601818FFAF8D00F9FEC1 /* FaqViewController.m in Sources */,
 				664F2E3818E74D4100B8083F /* CoreDataModel.xcdatamodeld in Sources */,
 				661953AD18FBE5600000586E /* LanguageViewController.m in Sources */,
 				66362EAC18F3232500921AB2 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				66362EB118F3232500921AB2 /* UIProgressView+AFNetworking.m in Sources */,
 				66362E7218F2E9ED00921AB2 /* SsgCommunicatorDelegate_CreateIssue.m in Sources */,
 				66F4BF5018ECA5AB0090D776 /* TableViewControllerTest.m in Sources */,
+				6681601B18FFB11C00F9FEC1 /* Faq.m in Sources */,
 				6667C88818EC437800F84CBF /* CategoriesBuilder.m in Sources */,
 				66362E9518F322DF00921AB2 /* AFSecurityPolicy.m in Sources */,
 				66908D9E18E65C2800F0848E /* MainViewController.m in Sources */,
 				664C8B9F18F434EF005BAD84 /* UIPlaceHolderTextView.m in Sources */,
 				66DB730E18F29600008D2922 /* HelperFunctions.m in Sources */,
+				6681601518FFAF4900F9FEC1 /* FaqTableViewCell.m in Sources */,
 				66362EAD18F3232500921AB2 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				66908D9F18E65C2800F0848E /* SignUpEmailViewController.m in Sources */,
 				66908DA018E65C2800F0848E /* DescriptionViewController.m in Sources */,
 				663CE51C18E98BD400418F29 /* TileOverlay.m in Sources */,
 				66362EB618F3235F00921AB2 /* AFAppDotNetAPIClient.m in Sources */,
+				6681601E18FFC87500F9FEC1 /* FaqDetailsViewController.m in Sources */,
 				66908DA118E65C2800F0848E /* CameraViewController.m in Sources */,
 				66908DA218E65C2800F0848E /* SettingsViewController.m in Sources */,
 				66908DA318E65C2800F0848E /* MapViewController.m in Sources */,

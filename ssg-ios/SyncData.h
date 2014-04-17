@@ -27,6 +27,8 @@
 @property int numberOfFacebookRequest;
 
 
+@property  NSMutableArray * faq;
+
 
 
 

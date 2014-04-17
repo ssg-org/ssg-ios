@@ -140,9 +140,11 @@ didTapAtCoordinate:		(CLLocationCoordinate2D) 	coordinate{
     return networkStatus != NotReachable;
 }
 - (IBAction)btnCreateIssueOnTouch:(id)sender {
+    
+    NSLog(@"Create issue - on click");
 
     [self showProgressPopup:YES];
-    self.btnReportIssue.enabled=NO;
+   // self.btnReportIssue.enabled=NO;
     
     
     if (![self connected]) {
@@ -155,7 +157,7 @@ didTapAtCoordinate:		(CLLocationCoordinate2D) 	coordinate{
                                          otherButtonTitles: nil];
         [infoAlertView show];
         
-        self.btnReportIssue.enabled=YES;
+       // self.btnReportIssue.enabled=YES;
         
         
 
@@ -207,7 +209,7 @@ didTapAtCoordinate:		(CLLocationCoordinate2D) 	coordinate{
                                                        otherButtonTitles: nil];
         [infoAlertView show];
         
-         self.btnReportIssue.enabled=YES;
+        // self.btnReportIssue.enabled=YES;
       
     
     }
