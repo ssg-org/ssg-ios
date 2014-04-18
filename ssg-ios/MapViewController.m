@@ -221,7 +221,9 @@ didTapAtCoordinate:		(CLLocationCoordinate2D) 	coordinate{
     
     [self.btnReportIssue setBackgroundImage:[UIImage imageNamed:[MCLocalization stringForKey:@"report_issue_btn"]] forState:UIControlStateNormal];
     self.navigationItem.title = [MCLocalization stringForKey:@"map_bar"];
-    self.navigationItem.backBarButtonItem.title= [MCLocalization stringForKey:@"back"];
+    //self.navigationItem.backBarButtonItem.title= [MCLocalization stringForKey:@"back"];
+    
+    //self.navigationItem.backBarButtonItem=nil;
 }
 
 

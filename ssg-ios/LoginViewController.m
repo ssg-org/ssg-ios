@@ -168,26 +168,21 @@
 #pragma - Action methods
 - (IBAction)btnEmailLoginOnTouch:(UIButton *)sender {
     
+   if ([self validateUserInput]) {
+        //Login user with email
+        [_ssgCommunicatorEmailLogin loginWithEmail:self.txtUsername.text :self.txtPassword.text];
+        
+    }
+    else{
     
-   MainViewController *main= [ self.storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
-    [self.navigationController pushViewController: (UIViewController *)main animated:YES];
-    
-    
-//   if ([self validateUserInput]) {
-//        //Login user with email
-//        [_ssgCommunicatorEmailLogin loginWithEmail:self.txtUsername.text :self.txtPassword.text];
-//        
-//    }
-//    else{
-//    
-//      UIAlertView*  infoAlertView = [[UIAlertView alloc] initWithTitle:@"Info"
-//                                                   message:[MCLocalization stringForKey:@"descrption_validation"]
-//                                                  delegate:self
-//                                         cancelButtonTitle:[MCLocalization stringForKey:@"ok"]
-//                                         otherButtonTitles: nil];
-//    [infoAlertView show];
-//        
-//    }
+      UIAlertView*  infoAlertView = [[UIAlertView alloc] initWithTitle:@"Info"
+                                                   message:[MCLocalization stringForKey:@"descrption_validation"]
+                                                  delegate:self
+                                         cancelButtonTitle:[MCLocalization stringForKey:@"ok"]
+                                         otherButtonTitles: nil];
+    [infoAlertView show];
+        
+    }
 }
 
 -(BOOL)validateUserInput {

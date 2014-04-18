@@ -52,6 +52,17 @@
                                                
                                                NSString *access_token=[documents objectForKey:@"access_token"];
                                                
+                                               NSString *user_picture = [documents objectForKey:@"avatar_path"];
+                                               
+                                               
+                                               NSDictionary * userJson = [documents objectForKey:@"user"];
+                                               
+                                               NSString * firstname = [userJson objectForKey:@"first_name"];
+                                               NSString  * lastname = [userJson objectForKey:@"last_name"];
+                                               
+                                               
+                                               
+                                               
                                                //Save user into database
                                                AppDelegate * appDelagate  = (AppDelegate *)[UIApplication sharedApplication].delegate;
                                                NSManagedObjectContext *context =appDelagate.managedObjectContext;
@@ -61,6 +72,9 @@
                                                               inManagedObjectContext:context];
                                                
                                                user.access_token=access_token;
+                                               user.profile_picture=user_picture;
+                                               user.firstname=firstname;
+                                               user.lastname =lastname;
                                                [context save:nil];
                                                
                                                

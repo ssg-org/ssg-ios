@@ -34,12 +34,13 @@
         <attribute name="firstname" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastname" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="profile_picture" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
         <element name="Categories" positionX="-1791" positionY="-889" width="128" height="133"/>
         <element name="City" positionX="-1586" positionY="-855" width="128" height="88"/>
         <element name="DefaultLanguage" positionX="-1800" positionY="-583" width="128" height="58"/>
         <element name="Issue" positionX="-1595" positionY="-673" width="128" height="178"/>
-        <element name="User" positionX="-1800" positionY="-738" width="128" height="133"/>
+        <element name="User" positionX="-1800" positionY="-738" width="128" height="148"/>
     </elements>
 </model>

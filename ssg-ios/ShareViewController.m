@@ -12,6 +12,8 @@
 #import "MapViewController.h"
 #import <Social/Social.h>
 #import "MCLocalization.h"
+#import "AppDelegate.h"
+#import "User.h"
 
 
 @interface ShareViewController ()
@@ -47,12 +49,28 @@
     [self.imgIssue setImage:[SyncData get].issue_image];
     [self.txtDescription setText:[SyncData get].current_issue.descript];
     [self.lblCategoryName setText:[SyncData get].current_issue.category_name];
+    
+    
+    User* currentUser = [self isUserLoggedWithEmailOrFacebook];
+    
+    NSMutableString * firstlastname=[[NSMutableString alloc]init];
+    [firstlastname appendString:currentUser.firstname];
+    [firstlastname appendString:@" "];
+    [firstlastname appendString:currentUser.lastname];
+    [self.lblUsername setText:firstlastname ];
+    
+    NSURL * imageURL = [NSURL URLWithString:currentUser.profile_picture];
+    NSData * imageData = [NSData dataWithContentsOfURL:imageURL];
+    UIImage * image = [UIImage imageWithData:imageData];
+    [self.imgUser setImage:image];
+
 
 }
 
 -(void)createShareButton{
 
-   
+   self.navigationItem.hidesBackButton = YES;
+    
     UIImage* image3 = [UIImage imageNamed:@"share_button.png"];
     CGRect frameimg = CGRectMake(0, 0, image3.size.width, image3.size.height);
     UIButton *someButton = [[UIButton alloc] initWithFrame:frameimg];
@@ -74,6 +92,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) { // if iOS 7
+        self.edgesForExtendedLayout = UIRectEdgeNone; //layout adjustements
+    }
     
     [self createShareButton];
     [self setData];
@@ -195,5 +217,32 @@
     CGRect textBounds = [textView.layoutManager usedRectForTextContainer:textView.textContainer];
     CGFloat height = (CGFloat)ceil(textBounds.size.height + textView.textContainerInset.top + textView.textContainerInset.bottom);
     return CGRectMake(textView.frame.origin.x, textView.frame.origin.y, 310, height);
+}
+
+
+-(User*)isUserLoggedWithEmailOrFacebook {
+    
+    AppDelegate * appDelagate  = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    NSManagedObjectContext *context =appDelagate.managedObjectContext;
+    
+    
+    //get object from database
+    NSError *error;
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"User"
+                                              inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+    
+    
+    for (User *user in fetchedObjects) {
+        
+        if (user.access_token!=nil) {
+            
+            return user;
+        }
+    }
+    
+    return nil;
 }
 @end

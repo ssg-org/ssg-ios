@@ -94,8 +94,8 @@
 		66AD5E9618EF32FE001596D0 /* SsgCommnicatorDelegate_FacebookLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 66AD5E9518EF32FE001596D0 /* SsgCommnicatorDelegate_FacebookLogin.m */; };
 		66AD5E9918EF398E001596D0 /* SubCategoriesCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 66AD5E9818EF398E001596D0 /* SubCategoriesCellTableViewCell.m */; };
 		66AD5E9C18EF39B2001596D0 /* SubCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66AD5E9B18EF39B2001596D0 /* SubCategoryViewController.m */; };
+		66B8ABC819017246002B8747 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 66B8ABC719017246002B8747 /* User.m */; };
 		66C1714218F57BB700151D8C /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66C1714118F57BB700151D8C /* Social.framework */; };
-		66D5ECCB18EEB756009CD054 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D5ECCA18EEB756009CD054 /* User.m */; };
 		66D5ECD118EEB756009CD054 /* Categories.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D5ECD018EEB756009CD054 /* Categories.m */; };
 		66D5ECD418EEB756009CD054 /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D5ECD318EEB756009CD054 /* City.m */; };
 		66DB730A18F290B9008D2922 /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = 66DB730918F290B9008D2922 /* FontAwesome.otf */; };
@@ -270,13 +270,13 @@
 		66AD5E9818EF398E001596D0 /* SubCategoriesCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubCategoriesCellTableViewCell.m; sourceTree = "<group>"; };
 		66AD5E9A18EF39B2001596D0 /* SubCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubCategoryViewController.h; sourceTree = "<group>"; };
 		66AD5E9B18EF39B2001596D0 /* SubCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubCategoryViewController.m; sourceTree = "<group>"; };
+		66B8ABC619017246002B8747 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		66B8ABC719017246002B8747 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		66C1714118F57BB700151D8C /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		66C4945B18E4E0A0009DFDFC /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
 		66C4945C18E4E0A0009DFDFC /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
 		66C9BA8D18E5CD0500C4D747 /* CategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryViewController.h; sourceTree = "<group>"; };
 		66C9BA8E18E5CD0500C4D747 /* CategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryViewController.m; sourceTree = "<group>"; };
-		66D5ECC918EEB756009CD054 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		66D5ECCA18EEB756009CD054 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		66D5ECCF18EEB756009CD054 /* Categories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Categories.h; sourceTree = "<group>"; };
 		66D5ECD018EEB756009CD054 /* Categories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Categories.m; sourceTree = "<group>"; };
 		66D5ECD218EEB756009CD054 /* City.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = City.h; sourceTree = "<group>"; };
@@ -588,6 +588,8 @@
 		664F2E3218E749FF00B8083F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				66B8ABC619017246002B8747 /* User.h */,
+				66B8ABC719017246002B8747 /* User.m */,
 				66F4930D1901123A004B8C08 /* Issue.h */,
 				66F4930E1901123A004B8C08 /* Issue.m */,
 				6609CCD618FEB5F500163FBF /* DefaultLanguage.h */,
@@ -596,8 +598,6 @@
 				66D5ECD318EEB756009CD054 /* City.m */,
 				66D5ECCF18EEB756009CD054 /* Categories.h */,
 				66D5ECD018EEB756009CD054 /* Categories.m */,
-				66D5ECC918EEB756009CD054 /* User.h */,
-				66D5ECCA18EEB756009CD054 /* User.m */,
 				664F2E3318E74B9700B8083F /* SyncData.h */,
 				664F2E3418E74B9700B8083F /* SyncData.m */,
 				6681601918FFB11C00F9FEC1 /* Faq.h */,
@@ -781,9 +781,9 @@
 			files = (
 				669E893918EDAE0600C5D751 /* SsgAPI.m in Sources */,
 				664F2E3518E74B9700B8083F /* SyncData.m in Sources */,
-				66D5ECCB18EEB756009CD054 /* User.m in Sources */,
 				66D5ECD118EEB756009CD054 /* Categories.m in Sources */,
 				66362E9618F322DF00921AB2 /* AFURLConnectionOperation.m in Sources */,
+				66B8ABC819017246002B8747 /* User.m in Sources */,
 				66362EB018F3232500921AB2 /* UIImageView+AFNetworking.m in Sources */,
 				66F4BF4D18ECA4410090D776 /* CitiesViewController.m in Sources */,
 				66362EB218F3232500921AB2 /* UIRefreshControl+AFNetworking.m in Sources */,

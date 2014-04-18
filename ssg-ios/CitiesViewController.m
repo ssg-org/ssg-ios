@@ -29,6 +29,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) { // if iOS 7
+        self.edgesForExtendedLayout = UIRectEdgeNone; //layout adjustements
+    }
+    
     _ssgCommunicator =[[SsgCommnicatorDelegate_Info alloc]init];
     _ssgCommunicator.info_delegate=self;
     [_ssgCommunicator getCategoriesAndCities];

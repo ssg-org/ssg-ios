@@ -2,7 +2,7 @@
 //  User.m
 //  ssg-ios
 //
-//  Created by Haris Dautovic on 04/04/14.
+//  Created by Haris Dautovic on 18/04/14.
 //  Copyright (c) 2014 SSG. All rights reserved.
 //
 
@@ -11,11 +11,12 @@
 
 @implementation User
 
+@dynamic access_token;
 @dynamic city_id;
 @dynamic email;
 @dynamic firstname;
 @dynamic lastname;
 @dynamic password;
-@dynamic access_token;
+@dynamic profile_picture;
 
 @end
