@@ -9,7 +9,11 @@
 #import <UIKit/UIKit.h>
 //#import "BWQuincyManager.h"
 
-@interface MainViewController : UIViewController
+@interface MainViewController : UIViewController{
+
+    BOOL viewLoaded;
+
+}
 
 @property NSMutableString* dataFromLogin;
 
@@ -18,5 +22,16 @@
 @property (strong, nonatomic) IBOutlet UILabel *lblYouCan;
 
 - (IBAction)btnCameraOnTouch:(id)sender;
+
+@property (strong, nonatomic) IBOutlet UIView *ssgTextView;
+@property (strong, nonatomic) IBOutlet UIView *shareButtonsView;
+
+- (IBAction)btnFacebookShare:(id)sender;
+
+- (IBAction)btnTwitterShare:(id)sender;
+
+- (IBAction)btnSettings:(id)sender;
+
+
 
 @end

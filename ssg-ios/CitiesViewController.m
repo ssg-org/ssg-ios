@@ -58,7 +58,7 @@
 
  - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
  {
- CitiesTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CityCell" forIndexPath:indexPath];
+ CitiesTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CitiesTableViewCell" forIndexPath:indexPath];
  
      
      City * current = [[SyncData get].cities objectAtIndex:indexPath.row];

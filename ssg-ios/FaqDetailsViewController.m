@@ -7,6 +7,7 @@
 //
 
 #import "FaqDetailsViewController.h"
+#import "MCLocalization.h"
 
 @interface FaqDetailsViewController ()
 
@@ -47,5 +48,10 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+-(void)viewDidAppear:(BOOL)animated{
+    self.navigationItem.title = [MCLocalization stringForKey:@"faq_bar"];
+    
+}
 
 @end

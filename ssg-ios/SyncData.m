@@ -26,7 +26,6 @@ static SyncData *__mainData;
                           inManagedObjectContext:context];
         
         
-        
         self.numberOfFacebookRequest=0;
         
         

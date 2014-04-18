@@ -8,7 +8,7 @@
         "loginbtn": "login_bos.png",
         "donthave": "Nemate ulica.ba račun?",
         "welcome": "Dobrodošli na ULICA.BA",
-        "youcan": "Možete prijaviti problem u svojoj lokalnoj zajednici u nekoliko jednostavnih koraka klikom na dugme ispod!",
+        "youcan": "Prijavite problem u svojoj lokalnoj zajednici u nekoliko jednostavnih koraka klikom na kameru!",
         "title": "Naslov",
         "category": "Kategorija",
         "city": "Grad",
@@ -17,7 +17,7 @@
         "thankyou": "Hvala vam!",
         "yourissue": "Tvoj problem je prijavljen. Podijeli ga sa svojim prijateljima",
         "orreportanother": "ili prijavi drugi",
-        "getstarted": "Započnite",
+        "getstarted": "Krenimo",
         "firstname": "ime",
         "lastname": "prezime",
         "email": "Email adresa",
@@ -38,7 +38,9 @@
         "signup_bar": "REGISTRACIJA",
         "category_bar":"KATEGORIJA",
         "subcategory_bar":"PODKATEGORIJA",
-        "city_bar":"GRAD"
+        "city_bar":"GRAD",
+        "faq_bar":"PITANJA",
+        "share_bar":"PROBLEM PRIJAVLJEN"
     },
     
     "en": {
@@ -80,7 +82,9 @@
         "signup_bar": "SIGNUP",
         "category_bar":"CATEGORY",
         "subcategory_bar":"SUBCATEGORY",
-        "city_bar":"CITY"
+        "city_bar":"CITY",
+        "faq_bar":"FAQ",
+        "share_bar":"ISSUE REPORTED"
         
         
     }

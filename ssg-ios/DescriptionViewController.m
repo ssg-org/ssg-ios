@@ -178,7 +178,6 @@
     
     
    self.navigationItem.backBarButtonItem.title= [MCLocalization stringForKey:@"back"];
-    
     self.navigationItem.title = [MCLocalization stringForKey:@"description_bar"];
     self.txtTitle.placeholder=[MCLocalization stringForKey:@"title"];
     [self.btnCategory setTitle:[MCLocalization stringForKey:@"category"] forState:UIControlStateNormal];
@@ -218,14 +217,14 @@
 
     self.selectedCategory=category;
     [SyncData get].current_issue.category_id=self.selectedCategory.id_;
-    
-    NSLog(@"delegat za kategoriju pozvan");
+    [SyncData get].current_issue.category_name=self.selectedCategory.name;
 }
 
 -(void)selectSubCategory:(Categories*)category{
 
     self.selectedCategory=category;
     [SyncData get].current_issue.category_id=self.selectedCategory.id_;
+    [SyncData get].current_issue.category_name=self.selectedCategory.name;
 }
 
 - (IBAction)btnCategoryOnTouch:(id)sender {
@@ -252,6 +251,7 @@
     
     self.selectedCity=city;
     [SyncData get].current_issue.city_id = self.selectedCity.id_;
+    [SyncData get].current_issue.city_name=self.selectedCity.city;
     
 }
 

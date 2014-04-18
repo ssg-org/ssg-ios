@@ -2,7 +2,7 @@
 //  Issue.h
 //  ssg-ios
 //
-//  Created by Haris Dautovic on 04/04/14.
+//  Created by Haris Dautovic on 18/04/14.
 //  Copyright (c) 2014 SSG. All rights reserved.
 //
 
@@ -19,5 +19,7 @@
 @property (nonatomic, retain) NSNumber * location_lat;
 @property (nonatomic, retain) NSNumber * location_lng;
 @property (nonatomic, retain) NSString * title;
+@property (nonatomic, retain) NSString * category_name;
+@property (nonatomic, retain) NSString * city_name;
 
 @end

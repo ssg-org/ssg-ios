@@ -325,7 +325,7 @@
     DescriptionViewController *descriptionViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"DescriptionViewController" ];
     [self.navigationController pushViewController:descriptionViewController animated:YES];
     
-    //[self btnDeclinePhotoOnTouch:self];
+    [self btnDeclinePhotoOnTouch:self];
     
 }
 
@@ -405,7 +405,7 @@ UIButton *button;
     DescriptionViewController *descriptionViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"DescriptionViewController" ];
     [self.navigationController pushViewController:descriptionViewController animated:YES];
     
-   // [self btnDeclinePhotoOnTouch:self];
+    [self btnDeclinePhotoOnTouch:self];
 
 }
 

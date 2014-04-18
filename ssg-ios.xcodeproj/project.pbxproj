@@ -96,12 +96,13 @@
 		66AD5E9C18EF39B2001596D0 /* SubCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66AD5E9B18EF39B2001596D0 /* SubCategoryViewController.m */; };
 		66C1714218F57BB700151D8C /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66C1714118F57BB700151D8C /* Social.framework */; };
 		66D5ECCB18EEB756009CD054 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D5ECCA18EEB756009CD054 /* User.m */; };
-		66D5ECCE18EEB756009CD054 /* Issue.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D5ECCD18EEB756009CD054 /* Issue.m */; };
 		66D5ECD118EEB756009CD054 /* Categories.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D5ECD018EEB756009CD054 /* Categories.m */; };
 		66D5ECD418EEB756009CD054 /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D5ECD318EEB756009CD054 /* City.m */; };
 		66DB730A18F290B9008D2922 /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = 66DB730918F290B9008D2922 /* FontAwesome.otf */; };
 		66DB730E18F29600008D2922 /* HelperFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 66DB730D18F29600008D2922 /* HelperFunctions.m */; };
+		66DC3A5618FFF04F0094FF03 /* Rodin-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 66DC3A5518FFF04F0094FF03 /* Rodin-Regular.ttf */; };
 		66E1F01118F7D62C002A4062 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66E1F01018F7D62C002A4062 /* MessageUI.framework */; };
+		66F4930F1901123A004B8C08 /* Issue.m in Sources */ = {isa = PBXBuildFile; fileRef = 66F4930E1901123A004B8C08 /* Issue.m */; };
 		66F4BF4D18ECA4410090D776 /* CitiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66F4BF4C18ECA4410090D776 /* CitiesViewController.m */; };
 		66F4BF5018ECA5AB0090D776 /* TableViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 66F4BF4F18ECA5AB0090D776 /* TableViewControllerTest.m */; };
 		66F4BF5618ED4D8C0090D776 /* CategoriesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 66F4BF5518ED4D8C0090D776 /* CategoriesTableViewCell.m */; };
@@ -276,8 +277,6 @@
 		66C9BA8E18E5CD0500C4D747 /* CategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryViewController.m; sourceTree = "<group>"; };
 		66D5ECC918EEB756009CD054 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		66D5ECCA18EEB756009CD054 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
-		66D5ECCC18EEB756009CD054 /* Issue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Issue.h; sourceTree = "<group>"; };
-		66D5ECCD18EEB756009CD054 /* Issue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Issue.m; sourceTree = "<group>"; };
 		66D5ECCF18EEB756009CD054 /* Categories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Categories.h; sourceTree = "<group>"; };
 		66D5ECD018EEB756009CD054 /* Categories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Categories.m; sourceTree = "<group>"; };
 		66D5ECD218EEB756009CD054 /* City.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = City.h; sourceTree = "<group>"; };
@@ -285,7 +284,10 @@
 		66DB730918F290B9008D2922 /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.otf; sourceTree = "<group>"; };
 		66DB730C18F29600008D2922 /* HelperFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelperFunctions.h; sourceTree = "<group>"; };
 		66DB730D18F29600008D2922 /* HelperFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelperFunctions.m; sourceTree = "<group>"; };
+		66DC3A5518FFF04F0094FF03 /* Rodin-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rodin-Regular.ttf"; sourceTree = "<group>"; };
 		66E1F01018F7D62C002A4062 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		66F4930D1901123A004B8C08 /* Issue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Issue.h; sourceTree = "<group>"; };
+		66F4930E1901123A004B8C08 /* Issue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Issue.m; sourceTree = "<group>"; };
 		66F4BF4B18ECA4410090D776 /* CitiesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CitiesViewController.h; sourceTree = "<group>"; };
 		66F4BF4C18ECA4410090D776 /* CitiesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CitiesViewController.m; sourceTree = "<group>"; };
 		66F4BF4E18ECA5AB0090D776 /* TableViewControllerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewControllerTest.h; sourceTree = "<group>"; };
@@ -479,6 +481,7 @@
 		6630EA8B18EB4890009368B5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				66DC3A5518FFF04F0094FF03 /* Rodin-Regular.ttf */,
 				661953BC18FC4C7A0000586E /* strings.json */,
 				6630EA8C18EB489A009368B5 /* Fonts */,
 			);
@@ -585,14 +588,14 @@
 		664F2E3218E749FF00B8083F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				66F4930D1901123A004B8C08 /* Issue.h */,
+				66F4930E1901123A004B8C08 /* Issue.m */,
 				6609CCD618FEB5F500163FBF /* DefaultLanguage.h */,
 				6609CCD718FEB5F500163FBF /* DefaultLanguage.m */,
 				66D5ECD218EEB756009CD054 /* City.h */,
 				66D5ECD318EEB756009CD054 /* City.m */,
 				66D5ECCF18EEB756009CD054 /* Categories.h */,
 				66D5ECD018EEB756009CD054 /* Categories.m */,
-				66D5ECCC18EEB756009CD054 /* Issue.h */,
-				66D5ECCD18EEB756009CD054 /* Issue.m */,
 				66D5ECC918EEB756009CD054 /* User.h */,
 				66D5ECCA18EEB756009CD054 /* User.m */,
 				664F2E3318E74B9700B8083F /* SyncData.h */,
@@ -757,6 +760,7 @@
 				66DB730A18F290B9008D2922 /* FontAwesome.otf in Resources */,
 				669B570E18F2107A00EDC91A /* FuturaStd-Book.otf in Resources */,
 				66908ED818E7042F00F0848E /* GoogleMaps.bundle in Resources */,
+				66DC3A5618FFF04F0094FF03 /* Rodin-Regular.ttf in Resources */,
 				661953BD18FC4C7A0000586E /* strings.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -790,8 +794,8 @@
 				66362E9918F322DF00921AB2 /* AFURLSessionManager.m in Sources */,
 				6609CCD518FEA5F300163FBF /* MBProgressHUD.m in Sources */,
 				662AD18018EDA77E00433265 /* NSString+NSString_Extended.m in Sources */,
+				66F4930F1901123A004B8C08 /* Issue.m in Sources */,
 				66362E9218F322DF00921AB2 /* AFHTTPRequestOperationManager.m in Sources */,
-				66D5ECCE18EEB756009CD054 /* Issue.m in Sources */,
 				66AD5E9018EF324E001596D0 /* SsgCommnicatorDelegate_Info.m in Sources */,
 				66362E9418F322DF00921AB2 /* AFNetworkReachabilityManager.m in Sources */,
 				6667C88B18EC442B00F84CBF /* Builder.m in Sources */,

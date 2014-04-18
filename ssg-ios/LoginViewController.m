@@ -185,7 +185,7 @@
 //                                                  delegate:self
 //                                         cancelButtonTitle:[MCLocalization stringForKey:@"ok"]
 //                                         otherButtonTitles: nil];
-//      [infoAlertView show];
+//    [infoAlertView show];
 //        
 //    }
 }
@@ -413,6 +413,7 @@
     self.lblOrQuickLogin.text = [MCLocalization stringForKey:@"orquicklogin"];
     self.txtPassword.placeholder=[MCLocalization stringForKey:@"password"];
     self.txtUsername.placeholder=[MCLocalization stringForKey:@"email"];
+    
 }
 
 -(void)viewDidAppear:(BOOL)animated{

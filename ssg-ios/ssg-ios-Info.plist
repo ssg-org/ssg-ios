@@ -39,6 +39,7 @@
 	<true/>
 	<key>UIAppFonts</key>
 	<array>
+		<string>Rodin-Regular.ttf</string>
 		<string>FontAwesome.otf</string>
 		<string>FuturaStd-Medium.otf</string>
 		<string>FuturaStd-Book.otf</string>

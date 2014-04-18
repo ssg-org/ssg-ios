@@ -141,34 +141,33 @@ didTapAtCoordinate:		(CLLocationCoordinate2D) 	coordinate{
 }
 - (IBAction)btnCreateIssueOnTouch:(id)sender {
     
-    NSLog(@"Create issue - on click");
-
-    [self showProgressPopup:YES];
-   // self.btnReportIssue.enabled=NO;
     
-    
-    if (![self connected]) {
-        // not connected
-     [self showProgressPopup:NO];
-       UIAlertView* infoAlertView = [[UIAlertView alloc] initWithTitle:@"Info"
-                                                   message:[MCLocalization stringForKey:@"no_internet"]
-                                                  delegate:self
-                                         cancelButtonTitle:[MCLocalization stringForKey:@"ok"]
-                                         otherButtonTitles: nil];
-        [infoAlertView show];
-        
-       // self.btnReportIssue.enabled=YES;
-        
-        
+    ShareViewController *main= [ self.storyboard instantiateViewControllerWithIdentifier:@"ShareViewController"];
+    [self.navigationController pushViewController:main animated:NO];
 
-        
-    } else {
-        
-      //  hud.progress=0.9;
-        // connected, do some internet stuff
-         [_ssgCommunicatorCreateIssueDelegate createIssue:[SyncData get].current_issue :[SyncData get].issue_image ];
-        
-    }
+
+//    [self showProgressPopup:YES];
+//    
+//    if (![self connected]) {
+//        // not connected
+//     [self showProgressPopup:NO];
+//       UIAlertView* infoAlertView = [[UIAlertView alloc] initWithTitle:@"Info"
+//                                                   message:[MCLocalization stringForKey:@"no_internet"]
+//                                                  delegate:self
+//                                         cancelButtonTitle:[MCLocalization stringForKey:@"ok"]
+//                                         otherButtonTitles: nil];
+//        [infoAlertView show];
+//        
+//       // self.btnReportIssue.enabled=YES;
+//        
+//        
+//
+//        
+//    } else {
+//        
+//         [_ssgCommunicatorCreateIssueDelegate createIssue:[SyncData get].current_issue :[SyncData get].issue_image ];
+//        
+//    }
     
 }
 
@@ -222,6 +221,7 @@ didTapAtCoordinate:		(CLLocationCoordinate2D) 	coordinate{
     
     [self.btnReportIssue setBackgroundImage:[UIImage imageNamed:[MCLocalization stringForKey:@"report_issue_btn"]] forState:UIControlStateNormal];
     self.navigationItem.title = [MCLocalization stringForKey:@"map_bar"];
+    self.navigationItem.backBarButtonItem.title= [MCLocalization stringForKey:@"back"];
 }
 
 

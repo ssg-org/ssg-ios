@@ -77,6 +77,7 @@
     
     if (selectedCity!=nil) {
         [self.btnCity setTitle:selectedCity.city forState:UIControlStateNormal];
+        [self.btnCity setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     }
     else
     {
@@ -266,6 +267,7 @@
 -(void)getSelectedCity :(City*)city{
     
     selectedCity=city;
+    
     
 }
 

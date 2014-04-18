@@ -11,6 +11,7 @@
 #import "Faq.h"
 #import "FaqTableViewCell.h"
 #import "FaqDetailsViewController.h"
+#import "MCLocalization.h"
 
 @interface FaqViewController ()
 
@@ -83,6 +84,12 @@
     
     
    [self.navigationController pushViewController: (UIViewController *)main animated:YES];
+
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+ self.navigationItem.title = [MCLocalization stringForKey:@"faq_bar"];
+ self.navigationItem.backBarButtonItem.title= [MCLocalization stringForKey:@"back"];
 
 }
 @end

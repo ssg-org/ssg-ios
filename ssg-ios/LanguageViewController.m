@@ -74,6 +74,7 @@
 -(void)viewWillAppear:(BOOL)animated{
 
 self.navigationItem.title = [MCLocalization stringForKey:@"language_bar"];
+  
 
 }
 

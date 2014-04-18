@@ -10,6 +10,8 @@
 #import "AppDelegate.h"
 #import "CameraViewController.h"
 #import "MCLocalization.h"
+#import "SyncData.h"
+#import "SettingsViewController.h"
 
 @interface MainViewController ()
 
@@ -28,7 +30,7 @@
     return self;
 }
 
-
+#define isiPhone5  ([[UIScreen mainScreen] bounds].size.height == 568)?TRUE:FALSE
 
 - (void)viewDidLoad
 {
@@ -70,22 +72,46 @@
 }
 
 
+
 -(void)viewWillAppear:(BOOL)animated{
 
     
     self.lblWelcome.text=[MCLocalization stringForKey:@"welcome"];
     self.lblYouCan.text=[MCLocalization stringForKey:@"youcan"];
     self.navigationItem.backBarButtonItem.title= [MCLocalization stringForKey:@"back"];
+    
+    
+   
 }
 
 
+-(void)viewDidLayoutSubviews{
+    
+    if (!viewLoaded) {
+        if (!isiPhone5) {
+            self.ssgTextView.frame=CGRectMake(self.ssgTextView.frame.origin.x, self.ssgTextView.frame.origin.y-50, self.ssgTextView.frame.size.width, self.ssgTextView.frame.size.height);
+            
+        }
+        
+        viewLoaded=YES;
+    }
+   
+    
+}
+
+
+-(void)viewDidAppear:(BOOL)animated{
+    
+   
+}
 
 -(void)viewWillLayoutSubviews{
+    
+    viewLoaded=NO;
 
   [[self navigationController] setNavigationBarHidden:YES animated:YES];
-   // [self.navigationController.navigationItem.backBarButtonItem setTitle:[MCLocalization stringForKey:@"back"]];
- 
     
+
     
     
 }
@@ -96,4 +122,27 @@
 }
 
 
+- (IBAction)btnFacebookShare:(id)sender {
+}
+
+- (IBAction)btnTwitterShare:(id)sender {
+}
+
+- (IBAction)btnSettings:(id)sender {
+    
+    
+    CATransition *transition = [CATransition animation];
+    transition.duration = 0.45;
+    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionDefault];
+    transition.type = kCATransitionFromLeft;
+    [transition setType:kCATransitionPush];
+    transition.subtype = kCATransitionFromLeft;
+    transition.delegate = self;
+    [self.navigationController.view.layer addAnimation:transition forKey:nil];
+//
+    
+    
+    SettingsViewController *main= [ self.storyboard instantiateViewControllerWithIdentifier:@"SettingsViewController"];
+    [self.navigationController pushViewController: (UIViewController *)main animated:NO];
+}
 @end

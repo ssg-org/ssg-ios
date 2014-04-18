@@ -32,36 +32,56 @@
 
 
 -(void)viewWillAppear:(BOOL)animated{
-    
-  //  "thankyou": "Thank you!",
-   // "yourissue": "Your issue has been reported. Share it with your friends",
-   // "orreportanother": "or report another one",
 
     
-    self.lblThankYou.text =[MCLocalization stringForKey:@"thankyou"];
-    self.lblYourIssue.text=[MCLocalization stringForKey:@"yourissue"];
-    self.lblOrReport.text=[MCLocalization stringForKey:@"orreportanother"];
+    self.navigationItem.title = [MCLocalization stringForKey:@"share_bar"];
 
 }
 
+
+-(void)setData {
+
+
+    self.lblTitle.text=[SyncData get].current_issue.title;
+    self.txtDescription.text=[SyncData get].current_issue.descript;
+    [self.imgIssue setImage:[SyncData get].issue_image];
+    [self.txtDescription setText:[SyncData get].current_issue.descript];
+    [self.lblCategoryName setText:[SyncData get].current_issue.category_name];
+
+}
+
+-(void)createShareButton{
+
+   
+    UIImage* image3 = [UIImage imageNamed:@"share_button.png"];
+    CGRect frameimg = CGRectMake(0, 0, image3.size.width, image3.size.height);
+    UIButton *someButton = [[UIButton alloc] initWithFrame:frameimg];
+    [someButton setBackgroundImage:image3 forState:UIControlStateNormal];
+    [someButton addTarget:self action:@selector(shareIssue)
+         forControlEvents:UIControlEventTouchUpInside];
+    [someButton setShowsTouchWhenHighlighted:YES];
+    
+    UIBarButtonItem *mailbutton =[[UIBarButtonItem alloc] initWithCustomView:someButton];
+    self.navigationItem.rightBarButtonItem=mailbutton;
+
+}
+
+
+-(void)shareIssue{
+
+
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    // Do any additional setup after loading the view.
-    [self.lblThankYou setFont:[UIFont fontWithName:@"FuturaStd-Medium" size:17]];
-    [self.lblOrReport setFont:[UIFont fontWithName:@"FuturaStd-Light" size:15]];
-    [self.lblYourIssue setFont:[UIFont fontWithName:@"FuturaStd-Light" size:15]];
+    [self createShareButton];
+    [self setData];
 }
 
 -(void)viewDidLayoutSubviews{
 
-    if (!isiPhone5) {
-        
-        self.imgLogo.frame=CGRectMake(self.imgLogo.frame.origin.x, self.imgLogo.frame.origin.y-20, self.imgLogo.frame.size.width, self.imgLogo.frame.size.height);
-    }
-   
-    [[self navigationController] setNavigationBarHidden:YES animated:YES];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -144,4 +164,36 @@
     return UIStatusBarStyleLightContent;
 }
 
+
+-(void)viewWillLayoutSubviews{
+
+    [self setContentSizeScrollView];
+
+}
+
+
+#pragma mark - Private function
+-(void)setContentSizeScrollView {
+    
+    int scrollViewHeight=0;
+    self.txtDescription.frame=  [self contentSizeRectForTextView:self.txtDescription];
+    //calculate scrollView contentSize
+    
+    for (UIView* view in self.myScrollView.subviews)
+    {
+        if (!view.hidden) {
+            scrollViewHeight += view.frame.size.height;
+        }
+        
+    }
+    [self.myScrollView setContentSize:(CGSizeMake(320, scrollViewHeight+20))];
+}
+
+- (CGRect)contentSizeRectForTextView:(UITextView *)textView
+{
+    [textView.layoutManager ensureLayoutForTextContainer:textView.textContainer];
+    CGRect textBounds = [textView.layoutManager usedRectForTextContainer:textView.textContainer];
+    CGFloat height = (CGFloat)ceil(textBounds.size.height + textView.textContainerInset.top + textView.textContainerInset.bottom);
+    return CGRectMake(textView.frame.origin.x, textView.frame.origin.y, 310, height);
+}
 @end
