@@ -16,7 +16,7 @@
 
 @property (strong,nonatomic) id<SsgCommunicatorDelegate> createIssue_delegate;
 
--(void)createIssue:(Issue*)issue : (UIImage *)image;
+-(void)createIssue:(Issue*)issue : (UIImage *)image : (NSString*)accessToken;
 
 
 

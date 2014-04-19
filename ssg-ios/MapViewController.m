@@ -15,6 +15,8 @@
 #import "ShareViewController.h"
 #import "MCLocalization.h"
 #import "MBProgressHUD.h"
+#import "User.h"
+#import "AppDelegate.h"
 
 
 @interface MapViewController ()
@@ -160,7 +162,9 @@ didTapAtCoordinate:		(CLLocationCoordinate2D) 	coordinate{
         
     } else {
         
-         [_ssgCommunicatorCreateIssueDelegate createIssue:[SyncData get].current_issue :[SyncData get].issue_image ];
+        User* user = [self isUserLoggedWithEmailOrFacebook];
+        
+        [_ssgCommunicatorCreateIssueDelegate createIssue:[SyncData get].current_issue :[SyncData get].issue_image:user.access_token];
         
     }
     
@@ -225,6 +229,33 @@ didTapAtCoordinate:		(CLLocationCoordinate2D) 	coordinate{
     [self.btnReportIssue setBackgroundImage:[UIImage imageNamed:[MCLocalization stringForKey:@"report_issue_btn"]] forState:UIControlStateNormal];
     self.navigationItem.title = [MCLocalization stringForKey:@"map_bar"];
 }
+
+-(User*)isUserLoggedWithEmailOrFacebook {
+    
+    AppDelegate * appDelagate  = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    NSManagedObjectContext *context =appDelagate.managedObjectContext;
+    
+    
+    //get object from database
+    NSError *error;
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"User"
+                                              inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+    
+    
+    for (User *user in fetchedObjects) {
+        
+        if (user.access_token!=nil) {
+            
+            return user;
+        }
+    }
+    
+    return nil;
+}
+
 
 
 

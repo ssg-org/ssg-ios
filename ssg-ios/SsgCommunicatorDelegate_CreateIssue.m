@@ -16,7 +16,7 @@
 @implementation SsgCommunicatorDelegate_CreateIssue
 
 
--(void)createIssue:(Issue*)issue : (UIImage *)image{
+-(void)createIssue:(Issue*)issue : (UIImage *)image : (NSString*)accessToken{
 
     AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:[NSURL URLWithString: [SsgAPI getHostName]]];
     NSData *imageData = UIImageJPEGRepresentation(image, 0.5);
@@ -28,6 +28,7 @@
         [params setValue: [issue.category_id stringValue]forKey:@"category_id"];
         [params setValue:  [issue.location_lat stringValue] forKey:@"lat"];
         [params setValue:  [issue.location_lng stringValue ]forKey:@"lng"];
+        [params setValue: accessToken forKey:@"access_token"];
     
        //set time stamp
         [params setValue:@"12312312" forKey:@"ts"];
