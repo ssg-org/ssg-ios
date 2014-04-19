@@ -121,6 +121,17 @@
     if ([self isUserLoggedWithEmailOrFacebook]) {
         
         
+        CATransition *transition = [CATransition animation];
+        transition.duration = 0.45;
+        transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionDefault];
+        transition.type = kCATransitionFromRight;
+        [transition setType:kCATransitionPush];
+        transition.subtype = kCATransitionFromRight;
+        transition.delegate = self;
+        [self.navigationController.view.layer addAnimation:transition forKey:nil];
+        
+        
+        
             MainViewController *main= [ self.storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
             [self.navigationController pushViewController: (UIViewController *)main animated:YES];
         
@@ -370,6 +381,15 @@
     
   
     if ([code isEqualToString:@"0"]) {
+        
+        CATransition *transition = [CATransition animation];
+        transition.duration = 0.45;
+        transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionDefault];
+        transition.type = kCATransitionFromRight;
+        [transition setType:kCATransitionPush];
+        transition.subtype = kCATransitionFromRight;
+        transition.delegate = self;
+        [self.navigationController.view.layer addAnimation:transition forKey:nil];
         
         MainViewController *main= [ self.storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
         [self.navigationController pushViewController:main animated:NO];
