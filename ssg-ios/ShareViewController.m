@@ -87,6 +87,12 @@
 
 -(void)shareIssue{
 
+    NSString* someText = [SyncData get].issueResponseUrl;
+    NSArray* dataToShare = @[someText];  // ...or whatever pieces of data you want to share.
+    UIActivityViewController* activityViewController =
+    [[UIActivityViewController alloc] initWithActivityItems:dataToShare
+                                      applicationActivities:nil];
+    [self presentViewController:activityViewController animated:YES completion:^{}];
 
 }
 - (void)viewDidLoad

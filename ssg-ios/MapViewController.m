@@ -141,33 +141,28 @@ didTapAtCoordinate:		(CLLocationCoordinate2D) 	coordinate{
 }
 - (IBAction)btnCreateIssueOnTouch:(id)sender {
     
+    [self showProgressPopup:YES];
     
-    ShareViewController *main= [ self.storyboard instantiateViewControllerWithIdentifier:@"ShareViewController"];
-    [self.navigationController pushViewController:main animated:NO];
+    if (![self connected]) {
+        // not connected
+     [self showProgressPopup:NO];
+       UIAlertView* infoAlertView = [[UIAlertView alloc] initWithTitle:@"Info"
+                                                   message:[MCLocalization stringForKey:@"no_internet"]
+                                                  delegate:self
+                                         cancelButtonTitle:[MCLocalization stringForKey:@"ok"]
+                                         otherButtonTitles: nil];
+        [infoAlertView show];
+        
+       // self.btnReportIssue.enabled=YES;
+        
+        
 
-
-//    [self showProgressPopup:YES];
-//    
-//    if (![self connected]) {
-//        // not connected
-//     [self showProgressPopup:NO];
-//       UIAlertView* infoAlertView = [[UIAlertView alloc] initWithTitle:@"Info"
-//                                                   message:[MCLocalization stringForKey:@"no_internet"]
-//                                                  delegate:self
-//                                         cancelButtonTitle:[MCLocalization stringForKey:@"ok"]
-//                                         otherButtonTitles: nil];
-//        [infoAlertView show];
-//        
-//       // self.btnReportIssue.enabled=YES;
-//        
-//        
-//
-//        
-//    } else {
-//        
-//         [_ssgCommunicatorCreateIssueDelegate createIssue:[SyncData get].current_issue :[SyncData get].issue_image ];
-//        
-//    }
+        
+    } else {
+        
+         [_ssgCommunicatorCreateIssueDelegate createIssue:[SyncData get].current_issue :[SyncData get].issue_image ];
+        
+    }
     
 }
 
@@ -187,16 +182,30 @@ didTapAtCoordinate:		(CLLocationCoordinate2D) 	coordinate{
     
     if ([code isEqualToString:@"0"]) {
         
-        //Open share controller
+        //Hide progress dialog
        [self showProgressPopup:NO];
         
+        //Set transition animation
+        CATransition *transition = [CATransition animation];
+        transition.duration = 0.45;
+        transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionDefault];
+        transition.type = kCATransitionFromRight;
+        [transition setType:kCATransitionPush];
+        transition.subtype = kCATransitionFromRight;
+        transition.delegate = self;
+        [self.navigationController.view.layer addAnimation:transition forKey:nil];
+        
+        //Open share screen
         ShareViewController *main= [ self.storyboard instantiateViewControllerWithIdentifier:@"ShareViewController"];
         [self.navigationController pushViewController:main animated:NO];
 
         
     }
     else{
+        //Hide progress dialog
          [self showProgressPopup:NO];
+        
+        //Show error
         NSDictionary * documents = [[NSDictionary alloc]init];
         documents=[responseObject objectForKey:@"status"];
         NSString* message=[documents objectForKey:@"message"];
@@ -207,23 +216,14 @@ didTapAtCoordinate:		(CLLocationCoordinate2D) 	coordinate{
                                                        cancelButtonTitle:@"OK"
                                                        otherButtonTitles: nil];
         [infoAlertView show];
-        
-        // self.btnReportIssue.enabled=YES;
-      
     
     }
-
-    
-    
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     
     [self.btnReportIssue setBackgroundImage:[UIImage imageNamed:[MCLocalization stringForKey:@"report_issue_btn"]] forState:UIControlStateNormal];
     self.navigationItem.title = [MCLocalization stringForKey:@"map_bar"];
-    //self.navigationItem.backBarButtonItem.title= [MCLocalization stringForKey:@"back"];
-    
-    //self.navigationItem.backBarButtonItem=nil;
 }
 
 
