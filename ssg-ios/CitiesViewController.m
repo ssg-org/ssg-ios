@@ -56,7 +56,7 @@
 {
 
     // Return the number of rows in the section.
-    return [[SyncData get].cities count];
+    return [cities count];
 }
 
 
@@ -65,7 +65,7 @@
  CitiesTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CitiesTableViewCell" forIndexPath:indexPath];
  
      
-     City * current = [[SyncData get].cities objectAtIndex:indexPath.row];
+     City * current = [cities objectAtIndex:indexPath.row];
  
     // cell.lblCityName.font=[UIFont fontWithName:@"FuturaStd-Light" size:14];
      cell.lblCityName.text= current.city;
@@ -78,7 +78,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    [self.delegate_cities getSelectedCity:[[SyncData get].cities objectAtIndex:indexPath.row ] ];
+    [self.delegate_cities getSelectedCity:[cities objectAtIndex:indexPath.row ] ];
     
     [self.navigationController popViewControllerAnimated:YES];
 
@@ -96,10 +96,13 @@
 #pragma  - SSG COMMUNICATOR DELEGATE FUNCTION
 - (void)recivedData:(SyncData*)syncData {
     
-    
+    cities=[[NSMutableArray alloc]init];
+    cities = syncData.cities;
     
     [self.tblComponent performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
     
+    
+
 }
 - (void)fetchingData:(NSError *)error {
     

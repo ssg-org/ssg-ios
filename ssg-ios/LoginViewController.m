@@ -179,7 +179,9 @@
 #pragma - Action methods
 - (IBAction)btnEmailLoginOnTouch:(UIButton *)sender {
     
-   if ([self validateUserInput]) {
+  
+
+    if ([self validateUserInput]) {
         //Login user with email
         [_ssgCommunicatorEmailLogin loginWithEmail:self.txtUsername.text :self.txtPassword.text];
         

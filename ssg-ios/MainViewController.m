@@ -51,10 +51,6 @@
     
     
     
-   // NSMutableArray * array = [[NSMutableArray alloc]init];
-    
-    //NSObject * object = [array objectAtIndex:5];
-    
     
     
     

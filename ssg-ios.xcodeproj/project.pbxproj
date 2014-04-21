@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		624736481905183D003B4AC9 /* UIViewController+BackButtonHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 624736471905183D003B4AC9 /* UIViewController+BackButtonHandler.m */; };
 		6607382A18E18491003EA07C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6607382918E18491003EA07C /* Images.xcassets */; };
 		6607383118E18492003EA07C /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6607383018E18492003EA07C /* XCTest.framework */; };
 		6607383218E18492003EA07C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6607381118E18491003EA07C /* Foundation.framework */; };
@@ -122,6 +123,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		624736461905183D003B4AC9 /* UIViewController+BackButtonHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+BackButtonHandler.h"; sourceTree = "<group>"; };
+		624736471905183D003B4AC9 /* UIViewController+BackButtonHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+BackButtonHandler.m"; sourceTree = "<group>"; };
 		6607380E18E18491003EA07C /* ssg-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ssg-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6607381118E18491003EA07C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6607381318E18491003EA07C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -341,6 +344,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		624736451905182A003B4AC9 /* BackButtonHandler */ = {
+			isa = PBXGroup;
+			children = (
+				624736461905183D003B4AC9 /* UIViewController+BackButtonHandler.h */,
+				624736471905183D003B4AC9 /* UIViewController+BackButtonHandler.m */,
+			);
+			name = BackButtonHandler;
+			sourceTree = "<group>";
+		};
 		6607380518E18491003EA07C = {
 			isa = PBXGroup;
 			children = (
@@ -394,6 +406,7 @@
 		6607381718E18491003EA07C /* ssg-ios */ = {
 			isa = PBXGroup;
 			children = (
+				624736451905182A003B4AC9 /* BackButtonHandler */,
 				661953B718FC4BAD0000586E /* Main.storyboard */,
 				66362E7D18F3228C00921AB2 /* AFNetworking */,
 				66DB730B18F295BD008D2922 /* Helper */,
@@ -822,6 +835,7 @@
 				663CE51C18E98BD400418F29 /* TileOverlay.m in Sources */,
 				66362EB618F3235F00921AB2 /* AFAppDotNetAPIClient.m in Sources */,
 				6681601E18FFC87500F9FEC1 /* FaqDetailsViewController.m in Sources */,
+				624736481905183D003B4AC9 /* UIViewController+BackButtonHandler.m in Sources */,
 				66908DA118E65C2800F0848E /* CameraViewController.m in Sources */,
 				66908DA218E65C2800F0848E /* SettingsViewController.m in Sources */,
 				66908DA318E65C2800F0848E /* MapViewController.m in Sources */,
@@ -944,6 +958,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -980,6 +995,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

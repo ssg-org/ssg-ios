@@ -22,6 +22,7 @@
 {
    
     SsgCommnicatorDelegate_Info * _ssgCommunicator;
+    NSMutableArray * cities;
     
     
 }

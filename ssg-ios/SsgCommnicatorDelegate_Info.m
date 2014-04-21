@@ -52,8 +52,6 @@
                 syncData.cities = [CitiesBuilder build:json data:data];
                 syncData.categories=[CategoriesBuilder build:json data:data];
                 
-                
-                
                 [self.info_delegate recivedData:syncData];
             }
         }

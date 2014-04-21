@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIViewController+BackButtonHandler.h"
 
-@interface SettingsViewController : UIViewController
+@interface SettingsViewController : UIViewController<BackButtonHandlerProtocol>
 
 
 - (IBAction)btnLogOut:(id)sender;

@@ -15,7 +15,6 @@
 #import "AppDelegate.h"
 #import "User.h"
 
-
 @interface ShareViewController ()
 
 @end
@@ -57,16 +56,21 @@
     [firstlastname appendString:currentUser.firstname];
     [firstlastname appendString:@" "];
     [firstlastname appendString:currentUser.lastname];
-    [self.lblUsername setText:firstlastname ];
+    
+    if (firstlastname!=nil) {
+         [self.lblUsername setText:firstlastname ];
+    }
+   
     
     NSURL * imageURL = [NSURL URLWithString:currentUser.profile_picture];
     NSData * imageData = [NSData dataWithContentsOfURL:imageURL];
     UIImage * image = [UIImage imageWithData:imageData];
-    [self.imgUser setImage:image];
-
+    
+    if (image!=nil) {
+         [self.imgUser setImage:image];
+    }
 
 }
-
 -(void)createShareButton{
 
    self.navigationItem.hidesBackButton = YES;

@@ -89,7 +89,32 @@
       self.navigationItem.title = [MCLocalization stringForKey:@"settings_bar"];
     self.navigationItem.backBarButtonItem.title= [MCLocalization stringForKey:@"back"];
 
+ 
 }
+
+#pragma marks - Delegate function
+-(BOOL) navigationShouldPopOnBackButton {
+//
+    
+    [self.navigationController.view.layer removeAllAnimations];
+    
+    CATransition *transition = [CATransition animation];
+    transition.duration = 0.45;
+    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionDefault];
+    transition.type = kCATransitionFromRight;
+    [transition setType:kCATransitionPush];
+    transition.subtype = kCATransitionFromRight;
+    transition.delegate = self;
+    [self.navigationController.view.layer addAnimation:transition forKey:nil];
+    
+    
+    NSInteger count=[[self.navigationController viewControllers] count];
+    
+    [self.navigationController  popToViewController:[[self.navigationController viewControllers] objectAtIndex:count-2 ] animated:NO];
+
+    return NO;
+}
+
 
 
 @end

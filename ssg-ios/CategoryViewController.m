@@ -84,6 +84,11 @@
     [cell.imgCategory setDefaultIconIdentifier:current.icon];
     cell.imgCategory.defaultView.backgroundColor=[HelperFunctions colorWithHexString:current.color];
     
+    if ([self getSubcategoryForSelectedRow:indexPath.row ].count ==0) {
+        
+        cell.accessoryType=UITableViewCellAccessoryNone;
+    }
+    
     return cell;
 }
 
