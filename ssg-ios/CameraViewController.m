@@ -434,6 +434,7 @@ UIButton *button;
 
 
 - (void)viewDidAppear:(BOOL)animated {
+     self.screenName=@"Camera";
     [super viewDidAppear:animated];
 }
 

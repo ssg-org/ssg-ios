@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GAITrackedViewController.h"
 //#import "BWQuincyManager.h"
 
-@interface MainViewController : UIViewController{
+@interface MainViewController : GAITrackedViewController{
 
     BOOL viewLoaded;
 

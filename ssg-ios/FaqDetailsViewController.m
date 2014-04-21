@@ -50,6 +50,8 @@
 */
 
 -(void)viewDidAppear:(BOOL)animated{
+     self.screenName=@"FaqDetails";
+    [super viewDidAppear:YES];
     self.navigationItem.title = [MCLocalization stringForKey:@"faq_bar"];
     
 }

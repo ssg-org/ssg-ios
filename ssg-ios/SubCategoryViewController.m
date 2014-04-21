@@ -85,4 +85,9 @@
 
  self.navigationItem.title = [MCLocalization stringForKey:@"subcategory_bar"];
 }
+
+-(void)viewDidAppear:(BOOL)animated{
+    self.screenName=@"Subcategory";
+    [super viewDidAppear:YES];
+}
 @end

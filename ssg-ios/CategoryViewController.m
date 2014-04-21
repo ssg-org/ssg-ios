@@ -219,4 +219,9 @@
 - (void)getResponse:(NSString*)code : (id)responseObject{
 
 }
+
+-(void)viewDidAppear:(BOOL)animated{
+     self.screenName=@"Category";
+    [super viewDidAppear:YES];
+}
 @end

@@ -258,5 +258,9 @@ didTapAtCoordinate:		(CLLocationCoordinate2D) 	coordinate{
 
 
 
+-(void)viewDidAppear:(BOOL)animated{
+     self.screenName=@"Map";
+    [super viewDidAppear:YES];
+}
 
 @end

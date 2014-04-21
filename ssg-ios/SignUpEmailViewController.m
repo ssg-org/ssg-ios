@@ -13,6 +13,7 @@
 #import "AppDelegate.h"
 #import "MCLocalization.h"
 
+
 @interface SignUpEmailViewController ()
 
 @end
@@ -72,7 +73,9 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
+     self.screenName=@"Signup";
     
+    [super viewDidAppear:YES];
     self.navigationController.navigationBarHidden=YES;
     
     if (selectedCity!=nil) {
@@ -157,10 +160,10 @@
     else{
         
         
-       UIAlertView* infoAlertView = [[UIAlertView alloc] initWithTitle:@"Info"
+       UIAlertView* infoAlertView = [[UIAlertView alloc] initWithTitle:[MCLocalization stringForKey:@"popup_title"]
                                                    message:validationMessage
                                                   delegate:self
-                                         cancelButtonTitle:@"OK"
+                                         cancelButtonTitle:[MCLocalization stringForKey:@"ok"]
                                          otherButtonTitles: nil];
         
         infoAlertView.delegate=nil;
@@ -193,40 +196,20 @@
         ) {
         
         
-        if ([self.txtFirstName.text length] ==0) {
-            
-            validationMessage = @"Firstname is empty...";
-             return false;
-        }
-        
-        if ([self.txtLastName.text length] ==0) {
-            
-            validationMessage = @"Lastname is empty...";
-             return false;
-        }
-        
-        if ( [self validateEmail:self.txtEmail.text] ==NO ) {
-            
-            validationMessage = @"Email address  incorrect format...";
-             return false;
-        }
         
         
-        if ([self.txtPassword.text length] ==0) {
-            
-            validationMessage = @"Password is empty...";
-             return false;
-        }
         
-        if (selectedCity==nil) {
-            
-            validationMessage = @"City is empty...";
-             return false;
-        }
-       
-        
+        validationMessage = [MCLocalization stringForKey:@"descrption_validation"];
         return false;
     }
+    
+    
+    if ( [self validateEmail:self.txtEmail.text] ==NO ) {
+        
+        validationMessage = [MCLocalization stringForKey:@"email_validation"];
+        return false;
+    }
+    
     
 
     return true;
@@ -289,10 +272,10 @@
 
     if ([code isEqualToString:@"0"]) {
         
-        UIAlertView* infoAlertView = [[UIAlertView alloc] initWithTitle:@"Info"
-                                                                message:@"Confirmation code was sent, please check your email address!"
+        UIAlertView* infoAlertView = [[UIAlertView alloc] initWithTitle:[MCLocalization stringForKey:@"popup_title"]
+                                                                message:[MCLocalization stringForKey:@"confirmation"]
                                                                delegate:self
-                                                      cancelButtonTitle:@"OK"
+                                                      cancelButtonTitle:[MCLocalization stringForKey:@"ok"]
              
                                                       otherButtonTitles: nil];
         

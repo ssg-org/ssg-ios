@@ -11,6 +11,7 @@
 #import "SsgCommunicatorDelegate.h"
 #import "Categories.h"
 #import "SubCategoryViewController.h"
+#import "GAITrackedViewController.h"
 
 @protocol CategoryDelegate <NSObject>
 
@@ -19,7 +20,7 @@
 @end
 
 
-@interface CategoryViewController : UIViewController<SsgCommunicatorDelegate,UITableViewDataSource,UITableViewDelegate>
+@interface CategoryViewController : GAITrackedViewController<SsgCommunicatorDelegate,UITableViewDataSource,UITableViewDelegate>
 {
     SsgCommnicatorDelegate_Info * _ssgCommunicator;
     NSMutableArray * categories;

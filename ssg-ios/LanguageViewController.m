@@ -73,10 +73,17 @@
 
 -(void)viewWillAppear:(BOOL)animated{
 
+   
 self.navigationItem.title = [MCLocalization stringForKey:@"language_bar"];
   
 
 }
+
+-(void)viewDidAppear:(BOOL)animated{
+     self.screenName=@"Language";
+    [super viewDidAppear:YES];
+}
+
 
 
 @end

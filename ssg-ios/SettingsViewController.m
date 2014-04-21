@@ -115,6 +115,10 @@
     return NO;
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+     self.screenName=@"Settings";
+    [super viewDidAppear:YES];
+}
 
 
 @end

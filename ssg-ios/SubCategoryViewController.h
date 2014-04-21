@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Categories.h"
-
+#import "GAITrackedViewController.h"
 @protocol SubCategoryDelegate <NSObject>
 
 -(void)selectSubCategory:(Categories*)category;
@@ -16,7 +16,7 @@
 @end
 
 
-@interface SubCategoryViewController : UIViewController
+@interface SubCategoryViewController : GAITrackedViewController
 
 @property NSMutableArray * subcategory;
 

@@ -14,8 +14,9 @@
 #import "SsgCommunicatorDelegate_CreateIssue.h"
 #import "CustomTextField.h"
 #import "AppDelegate.h"
+#import "GAITrackedViewController.h"
 
-@interface LoginViewController : UIViewController<FBLoginViewDelegate,UITextFieldDelegate,SsgCommunicatorDelegate>{
+@interface LoginViewController : GAITrackedViewController<FBLoginViewDelegate,UITextFieldDelegate,SsgCommunicatorDelegate>{
 
     NSArray* backgroundImagesArray;
     NSTimer* imageTimer;

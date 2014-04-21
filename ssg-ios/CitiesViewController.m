@@ -113,5 +113,10 @@
 
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+     self.screenName=@"Cities";
+    [super viewDidAppear:YES];
+}
+
 
 @end

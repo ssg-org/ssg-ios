@@ -40,7 +40,10 @@
         "subcategory_bar":"PODKATEGORIJA",
         "city_bar":"GRAD",
         "faq_bar":"PITANJA",
-        "share_bar":"PROBLEM PRIJAVLJEN"
+        "share_bar":"PROBLEM PRIJAVLJEN",
+        "confirmation":"Provjerite vasu email adresu, da bi  potvrdili registraciju",
+        "popup_title":"Poruka",
+        "email_validation":"Email adresa nije u ispravnom formatu"
     },
     
     "en": {
@@ -84,7 +87,10 @@
         "subcategory_bar":"SUBCATEGORY",
         "city_bar":"CITY",
         "faq_bar":"FAQ",
-        "share_bar":"ISSUE REPORTED"
+        "share_bar":"ISSUE REPORTED",
+        "confirmation":"Confirmation code was sent, please check your email address!",
+        "popup_title":"Info",
+        "email_validation":"Email address  incorrect format"
         
         
     }

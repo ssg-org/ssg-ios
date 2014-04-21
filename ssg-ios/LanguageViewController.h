@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GAITrackedViewController.h"
 
 
-@interface LanguageViewController : UIViewController
+@interface LanguageViewController : GAITrackedViewController
 
 @property (strong, nonatomic) IBOutlet UIButton *btnEnglish;
 @property (strong, nonatomic) IBOutlet UIButton *btnBosnian;

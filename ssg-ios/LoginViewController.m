@@ -14,6 +14,8 @@
 #import "City.h"
 #import "CustomTextField.h"
 #import "MCLocalization.h"
+#import "GAI.h"
+#import "GAIDictionaryBuilder.h"
 
 @interface LoginViewController ()
 
@@ -188,7 +190,7 @@
     }
     else{
     
-      UIAlertView*  infoAlertView = [[UIAlertView alloc] initWithTitle:@"Info"
+      UIAlertView*  infoAlertView = [[UIAlertView alloc] initWithTitle:[MCLocalization stringForKey:@"popup_title"]
                                                    message:[MCLocalization stringForKey:@"descrption_validation"]
                                                   delegate:self
                                          cancelButtonTitle:[MCLocalization stringForKey:@"ok"]
@@ -405,10 +407,10 @@
         documents=[responseObject objectForKey:@"status"];
         NSString* message=[documents objectForKey:@"message"];
         
-        UIAlertView*  infoAlertView = [[UIAlertView alloc] initWithTitle:@"Info"
+        UIAlertView*  infoAlertView = [[UIAlertView alloc] initWithTitle:[MCLocalization stringForKey:@"popup_title"]
                                                                  message:message
                                                                 delegate:self
-                                                       cancelButtonTitle:@"OK"
+                                                       cancelButtonTitle:[MCLocalization stringForKey:@"ok"]
                                                        otherButtonTitles: nil];
         [infoAlertView show];
         
@@ -424,21 +426,32 @@
 
 -(void)viewWillAppear:(BOOL)animated{
 
+    [super viewWillAppear:YES];
 
     [self.btnLogin setBackgroundImage:[UIImage imageNamed:[MCLocalization stringForKey:@"loginbtn"]] forState:UIControlStateNormal];
     self.lblDontHaveUlica.text=[MCLocalization  stringForKey:@"donthave"];
     self.lblOrQuickLogin.text = [MCLocalization stringForKey:@"orquicklogin"];
     self.txtPassword.placeholder=[MCLocalization stringForKey:@"password"];
     self.txtUsername.placeholder=[MCLocalization stringForKey:@"email"];
-    
 }
 
 -(void)viewDidAppear:(BOOL)animated{
+    
+    //self.tracker = [[GAI sharedInstance] defaultTracker];
+    self.screenName=@"Login";
+   
+    [super viewDidAppear:YES];
+    
+    
 
     if ([SyncData get].signupEmail !=nil) {
         self.txtUsername.text=[SyncData get].signupEmail;
         self.txtPassword.text=[SyncData get].signupPassword;
     }
+    
+    
+
+    
 }
 
 - (IBAction)btnCloseKeyboard:(id)sender {

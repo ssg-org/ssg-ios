@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
+#import "GAITrackedViewController.h"
 
-@interface CameraViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate>{
+@interface CameraViewController : GAITrackedViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate>{
     //Flag for camera state
     BOOL camera_settings_state;
     

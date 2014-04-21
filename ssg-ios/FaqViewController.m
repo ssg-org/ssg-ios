@@ -88,6 +88,8 @@
 }
 
 -(void)viewDidAppear:(BOOL)animated{
+     self.screenName=@"Faq";
+    [super viewDidAppear:YES];
  self.navigationItem.title = [MCLocalization stringForKey:@"faq_bar"];
  self.navigationItem.backBarButtonItem.title= [MCLocalization stringForKey:@"back"];
 

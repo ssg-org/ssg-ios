@@ -10,6 +10,7 @@
 #import "SsgCommunicatorDelegate.h"
 #import "SsgCommnicatorDelegate_Info.h"
 #import "City.h"
+#import "GAITrackedViewController.h"
 
 
 @protocol CitiesDelegate <NSObject>
@@ -18,7 +19,7 @@
 
 @end
 
-@interface CitiesViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,SsgCommunicatorDelegate>
+@interface CitiesViewController : GAITrackedViewController<UITableViewDataSource,UITableViewDelegate,SsgCommunicatorDelegate>
 {
    
     SsgCommnicatorDelegate_Info * _ssgCommunicator;

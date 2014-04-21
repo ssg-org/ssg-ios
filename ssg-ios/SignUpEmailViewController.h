@@ -12,8 +12,9 @@
 #import "CitiesViewController.h"
 #import "City.h"
 #import "SsgCommunicatorDelegate_EmailSignUp.h"
+#import "GAITrackedViewController.h"
 
-@interface SignUpEmailViewController : UIViewController<UITextFieldDelegate,SsgCommunicatorDelegate,CitiesDelegate,UIAlertViewDelegate>{
+@interface SignUpEmailViewController : GAITrackedViewController<UITextFieldDelegate,SsgCommunicatorDelegate,CitiesDelegate,UIAlertViewDelegate>{
 
     long last_city_index;
     SsgCommnicatorDelegate_Info* _ssgCommunicator;

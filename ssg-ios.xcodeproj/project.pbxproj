@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		62040F3D19053D1000C5C246 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 62040F3C19053D1000C5C246 /* libsqlite3.dylib */; };
+		62040F3F19053D7700C5C246 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62040F3E19053D7700C5C246 /* libGoogleAnalyticsServices.a */; };
 		624736481905183D003B4AC9 /* UIViewController+BackButtonHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 624736471905183D003B4AC9 /* UIViewController+BackButtonHandler.m */; };
+		62473653190532A1003B4AC9 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62473652190532A1003B4AC9 /* AdSupport.framework */; };
 		6607382A18E18491003EA07C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6607382918E18491003EA07C /* Images.xcassets */; };
 		6607383118E18492003EA07C /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6607383018E18492003EA07C /* XCTest.framework */; };
 		6607383218E18492003EA07C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6607381118E18491003EA07C /* Foundation.framework */; };
@@ -55,7 +58,6 @@
 		6681601818FFAF8D00F9FEC1 /* FaqViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6681601718FFAF8D00F9FEC1 /* FaqViewController.m */; };
 		6681601B18FFB11C00F9FEC1 /* Faq.m in Sources */ = {isa = PBXBuildFile; fileRef = 6681601A18FFB11C00F9FEC1 /* Faq.m */; };
 		6681601E18FFC87500F9FEC1 /* FaqDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6681601D18FFC87500F9FEC1 /* FaqDetailsViewController.m */; };
-		668C94C418EA9FDA0073D1A4 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 668C94C318EA9FDA0073D1A4 /* libsqlite3.dylib */; };
 		66908D9D18E65C2800F0848E /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6607384A18E190C9003EA07C /* LoginViewController.m */; };
 		66908D9E18E65C2800F0848E /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6607384D18E1949C003EA07C /* MainViewController.m */; };
 		66908D9F18E65C2800F0848E /* SignUpEmailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6618299C18E4CC1A0088AB34 /* SignUpEmailViewController.m */; };
@@ -105,7 +107,6 @@
 		66E1F01118F7D62C002A4062 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66E1F01018F7D62C002A4062 /* MessageUI.framework */; };
 		66F4930F1901123A004B8C08 /* Issue.m in Sources */ = {isa = PBXBuildFile; fileRef = 66F4930E1901123A004B8C08 /* Issue.m */; };
 		66F4BF4D18ECA4410090D776 /* CitiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66F4BF4C18ECA4410090D776 /* CitiesViewController.m */; };
-		66F4BF5018ECA5AB0090D776 /* TableViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 66F4BF4F18ECA5AB0090D776 /* TableViewControllerTest.m */; };
 		66F4BF5618ED4D8C0090D776 /* CategoriesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 66F4BF5518ED4D8C0090D776 /* CategoriesTableViewCell.m */; };
 		66F70A9A18EB53270034B7C1 /* FuturaStd-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 66F70A9918EB53270034B7C1 /* FuturaStd-Heavy.otf */; };
 		66F70A9C18EB53410034B7C1 /* FuturaStd-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 66F70A9B18EB53410034B7C1 /* FuturaStd-Light.otf */; };
@@ -123,8 +124,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		62040F3C19053D1000C5C246 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		62040F3E19053D7700C5C246 /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalyticsServices.a; sourceTree = "<group>"; };
 		624736461905183D003B4AC9 /* UIViewController+BackButtonHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+BackButtonHandler.h"; sourceTree = "<group>"; };
 		624736471905183D003B4AC9 /* UIViewController+BackButtonHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+BackButtonHandler.m"; sourceTree = "<group>"; };
+		6247364A190531E6003B4AC9 /* GAI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
+		6247364B190531E6003B4AC9 /* GAITracker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
+		6247364C19053231003B4AC9 /* GAITrackedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
+		6247364D19053249003B4AC9 /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAIDictionaryBuilder.h; sourceTree = "<group>"; };
+		6247364E19053249003B4AC9 /* GAIFields.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAIFields.h; sourceTree = "<group>"; };
+		6247364F19053249003B4AC9 /* GAILogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAILogger.h; sourceTree = "<group>"; };
+		62473652190532A1003B4AC9 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		6607380E18E18491003EA07C /* ssg-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ssg-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6607381118E18491003EA07C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6607381318E18491003EA07C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -237,7 +247,6 @@
 		6681601A18FFB11C00F9FEC1 /* Faq.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Faq.m; sourceTree = "<group>"; };
 		6681601C18FFC87500F9FEC1 /* FaqDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaqDetailsViewController.h; sourceTree = "<group>"; };
 		6681601D18FFC87500F9FEC1 /* FaqDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaqDetailsViewController.m; sourceTree = "<group>"; };
-		668C94C318EA9FDA0073D1A4 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = System/Library/Frameworks/libsqlite3.dylib; sourceTree = SDKROOT; };
 		66908D8D18E6590900F0848E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		66908D8F18E6591A00F0848E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		66908EBD18E66B5300F0848E /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -293,8 +302,6 @@
 		66F4930E1901123A004B8C08 /* Issue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Issue.m; sourceTree = "<group>"; };
 		66F4BF4B18ECA4410090D776 /* CitiesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CitiesViewController.h; sourceTree = "<group>"; };
 		66F4BF4C18ECA4410090D776 /* CitiesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CitiesViewController.m; sourceTree = "<group>"; };
-		66F4BF4E18ECA5AB0090D776 /* TableViewControllerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewControllerTest.h; sourceTree = "<group>"; };
-		66F4BF4F18ECA5AB0090D776 /* TableViewControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewControllerTest.m; sourceTree = "<group>"; };
 		66F4BF5418ED4D8C0090D776 /* CategoriesTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoriesTableViewCell.h; sourceTree = "<group>"; };
 		66F4BF5518ED4D8C0090D776 /* CategoriesTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoriesTableViewCell.m; sourceTree = "<group>"; };
 		66F70A9918EB53270034B7C1 /* FuturaStd-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FuturaStd-Heavy.otf"; sourceTree = "<group>"; };
@@ -318,9 +325,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62040F3D19053D1000C5C246 /* libsqlite3.dylib in Frameworks */,
+				62473653190532A1003B4AC9 /* AdSupport.framework in Frameworks */,
 				66E1F01118F7D62C002A4062 /* MessageUI.framework in Frameworks */,
 				66C1714218F57BB700151D8C /* Social.framework in Frameworks */,
-				668C94C418EA9FDA0073D1A4 /* libsqlite3.dylib in Frameworks */,
 				663CE51618E988D900418F29 /* MapKit.framework in Frameworks */,
 				66908ED418E700CC00F0848E /* SystemConfiguration.framework in Frameworks */,
 				66908ED218E700BB00F0848E /* OpenGLES.framework in Frameworks */,
@@ -336,6 +344,7 @@
 				66908EBE18E66B5300F0848E /* libz.dylib in Frameworks */,
 				66908DA918E65CE200F0848E /* CoreGraphics.framework in Frameworks */,
 				66908DA818E65CC500F0848E /* CoreLocation.framework in Frameworks */,
+				62040F3F19053D7700C5C246 /* libGoogleAnalyticsServices.a in Frameworks */,
 				66908EC218E7002000F0848E /* GoogleMaps.framework in Frameworks */,
 				66908DA718E65CBF00F0848E /* QuartzCore.framework in Frameworks */,
 			);
@@ -351,6 +360,19 @@
 				624736471905183D003B4AC9 /* UIViewController+BackButtonHandler.m */,
 			);
 			name = BackButtonHandler;
+			sourceTree = "<group>";
+		};
+		62473649190531B8003B4AC9 /* GoogleAnalytics */ = {
+			isa = PBXGroup;
+			children = (
+				6247364D19053249003B4AC9 /* GAIDictionaryBuilder.h */,
+				6247364E19053249003B4AC9 /* GAIFields.h */,
+				6247364F19053249003B4AC9 /* GAILogger.h */,
+				6247364C19053231003B4AC9 /* GAITrackedViewController.h */,
+				6247364A190531E6003B4AC9 /* GAI.h */,
+				6247364B190531E6003B4AC9 /* GAITracker.h */,
+			);
+			name = GoogleAnalytics;
 			sourceTree = "<group>";
 		};
 		6607380518E18491003EA07C = {
@@ -375,10 +397,12 @@
 		6607381018E18491003EA07C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				62040F3E19053D7700C5C246 /* libGoogleAnalyticsServices.a */,
+				62040F3C19053D1000C5C246 /* libsqlite3.dylib */,
+				62473652190532A1003B4AC9 /* AdSupport.framework */,
 				66A3401618F7D928005BA06C /* KSCrash.framework */,
 				66E1F01018F7D62C002A4062 /* MessageUI.framework */,
 				66C1714118F57BB700151D8C /* Social.framework */,
-				668C94C318EA9FDA0073D1A4 /* libsqlite3.dylib */,
 				663CE51518E988D900418F29 /* MapKit.framework */,
 				66908ED718E7042F00F0848E /* GoogleMaps.bundle */,
 				66908ED318E700CC00F0848E /* SystemConfiguration.framework */,
@@ -406,6 +430,7 @@
 		6607381718E18491003EA07C /* ssg-ios */ = {
 			isa = PBXGroup;
 			children = (
+				62473649190531B8003B4AC9 /* GoogleAnalytics */,
 				624736451905182A003B4AC9 /* BackButtonHandler */,
 				661953B718FC4BAD0000586E /* Main.storyboard */,
 				66362E7D18F3228C00921AB2 /* AFNetworking */,
@@ -477,8 +502,6 @@
 				66C9BA8E18E5CD0500C4D747 /* CategoryViewController.m */,
 				66F4BF4B18ECA4410090D776 /* CitiesViewController.h */,
 				66F4BF4C18ECA4410090D776 /* CitiesViewController.m */,
-				66F4BF4E18ECA5AB0090D776 /* TableViewControllerTest.h */,
-				66F4BF4F18ECA5AB0090D776 /* TableViewControllerTest.m */,
 				66AD5E9A18EF39B2001596D0 /* SubCategoryViewController.h */,
 				66AD5E9B18EF39B2001596D0 /* SubCategoryViewController.m */,
 				661953AB18FBE5600000586E /* LanguageViewController.h */,
@@ -821,7 +844,6 @@
 				66362EAC18F3232500921AB2 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				66362EB118F3232500921AB2 /* UIProgressView+AFNetworking.m in Sources */,
 				66362E7218F2E9ED00921AB2 /* SsgCommunicatorDelegate_CreateIssue.m in Sources */,
-				66F4BF5018ECA5AB0090D776 /* TableViewControllerTest.m in Sources */,
 				6681601B18FFB11C00F9FEC1 /* Faq.m in Sources */,
 				6667C88818EC437800F84CBF /* CategoriesBuilder.m in Sources */,
 				66362E9518F322DF00921AB2 /* AFSecurityPolicy.m in Sources */,
@@ -980,6 +1002,7 @@
 					"$(PROJECT_DIR)",
 					/Users/haris/Downloads,
 					"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/Frameworks",
+					"$(PROJECT_DIR)/ssg-ios",
 				);
 				OTHER_LDFLAGS = (
 					"-all_load",
@@ -1014,6 +1037,7 @@
 					"$(PROJECT_DIR)",
 					/Users/haris/Downloads,
 					"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/Frameworks",
+					"$(PROJECT_DIR)/ssg-ios",
 				);
 				OTHER_LDFLAGS = (
 					"-all_load",

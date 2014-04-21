@@ -11,9 +11,9 @@
 #import "SsgCommunicatorDelegate.h"
 #import "SsgCommunicatorDelegate_CreateIssue.h"
 #import "MBProgressHUD.h"
+#import "GAITrackedViewController.h"
 
-
-@interface MapViewController : UIViewController<GMSMapViewDelegate,CLLocationManagerDelegate,SsgCommunicatorDelegate >{
+@interface MapViewController : GAITrackedViewController<GMSMapViewDelegate,CLLocationManagerDelegate,SsgCommunicatorDelegate >{
     CLLocationManager *locationManager;
     BOOL first_marker;
     GMSMarker *marker ;

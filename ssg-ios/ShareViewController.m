@@ -255,4 +255,9 @@
     
     return nil;
 }
+
+-(void)viewDidAppear:(BOOL)animated{
+     self.screenName=@"Share";
+    [super viewDidAppear:YES];
+}
 @end

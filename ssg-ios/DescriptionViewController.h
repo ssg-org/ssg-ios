@@ -14,9 +14,9 @@
 #import "CitiesViewController.h"
 #import "UIPlaceHolderTextView.h"
 #import "CustomTextField.h"
+#import "GAITrackedViewController.h"
 
-
-@interface DescriptionViewController : UIViewController<UITextFieldDelegate,UITextViewDelegate,CategoryDelegate,SubCategoryDelegate,CitiesDelegate>
+@interface DescriptionViewController : GAITrackedViewController<UITextFieldDelegate,UITextViewDelegate,CategoryDelegate,SubCategoryDelegate,CitiesDelegate>
 {
 
     UIAlertView * alertView;

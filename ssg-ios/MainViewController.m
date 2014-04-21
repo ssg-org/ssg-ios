@@ -12,6 +12,7 @@
 #import "MCLocalization.h"
 #import "SyncData.h"
 #import "SettingsViewController.h"
+#import "GAI.h"
 
 @interface MainViewController ()
 
@@ -97,6 +98,8 @@
 
 
 -(void)viewDidAppear:(BOOL)animated{
+     self.screenName=@"Main";
+    [super viewDidAppear:YES];
     
    
 }

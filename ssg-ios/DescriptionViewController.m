@@ -255,4 +255,10 @@
     
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+  
+     self.screenName=@"Description";
+    [super viewDidAppear:YES];
+
+}
 @end

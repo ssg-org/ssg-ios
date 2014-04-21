@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GAITrackedViewController.h"
 
-@interface FaqDetailsViewController : UIViewController
+@interface FaqDetailsViewController : GAITrackedViewController
 
 @property (strong, nonatomic) IBOutlet UITextView *txtDetails;
 
