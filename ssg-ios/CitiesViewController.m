@@ -29,10 +29,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-//    if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) { // if iOS 7
-//        self.edgesForExtendedLayout = UIRectEdgeNone; //layout adjustements
-//    }
-    
     _ssgCommunicator =[[SsgCommnicatorDelegate_Info alloc]init];
     _ssgCommunicator.info_delegate=self;
     [_ssgCommunicator getCategoriesAndCities];
@@ -54,8 +50,6 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-
-    // Return the number of rows in the section.
     return [cities count];
 }
 
@@ -63,23 +57,15 @@
  - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
  {
  CitiesTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CitiesTableViewCell" forIndexPath:indexPath];
- 
-     
-     City * current = [cities objectAtIndex:indexPath.row];
- 
-    // cell.lblCityName.font=[UIFont fontWithName:@"FuturaStd-Light" size:14];
-     cell.lblCityName.text= current.city;
- 
- 
-     
- return cell;
+
+     cell.lblCityName.text= [cities objectAtIndex:indexPath.row];
+     return cell;
  }
 
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    [self.delegate_cities getSelectedCity:[cities objectAtIndex:indexPath.row ] ];
-    
+    [self.delegate_cities getSelectedCity:[cities_object objectForKey:[cities objectAtIndex:indexPath.row]]];
     [self.navigationController popViewControllerAnimated:YES];
 
 }
@@ -89,6 +75,7 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
+    
     self.navigationController.navigationBarHidden=NO;
     self.navigationItem.title = [MCLocalization stringForKey:@"city_bar"];
 }
@@ -97,12 +84,20 @@
 - (void)recivedData:(SyncData*)syncData {
     
     cities=[[NSMutableArray alloc]init];
-    cities = syncData.cities;
+    cities_object=[[NSMutableDictionary alloc]init];
     
+    for (City * city in syncData.cities) {
+        [cities addObject:city.city];
+        [cities_object  setObject:city forKey:city.city];
+    }
+    //Sort city
+    [self sortCitiesAlphabetically];
     [self.tblComponent performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
-    
-    
+}
 
+
+-(void)sortCitiesAlphabetically{
+    [cities sortUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
 }
 - (void)fetchingData:(NSError *)error {
     

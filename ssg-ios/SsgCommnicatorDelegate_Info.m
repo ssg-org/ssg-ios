@@ -19,11 +19,11 @@
 
     //Set params
     NSMutableDictionary * params = [[NSMutableDictionary alloc]init];
-    //    [params setValue:@"haris" forKey:@"user"];
-    //    [params setValue:@"1234" forKey:@"password"];
-    //    [params setValue:@"1234" forKey:@"aa"];
+
     
     [SsgAPI ssgApiCall:@"/info"  requestType:@"GET" params:params  completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+        
+        NSLog(@" RESPONSE: %@", [response URL]);
         
         if (error) {
             

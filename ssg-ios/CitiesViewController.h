@@ -23,7 +23,8 @@
 {
    
     SsgCommnicatorDelegate_Info * _ssgCommunicator;
-    NSMutableArray * cities;
+    NSMutableArray * cities; //cities names
+    NSMutableDictionary *cities_object; //cities objects (Model.City)
     
     
 }

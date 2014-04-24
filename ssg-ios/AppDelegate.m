@@ -29,21 +29,16 @@
     
      //Google maps API Key
     [GMSServices provideAPIKey:@"AIzaSyD7lqvVBatbAQbX0oTStokyRn2JHBBDAYQ"];
+    [GMSMapView class];
+    
     [FBLoginView class];
     [FBProfilePictureView class];
-    [GMSMapView class];
     [FAImageView class];
 
     [[UINavigationBar appearance] setBackgroundImage: [UIImage imageNamed:@"nav_bar.png"]  forBarMetrics:UIBarMetricsDefault];
-    
-    
-//    [[UINavigationBar appearance] setBackIndicatorImage:[UIImage imageNamed:@"arrow_left.png"]];
-//    [[UINavigationBar appearance] setBackIndicatorTransitionMaskImage:[UIImage imageNamed:@"arrow_left.png"]];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor] ];
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
-   
      self.navigationController =(UINavigationController *) self.window.rootViewController;
-    
     
     //Init core data
     [self managedObjectContext];
@@ -64,10 +59,13 @@
      [[[self navigationController] navigationBar] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor], NSFontAttributeName: [UIFont fontWithName:@"FuturaStd-Medium" size:16.0f]}];
     
     
+    //Init crashHandler
     [self installCrashHandler];
     
+    //Set default language
     [self setDefaultLanguage];
     
+    //Init Google Analytics
     [self initGoogleAnalytics];
     
     return YES;
@@ -85,14 +83,9 @@
     // Optional: set Logger to VERBOSE for debug information.
     [[[GAI sharedInstance] logger] setLogLevel:kGAILogLevelVerbose];
     
-
-    
     // Initialize tracker. Replace with your tracking ID.
-    [[GAI sharedInstance] trackerWithTrackingId:@"UA-30569816-5"];
-
+     [[GAI sharedInstance] trackerWithTrackingId:@"UA-30569816-4"];
 }
-
-
 
 -(void)setDefaultLanguage{
     
@@ -118,9 +111,6 @@
 
 -(BOOL)checkDefaultLanguage {
 
-
-
-    
     AppDelegate * appDelagate  = (AppDelegate *)[UIApplication sharedApplication].delegate;
     NSManagedObjectContext *context =appDelagate.managedObjectContext;
     
@@ -215,20 +205,12 @@
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
-    
-    
-    
-    
-    
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-    
-    
-    NSLog(@"application background");
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
@@ -304,15 +286,6 @@
 - (NSURL *)applicationDocumentsDirectory
 {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
-}
-
-
-- (void)resetAppToFirstController
-{
-//    //self.window.rootViewController = [[MyMainViewController alloc] initWithNibName:nil bundle:nil];
-//    MainViewController *main= [ self instantiateViewControllerWithIdentifier:@"MainViewController"];
-//    [self.navigationController pushViewController:main animated:NO];
-    self.navigationController =(UINavigationController *) self.window.rootViewController;
 }
 
 

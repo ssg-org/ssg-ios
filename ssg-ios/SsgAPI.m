@@ -31,8 +31,6 @@
         NSLog(@"VAL %@", [params objectForKey:key]);
         [signature appendString: key];
         [signature appendString:@"="];
-        
-      //  NSString * encodeValue=[key urlencode];
         [signature appendString:[params objectForKey:key]];
         [signature appendString:@"&"];
         
@@ -54,8 +52,13 @@
     CCHmac(kCCHmacAlgSHA256, cKey, strlen(cKey), cData, strlen(cData), cHMAC);
     NSData *hash = [[NSData alloc] initWithBytes:cHMAC length:sizeof(cHMAC)];
     
+    NSLog(@"SHA: %@",hash);
+    
     NSLog(@"%@", hash);
     NSString* s = [self base64forData:hash];
+    
+    NSLog(@"BASE64: %@",s);
+    
     return s;
 }
 
@@ -78,9 +81,11 @@
         output[theIndex + 1] = table[(value >> 12) & 0x3F];
         output[theIndex + 2] = (i + 1) < length ? table[(value >> 6) & 0x3F] : '=';
         output[theIndex + 3] = (i + 2) < length ? table[(value >> 0) & 0x3F] : '=';
+        
     }
     
-    return [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]; }
+    return [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+}
 
 + (void)ssgApiCall:(NSString*)path requestType:(NSString*)requestType params:(NSMutableDictionary*)params  completionHandler:(void (^)(NSURLResponse* response, NSData* data, NSError* connectionError))callback  {
     

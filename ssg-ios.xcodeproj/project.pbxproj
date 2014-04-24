@@ -103,7 +103,6 @@
 		66D5ECD418EEB756009CD054 /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D5ECD318EEB756009CD054 /* City.m */; };
 		66DB730A18F290B9008D2922 /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = 66DB730918F290B9008D2922 /* FontAwesome.otf */; };
 		66DB730E18F29600008D2922 /* HelperFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 66DB730D18F29600008D2922 /* HelperFunctions.m */; };
-		66DC3A5618FFF04F0094FF03 /* Rodin-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 66DC3A5518FFF04F0094FF03 /* Rodin-Regular.ttf */; };
 		66E1F01118F7D62C002A4062 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66E1F01018F7D62C002A4062 /* MessageUI.framework */; };
 		66F4930F1901123A004B8C08 /* Issue.m in Sources */ = {isa = PBXBuildFile; fileRef = 66F4930E1901123A004B8C08 /* Issue.m */; };
 		66F4BF4D18ECA4410090D776 /* CitiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66F4BF4C18ECA4410090D776 /* CitiesViewController.m */; };
@@ -296,7 +295,6 @@
 		66DB730918F290B9008D2922 /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.otf; sourceTree = "<group>"; };
 		66DB730C18F29600008D2922 /* HelperFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelperFunctions.h; sourceTree = "<group>"; };
 		66DB730D18F29600008D2922 /* HelperFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelperFunctions.m; sourceTree = "<group>"; };
-		66DC3A5518FFF04F0094FF03 /* Rodin-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rodin-Regular.ttf"; sourceTree = "<group>"; };
 		66E1F01018F7D62C002A4062 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		66F4930D1901123A004B8C08 /* Issue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Issue.h; sourceTree = "<group>"; };
 		66F4930E1901123A004B8C08 /* Issue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Issue.m; sourceTree = "<group>"; };
@@ -517,7 +515,6 @@
 		6630EA8B18EB4890009368B5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				66DC3A5518FFF04F0094FF03 /* Rodin-Regular.ttf */,
 				661953BC18FC4C7A0000586E /* strings.json */,
 				6630EA8C18EB489A009368B5 /* Fonts */,
 			);
@@ -796,7 +793,6 @@
 				66DB730A18F290B9008D2922 /* FontAwesome.otf in Resources */,
 				669B570E18F2107A00EDC91A /* FuturaStd-Book.otf in Resources */,
 				66908ED818E7042F00F0848E /* GoogleMaps.bundle in Resources */,
-				66DC3A5618FFF04F0094FF03 /* Rodin-Regular.ttf in Resources */,
 				661953BD18FC4C7A0000586E /* strings.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
