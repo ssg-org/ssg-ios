@@ -9,14 +9,13 @@
 #import "SsgAPI.h"
 #import <CommonCrypto/CommonHMAC.h>
 #import "NSString+NSString_Extended.h"
+#include <sys/time.h>
 
 @implementation SsgAPI
 
 +(NSString*)getHostName{
 
     return @"http://username:pass@dev.ulica.ba";
-    //return @"http://127.0.0.1:3000";
-
 }
 
 
@@ -35,8 +34,6 @@
         [signature appendString:@"&"];
         
     }
-    
-    
     
     //Substring last char
     [signature deleteCharactersInRange:NSMakeRange([signature length]-1, 1)];
@@ -87,45 +84,11 @@
     return [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
 }
 
-+ (void)ssgApiCall:(NSString*)path requestType:(NSString*)requestType params:(NSMutableDictionary*)params  completionHandler:(void (^)(NSURLResponse* response, NSData* data, NSError* connectionError))callback  {
-    
-    //Set time stamp
-    [params setValue:@"12312312" forKey:@"ts"];
-    
-    //Set signature
-    NSString* signature = [self buildSingature:params];
-    [params setValue:signature forKey:@"signature"];
-    
-    //Generate and encode url
-    NSString * generatedURL = [self createParamString:params ];
-    NSLog(@" %@",generatedURL);
-    
-    //Create URL
-    NSString *urlAsString = [NSString stringWithFormat:[[self getHostName] stringByAppendingString:@"/api/v1%@?%@"] , path,generatedURL];
-    NSURL *url = [[NSURL alloc] initWithString:urlAsString];
-    NSLog(@"%@", urlAsString);
-    
-    //Send Request
-    NSMutableURLRequest * request = [[NSMutableURLRequest alloc] initWithURL:url ];
-    [request setHTTPMethod:requestType];
-    [NSURLConnection sendAsynchronousRequest:request queue:[[NSOperationQueue alloc] init] completionHandler:callback];
++(NSString*)generateTimestamp{
+
+   time_t unixTime = (time_t) [[NSDate date] timeIntervalSince1970];
+   NSString *str = [NSString stringWithFormat:@"%ld", unixTime];
+   return  str ;
 }
-
-+(NSString *) createParamString : (NSMutableDictionary *)params
-{
-    NSString *result = @"";
-    id key;
-    NSEnumerator *enumerator = [params keyEnumerator];
-    while (key = [enumerator nextObject]) {
-        
-        NSString * value =[params objectForKey:key];
-        
-        result = [result stringByAppendingFormat:@"%@=%@&", key, [value urlencode ]];
-    }
-    
-    return result;
-}
-
-
 
 @end

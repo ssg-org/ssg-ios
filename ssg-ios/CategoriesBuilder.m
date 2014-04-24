@@ -21,12 +21,8 @@
     
     
     NSMutableArray * all_categories = [[NSMutableArray alloc]init];
-    
-    NSDictionary * documents = [[NSDictionary alloc]init];
-    documents=[json objectForKey:@"document"];
-    
     NSDictionary * categories = [[NSDictionary alloc]init];
-    categories= [documents objectForKey:@"categories"];
+    categories= [json objectForKey:@"categories"];
     
     
     for (NSDictionary * category in categories) {
@@ -40,7 +36,7 @@
                   [c setDescript: [category objectForKey:@"description"]];
             }
         
-       // NSLog(@"Ikona: %@",[category objectForKey:@"icon"]);
+      
             [c setIcon:[category objectForKey:@"icon"]];
             [c setId_:[category objectForKey:@"id"]];
             [c setName:[category objectForKey:@"name"]];
@@ -49,17 +45,8 @@
                 [c setParent_id:[category objectForKey:@"parent_id"]];
             }
             [all_categories addObject:c];
-        
-        
-
     }
-    
-    //if ( [all_categories count]>[self getAllCategoriesFromDatabase].count) {
-        
-        //[context save:nil];
-   // }
-    
-    [Builder serialize:data filePath:@"categories.json"];
+
     return all_categories;
 }
 

@@ -16,10 +16,7 @@
 
 + (NSString*)base64forData:(NSData*)theData;
 
-+ (void)ssgApiCall:(NSString*)path requestType:(NSString*)requestType params:(NSMutableDictionary*)params completionHandler:(void (^)(NSURLResponse* response, NSData* data, NSError* connectionError))callback  ;
-
-+(NSString *) createParamString : (NSMutableDictionary *)params;
-
++(NSString*)generateTimestamp;
 
 
 

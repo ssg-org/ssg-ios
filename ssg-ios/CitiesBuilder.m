@@ -23,15 +23,11 @@
     
     AppDelegate * appDelagate  = (AppDelegate *)[UIApplication sharedApplication].delegate;
     NSManagedObjectContext *context =appDelagate.managedObjectContext;
-    
-    
     NSMutableArray * all_cities = [[NSMutableArray alloc]init];
     
-    NSDictionary * documents = [[NSDictionary alloc]init];
-    documents=[json objectForKey:@"document"];
     
     NSDictionary * cities = [[NSDictionary alloc]init];
-    cities= [documents objectForKey:@"cities"];
+    cities= [json objectForKey:@"cities"];
     
 
     for (NSDictionary * ccc in cities) {
@@ -46,14 +42,6 @@
         [all_cities addObject:city];
         
     }
-    
-    if ([all_cities count]> [self getAllCitiesFromDatabase].count ) {
-       [context save:nil];
-    }
-    
-    
-    [Builder serialize:data filePath:@"cities.json"];
-    
     return all_cities;
 }
 

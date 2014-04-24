@@ -11,52 +11,47 @@
 #import "Builder.h"
 #import "CategoriesBuilder.h"
 #import "CitiesBuilder.h"
+#import "AFHTTPRequestOperation.h"
+#import "AFHTTPRequestOperationManager.h"
 
 @implementation SsgCommnicatorDelegate_Info
 
 
 -(void)getCategoriesAndCities{
-
-    //Set params
-    NSMutableDictionary * params = [[NSMutableDictionary alloc]init];
-
     
-    [SsgAPI ssgApiCall:@"/info"  requestType:@"GET" params:params  completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+    
+  // NSLog(@"TIME STAMP: %@ ",[SsgAPI generateTimestamp]);
+    
+    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:[NSURL URLWithString:[SsgAPI getHostName] ]];
+    
+    NSMutableDictionary * params = [[NSMutableDictionary alloc]init];
+    
+    //set time stamp
+    [params setValue:[SsgAPI generateTimestamp] forKey:@"ts"];
+    
+    //Set signature
+    NSString* signature = [SsgAPI buildSingature:params];
+    [params setValue:signature forKey:@"signature"];
+    
+    
+    AFHTTPRequestOperation *op = [manager GET:@"/api/v1/info" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject){
+    
         
-        NSLog(@" RESPONSE: %@", [response URL]);
+        NSDictionary * json = [responseObject objectForKey:@"document"];
         
-        if (error) {
-            
-            
-            [self.info_delegate fetchingData:error];
-            
-        } else {
-            
-            
-            NSError* jsonError;
-            NSDictionary* json = [NSJSONSerialization
-                                  JSONObjectWithData:data
-                                  options:kNilOptions
-                                  error:&jsonError];
-            
-             NSLog(@"%@ ",json);
-            
-            if (jsonError != NULL) {
-                
-                [self.info_delegate fetchingData:jsonError];
-                
-            }
-            else {
-                
-                SyncData *syncData = [SyncData get];
-                syncData.cities = [CitiesBuilder build:json data:data];
-                syncData.categories=[CategoriesBuilder build:json data:data];
-                
-                [self.info_delegate recivedData:syncData];
-            }
-        }
+        SyncData *syncData = [SyncData get];
+        syncData.cities = [CitiesBuilder build:json data:responseObject];
+        syncData.categories=[CategoriesBuilder build:json data:responseObject];
+        [self.info_delegate recivedData:syncData];
+
+        
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    
+        
+    
     }];
-
-
+    
+    [op start];
 }
 @end
