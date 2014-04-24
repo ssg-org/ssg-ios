@@ -46,7 +46,6 @@
 }
 
 
-
 #pragma mark - Table view data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -56,7 +55,6 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    
     // Return the number of rows in the section.
     return [[SyncData get].faq count];
 }
@@ -65,7 +63,6 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     FaqTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FaqTableViewCell" forIndexPath:indexPath];
-    
     Faq * current = [[SyncData get].faq objectAtIndex:indexPath.row];
     cell.lblFaqCategory.text=current.name;
     return cell;
@@ -75,23 +72,18 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    
-    
    FaqDetailsViewController *main= [ self.storyboard instantiateViewControllerWithIdentifier:@"FaqDetailsViewController"];
-    
-    Faq *selected = [[SyncData get].faq objectAtIndex:indexPath.row];
-    main.selected_info=selected.descript;
-    
-    
+   Faq *selected = [[SyncData get].faq objectAtIndex:indexPath.row];
+   main.selected_info=selected.descript;
    [self.navigationController pushViewController: (UIViewController *)main animated:YES];
 
 }
 
 -(void)viewDidAppear:(BOOL)animated{
+    
      self.screenName=@"Faq";
     [super viewDidAppear:YES];
- self.navigationItem.title = [MCLocalization stringForKey:@"faq_bar"];
- self.navigationItem.backBarButtonItem.title= [MCLocalization stringForKey:@"back"];
-
+     self.navigationItem.title = [MCLocalization stringForKey:@"faq_bar"];
+     self.navigationItem.backBarButtonItem.title= [MCLocalization stringForKey:@"back"];
 }
 @end

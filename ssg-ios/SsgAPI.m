@@ -8,7 +8,6 @@
 
 #import "SsgAPI.h"
 #import <CommonCrypto/CommonHMAC.h>
-#import "NSString+NSString_Extended.h"
 #include <sys/time.h>
 
 @implementation SsgAPI

@@ -35,17 +35,23 @@
 {
     [super viewDidLoad];
     
+    
     last_city_index=0;
-     [[self navigationController] setNavigationBarHidden:YES animated:YES];
+    
+    //Hide navigation bar
+    [[self navigationController] setNavigationBarHidden:YES animated:YES];
+   
+    //Set delegates
     [self setDelagate];
     
-    _ssgCommunicator=[[SsgCommnicatorDelegate_Info alloc]init];
-    _ssgCommunicator.info_delegate=self;
-    
+    //Get categories and cities
     [_ssgCommunicator getCategoriesAndCities];
-    
-    _ssgCommunicatorEmailSignup = [[SsgCommunicatorDelegate_EmailSignUp alloc]init];
-    _ssgCommunicatorEmailSignup.emailSignup_delegate=self;
+   
+    //Set gesture for keyboard close
+    [self setKeyboardCloseGesture];
+}
+
+-(void)setKeyboardCloseGesture{
     
     //Gesture init
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closeKeyboard:)];
@@ -54,18 +60,16 @@
     [self.imgBackground addGestureRecognizer:singleTap];
     [self.imgBackground setUserInteractionEnabled:YES];
     
-    
-    
     UITapGestureRecognizer *containerViewGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closeKeyboard:)];
     containerViewGesture.numberOfTapsRequired = 1;
     containerViewGesture.numberOfTouchesRequired = 1;
     [self.textBoxContainer addGestureRecognizer:containerViewGesture];
     [self.textBoxContainer setUserInteractionEnabled:YES];
-
+    
 }
 
 - (void)closeKeyboard:(UIGestureRecognizer *)gestureRecognizer {
-    
+    //close keboard
     [self textFieldShouldReturn:self.txtFirstName];
     [self textFieldShouldReturn:self.txtLastName];
     [self textFieldShouldReturn:self.txtEmail];
@@ -73,11 +77,12 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
+    //Set screenName for GoogleAnalytics
      self.screenName=@"Signup";
     
     [super viewDidAppear:YES];
-    self.navigationController.navigationBarHidden=YES;
     
+    //Set selected city
     if (selectedCity!=nil) {
         [self.btnCity setTitle:selectedCity.city forState:UIControlStateNormal];
         [self.btnCity setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
@@ -87,6 +92,7 @@
         [self.btnCity setTitle:[[MCLocalization stringForKey:@"city"]lowercaseString ] forState:UIControlStateNormal] ;
     }
     
+    //Set localization text
     self.txtFirstName.placeholder=[MCLocalization stringForKey:@"firstname"];
     self.txtLastName.placeholder=[MCLocalization stringForKey:@"lastname"];
     self.txtEmail.placeholder=[[MCLocalization stringForKey:@"email"]lowercaseString ];
@@ -94,34 +100,36 @@
     self.lblGetStarted.text=[MCLocalization stringForKey:@"getstarted"];
     [self.btnBackToLogin setTitle:[MCLocalization stringForKey:@"backtologin"] forState:UIControlStateNormal];
     [self.btnSignUp setBackgroundImage:[UIImage imageNamed:[MCLocalization stringForKey:@"signupbutton"]] forState:UIControlStateNormal];
-    
     self.navigationItem.title = [MCLocalization stringForKey:@"signup_bar"];
-    
-
 }
 
 -(void)viewWillLayoutSubviews{
 
+    //City button design fix - corner radius
     self.btnCity.layer.cornerRadius=3.00f;
+    
+    //Set fonts
     [self setFonts];
-    
-   
-    
 }
 -(void)setFonts {
     self.lblGetStarted.font=[UIFont fontWithName:@"FuturaStd-Light" size:17];
-    //self.btnCity.titleLabel.font=[UIFont fontWithName:@"FuturaStd-Light" size:14];
     self.btnSignUp.titleLabel.font=[UIFont fontWithName:@"FuturaStd-Heavy" size:16];
     self.btnBackToLogin.titleLabel.font=[UIFont fontWithName:@"FuturaStd-Light" size:16];
-   // [self.btnBackToLogin setTitle:@"Back to login" forState:UIControlStateNormal];
 }
 
 -(void)setDelagate {
   
+    //set delegates for textbox
     self.txtEmail.delegate=self;
     self.txtFirstName.delegate=self;
     self.txtLastName.delegate=self;
     self.txtPassword.delegate=self;
+    
+    //set delegates for API call
+    _ssgCommunicator=[[SsgCommnicatorDelegate_Info alloc]init];
+    _ssgCommunicator.info_delegate=self;
+    _ssgCommunicatorEmailSignup = [[SsgCommunicatorDelegate_EmailSignUp alloc]init];
+    _ssgCommunicatorEmailSignup.emailSignup_delegate=self;
 }
 
 - (void)didReceiveMemoryWarning
@@ -153,12 +161,8 @@
         user.password=self.txtPassword.text;
         user.city_id = selectedCity.id_;
         [_ssgCommunicatorEmailSignup signUpWithEmail:user];
-        
-        
-        
     }
     else{
-        
         
        UIAlertView* infoAlertView = [[UIAlertView alloc] initWithTitle:[MCLocalization stringForKey:@"popup_title"]
                                                    message:validationMessage
@@ -169,8 +173,6 @@
         infoAlertView.delegate=nil;
         
         [infoAlertView show];
-    
-    
     }
     
 }
@@ -194,24 +196,16 @@
         || selectedCity==nil
         || [self validateEmail:self.txtEmail.text]==NO
         ) {
-        
-        
-        
-        
-        
+
         validationMessage = [MCLocalization stringForKey:@"descrption_validation"];
         return false;
     }
-    
     
     if ( [self validateEmail:self.txtEmail.text] ==NO ) {
         
         validationMessage = [MCLocalization stringForKey:@"email_validation"];
         return false;
     }
-    
-    
-
     return true;
 }
 
@@ -221,20 +215,20 @@
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
+//Close keyboard
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
-    
     return YES;
 }
 
 - (IBAction)btnCityOnTouch:(id)sender {
     
+    //Open cities controller
     CitiesViewController *categoryViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"CitiesViewController" ];
     categoryViewController.delegate_cities=self;
     [self.navigationController pushViewController:categoryViewController animated:YES];
 }
-
 
 #pragma  - SSG COMMUNICATOR DELEGATE FUNCTION
 - (void)recivedData:(SyncData*)syncData {
@@ -250,8 +244,6 @@
 -(void)getSelectedCity :(City*)city{
     
     selectedCity=city;
-    
-    
 }
 
 - (BOOL) validateEmail: (NSString *) candidate {
@@ -268,6 +260,7 @@
     return [emailTest evaluateWithObject:candidate];
 }
 
+#pragma RESPONSE FROM SERVICE
 - (void)getResponse:(NSString*)code : (id)responseObject{
 
     if ([code isEqualToString:@"0"]) {
@@ -285,14 +278,13 @@
 
 }
 
-
+#pragma ALERTVIEW DELEGATES METHOD
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
 
     [SyncData get].signupEmail=self.txtEmail.text;
     [SyncData get].signupPassword=self.txtPassword.text;
     [self.navigationController popViewControllerAnimated:YES];
 }
-
 
 
 @end

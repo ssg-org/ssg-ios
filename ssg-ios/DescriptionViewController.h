@@ -18,32 +18,20 @@
 
 @interface DescriptionViewController : GAITrackedViewController<UITextFieldDelegate,UITextViewDelegate,CategoryDelegate,SubCategoryDelegate,CitiesDelegate>
 {
-
     UIAlertView * alertView;
-
 }
 
-
-
-
+//Property
 @property (strong, nonatomic) IBOutlet UITextField *txtTitle;
 @property (strong, nonatomic) IBOutlet UITextField *txtCity;
-
 @property Categories * selectedCategory;
 @property City * selectedCity;
-
 @property (strong, nonatomic) IBOutlet UIButton *btnCategory;
-
-- (IBAction)btnCategoryOnTouch:(id)sender;
-
 @property (strong, nonatomic) IBOutlet UIButton *btnCity;
-
-- (IBAction)btnCityOnTouch:(id)sender;
-
-
 @property (strong, nonatomic) IBOutlet UIPlaceHolderTextView *txtCustomDescription;
 
-
-
+//Actions
+- (IBAction)btnCategoryOnTouch:(id)sender;
+- (IBAction)btnCityOnTouch:(id)sender;
 
 @end

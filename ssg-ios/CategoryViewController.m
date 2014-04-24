@@ -77,9 +77,7 @@
     CategoriesTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CategoryCell" forIndexPath:indexPath];
     
     Categories * current = [categories objectAtIndex:indexPath.row];
-   // cell.lblCategoryName.font=[UIFont fontWithName:@"FuturaStd-Light" size:14];
     cell.lblCategoryName.text=current.name;
- 
     cell.imgCategory.image=nil;
     [cell.imgCategory setDefaultIconIdentifier:current.icon];
     cell.imgCategory.defaultView.backgroundColor=[HelperFunctions colorWithHexString:current.color];
@@ -94,11 +92,8 @@
 
 -(NSMutableArray *) getSubcategoryForSelectedRow: (NSInteger)row {
 
-    
     Categories *current = [categories objectAtIndex:row];
-    
     NSMutableArray * subcategory =[[NSMutableArray alloc]init];
-    
     
     for ( Categories * obj  in categoriesAndSubcategories) {
         
@@ -114,15 +109,11 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if ([[self getSubcategoryForSelectedRow:indexPath.row] count ]>0) {
-       // SubCategoryViewController *subcategory;
-      //  subcategory = [ self.storyboard instantiateViewControllerWithIdentifier:@"SubCategoryViewController"];
         self.subcategoryViewController.subcategory=[self getSubcategoryForSelectedRow:indexPath.row];
         [self.navigationController pushViewController: (UIViewController *)self.subcategoryViewController animated:YES];
-        // [tableViewComponent deselectRowAtIndexPath:indexPath animated:YES];//Remove selection
     }
     else
     {
-    
         [self.navigationController popViewControllerAnimated:YES];
         [self.delegate_category selectCategory: [categories objectAtIndex:indexPath.row]];
         
@@ -130,54 +121,7 @@
 }
 
 
-/*
- // Override to support conditional editing of the table view.
- - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
- {
- // Return NO if you do not want the specified item to be editable.
- return YES;
- }
- */
 
-/*
- // Override to support editing the table view.
- - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
- {
- if (editingStyle == UITableViewCellEditingStyleDelete) {
- // Delete the row from the data source
- [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
- } else if (editingStyle == UITableViewCellEditingStyleInsert) {
- // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
- }
- }
- */
-
-/*
- // Override to support rearranging the table view.
- - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
- {
- }
- */
-
-/*
- // Override to support conditional rearranging of the table view.
- - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
- {
- // Return NO if you do not want the item to be re-orderable.
- return YES;
- }
- */
-
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
- {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
 
 -(NSMutableArray *)getCategories {
@@ -201,8 +145,6 @@
     categoriesAndSubcategories=syncData.categories;
     categories=[[NSMutableArray alloc]init];
     categories = [self getCategories];
-
-    
     [self.tblComponent performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
    
 }
@@ -213,14 +155,18 @@
 
 
 -(void)viewWillAppear:(BOOL)animated{
- self.navigationItem.title = [MCLocalization stringForKey:@"category_bar"];
+    
+   self.navigationItem.title = [MCLocalization stringForKey:@"category_bar"];
+    
 }
 
 - (void)getResponse:(NSString*)code : (id)responseObject{
 
+    
 }
 
 -(void)viewDidAppear:(BOOL)animated{
+    
      self.screenName=@"Category";
     [super viewDidAppear:YES];
 }

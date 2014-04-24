@@ -37,21 +37,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    //Set delegate for map
      self.mapContainer.delegate=self;
+    
+    //Set current gps location
     [self initLocationManager];
     
-    NSLog(@"Kategorija: %@", [SyncData get].current_issue.category_id);
-    NSLog(@"Grad: %@",[SyncData get].current_issue.city_id );
-    NSLog(@"Title: %@",[SyncData get].current_issue.title);
-    NSLog(@"Description: %@",[SyncData get].current_issue.descript);
-    
-    
+    //Set delegate for api service
     _ssgCommunicatorCreateIssueDelegate = [[SsgCommunicatorDelegate_CreateIssue alloc]init];
     _ssgCommunicatorCreateIssueDelegate.createIssue_delegate=self;
 }
 
 -(void)showProgressPopup:(BOOL)show{
-
+    //Show progress popup
     hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.mode = MBProgressHUDModeIndeterminate;
     hud.labelText = [MCLocalization stringForKey:@"progress_message"];
@@ -60,37 +59,26 @@
 
 
 -(void)initLocationManager{
+    
     locationManager = [[CLLocationManager alloc] init];
     locationManager.delegate = self;
-    //locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     [locationManager startUpdatingLocation];
 }
 
 #pragma mark - CLLocationManagerDelegate
-
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
-    NSLog(@"didFailWithError: %@", error);
-  //  UIAlertView *errorAlert = [[UIAlertView alloc]
-                              // initWithTitle:@"Error" message:@"Failed to Get Your Location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-  //  [errorAlert show];
+    
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
 {
-    // NSLog(@"didUpdateToLocation: %@", newLocation);
     CLLocation *currentLocation = newLocation;
     
     if (currentLocation != nil) {
         
         if (!first_marker) {
             //Init camera
-            
-           // CLLocation *newLocation = [[CLLocation alloc] initWithCoordinate:CLLocationCoordinate2DMake(43.831183366766496, 18.308372497558594)
-                                                                   //  altitude:0
-                                                         //  horizontalAccuracy:0
-                                                           //  verticalAccuracy:0
-                                                             //       timestamp:[NSDate date]];
             
             GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:newLocation.coordinate.latitude
                                                                     longitude:newLocation.coordinate.longitude
@@ -106,9 +94,9 @@
             marker.map=self.mapContainer;
             first_marker=true;
             
+            //Save lozation to sync data
             [SyncData get].current_issue.location_lat =@(currentLocation.coordinate.latitude);
             [SyncData get].current_issue.location_lng =@(currentLocation.coordinate.longitude);
-
 
         }
     }
@@ -120,6 +108,7 @@
 didTapAtCoordinate:		(CLLocationCoordinate2D) 	coordinate{
     
     [mapView clear];
+    
     //Create marker
     marker = [[GMSMarker alloc] init];
     marker.position =  coordinate;
@@ -127,6 +116,7 @@ didTapAtCoordinate:		(CLLocationCoordinate2D) 	coordinate{
     marker.icon=[UIImage imageNamed:@"map_marker.png"];
     marker.map=mapView;
     
+    //Save location to sync data
     [SyncData get].current_issue.location_lat =@(coordinate.latitude);
     [SyncData get].current_issue.location_lng =@(coordinate.longitude);
 
@@ -134,7 +124,6 @@ didTapAtCoordinate:		(CLLocationCoordinate2D) 	coordinate{
 
 
 
-//Class.m
 - (BOOL)connected
 {
     Reachability *reachability = [Reachability reachabilityForInternetConnection];
@@ -155,15 +144,9 @@ didTapAtCoordinate:		(CLLocationCoordinate2D) 	coordinate{
                                          otherButtonTitles: nil];
         [infoAlertView show];
         
-       // self.btnReportIssue.enabled=YES;
-        
-        
-
-        
     } else {
         
         User* user = [self isUserLoggedWithEmailOrFacebook];
-        
         [_ssgCommunicatorCreateIssueDelegate createIssue:[SyncData get].current_issue :[SyncData get].issue_image:user.access_token];
         
     }
@@ -180,9 +163,8 @@ didTapAtCoordinate:		(CLLocationCoordinate2D) 	coordinate{
 
 }
 
+#pragma RESPONSE FROM SERVICE
 - (void)getResponse:(NSString*)code : (id)responseObject{
-
-
     
     if ([code isEqualToString:@"0"]) {
         

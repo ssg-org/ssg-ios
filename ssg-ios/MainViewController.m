@@ -37,24 +37,14 @@
 {
     [super viewDidLoad];
     
-
-  
-    
-    //[[BWQuincyManager sharedQuincyManager] setDelegate:self];
-    
-    // Do any additional setup after loading the view.
     //set fonts
-   // self.lblWelcome.font=[UIFont fontWithName:@"FurturaStd-Medium" size:15];
-   // self.lblYouCan.font=[UIFont fontWithName:@"FurturaStd-Light" size:15];
+    [self setFonts];
+}
+
+-(void)setFonts{
     
     [self.lblYouCan setFont:[UIFont fontWithName:@"FuturaStd-Light" size:15]];
     [self.lblWelcome setFont:[UIFont fontWithName:@"FuturaStd-Medium" size:17]];
-    
-    
-    
-    
-    
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -72,46 +62,37 @@
 
 -(void)viewWillAppear:(BOOL)animated{
 
-    
+    //localization
     self.lblWelcome.text=[MCLocalization stringForKey:@"welcome"];
     self.lblYouCan.text=[MCLocalization stringForKey:@"youcan"];
     self.navigationItem.backBarButtonItem.title= [MCLocalization stringForKey:@"back"];
-    
-    
-   
 }
 
 
 -(void)viewDidLayoutSubviews{
     
+    //layout element position fix
     if (!viewLoaded) {
         if (!isiPhone5) {
             self.ssgTextView.frame=CGRectMake(self.ssgTextView.frame.origin.x, self.ssgTextView.frame.origin.y-50, self.ssgTextView.frame.size.width, self.ssgTextView.frame.size.height);
             
         }
-        
         viewLoaded=YES;
     }
-   
-    
 }
 
 
 -(void)viewDidAppear:(BOOL)animated{
+    
+    //set screenName for GoogleAnalytics
      self.screenName=@"Main";
     [super viewDidAppear:YES];
-    
-   
 }
 
 -(void)viewWillLayoutSubviews{
     
     viewLoaded=NO;
-
   [[self navigationController] setNavigationBarHidden:YES animated:YES];
-    
-
-    
     
 }
 - (IBAction)btnCameraOnTouch:(id)sender {
@@ -121,15 +102,9 @@
 }
 
 
-- (IBAction)btnFacebookShare:(id)sender {
-}
-
-- (IBAction)btnTwitterShare:(id)sender {
-}
-
 - (IBAction)btnSettings:(id)sender {
     
-    
+    //set transition animation effect
     CATransition *transition = [CATransition animation];
     transition.duration = 0.45;
     transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionDefault];
@@ -138,10 +113,10 @@
     transition.subtype = kCATransitionFromLeft;
     transition.delegate = self;
     [self.navigationController.view.layer addAnimation:transition forKey:nil];
-//
-    
-    
+ 
+    //open settings controller
     SettingsViewController *main= [ self.storyboard instantiateViewControllerWithIdentifier:@"SettingsViewController"];
     [self.navigationController pushViewController: (UIViewController *)main animated:NO];
 }
+
 @end

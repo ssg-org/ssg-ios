@@ -8,7 +8,6 @@
 
 #import "SsgCommnicatorDelegate_Info.h"
 #import "SsgAPI.h"
-#import "Builder.h"
 #import "CategoriesBuilder.h"
 #import "CitiesBuilder.h"
 #import "AFHTTPRequestOperation.h"
@@ -18,9 +17,6 @@
 
 
 -(void)getCategoriesAndCities{
-    
-    
-  // NSLog(@"TIME STAMP: %@ ",[SsgAPI generateTimestamp]);
     
     AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:[NSURL URLWithString:[SsgAPI getHostName] ]];
     
@@ -40,8 +36,8 @@
         NSDictionary * json = [responseObject objectForKey:@"document"];
         
         SyncData *syncData = [SyncData get];
-        syncData.cities = [CitiesBuilder build:json data:responseObject];
-        syncData.categories=[CategoriesBuilder build:json data:responseObject];
+        syncData.cities = [CitiesBuilder build:json];
+        syncData.categories=[CategoriesBuilder build:json];
         [self.info_delegate recivedData:syncData];
 
         

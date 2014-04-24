@@ -36,11 +36,15 @@
 
 - (void)viewWillLayoutSubviews{
 
-    
     //Hide navigation bar
     [[self navigationController] setNavigationBarHidden:YES animated:YES];
     
-    
+    //Create custom Facebook login button
+    [self createCustomFacebookLoginButton];
+}
+
+
+-(void)createCustomFacebookLoginButton{
     //Create custom facebook login button
     self.customFacebookLogin=[[FBLoginView alloc] initWithReadPermissions:@[@"basic_info", @"email"]];
     self.customFacebookLogin.delegate=self;
@@ -53,61 +57,55 @@
             [obj setBackgroundImage:loginImage forState:UIControlStateNormal];
             [obj setBackgroundImage:nil forState:UIControlStateSelected];
             [obj setBackgroundImage:nil forState:UIControlStateHighlighted];
-           
             
             CGRect rect =CGRectMake(self.customFacebookLogin.frame.origin.x, self.customFacebookLogin.frame.origin.y, 218, 35);
-            
-            
-            //[obj setSize:rect.size];
             [obj setFrame:rect];
-          
-            
         }
+        
         if ([obj isKindOfClass:[UILabel class]])
         {
             UILabel * loginLabel =  obj;
             loginLabel.text = @"";
             loginLabel.textColor=[UIColor clearColor];
         }
-        
     }
     
     //set facebook custom button frame
     CGRect frame =CGRectMake(self.customFacebookLogin.frame.origin.x, self.customFacebookLogin.frame.origin.y
                              , 220, 35);
     
-    
-    
     [self.customFacebookLogin setFrame:frame];
     [ self.btnFacebookLogin addSubview:self.customFacebookLogin];
-   
 }
 
 -(void)viewDidLayoutSubviews{
     
+    //Layout element position fix
     if (!isiPhone5) {
         self.containerView.frame=CGRectMake(self.containerView.frame.origin.x, self.containerView.frame.origin.y-15, self.containerView.frame.size.width, self.containerView.frame.size.height);
     }
     
+    //set fonts and placeholder color
+    [self setFonts];
+    
+}
+
+-(void)setFonts{
+
+    //set placeholder color
     [self.txtPassword setPlaceholderColor:[UIColor whiteColor]];
     [self.txtUsername setPlaceholderColor:[UIColor whiteColor]];
     
+    //set fonts
     self.lblOrQuickLogin.font = [UIFont fontWithName:@"FuturaStd-Light" size:10];
     self.lblDontHaveUlica.font = [UIFont fontWithName:@"FuturaStd-Light" size:10];
     self.txtUsername.font = [UIFont fontWithName:@"FuturaStd-Light" size:14];
     self.txtPassword.font = [UIFont fontWithName:@"FuturaStd-Light" size:14];
-    
 }
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     cachedUser=nil;
-    
-    
-    
-    [self initFacebook];
-    [self initImageChanger];
     
     self.txtPassword.delegate=self;
     self.txtUsername.delegate=self;
@@ -122,7 +120,7 @@
     
     if ([self isUserLoggedWithEmailOrFacebook]) {
         
-        
+        //set transition animation effect
         CATransition *transition = [CATransition animation];
         transition.duration = 0.45;
         transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionDefault];
@@ -132,31 +130,31 @@
         transition.delegate = self;
         [self.navigationController.view.layer addAnimation:transition forKey:nil];
         
-        
-        
-            MainViewController *main= [ self.storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
-            [self.navigationController pushViewController: (UIViewController *)main animated:YES];
-        
-        
+        //open main controller
+        MainViewController *main= [ self.storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
+        [self.navigationController pushViewController: (UIViewController *)main animated:YES];
     }
     
+    //init keyboard close gesture
+    [self setKeyboardCloseGesture];
+    
+}
+
+-(void)setKeyboardCloseGesture{
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closeKeyboard:)];
     singleTap.numberOfTapsRequired = 1;
     singleTap.numberOfTouchesRequired = 1;
     [self.imageBackground addGestureRecognizer:singleTap];
     [self.imageBackground setUserInteractionEnabled:YES];
     
-    
-    
     UITapGestureRecognizer *containerViewGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closeKeyboard:)];
     containerViewGesture.numberOfTapsRequired = 1;
     containerViewGesture.numberOfTouchesRequired = 1;
     [self.containerView addGestureRecognizer:containerViewGesture];
     [self.containerView setUserInteractionEnabled:YES];
-    
-    
 }
 
+//close keyboard
 - (void)closeKeyboard:(UIGestureRecognizer *)gestureRecognizer {
    
     [self textFieldShouldReturn:self.txtUsername];
@@ -171,18 +169,9 @@
 }
 
 
-#pragma - Private methods
--(void) initFacebook{
-   
-    
-  
-}
-
 #pragma - Action methods
 - (IBAction)btnEmailLoginOnTouch:(UIButton *)sender {
     
-  
-
     if ([self validateUserInput]) {
         //Login user with email
         [_ssgCommunicatorEmailLogin loginWithEmail:self.txtUsername.text :self.txtPassword.text];
@@ -202,24 +191,14 @@
 
 -(BOOL)validateUserInput {
 
-
     if ([self.txtPassword.text length]==0 || [self.txtUsername.text length]==0) {
      
         return NO;
     }
     
     return YES;
-    
-
 }
 
-- (IBAction)btnSignUpWithEmailOnTouch:(UIButton *)sender {
-    
-   
-    
-    
-
-}
 
 
 -(BOOL)isUserLoggedWithEmailOrFacebook {
@@ -255,18 +234,11 @@
 - (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
                             user:(id<FBGraphUser>)user {
     
-    
     [SyncData get].numberOfFacebookRequest ++;
     if ([SyncData get].numberOfFacebookRequest  == 1) {
         cachedUser = user;
-        NSLog(@"loginWithFetchedUserInfo  --------------------------");
-        
         [_ssgCommunicator loginWithFacebook:user];
     }
-    
-   // if (![self isUser:cachedUser equalToUser:user]) {
-    
-  //  }
 }
 
 
@@ -336,28 +308,10 @@
 }
 
 -(UIStatusBarStyle)preferredStatusBarStyle{
-    
     return UIStatusBarStyleLightContent;
 }
 
 
-
-- (void)initImageChanger{
-   // current_image=5;
-//    backgroundImagesArray=[NSArray arrayWithObjects:@"login_bg1.png",@"login_bg2.png",@"login_bg3.png",@"login_bg4.png",nil];
-//    imageTimer = [NSTimer scheduledTimerWithTimeInterval:(7.0) target:self selector:@selector(changeImage) userInfo:nil repeats:YES];
-//    [imageTimer fire];
-}
-
--(void)changeImage{
-    current_image=current_image>=[backgroundImagesArray count]?0:current_image++;
-    [UIImageView beginAnimations:nil context:NULL];
-    [UIImageView setAnimationDuration:0.6];
-    self.imageBackground.alpha=1;
-    self.imageBackground.image =[UIImage imageNamed:[backgroundImagesArray objectAtIndex:current_image]];
-    [UIImageView commitAnimations];
-    current_image++;
-}
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
@@ -372,15 +326,9 @@
 }
 - (void)fetchingData:(NSError *)error {
 
-    
-
 }
 
-
--(void)openMainScreen{
-
-
-}
+#pragma RESPONSE FROM SERVICE
 - (void)getResponse:(NSString*)code : (id)responseObject{
     
   
@@ -417,10 +365,7 @@
         self.txtPassword.text=@"";
         self.txtUsername.text=@"";
         
-        
-        
     }
-    
 }
 
 
@@ -428,6 +373,7 @@
 
     [super viewWillAppear:YES];
 
+    //set localization
     [self.btnLogin setBackgroundImage:[UIImage imageNamed:[MCLocalization stringForKey:@"loginbtn"]] forState:UIControlStateNormal];
     self.lblDontHaveUlica.text=[MCLocalization  stringForKey:@"donthave"];
     self.lblOrQuickLogin.text = [MCLocalization stringForKey:@"orquicklogin"];
@@ -435,28 +381,17 @@
     self.txtUsername.placeholder=[MCLocalization stringForKey:@"email"];
 }
 
+
 -(void)viewDidAppear:(BOOL)animated{
     
-    //self.tracker = [[GAI sharedInstance] defaultTracker];
+    //set screenName for GoogleAnalytics
     self.screenName=@"Login";
-   
     [super viewDidAppear:YES];
     
-    
-
     if ([SyncData get].signupEmail !=nil) {
         self.txtUsername.text=[SyncData get].signupEmail;
         self.txtPassword.text=[SyncData get].signupPassword;
     }
-    
-    
-
-    
 }
 
-- (IBAction)btnCloseKeyboard:(id)sender {
-    
-  
- 
-}
 @end

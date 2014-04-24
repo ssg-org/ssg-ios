@@ -32,8 +32,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    //Hide navigation bar
      self.navigationController.navigationBarHidden=NO;
-    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning
@@ -45,12 +45,9 @@
     return UIStatusBarStyleLightContent;
 }
 
-
-
 - (IBAction)btnLogOut:(id)sender {
     
-    //Get
-  //  NSMutableArray * object_from_db= [[NSMutableArray alloc]init];
+    //Get logged user
     AppDelegate * appDelagate  = (AppDelegate *)[UIApplication sharedApplication].delegate;
     NSManagedObjectContext *context =appDelagate.managedObjectContext;
     NSError *error;
@@ -60,6 +57,8 @@
     [fetchRequest setEntity:entity];
     NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
     for (User *user in fetchedObjects) {
+        
+        //Delete user from database - core data
         [context deleteObject:user];
     }
     
@@ -81,23 +80,21 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     
-   //self.btnLanguage.titleLabel.text=[MCLocalization stringForKey:@"lang"];
+    //Set localization text
     [self.btnLanguage setTitle:[MCLocalization stringForKey:@"lang"] forState:UIControlStateNormal];
     [self.btnAbout setTitle:[MCLocalization stringForKey:@"about"] forState:UIControlStateNormal];
     [self.btnLogout setTitle:[MCLocalization stringForKey:@"logout"] forState:UIControlStateNormal];
-  
-      self.navigationItem.title = [MCLocalization stringForKey:@"settings_bar"];
+    self.navigationItem.title = [MCLocalization stringForKey:@"settings_bar"];
     self.navigationItem.backBarButtonItem.title= [MCLocalization stringForKey:@"back"];
-
- 
 }
 
-#pragma marks - Delegate function
+#pragma marks - Delegate function for back
 -(BOOL) navigationShouldPopOnBackButton {
-//
     
+    //Remove default transition animation
     [self.navigationController.view.layer removeAllAnimations];
     
+    //Set custom transition animation
     CATransition *transition = [CATransition animation];
     transition.duration = 0.45;
     transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionDefault];
@@ -107,11 +104,9 @@
     transition.delegate = self;
     [self.navigationController.view.layer addAnimation:transition forKey:nil];
     
-    
+    //Go to main controller
     NSInteger count=[[self.navigationController viewControllers] count];
-    
     [self.navigationController  popToViewController:[[self.navigationController viewControllers] objectAtIndex:count-2 ] animated:NO];
-
     return NO;
 }
 

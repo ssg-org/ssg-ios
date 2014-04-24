@@ -18,5 +18,4 @@
 - (void)fetchingData:(NSError *)error;
 - (void)getResponse:(NSString*)code : (id)responseObject;
 
-
 @end

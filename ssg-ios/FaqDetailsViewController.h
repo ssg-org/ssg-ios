@@ -12,8 +12,6 @@
 @interface FaqDetailsViewController : GAITrackedViewController
 
 @property (strong, nonatomic) IBOutlet UITextView *txtDetails;
-
 @property (strong,nonatomic) NSString * selected_info;
-
 
 @end

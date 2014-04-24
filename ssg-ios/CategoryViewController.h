@@ -29,7 +29,6 @@
 
 @property (strong, nonatomic) IBOutlet UITableView *tblComponent;
 @property (retain) id<CategoryDelegate>delegate_category;
-
 @property SubCategoryViewController*subcategoryViewController;
 
 

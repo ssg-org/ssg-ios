@@ -33,16 +33,14 @@
 {
     [super viewDidLoad];
     
-    
     // Init camera capturing
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         
-        //Init cameras
-        [self initBackCamera];
-        [self initFrontCamera];
-        [self startBackCamera];
+    //Init cameras
+    [self initBackCamera];
+    [self initFrontCamera];
+    [self startBackCamera];
        
-        
     }
     else {
         
@@ -305,7 +303,6 @@
 - (IBAction)btnDeclinePhotoOnTouch:(id)sender {
     
     [self hideCameraButtons:FALSE];
-    //imagePreview.hidden=YES;
     
     if (isFront) {
         [session_front startRunning];
@@ -341,9 +338,6 @@
     if (!show) {
         
         imagePreview.image = NULL;
-       //imagePreview.hidden=YES;
-        
-        
     }
 }
 
@@ -351,16 +345,14 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     
- self.navigationItem.backBarButtonItem.title= [MCLocalization stringForKey:@"back"];
+    self.navigationItem.backBarButtonItem.title= [MCLocalization stringForKey:@"back"];
     self.navigationItem.title = [MCLocalization stringForKey:@"camera_bar"];
-    
-    
 }
 
 -(void)viewWillLayoutSubviews{
     
-[[self navigationController] setNavigationBarHidden:NO animated:YES];
-    
+   [[self navigationController] setNavigationBarHidden:NO animated:YES];
+
 }
 
 UIButton *button;
@@ -398,6 +390,7 @@ UIButton *button;
 }
 
 -(void)Next{
+    
     //Accept photo from camera
     [SyncData get].issue_image=[[UIImage alloc]init];
     [SyncData get].issue_image=imagePreview.image;
@@ -414,7 +407,6 @@ UIButton *button;
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
     [picker dismissViewControllerAnimated:YES completion:nil];
     
-    // [session_back startRunning];
     if (isFront) {
         [session_front startRunning];
     }
@@ -428,7 +420,6 @@ UIButton *button;
     
     [picker dismissModalViewControllerAnimated:YES];
     [self hideCameraButtons:TRUE];
-    //imagePreview.hidden=NO;
     [self setPreviewImage:img];
 }
 
@@ -438,18 +429,13 @@ UIButton *button;
     [super viewDidAppear:animated];
 }
 
-
-
-
-
-
-
 - (IBAction)btnOpenGalleryOnTouch:(id)sender {
     
     //Stop camera session
     [session_front stopRunning];
     [session_back stopRunning];
     
+    //Open Gallery
     imagePicker=[[UIImagePickerController alloc]init];
     imagePicker.delegate = self;
     imagePicker.allowsEditing =NO;

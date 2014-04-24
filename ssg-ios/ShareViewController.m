@@ -22,6 +22,7 @@
 @implementation ShareViewController
 
 #define isiPhone5  ([[UIScreen mainScreen] bounds].size.height == 568)?TRUE:FALSE
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -34,21 +35,17 @@
 
 -(void)viewWillAppear:(BOOL)animated{
 
-    
     self.navigationItem.title = [MCLocalization stringForKey:@"share_bar"];
-
 }
 
 
 -(void)setData {
-
 
     self.lblTitle.text=[SyncData get].current_issue.title;
     self.txtDescription.text=[SyncData get].current_issue.descript;
     [self.imgIssue setImage:[SyncData get].issue_image];
     [self.txtDescription setText:[SyncData get].current_issue.descript];
     [self.lblCategoryName setText:[SyncData get].current_issue.category_name];
-    
     
     User* currentUser = [self isUserLoggedWithEmailOrFacebook];
     
@@ -61,7 +58,6 @@
          [self.lblUsername setText:firstlastname ];
     }
    
-    
     NSURL * imageURL = [NSURL URLWithString:currentUser.profile_picture];
     NSData * imageData = [NSData dataWithContentsOfURL:imageURL];
     UIImage * image = [UIImage imageWithData:imageData];
@@ -74,7 +70,6 @@
 -(void)createShareButton{
 
    self.navigationItem.hidesBackButton = YES;
-    
     UIImage* image3 = [UIImage imageNamed:@"share_button.png"];
     CGRect frameimg = CGRectMake(0, 0, image3.size.width, image3.size.height);
     UIButton *someButton = [[UIButton alloc] initWithFrame:frameimg];
@@ -111,10 +106,6 @@
     [self setData];
 }
 
--(void)viewDidLayoutSubviews{
-
-    
-}
 
 - (void)didReceiveMemoryWarning
 {
@@ -133,63 +124,10 @@
     
 
     NSInteger count=[[self.navigationController viewControllers] count];
-    
     [self.navigationController  popToViewController:[[self.navigationController viewControllers] objectAtIndex:count-4 ] animated:YES];
 }
-- (IBAction)btnFacebookShare:(id)sender {
-    
-    
-    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook])
-    {
-        SLComposeViewController *fbSheet = [SLComposeViewController
-                                            composeViewControllerForServiceType:SLServiceTypeFacebook];
-       [fbSheet setInitialText: [SyncData get].issueResponseUrl];
-       // if (![fbSheet addImage:self.imageToShare]) {
-            NSLog(@"Unable to add the image!");
-      //  }
-        [self presentViewController:fbSheet animated:YES completion:nil];
-    }
-    else {
-        NSLog(@"FB not Installed");
-        UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Warning"
-                                                              message:@"Cannot share - no Facebook app installed."
-                                                             delegate:self
-                                                    cancelButtonTitle:@"OK"
-                                                    otherButtonTitles: nil];
-        [myAlertView show];
-        
-    }
 
-    
-}
 
-- (IBAction)btnTwitterShare:(id)sender {
-    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter])
-    {
-        SLComposeViewController *tweetSheet = [SLComposeViewController
-                                               composeViewControllerForServiceType:SLServiceTypeTwitter];
-        
-        [tweetSheet setInitialText:[SyncData get].issueResponseUrl];
-        
-        //if (![tweetSheet addImage:self.imageToShare]) {
-            NSLog(@"Unable to add the image!");
-       // }
-        
-        [self presentViewController:tweetSheet animated:YES completion:nil];
-    }
-    else {
-        NSLog(@"Twitter not Installed");
-        UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Warning"
-                                                              message:@"Cannot share - no Twitter app installed."
-                                                             delegate:self
-                                                    cancelButtonTitle:@"OK"
-                                                    otherButtonTitles: nil];
-        [myAlertView show];
-        
-    }
-    
-    
-}
 
 -(UIStatusBarStyle)preferredStatusBarStyle{
     
@@ -200,7 +138,6 @@
 -(void)viewWillLayoutSubviews{
 
     [self setContentSizeScrollView];
-
 }
 
 
@@ -234,7 +171,6 @@
     
     AppDelegate * appDelagate  = (AppDelegate *)[UIApplication sharedApplication].delegate;
     NSManagedObjectContext *context =appDelagate.managedObjectContext;
-    
     
     //get object from database
     NSError *error;

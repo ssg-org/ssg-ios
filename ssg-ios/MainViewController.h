@@ -8,31 +8,21 @@
 
 #import <UIKit/UIKit.h>
 #import "GAITrackedViewController.h"
-//#import "BWQuincyManager.h"
 
 @interface MainViewController : GAITrackedViewController{
-
+    
     BOOL viewLoaded;
-
 }
 
+//Property
 @property NSMutableString* dataFromLogin;
-
 @property (strong, nonatomic) IBOutlet UILabel *lblWelcome;
-
 @property (strong, nonatomic) IBOutlet UILabel *lblYouCan;
-
-- (IBAction)btnCameraOnTouch:(id)sender;
-
 @property (strong, nonatomic) IBOutlet UIView *ssgTextView;
 @property (strong, nonatomic) IBOutlet UIView *shareButtonsView;
 
-- (IBAction)btnFacebookShare:(id)sender;
-
-- (IBAction)btnTwitterShare:(id)sender;
-
+//Actions
+- (IBAction)btnCameraOnTouch:(id)sender;
 - (IBAction)btnSettings:(id)sender;
-
-
 
 @end

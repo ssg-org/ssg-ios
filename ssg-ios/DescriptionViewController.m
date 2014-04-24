@@ -31,10 +31,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    //Show navigation bar
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
     
+    //Set delegates
     self.txtCity.delegate=self;
-    //self.txtDescription.delegate=self;
     self.txtCustomDescription.delegate=self;
     self.txtTitle.delegate=self;
    
@@ -76,7 +77,6 @@
 
 -(IBAction)Next
 {
-    
     if ([self validateUserInput]) {
         
         [SyncData get].current_issue.title = self.txtTitle.text;
@@ -94,8 +94,6 @@
                                          cancelButtonTitle:[MCLocalization stringForKey:@"ok"]
                                          otherButtonTitles: nil];
         
-        
-        
    [alertView show];
         
     }
@@ -104,6 +102,7 @@
 
 -(void)viewDidLayoutSubviews{
     
+    //Set placeholder custom color
     [self.txtTitle setValue:[UIColor  lightGrayColor] forKeyPath:@"_placeholderLabel.textColor"];
     
     //Set custom description placeholder
@@ -125,11 +124,9 @@
         [self.btnCity setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         
     }
-
 }
 
 -(BOOL)validateUserInput {
-
 
     if ([self.txtTitle.text length]==0 ||
         [self.txtCustomDescription.text length] == 0 ||
@@ -137,26 +134,6 @@
         [[SyncData get].current_issue.city_id intValue]==0 )
     
     {
-        
-        if ([self.txtTitle.text length]==0 ) {
-         
-            NSLog(@"title je prazan");
-            
-        }
-        
-        if ([self.txtCustomDescription.text length] == 0) {
-             NSLog(@"description je prazan");
-        }
-        
-        if ( [[SyncData get].current_issue.category_id  intValue]==0) {
-             NSLog(@"kategorija je prazan");
-        }
-        if ( [[SyncData get].current_issue.city_id intValue]==0) {
-             NSLog(@"grad je prazan");
-        }
-        
-        
-        
         return NO;
     }
     return YES;
@@ -176,21 +153,19 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     
-    
-   self.navigationItem.backBarButtonItem.title= [MCLocalization stringForKey:@"back"];
+    //Set localization text
+    self.navigationItem.backBarButtonItem.title= [MCLocalization stringForKey:@"back"];
     self.navigationItem.title = [MCLocalization stringForKey:@"description_bar"];
     self.txtTitle.placeholder=[MCLocalization stringForKey:@"title"];
     [self.btnCategory setTitle:[MCLocalization stringForKey:@"category"] forState:UIControlStateNormal];
     [self.btnCity setTitle:[MCLocalization stringForKey:@"city"] forState:UIControlStateNormal];
     [self.txtCustomDescription setPlaceholder:[MCLocalization stringForKey:@"description"]];
-    
-    
-  
 }
 
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
+    //Close keyboard
     [textField resignFirstResponder];
     return YES;
 }
@@ -212,7 +187,6 @@
 }
 
 #pragma Category and Subcategory delgate methods
-
 -(void)selectCategory:(Categories*)category{
 
     self.selectedCategory=category;
@@ -246,19 +220,16 @@
 }
 
 #pragma CityController delegate function 
-
 -(void)getSelectedCity :(City*)city {
     
     self.selectedCity=city;
     [SyncData get].current_issue.city_id = self.selectedCity.id_;
     [SyncData get].current_issue.city_name=self.selectedCity.city;
-    
 }
 
 -(void)viewDidAppear:(BOOL)animated{
   
-     self.screenName=@"Description";
+    self.screenName=@"Description";
     [super viewDidAppear:YES];
-
 }
 @end

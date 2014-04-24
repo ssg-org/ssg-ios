@@ -17,14 +17,15 @@
     CLLocationManager *locationManager;
     BOOL first_marker;
     GMSMarker *marker ;
-    
     SsgCommunicatorDelegate_CreateIssue * _ssgCommunicatorCreateIssueDelegate;
     MBProgressHUD *hud;
 }
 
+//Property
 @property (nonatomic, retain) IBOutlet GMSMapView *mapContainer;
 @property (strong, nonatomic) IBOutlet UIButton *btnReportIssue;
 
+//Actions
 - (IBAction)btnCreateIssueOnTouch:(id)sender;
 
 

@@ -14,13 +14,11 @@
     //Flag for camera state
     BOOL camera_settings_state;
     
-    
     AVCaptureStillImageOutput *stillImageOutputFront;
     AVCaptureStillImageOutput *stillImageOutputBack;
     
     UIImagePickerController *imagePicker;
    
-    
     //front
     AVCaptureDeviceInput *inputdevice_front;
     AVCaptureDevice* device_front;
@@ -40,34 +38,23 @@
     
    
 }
-
+//Property
+@property (strong, nonatomic) IBOutlet UIButton *btnGallery;
+@property (strong, nonatomic) IBOutlet UIButton *btnTakePhoto;
+@property (strong, nonatomic) IBOutlet UIButton *btnSettings;
+@property (strong, nonatomic) IBOutlet UIButton *btnDeclinePhoto;
+@property (strong, nonatomic) IBOutlet UIButton *btnAcceptPhoto;
+@property (strong, nonatomic) IBOutlet UIView *cameraPreview;
 @property (strong, nonatomic) IBOutlet UIView *cameraSettingsContainer;
-
 @property (strong,nonatomic) IBOutlet UIImageView *imagePreview;
 
+//Actions
 - (IBAction)btnCameraAutoOnTouch:(id)sender;
-
 - (IBAction)btnSettingsOnTouch:(id)sender;
 - (IBAction)btnOpenGalleryOnTouch:(id)sender;
 - (IBAction)btnTakePictureOnTouch:(id)sender;
 - (IBAction)btnCameraToggleOnTouch:(id)sender;
 - (IBAction)btnDeclinePhotoOnTouch:(id)sender;
 - (IBAction)btnAcceptPhotoOnTouch:(id)sender;
-
-
-
-//PROPERTY
-@property (strong, nonatomic) IBOutlet UIButton *btnGallery;
-@property (strong, nonatomic) IBOutlet UIButton *btnTakePhoto;
-@property (strong, nonatomic) IBOutlet UIButton *btnSettings;
-@property (strong, nonatomic) IBOutlet UIButton *btnDeclinePhoto;
-@property (strong, nonatomic) IBOutlet UIButton *btnAcceptPhoto;
-
-@property (strong, nonatomic) IBOutlet UIView *cameraPreview;
-
-
-
-
-
 
 @end

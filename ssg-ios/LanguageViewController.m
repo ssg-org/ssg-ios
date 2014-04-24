@@ -37,8 +37,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-
-
 - (IBAction)btnEnglishOnTouch:(id)sender {
     
     [MCLocalization sharedInstance].language = @"en";
@@ -48,7 +46,6 @@
         controller.navigationItem.backBarButtonItem.title=[MCLocalization stringForKey:@"back"];
         
     }
-    
     
     //Go to login
     NSInteger count=[[self.navigationController viewControllers] count];
@@ -73,10 +70,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
 
-   
-self.navigationItem.title = [MCLocalization stringForKey:@"language_bar"];
-  
-
+   self.navigationItem.title = [MCLocalization stringForKey:@"language_bar"];
 }
 
 -(void)viewDidAppear:(BOOL)animated{

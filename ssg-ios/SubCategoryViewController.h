@@ -19,7 +19,6 @@
 @interface SubCategoryViewController : GAITrackedViewController
 
 @property NSMutableArray * subcategory;
-
 @property (retain) id<SubCategoryDelegate> delegate_subcategory;
 
 @end

@@ -9,12 +9,11 @@
 #import "CategoriesBuilder.h"
 #import "AppDelegate.h"
 #import "Categories.h"
-#import "Builder.h"
 
 @implementation CategoriesBuilder
 
 
-+ (NSMutableArray*)build:(NSDictionary*)json data:(NSData*)data {
++ (NSMutableArray*)build:(NSDictionary*)json {
     
     AppDelegate * appDelagate  = (AppDelegate *)[UIApplication sharedApplication].delegate;
     NSManagedObjectContext *context =appDelagate.managedObjectContext;

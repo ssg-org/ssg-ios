@@ -24,30 +24,21 @@
    
 }
 
+//property
 @property (strong, nonatomic) IBOutlet UIView *textBoxContainer;
-
 @property (strong, nonatomic) IBOutlet UITextField *txtFirstName;
 @property (strong, nonatomic) IBOutlet UITextField *txtLastName;
 @property (strong, nonatomic) IBOutlet UITextField *txtEmail;
 @property (strong, nonatomic) IBOutlet UITextField *txtPassword;
-
-
-- (IBAction)btnSignUpOnTouch:(id)sender;
-- (IBAction)btnBackToLogin:(id)sender;
-
-
 @property (strong, nonatomic) IBOutlet UIButton *btnCity;
-
-- (IBAction)btnCityOnTouch:(id)sender;
-
 @property (strong, nonatomic) IBOutlet UILabel *lblGetStarted;
 @property (strong, nonatomic) IBOutlet UIButton *btnSignUp;
 @property (strong, nonatomic) IBOutlet UIButton *btnBackToLogin;
-
 @property (strong, nonatomic) IBOutlet UIImageView *imgBackground;
 
-
-
-
+//actions
+- (IBAction)btnSignUpOnTouch:(id)sender;
+- (IBAction)btnBackToLogin:(id)sender;
+- (IBAction)btnCityOnTouch:(id)sender;
 
 @end

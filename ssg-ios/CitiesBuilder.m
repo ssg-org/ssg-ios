@@ -8,18 +8,14 @@
 
 #import "CitiesBuilder.h"
 #import "City.h"
-#import "Builder.h"
 #import "AppDelegate.h"
 
 @implementation CitiesBuilder
 
 
-/*
- http://nibefestival.dk/base/nibeFestival/GetNewsItems/nibefestivalapp/nibe!2012
- */
 
 
-+ (NSMutableArray*)build:(NSDictionary*)json data:(NSData*)data {
++ (NSMutableArray*)build:(NSDictionary*)json {
     
     AppDelegate * appDelagate  = (AppDelegate *)[UIApplication sharedApplication].delegate;
     NSManagedObjectContext *context =appDelagate.managedObjectContext;
