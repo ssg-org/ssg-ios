@@ -54,13 +54,10 @@
                                                
                                                NSString *user_picture = [documents objectForKey:@"avatar_path"];
                                                
-                                               
                                                NSDictionary * userJson = [documents objectForKey:@"user"];
                                                
                                                NSString * firstname = [userJson objectForKey:@"first_name"];
                                                NSString  * lastname = [userJson objectForKey:@"last_name"];
-                                               
-                                               
                                                
                                                
                                                //Save user into database
@@ -88,9 +85,6 @@
                                            NSDictionary * documents = [[NSDictionary alloc]init];
                                            documents=[operation.responseObject objectForKey:@"status"];
                                             NSString* code=[[documents objectForKey:@"code"]stringValue ] ;
-                                           
-                                           
-                                           // NSString* message=[documents objectForKey:@"message"];
                                            
                                            
                                            //call delagete function

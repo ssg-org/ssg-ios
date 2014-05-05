@@ -124,7 +124,7 @@
     
 
     NSInteger count=[[self.navigationController viewControllers] count];
-    [self.navigationController  popToViewController:[[self.navigationController viewControllers] objectAtIndex:count-4 ] animated:YES];
+    [self.navigationController  popToViewController:[[self.navigationController viewControllers] objectAtIndex:count-5 ] animated:YES];
 }
 
 

@@ -93,6 +93,9 @@
 -(NSMutableArray *) getSubcategoryForSelectedRow: (NSInteger)row {
 
     Categories *current = [categories objectAtIndex:row];
+    
+    NSLog(@"CURRENT: %@",current.name);
+    
     NSMutableArray * subcategory =[[NSMutableArray alloc]init];
     
     for ( Categories * obj  in categoriesAndSubcategories) {
@@ -100,6 +103,8 @@
         if (obj.parent_id == current.id_) {
             
             [subcategory addObject:obj];
+            
+            NSLog(@"Subkategorija: %@",obj.name);
         }
         
     }
@@ -108,7 +113,10 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    
+    
     if ([[self getSubcategoryForSelectedRow:indexPath.row] count ]>0) {
+       // self.subcategoryViewController.subcategory = [[NSMutableArray alloc]init];
         self.subcategoryViewController.subcategory=[self getSubcategoryForSelectedRow:indexPath.row];
         [self.navigationController pushViewController: (UIViewController *)self.subcategoryViewController animated:YES];
     }

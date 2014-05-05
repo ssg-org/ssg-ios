@@ -18,6 +18,7 @@
 }
 
 
+
 +(NSString*)buildSingature:(NSMutableDictionary*)params {
     
     //Sort keys
@@ -25,18 +26,14 @@
     NSMutableString * signature = [[NSMutableString alloc]init];
     
     for (NSString *key in sortedKeys){
-        NSLog(@"KEY %@", key);
-        NSLog(@"VAL %@", [params objectForKey:key]);
         [signature appendString: key];
         [signature appendString:@"="];
         [signature appendString:[params objectForKey:key]];
         [signature appendString:@"&"];
-        
     }
     
     //Substring last char
     [signature deleteCharactersInRange:NSMakeRange([signature length]-1, 1)];
-    
     
     //Generate secret SHA256
     NSString* key = @"secret";
@@ -48,13 +45,8 @@
     CCHmac(kCCHmacAlgSHA256, cKey, strlen(cKey), cData, strlen(cData), cHMAC);
     NSData *hash = [[NSData alloc] initWithBytes:cHMAC length:sizeof(cHMAC)];
     
-    NSLog(@"SHA: %@",hash);
     
-    NSLog(@"%@", hash);
     NSString* s = [self base64forData:hash];
-    
-    NSLog(@"BASE64: %@",s);
-    
     return s;
 }
 

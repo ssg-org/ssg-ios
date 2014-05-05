@@ -29,6 +29,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationItem.hidesBackButton = YES;
     _ssgCommunicator =[[SsgCommnicatorDelegate_Info alloc]init];
     _ssgCommunicator.info_delegate=self;
     [_ssgCommunicator getCategoriesAndCities];

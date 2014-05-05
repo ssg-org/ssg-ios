@@ -38,6 +38,8 @@
     self.txtCity.delegate=self;
     self.txtCustomDescription.delegate=self;
     self.txtTitle.delegate=self;
+    self.txtCustomDescription.delegate=self;
+    
    
     //Create  next button
     self.navigationItem.rightBarButtonItem = [self createNextButton];
@@ -106,7 +108,7 @@
     [self.txtTitle setValue:[UIColor  lightGrayColor] forKeyPath:@"_placeholderLabel.textColor"];
     
     //Set custom description placeholder
-    [self.txtCustomDescription setPlaceholder:@"Description"];
+    [self.txtCustomDescription setPlaceholder:@"Opis"];
     
     //Set selected category and city
     [self setSelectedCategoriesAndCity];
@@ -232,4 +234,53 @@
     self.screenName=@"Description";
     [super viewDidAppear:YES];
 }
+#define isiPhone5  ([[UIScreen mainScreen] bounds].size.height == 568)?TRUE:FALSE
+
+//- (void)textFieldDidBeginEditing:(UITextField *)textField
+//{
+//    if (!isiPhone5) {
+//        [self animateTextField: textField up: YES];
+//    }
+//
+//}
+
+
+-(void)textViewDidBeginEditing:(UITextView *)textView{
+
+    if (!isiPhone5) {
+        [self animateTextField: textView up: YES];
+    }
+}
+
+-(void)textViewDidEndEditing:(UITextView *)textView{
+   
+    if (!isiPhone5) {
+        [self animateTextField: textView up: NO];
+    }
+}
+
+
+//
+//
+//- (void)textFieldDidEndEditing:(UITextField *)textField
+//{
+//    if (!isiPhone5) {
+//        [self animateTextField: textField up: NO];
+//    }
+//}
+
+- (void) animateTextField: (UITextView*) textField up: (BOOL) up
+{
+    const int movementDistance = 90; // tweak as needed
+    const float movementDuration = 0.3f; // tweak as needed
+
+    int movement = (up ? -movementDistance : movementDistance);
+
+    [UIView beginAnimations: @"anim" context: nil];
+    [UIView setAnimationBeginsFromCurrentState: YES];
+    [UIView setAnimationDuration: movementDuration];
+    self.view.frame = CGRectOffset(self.view.frame, 0, movement);
+    [UIView commitAnimations];
+}
+
 @end

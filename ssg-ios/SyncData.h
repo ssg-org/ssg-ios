@@ -12,33 +12,29 @@
 @interface SyncData : NSObject
 
 
+//Cities
 @property (nonatomic,strong) NSMutableArray * cities;
+
+//Categories
 @property (nonatomic,strong) NSMutableArray * categories;
-@property (nonatomic,strong) NSMutableDictionary *keyCharForFontAwesome;
+
+//Current issue objects
 @property (nonatomic,strong) Issue * current_issue;
 @property (nonatomic,strong)UIImage * issue_image;
 @property (nonatomic,strong) NSString * issueResponseUrl;
 
+//Signup username and password
 @property (nonatomic,strong) NSString * signupPassword;
 @property (nonatomic,strong) NSString * signupEmail;
 
-
-@property NSMutableDictionary * languageDictionary;
+//numberOfFacebookRequest
 @property int numberOfFacebookRequest;
 
-
+//Faq
 @property  NSMutableArray * faq;
-
-
-
-
-
-
-- (void)mock;
 
 + (SyncData*)get;
 
-+(NSMutableArray*)getAllCity;
 
 
 @end

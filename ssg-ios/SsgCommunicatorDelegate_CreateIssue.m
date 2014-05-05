@@ -22,48 +22,38 @@
     NSData *imageData = UIImageJPEGRepresentation(image, 0.5);
     
     NSMutableDictionary * params = [[NSMutableDictionary alloc]init];
-        [params setValue:issue.title forKey:@"title"];
-        [params setValue:issue.descript forKey:@"description"];
-        [params setValue: [issue.city_id stringValue] forKey:@"city_id"];
-        [params setValue: [issue.category_id stringValue]forKey:@"category_id"];
-        [params setValue:  [issue.location_lat stringValue] forKey:@"lat"];
-        [params setValue:  [issue.location_lng stringValue ]forKey:@"lng"];
-        [params setValue: accessToken forKey:@"access_token"];
+    [params setValue:issue.title forKey:@"title"];
+    [params setValue:issue.descript forKey:@"description"];
+    [params setValue: [issue.city_id stringValue] forKey:@"city_id"];
+    [params setValue: [issue.category_id stringValue]forKey:@"category_id"];
+    [params setValue:  [issue.location_lat stringValue] forKey:@"lat"];
+    [params setValue:  [issue.location_lng stringValue ]forKey:@"lng"];
+    [params setValue: accessToken forKey:@"access_token"];
     
-       //set time stamp
-        [params setValue:@"12312312" forKey:@"ts"];
+    //set time stamp
+    [params setValue:@"12312312" forKey:@"ts"];
     
-      //Set signature
+    //Set signature
     NSString* signature = [SsgAPI buildSingature:params];
-        [params setValue:signature forKey:@"signature"];
+    [params setValue:signature forKey:@"signature"];
     
     
     NSString * paramNameForImage=@"image";
 
     AFHTTPRequestOperation *op = [manager POST:@"/api/v1/issues" parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-        //do not put image inside parameters dictionary as I did, but append it!
+        
         [formData appendPartWithFileData:imageData name:paramNameForImage fileName:@"photo.jpg" mimeType:@"image/jpeg"];
+        
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"Success: %@ ***** %@", operation.responseString, responseObject);
         
    
-        /*
-        document =     {
-            url = "http://10.0.1.59:3000/issues/cfhchf--2";
-        };
-        status =     {
-            code = 0;
-            message = ok;
-        };
-         */
         NSDictionary * documents = [[NSDictionary alloc]init];
         documents=[responseObject objectForKey:@"document"];
         
         NSString *url=[documents objectForKey:@"url"];
         [SyncData get].issueResponseUrl=url;
         
-    
-    
         NSDictionary * status = [[NSDictionary alloc]init];
         status=[responseObject objectForKey:@"status"];
         NSString* code=[[status objectForKey:@"code"]stringValue] ;

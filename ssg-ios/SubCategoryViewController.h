@@ -18,7 +18,10 @@
 
 @interface SubCategoryViewController : GAITrackedViewController
 
-@property NSMutableArray * subcategory;
+@property (nonatomic,strong) NSMutableArray * subcategory;
 @property (retain) id<SubCategoryDelegate> delegate_subcategory;
+
+@property (weak, nonatomic) IBOutlet UITableView *tblSubcategory;
+
 
 @end

@@ -80,7 +80,7 @@
                                         <rect key="frame" x="20" y="194" width="220" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="headTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8dT-yE-RtF">
                                         <rect key="frame" x="20" y="237" width="220" height="35"/>
@@ -660,7 +660,6 @@
                                     <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="btnSignUpWithEmailOnTouch:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="z78-Od-Brn"/>
                                     <segue destination="PBE-Rk-jnX" kind="push" id="lfo-FK-JPI"/>
                                 </connections>
                             </button>
@@ -698,7 +697,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <state key="normal" backgroundImage="login_eng">
+                                        <state key="normal" backgroundImage="login_bos">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
@@ -1008,6 +1007,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="MbJ-Kr-vKz"/>
+                    <connections>
+                        <outlet property="tblSubcategory" destination="DKm-qC-hpd" id="sf7-gm-PJQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NO2-5a-HPg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1300,7 +1302,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="2Xd-PB-dNt" kind="push" id="7pL-u7-O1R"/>
+                                    <action selector="createNewIssue:" destination="uEf-Yg-tWi" eventType="touchUpInside" id="CbB-YM-ry2"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1365,7 +1367,7 @@
         <image name="close_btn_bos" width="320" height="56"/>
         <image name="grey_bg" width="320" height="500"/>
         <image name="grey_line" width="320" height="1"/>
-        <image name="login_eng" width="220" height="35"/>
+        <image name="login_bos" width="220" height="35"/>
         <image name="main_bg" width="320" height="568"/>
         <image name="map_message_top" width="320" height="42"/>
         <image name="report_issue_eng" width="320" height="56"/>

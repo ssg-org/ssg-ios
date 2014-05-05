@@ -32,7 +32,11 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+  
 }
+
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -82,10 +86,14 @@
 -(void)viewWillAppear:(BOOL)animated{
 
  self.navigationItem.title = [MCLocalization stringForKey:@"subcategory_bar"];
+     [self.tblSubcategory reloadData];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
     self.screenName=@"Subcategory";
     [super viewDidAppear:YES];
+    
 }
+
+
 @end

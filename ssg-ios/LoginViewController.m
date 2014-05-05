@@ -172,8 +172,10 @@
 #pragma - Action methods
 - (IBAction)btnEmailLoginOnTouch:(UIButton *)sender {
     
+    
     if ([self validateUserInput]) {
         //Login user with email
+        
         [_ssgCommunicatorEmailLogin loginWithEmail:self.txtUsername.text :self.txtPassword.text];
         
     }
@@ -334,6 +336,9 @@
   
     if ([code isEqualToString:@"0"]) {
         
+        
+        [self  resetSyncDataUserData]; //clear username and password from syncData
+        
         CATransition *transition = [CATransition animation];
         transition.duration = 0.45;
         transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionDefault];
@@ -381,6 +386,13 @@
     self.txtUsername.placeholder=[MCLocalization stringForKey:@"email"];
 }
 
+
+-(void)resetSyncDataUserData {
+  [SyncData get].signupEmail=nil;
+  [SyncData get].signupPassword=nil;
+    self.txtPassword.text=@"";
+    self.txtUsername.text=@"";
+}
 
 -(void)viewDidAppear:(BOOL)animated{
     

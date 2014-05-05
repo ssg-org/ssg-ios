@@ -18,10 +18,7 @@
 
 - (void) loginWithFacebook: (id<FBGraphUser>)user {
     
-    ///
-    
     AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:[NSURL URLWithString: [SsgAPI getHostName]]];
-    
     
     //Set params
     NSMutableDictionary * params = [[NSMutableDictionary alloc]init];
@@ -30,7 +27,7 @@
     [params setValue:user.first_name forKey:@"first_name"];
     [params setValue:user.last_name forKey:@"last_name"];
     
-    //set time stamp
+    //Set time stamp
     [params setValue:@"12312312" forKey:@"ts"];
     
     //Set signature
@@ -65,10 +62,6 @@
                                                
                                                NSString * firstname = [userJson objectForKey:@"first_name"];
                                                NSString  * lastname = [userJson objectForKey:@"last_name"];
-                                               
-                                               
-                                               
-                                               
                                                
                                                //Save user into database
                                                AppDelegate * appDelagate  = (AppDelegate *)[UIApplication sharedApplication].delegate;

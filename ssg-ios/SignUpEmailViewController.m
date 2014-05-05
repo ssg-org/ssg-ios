@@ -105,6 +105,8 @@
 
 -(void)viewWillLayoutSubviews{
 
+    [[self navigationController] setNavigationBarHidden:YES animated:YES];
+
     //City button design fix - corner radius
     self.btnCity.layer.cornerRadius=3.00f;
     
@@ -225,9 +227,16 @@
 - (IBAction)btnCityOnTouch:(id)sender {
     
     //Open cities controller
+   
+   // [self animateTextField:self.txtEmail up:NO];
+   
+    
+    
     CitiesViewController *categoryViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"CitiesViewController" ];
     categoryViewController.delegate_cities=self;
     [self.navigationController pushViewController:categoryViewController animated:YES];
+    
+    
 }
 
 #pragma  - SSG COMMUNICATOR DELEGATE FUNCTION
@@ -242,8 +251,8 @@
 
 #pragma - Cities delegate
 -(void)getSelectedCity :(City*)city{
-    
-    selectedCity=city;
+
+        selectedCity=city;
 }
 
 - (BOOL) validateEmail: (NSString *) candidate {
@@ -285,6 +294,39 @@
     [SyncData get].signupPassword=self.txtPassword.text;
     [self.navigationController popViewControllerAnimated:YES];
 }
+
+
+//- (void)textFieldDidBeginEditing:(UITextField *)textField
+//{
+//   // if (!isiPhone5) {
+//        [self animateTextField: textField up: YES];
+//   // }
+//    
+//}
+//
+//
+//- (void)textFieldDidEndEditing:(UITextField *)textField
+//{
+//   // if (!isiPhone5) {
+//        [self animateTextField: textField up: NO];
+//    //}
+//}
+//
+//- (void) animateTextField: (UITextField*) textField up: (BOOL) up
+//{
+//    const int movementDistance = 80; // tweak as needed
+//    const float movementDuration = 0.3f; // tweak as needed
+//    
+//    int movement = (up ? -movementDistance : movementDistance);
+//    
+//    [UIView beginAnimations: @"anim" context: nil];
+//    [UIView setAnimationBeginsFromCurrentState: YES];
+//    [UIView setAnimationDuration: movementDuration];
+//    self.view.frame = CGRectOffset(self.view.frame, 0, movement);
+//    [UIView commitAnimations];
+//}
+
+
 
 
 @end
