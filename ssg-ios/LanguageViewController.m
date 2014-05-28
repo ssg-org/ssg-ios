@@ -38,43 +38,35 @@
 }
 
 - (IBAction)btnEnglishOnTouch:(id)sender {
-    
+   
     [MCLocalization sharedInstance].language = @"en";
-    
     for (UIViewController *controller in self.navigationController.viewControllers) {
-        
         controller.navigationItem.backBarButtonItem.title=[MCLocalization stringForKey:@"back"];
-        
     }
     
     //Go to login
     NSInteger count=[[self.navigationController viewControllers] count];
     [self.navigationController  popToViewController:[[self.navigationController viewControllers] objectAtIndex:count-2 ] animated:YES];
-
 }
 
 - (IBAction)btnBosnian:(id)sender {
     
     [MCLocalization sharedInstance].language = @"bos";
-   
     for (UIViewController *controller in self.navigationController.viewControllers) {
-        
         controller.navigationItem.backBarButtonItem.title=[MCLocalization stringForKey:@"back"];
-        
     }
+    
     //Go to login
     NSInteger count=[[self.navigationController viewControllers] count];
     [self.navigationController  popToViewController:[[self.navigationController viewControllers] objectAtIndex:count-2 ] animated:YES];
-
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-
-   self.navigationItem.title = [MCLocalization stringForKey:@"language_bar"];
+    self.navigationItem.title = [MCLocalization stringForKey:@"language_bar"];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
-     self.screenName=@"Language";
+    self.screenName=@"Language";
     [super viewDidAppear:YES];
 }
 

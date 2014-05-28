@@ -35,14 +35,12 @@
 }
 
 - (void)viewWillLayoutSubviews{
-
+    
     //Hide navigation bar
     [[self navigationController] setNavigationBarHidden:YES animated:YES];
-    
     //Create custom Facebook login button
     [self createCustomFacebookLoginButton];
 }
-
 
 -(void)createCustomFacebookLoginButton{
     //Create custom facebook login button
@@ -57,11 +55,9 @@
             [obj setBackgroundImage:loginImage forState:UIControlStateNormal];
             [obj setBackgroundImage:nil forState:UIControlStateSelected];
             [obj setBackgroundImage:nil forState:UIControlStateHighlighted];
-            
             CGRect rect =CGRectMake(self.customFacebookLogin.frame.origin.x, self.customFacebookLogin.frame.origin.y, 218, 35);
             [obj setFrame:rect];
         }
-        
         if ([obj isKindOfClass:[UILabel class]])
         {
             UILabel * loginLabel =  obj;
@@ -79,19 +75,15 @@
 }
 
 -(void)viewDidLayoutSubviews{
-    
     //Layout element position fix
     if (!isiPhone5) {
         self.containerView.frame=CGRectMake(self.containerView.frame.origin.x, self.containerView.frame.origin.y-15, self.containerView.frame.size.width, self.containerView.frame.size.height);
     }
-    
     //set fonts and placeholder color
     [self setFonts];
-    
 }
 
 -(void)setFonts{
-
     //set placeholder color
     [self.txtPassword setPlaceholderColor:[UIColor whiteColor]];
     [self.txtUsername setPlaceholderColor:[UIColor whiteColor]];
@@ -106,17 +98,12 @@
 {
     [super viewDidLoad];
     cachedUser=nil;
-    
     self.txtPassword.delegate=self;
     self.txtUsername.delegate=self;
-    
     _ssgCommunicator =[[SsgCommnicatorDelegate_FacebookLogin alloc]init];
     _ssgCommunicator.facebook_delegate=self;
-    
     _ssgCommunicatorEmailLogin =[[SsgCommunicatorDelegate_EmailLogin alloc]init];
     _ssgCommunicatorEmailLogin.email_delegate=self;
-    
-
     
     if ([self isUserLoggedWithEmailOrFacebook]) {
         
@@ -137,7 +124,6 @@
     
     //init keyboard close gesture
     [self setKeyboardCloseGesture];
-    
 }
 
 -(void)setKeyboardCloseGesture{
@@ -156,7 +142,6 @@
 
 //close keyboard
 - (void)closeKeyboard:(UIGestureRecognizer *)gestureRecognizer {
-   
     [self textFieldShouldReturn:self.txtUsername];
     [self textFieldShouldReturn:self.txtPassword];
 }
@@ -172,42 +157,34 @@
 #pragma - Action methods
 - (IBAction)btnEmailLoginOnTouch:(UIButton *)sender {
     
-    
     if ([self validateUserInput]) {
         //Login user with email
-        
         [_ssgCommunicatorEmailLogin loginWithEmail:self.txtUsername.text :self.txtPassword.text];
-        
     }
-    else{
-    
-      UIAlertView*  infoAlertView = [[UIAlertView alloc] initWithTitle:[MCLocalization stringForKey:@"popup_title"]
-                                                   message:[MCLocalization stringForKey:@"descrption_validation"]
-                                                  delegate:self
-                                         cancelButtonTitle:[MCLocalization stringForKey:@"ok"]
-                                         otherButtonTitles: nil];
-    [infoAlertView show];
-        
+    else
+    {
+        UIAlertView*  infoAlertView = [[UIAlertView alloc] initWithTitle:[MCLocalization stringForKey:@"popup_title"]
+                                                                 message:[MCLocalization stringForKey:@"descrption_validation"]
+                                                                delegate:self
+                                                       cancelButtonTitle:[MCLocalization stringForKey:@"ok"]
+                                                       otherButtonTitles: nil];
+        [infoAlertView show];
     }
 }
 
 -(BOOL)validateUserInput {
-
     if ([self.txtPassword.text length]==0 || [self.txtUsername.text length]==0) {
-     
+        
         return NO;
     }
-    
     return YES;
 }
 
 
 
 -(BOOL)isUserLoggedWithEmailOrFacebook {
-    
     AppDelegate * appDelagate  = (AppDelegate *)[UIApplication sharedApplication].delegate;
     NSManagedObjectContext *context =appDelagate.managedObjectContext;
-    
     
     //get object from database
     NSError *error;
@@ -216,16 +193,11 @@
                                               inManagedObjectContext:context];
     [fetchRequest setEntity:entity];
     NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
-    
-    
     for (User *user in fetchedObjects) {
-        
         if (user.access_token!=nil) {
-           
             return YES;
         }
     }
-    
     return NO;
 }
 
@@ -233,9 +205,7 @@
 
 #pragma - Delegates methods
 // This method will be called when the user information has been fetched
-- (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
-                            user:(id<FBGraphUser>)user {
-    
+- (void)loginViewFetchedUserInfo:(FBLoginView *)loginView user:(id<FBGraphUser>)user {
     [SyncData get].numberOfFacebookRequest ++;
     if ([SyncData get].numberOfFacebookRequest  == 1) {
         cachedUser = user;
@@ -263,7 +233,6 @@
     // self.profilePictureView.profileID = nil;
     //self.nameLabel.text = @"";
     //self.statusLabel.text= @"You're not logged in!";
-    
 }
 
 // Handle possible errors that can occur during login
@@ -313,8 +282,6 @@
     return UIStatusBarStyleLightContent;
 }
 
-
-
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
@@ -323,22 +290,17 @@
 
 #pragma  - SSG COMMUNICATOR DELEGATE FUNCTION
 - (void)recivedData:(SyncData*)syncData {
-
-
+    
+    
 }
 - (void)fetchingData:(NSError *)error {
-
+    
 }
 
 #pragma RESPONSE FROM SERVICE
 - (void)getResponse:(NSString*)code : (id)responseObject{
-    
-  
     if ([code isEqualToString:@"0"]) {
-        
-        
         [self  resetSyncDataUserData]; //clear username and password from syncData
-        
         CATransition *transition = [CATransition animation];
         transition.duration = 0.45;
         transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionDefault];
@@ -347,15 +309,11 @@
         transition.subtype = kCATransitionFromRight;
         transition.delegate = self;
         [self.navigationController.view.layer addAnimation:transition forKey:nil];
-        
         MainViewController *main= [ self.storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
         [self.navigationController pushViewController:main animated:NO];
-        
-    
-        
     }
-    else{
-        
+    else
+    {
         NSDictionary * documents = [[NSDictionary alloc]init];
         documents=[responseObject objectForKey:@"status"];
         NSString* message=[documents objectForKey:@"message"];
@@ -366,18 +324,15 @@
                                                        cancelButtonTitle:[MCLocalization stringForKey:@"ok"]
                                                        otherButtonTitles: nil];
         [infoAlertView show];
-        
         self.txtPassword.text=@"";
         self.txtUsername.text=@"";
-        
     }
 }
 
 
 -(void)viewWillAppear:(BOOL)animated{
-
+    
     [super viewWillAppear:YES];
-
     //set localization
     [self.btnLogin setBackgroundImage:[UIImage imageNamed:[MCLocalization stringForKey:@"loginbtn"]] forState:UIControlStateNormal];
     self.lblDontHaveUlica.text=[MCLocalization  stringForKey:@"donthave"];
@@ -388,18 +343,16 @@
 
 
 -(void)resetSyncDataUserData {
-  [SyncData get].signupEmail=nil;
-  [SyncData get].signupPassword=nil;
+    [SyncData get].signupEmail=nil;
+    [SyncData get].signupPassword=nil;
     self.txtPassword.text=@"";
     self.txtUsername.text=@"";
 }
 
 -(void)viewDidAppear:(BOOL)animated{
-    
     //set screenName for GoogleAnalytics
     self.screenName=@"Login";
     [super viewDidAppear:YES];
-    
     if ([SyncData get].signupEmail !=nil) {
         self.txtUsername.text=[SyncData get].signupEmail;
         self.txtPassword.text=[SyncData get].signupPassword;

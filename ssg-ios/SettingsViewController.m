@@ -33,7 +33,7 @@
 {
     [super viewDidLoad];
     //Hide navigation bar
-     self.navigationController.navigationBarHidden=NO;
+    self.navigationController.navigationBarHidden=NO;
 }
 
 - (void)didReceiveMemoryWarning
@@ -46,7 +46,6 @@
 }
 
 - (IBAction)btnLogOut:(id)sender {
-    
     //Get logged user
     AppDelegate * appDelagate  = (AppDelegate *)[UIApplication sharedApplication].delegate;
     NSManagedObjectContext *context =appDelagate.managedObjectContext;
@@ -57,7 +56,6 @@
     [fetchRequest setEntity:entity];
     NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
     for (User *user in fetchedObjects) {
-        
         //Delete user from database - core data
         [context deleteObject:user];
     }
@@ -71,10 +69,10 @@
     if (![context save:&error]) {
         NSLog(@"Couldn't save: %@", error);
     }
-
+    
     //Go to login
-     NSInteger count=[[self.navigationController viewControllers] count];
-     [self.navigationController  popToViewController:[[self.navigationController viewControllers] objectAtIndex:count-3 ] animated:YES];
+    NSInteger count=[[self.navigationController viewControllers] count];
+    [self.navigationController  popToViewController:[[self.navigationController viewControllers] objectAtIndex:count-3 ] animated:YES];
 }
 
 
@@ -90,7 +88,6 @@
 
 #pragma marks - Delegate function for back
 -(BOOL) navigationShouldPopOnBackButton {
-    
     //Remove default transition animation
     [self.navigationController.view.layer removeAllAnimations];
     
@@ -111,7 +108,7 @@
 }
 
 -(void)viewDidAppear:(BOOL)animated{
-     self.screenName=@"Settings";
+    self.screenName=@"Settings";
     [super viewDidAppear:YES];
 }
 

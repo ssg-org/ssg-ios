@@ -28,7 +28,6 @@ static SyncData *__mainData;
         
         self.numberOfFacebookRequest=0;
         
-        
         self.faq = [[NSMutableArray alloc]init];
         //init faq
         Faq * faq_obj = [[Faq alloc]init];

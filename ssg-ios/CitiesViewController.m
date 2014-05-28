@@ -33,7 +33,6 @@
     _ssgCommunicator =[[SsgCommnicatorDelegate_Info alloc]init];
     _ssgCommunicator.info_delegate=self;
     [_ssgCommunicator getCategoriesAndCities];
-   
 }
 
 - (void)didReceiveMemoryWarning
@@ -55,20 +54,18 @@
 }
 
 
- - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
- {
- CitiesTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CitiesTableViewCell" forIndexPath:indexPath];
-
-     cell.lblCityName.text= [cities objectAtIndex:indexPath.row];
-     return cell;
- }
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    CitiesTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CitiesTableViewCell" forIndexPath:indexPath];
+    cell.lblCityName.text= [cities objectAtIndex:indexPath.row];
+    return cell;
+}
 
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-
+    
     [self.delegate_cities getSelectedCity:[cities_object objectForKey:[cities objectAtIndex:indexPath.row]]];
     [self.navigationController popViewControllerAnimated:YES];
-
 }
 
 -(UIStatusBarStyle)preferredStatusBarStyle{
@@ -76,7 +73,6 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-    
     self.navigationController.navigationBarHidden=NO;
     self.navigationItem.title = [MCLocalization stringForKey:@"city_bar"];
 }
@@ -86,7 +82,6 @@
     
     cities=[[NSMutableArray alloc]init];
     cities_object=[[NSMutableDictionary alloc]init];
-    
     for (City * city in syncData.cities) {
         [cities addObject:city.city];
         [cities_object  setObject:city forKey:city.city];
@@ -106,11 +101,11 @@
 }
 
 - (void)getResponse:(NSString*)code : (id)responseObject{
-
+    
 }
 
 -(void)viewDidAppear:(BOOL)animated{
-     self.screenName=@"Cities";
+    self.screenName=@"Cities";
     [super viewDidAppear:YES];
 }
 

@@ -14,7 +14,7 @@
 @implementation SsgCommunicatorDelegate_EmailSignUp
 
 -(void)signUpWithEmail:(User *)user{
-
+    
     AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:[NSURL URLWithString:[SsgAPI getHostName]]];
     
     NSMutableDictionary * params = [[NSMutableDictionary alloc]init];
@@ -31,30 +31,18 @@
     NSString* signature = [SsgAPI buildSingature:params];
     [params setValue:signature forKey:@"signature"];
     
-    
     AFHTTPRequestOperation *op = [manager POST:@"/api/v1/sessions/signup" parameters:params
-                                   success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                      NSLog(@"Success: %@ ***** %@", operation.responseString, responseObject);
-                                       
-                                       
-                                       NSDictionary * documents = [[NSDictionary alloc]init];
-                                       documents=[responseObject objectForKey:@"status"];
-                                       NSString* code=[[documents objectForKey:@"code"]stringValue] ;
-                                       [self.emailSignup_delegate getResponse:code :responseObject];
-                                       
-                                       
-                                  } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                    
-                                      NSLog(@"Error: %@ ***** %@", operation.responseString, error);
-                                      
-                                  }];
-    
-    
-    
+                                       success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                           NSLog(@"Success: %@ ***** %@", operation.responseString, responseObject);
+                                           NSDictionary * documents = [[NSDictionary alloc]init];
+                                           documents=[responseObject objectForKey:@"status"];
+                                           NSString* code=[[documents objectForKey:@"code"]stringValue] ;
+                                           [self.emailSignup_delegate getResponse:code :responseObject];
+                                           
+                                       } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                           NSLog(@"Error: %@ ***** %@", operation.responseString, error);
+                                       }];
     //Start request
     [op start];
-
-    
-
 }
 @end

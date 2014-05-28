@@ -13,11 +13,8 @@
 @implementation SsgAPI
 
 +(NSString*)getHostName{
-
-    return @"http://username:pass@dev.ulica.ba";
+    return @"https://username:pass@dev.ulica.ba";
 }
-
-
 
 +(NSString*)buildSingature:(NSMutableDictionary*)params {
     
@@ -38,14 +35,11 @@
     //Generate secret SHA256
     NSString* key = @"secret";
     NSString* data = signature;
-    
     const char *cKey = [key cStringUsingEncoding:NSUTF8StringEncoding];
     const char *cData = [data cStringUsingEncoding:NSUTF8StringEncoding];
     unsigned char cHMAC[CC_SHA256_DIGEST_LENGTH];
     CCHmac(kCCHmacAlgSHA256, cKey, strlen(cKey), cData, strlen(cData), cHMAC);
     NSData *hash = [[NSData alloc] initWithBytes:cHMAC length:sizeof(cHMAC)];
-    
-    
     NSString* s = [self base64forData:hash];
     return s;
 }
@@ -71,15 +65,13 @@
         output[theIndex + 3] = (i + 2) < length ? table[(value >> 0) & 0x3F] : '=';
         
     }
-    
     return [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
 }
 
 +(NSString*)generateTimestamp{
-
-   time_t unixTime = (time_t) [[NSDate date] timeIntervalSince1970];
-   NSString *str = [NSString stringWithFormat:@"%ld", unixTime];
-   return  str ;
+    time_t unixTime = (time_t) [[NSDate date] timeIntervalSince1970];
+    NSString *str = [NSString stringWithFormat:@"%ld", unixTime];
+    return  str ;
 }
 
 @end

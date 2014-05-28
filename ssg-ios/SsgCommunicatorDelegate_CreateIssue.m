@@ -17,7 +17,7 @@
 
 
 -(void)createIssue:(Issue*)issue : (UIImage *)image : (NSString*)accessToken{
-
+    
     AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:[NSURL URLWithString: [SsgAPI getHostName]]];
     NSData *imageData = UIImageJPEGRepresentation(image, 0.5);
     
@@ -30,37 +30,29 @@
     [params setValue:  [issue.location_lng stringValue ]forKey:@"lng"];
     [params setValue: accessToken forKey:@"access_token"];
     
-    //set time stamp
+    //Set time stamp
     [params setValue:@"12312312" forKey:@"ts"];
     
     //Set signature
     NSString* signature = [SsgAPI buildSingature:params];
     [params setValue:signature forKey:@"signature"];
-    
-    
     NSString * paramNameForImage=@"image";
-
+    
     AFHTTPRequestOperation *op = [manager POST:@"/api/v1/issues" parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-        
         [formData appendPartWithFileData:imageData name:paramNameForImage fileName:@"photo.jpg" mimeType:@"image/jpeg"];
         
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"Success: %@ ***** %@", operation.responseString, responseObject);
-        
-   
         NSDictionary * documents = [[NSDictionary alloc]init];
         documents=[responseObject objectForKey:@"document"];
-        
         NSString *url=[documents objectForKey:@"url"];
         [SyncData get].issueResponseUrl=url;
-        
         NSDictionary * status = [[NSDictionary alloc]init];
         status=[responseObject objectForKey:@"status"];
         NSString* code=[[status objectForKey:@"code"]stringValue] ;
         [self.createIssue_delegate getResponse:code :responseObject];
-    
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@ ***** %@", operation.responseString, error);
         NSDictionary * status = [[NSDictionary alloc]init];
         status=[operation.responseObject objectForKey:@"status"];
@@ -71,7 +63,6 @@
     
     //Start request
     [op start];
-    
 }
 
 @end

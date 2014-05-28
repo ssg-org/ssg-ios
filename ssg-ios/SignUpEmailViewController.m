@@ -34,25 +34,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    
     last_city_index=0;
-    
     //Hide navigation bar
     [[self navigationController] setNavigationBarHidden:YES animated:YES];
-   
     //Set delegates
     [self setDelagate];
-    
     //Get categories and cities
     [_ssgCommunicator getCategoriesAndCities];
-   
     //Set gesture for keyboard close
     [self setKeyboardCloseGesture];
 }
 
 -(void)setKeyboardCloseGesture{
-    
     //Gesture init
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closeKeyboard:)];
     singleTap.numberOfTapsRequired = 1;
@@ -65,7 +58,6 @@
     containerViewGesture.numberOfTouchesRequired = 1;
     [self.textBoxContainer addGestureRecognizer:containerViewGesture];
     [self.textBoxContainer setUserInteractionEnabled:YES];
-    
 }
 
 - (void)closeKeyboard:(UIGestureRecognizer *)gestureRecognizer {
@@ -78,8 +70,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     //Set screenName for GoogleAnalytics
-     self.screenName=@"Signup";
-    
+    self.screenName=@"Signup";
     [super viewDidAppear:YES];
     
     //Set selected city
@@ -104,12 +95,10 @@
 }
 
 -(void)viewWillLayoutSubviews{
-
+    
     [[self navigationController] setNavigationBarHidden:YES animated:YES];
-
     //City button design fix - corner radius
     self.btnCity.layer.cornerRadius=3.00f;
-    
     //Set fonts
     [self setFonts];
 }
@@ -120,13 +109,11 @@
 }
 
 -(void)setDelagate {
-  
     //set delegates for textbox
     self.txtEmail.delegate=self;
     self.txtFirstName.delegate=self;
     self.txtLastName.delegate=self;
     self.txtPassword.delegate=self;
-    
     //set delegates for API call
     _ssgCommunicator=[[SsgCommnicatorDelegate_Info alloc]init];
     _ssgCommunicator.info_delegate=self;
@@ -152,7 +139,7 @@
         //Get CoreData context
         AppDelegate * appDelagate  = (AppDelegate *)[UIApplication sharedApplication].delegate;
         NSManagedObjectContext *context =appDelagate.managedObjectContext;
-
+        
         //Set newUser object
         User *user = [NSEntityDescription
                       insertNewObjectForEntityForName:@"User"
@@ -164,23 +151,21 @@
         user.city_id = selectedCity.id_;
         [_ssgCommunicatorEmailSignup signUpWithEmail:user];
     }
-    else{
-        
-       UIAlertView* infoAlertView = [[UIAlertView alloc] initWithTitle:[MCLocalization stringForKey:@"popup_title"]
-                                                   message:validationMessage
-                                                  delegate:self
-                                         cancelButtonTitle:[MCLocalization stringForKey:@"ok"]
-                                         otherButtonTitles: nil];
+    else
+    {
+        UIAlertView* infoAlertView = [[UIAlertView alloc] initWithTitle:[MCLocalization stringForKey:@"popup_title"]
+                                                                message:validationMessage
+                                                               delegate:self
+                                                      cancelButtonTitle:[MCLocalization stringForKey:@"ok"]
+                                                      otherButtonTitles: nil];
         
         infoAlertView.delegate=nil;
-        
         [infoAlertView show];
     }
     
 }
 
 -(void)disableAllControlls {
-
     self.txtPassword.enabled=NO;
     self.txtLastName.enabled=NO;
     self.txtFirstName.enabled=NO;
@@ -191,14 +176,12 @@
 }
 
 -(BOOL)validateUserInputData {
-
     if ([self.txtFirstName.text length]==0
         || [self.txtLastName.text length]==0
         || [self.txtPassword.text length]==0
         || selectedCity==nil
-        || [self validateEmail:self.txtEmail.text]==NO
-        ) {
-
+        || [self validateEmail:self.txtEmail.text]==NO)
+    {
         validationMessage = [MCLocalization stringForKey:@"descrption_validation"];
         return false;
     }
@@ -213,7 +196,6 @@
 
 
 - (IBAction)btnBackToLogin:(id)sender {
-    
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
@@ -225,18 +207,9 @@
 }
 
 - (IBAction)btnCityOnTouch:(id)sender {
-    
-    //Open cities controller
-   
-   // [self animateTextField:self.txtEmail up:NO];
-   
-    
-    
     CitiesViewController *categoryViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"CitiesViewController" ];
     categoryViewController.delegate_cities=self;
     [self.navigationController pushViewController:categoryViewController animated:YES];
-    
-    
 }
 
 #pragma  - SSG COMMUNICATOR DELEGATE FUNCTION
@@ -251,8 +224,7 @@
 
 #pragma - Cities delegate
 -(void)getSelectedCity :(City*)city{
-
-        selectedCity=city;
+    selectedCity=city;
 }
 
 - (BOOL) validateEmail: (NSString *) candidate {
@@ -271,25 +243,21 @@
 
 #pragma RESPONSE FROM SERVICE
 - (void)getResponse:(NSString*)code : (id)responseObject{
-
     if ([code isEqualToString:@"0"]) {
-        
         UIAlertView* infoAlertView = [[UIAlertView alloc] initWithTitle:[MCLocalization stringForKey:@"popup_title"]
                                                                 message:[MCLocalization stringForKey:@"confirmation"]
                                                                delegate:self
                                                       cancelButtonTitle:[MCLocalization stringForKey:@"ok"]
-             
+                                      
                                                       otherButtonTitles: nil];
         
         infoAlertView.delegate=self;
         [infoAlertView show];
     }
-
 }
 
 #pragma ALERTVIEW DELEGATES METHOD
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-
     [SyncData get].signupEmail=self.txtEmail.text;
     [SyncData get].signupPassword=self.txtPassword.text;
     [self.navigationController popViewControllerAnimated:YES];
@@ -301,7 +269,7 @@
 //   // if (!isiPhone5) {
 //        [self animateTextField: textField up: YES];
 //   // }
-//    
+//
 //}
 //
 //
@@ -316,9 +284,9 @@
 //{
 //    const int movementDistance = 80; // tweak as needed
 //    const float movementDuration = 0.3f; // tweak as needed
-//    
+//
 //    int movement = (up ? -movementDistance : movementDistance);
-//    
+//
 //    [UIView beginAnimations: @"anim" context: nil];
 //    [UIView setAnimationBeginsFromCurrentState: YES];
 //    [UIView setAnimationDuration: movementDuration];

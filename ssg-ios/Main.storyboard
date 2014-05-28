@@ -678,14 +678,14 @@
                                 <rect key="frame" x="50" y="68" width="220" height="357"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="center" minimumFontSize="17" background="textbox_bg" translatesAutoresizingMaskIntoConstraints="NO" id="6eq-H1-AAt" customClass="CustomTextField">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="dacca_sa@hotmail.com" placeholder="Username" textAlignment="center" minimumFontSize="17" background="textbox_bg" translatesAutoresizingMaskIntoConstraints="NO" id="6eq-H1-AAt" customClass="CustomTextField">
                                         <rect key="frame" x="0.0" y="131" width="220" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="done"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Passsword" textAlignment="center" minimumFontSize="17" background="textbox_bg" translatesAutoresizingMaskIntoConstraints="NO" id="zzz-Vv-F8d" customClass="CustomTextField">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="vkahthmj" placeholder="Passsword" textAlignment="center" minimumFontSize="17" background="textbox_bg" translatesAutoresizingMaskIntoConstraints="NO" id="zzz-Vv-F8d" customClass="CustomTextField">
                                         <rect key="frame" x="0.0" y="175" width="220" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

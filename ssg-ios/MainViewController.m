@@ -36,13 +36,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     //set fonts
     [self setFonts];
 }
 
 -(void)setFonts{
-    
     [self.lblYouCan setFont:[UIFont fontWithName:@"FuturaStd-Light" size:15]];
     [self.lblWelcome setFont:[UIFont fontWithName:@"FuturaStd-Medium" size:17]];
 }
@@ -61,7 +59,6 @@
 
 
 -(void)viewWillAppear:(BOOL)animated{
-
     //localization
     self.lblWelcome.text=[MCLocalization stringForKey:@"welcome"];
     self.lblYouCan.text=[MCLocalization stringForKey:@"youcan"];
@@ -70,12 +67,10 @@
 
 
 -(void)viewDidLayoutSubviews{
-    
     //layout element position fix
     if (!viewLoaded) {
         if (!isiPhone5) {
             self.ssgTextView.frame=CGRectMake(self.ssgTextView.frame.origin.x, self.ssgTextView.frame.origin.y-50, self.ssgTextView.frame.size.width, self.ssgTextView.frame.size.height);
-            
         }
         viewLoaded=YES;
     }
@@ -83,27 +78,22 @@
 
 
 -(void)viewDidAppear:(BOOL)animated{
-    
     //set screenName for GoogleAnalytics
-     self.screenName=@"Main";
+    self.screenName=@"Main";
     [super viewDidAppear:YES];
 }
 
 -(void)viewWillLayoutSubviews{
-    
     viewLoaded=NO;
-  [[self navigationController] setNavigationBarHidden:YES animated:YES];
-    
+    [[self navigationController] setNavigationBarHidden:YES animated:YES];
 }
 - (IBAction)btnCameraOnTouch:(id)sender {
-    
     CameraViewController *main= [ self.storyboard instantiateViewControllerWithIdentifier:@"CameraViewController"];
     [self.navigationController pushViewController: (UIViewController *)main animated:YES];
 }
 
 
 - (IBAction)btnSettings:(id)sender {
-    
     //set transition animation effect
     CATransition *transition = [CATransition animation];
     transition.duration = 0.45;
@@ -113,7 +103,6 @@
     transition.subtype = kCATransitionFromLeft;
     transition.delegate = self;
     [self.navigationController.view.layer addAnimation:transition forKey:nil];
- 
     //open settings controller
     SettingsViewController *main= [ self.storyboard instantiateViewControllerWithIdentifier:@"SettingsViewController"];
     [self.navigationController pushViewController: (UIViewController *)main animated:NO];

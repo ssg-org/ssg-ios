@@ -33,14 +33,12 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 -(void)viewDidAppear:(BOOL)animated{
-     self.screenName=@"FaqDetails";
+    self.screenName=@"FaqDetails";
     [super viewDidAppear:YES];
     self.navigationItem.title = [MCLocalization stringForKey:@"faq_bar"];
-    
 }
 
 @end

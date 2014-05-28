@@ -34,58 +34,45 @@
     NSString* signature = [SsgAPI buildSingature:params];
     [params setValue:signature forKey:@"signature"];
     
-    
     AFHTTPRequestOperation *op = [manager POST:@"/api/v1/sessions/fb_create" parameters:params
                                        success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                            
                                            NSLog(@"Success: %@ ***** %@", operation.responseString, responseObject);
-                                           
                                            NSDictionary * documents = [[NSDictionary alloc]init];
                                            documents=[responseObject objectForKey:@"status"];
                                            NSString * code=[[documents objectForKey:@"code"]stringValue];
-                                           
                                            
                                            //call delagete function
                                            [self.facebook_delegate getResponse:code :responseObject];
                                            
                                            if ([code isEqualToString:@"0"]) {
                                                
-                                               
                                                NSDictionary * documents = [[NSDictionary alloc]init];
                                                documents=[responseObject objectForKey:@"document"];
-                                               
                                                NSString *access_token=[documents objectForKey:@"access_token"];
-                                               NSString *user_picture = [documents objectForKey:@"avatar_path"];
-                                               
-                                               
+                                               NSDictionary *user_picture = [documents objectForKey:@"avatar_path"];
+                                               NSDictionary * image = [user_picture objectForKey:@"image"];
+                                               NSString *    url =[image objectForKey:@"url"];
                                                NSDictionary * userJson = [documents objectForKey:@"user"];
-                                               
                                                NSString * firstname = [userJson objectForKey:@"first_name"];
                                                NSString  * lastname = [userJson objectForKey:@"last_name"];
                                                
                                                //Save user into database
                                                AppDelegate * appDelagate  = (AppDelegate *)[UIApplication sharedApplication].delegate;
                                                NSManagedObjectContext *context =appDelagate.managedObjectContext;
-                                               
                                                User * user = [NSEntityDescription
                                                               insertNewObjectForEntityForName:@"User"
                                                               inManagedObjectContext:context];
                                                
                                                user.access_token=access_token;
-                                               user.profile_picture=user_picture;
+                                               user.profile_picture=url;
                                                user.firstname=firstname;
                                                user.lastname =lastname;
                                                [context save:nil];
-                                               
-                                               
                                            }
-                                           
-                                           
+    
                                        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                           
-                                          
                                            NSLog(@"Error: %@ ***** %@", operation.responseString, error);
-                                           
                                            NSDictionary * documents = [[NSDictionary alloc]init];
                                            documents=[operation.responseObject objectForKey:@"status"];
                                            NSString * code=[[documents objectForKey:@"code"]stringValue ];
@@ -97,7 +84,7 @@
     
     //Start request
     [op start];
-   
+    
 }
 
 
