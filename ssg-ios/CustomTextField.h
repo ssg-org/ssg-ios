@@ -10,11 +10,7 @@
 
 @interface CustomTextField : UITextField
 
-@property (nonatomic,retain) UIColor * placeholderColor;
-@property  NSMutableParagraphStyle *paragraphStyle;
-
-//-(void)applyNewParagraphStyle;
-
-//-(void)setPlaceholderTextColor : (UIColor *)color;
+@property (nonatomic, retain) UIColor *placeholderColor;
+@property NSMutableParagraphStyle *paragraphStyle;
 
 @end

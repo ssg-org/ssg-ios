@@ -14,9 +14,9 @@
 
 @interface SsgCommnicatorDelegate_Info : NSObject
 
-@property (strong,nonatomic) id<SsgCommunicatorDelegate> info_delegate;
+@property (strong, nonatomic) id <SsgCommunicatorDelegate> info_delegate;
 
--(void)getCategoriesAndCities;
+- (void)getCategoriesAndCities;
 
 
 @end

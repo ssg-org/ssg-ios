@@ -12,8 +12,8 @@
 
 @interface City : NSManagedObject
 
-@property (nonatomic, retain) NSString * city;
-@property (nonatomic, retain) NSString * icon;
-@property (nonatomic, retain) NSNumber * id_;
+@property (nonatomic, retain) NSString *city;
+@property (nonatomic, retain) NSString *icon;
+@property (nonatomic, retain) NSNumber *id_;
 
 @end

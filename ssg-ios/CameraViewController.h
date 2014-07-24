@@ -10,33 +10,31 @@
 #import <AVFoundation/AVFoundation.h>
 #import "GAITrackedViewController.h"
 
-@interface CameraViewController : GAITrackedViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate>{
-    //Flag for camera state
-    BOOL camera_settings_state;
-    
-    AVCaptureStillImageOutput *stillImageOutputFront;
-    AVCaptureStillImageOutput *stillImageOutputBack;
-    
-    UIImagePickerController *imagePicker;
-   
-    //front
-    AVCaptureDeviceInput *inputdevice_front;
-    AVCaptureDevice* device_front;
-    AVCaptureVideoPreviewLayer* preview_layer_front;
-    AVCaptureSession *session_front;
-    
-    //back
-    AVCaptureDeviceInput *inputdevice_back;
-    AVCaptureDevice* device_back;
-    AVCaptureVideoPreviewLayer* preview_layer_back;
-    AVCaptureSession *session_back;
-    
-    bool isFront;
-    bool isFlashActive;
+@interface CameraViewController : GAITrackedViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate> {
+	//Flag for camera state
+	BOOL camera_settings_state;
 
-    UIAlertView *infoAlertView;
-    
-   
+	AVCaptureStillImageOutput *stillImageOutputFront;
+	AVCaptureStillImageOutput *stillImageOutputBack;
+
+	UIImagePickerController *imagePicker;
+
+	//front
+	AVCaptureDeviceInput *inputdevice_front;
+	AVCaptureDevice *device_front;
+	AVCaptureVideoPreviewLayer *preview_layer_front;
+	AVCaptureSession *session_front;
+
+	//back
+	AVCaptureDeviceInput *inputdevice_back;
+	AVCaptureDevice *device_back;
+	AVCaptureVideoPreviewLayer *preview_layer_back;
+	AVCaptureSession *session_back;
+
+	bool isFront;
+	bool isFlashActive;
+
+	UIAlertView *infoAlertView;
 }
 //Property
 @property (strong, nonatomic) IBOutlet UIButton *btnGallery;
@@ -46,7 +44,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *btnAcceptPhoto;
 @property (strong, nonatomic) IBOutlet UIView *cameraPreview;
 @property (strong, nonatomic) IBOutlet UIView *cameraSettingsContainer;
-@property (strong,nonatomic) IBOutlet UIImageView *imagePreview;
+@property (strong, nonatomic) IBOutlet UIImageView *imagePreview;
 
 //Actions
 - (IBAction)btnCameraAutoOnTouch:(id)sender;

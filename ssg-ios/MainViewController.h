@@ -9,13 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "GAITrackedViewController.h"
 
-@interface MainViewController : GAITrackedViewController{
-    
-    BOOL viewLoaded;
+@interface MainViewController : GAITrackedViewController {
+	BOOL viewLoaded;
 }
 
 //Property
-@property NSMutableString* dataFromLogin;
+@property NSMutableString *dataFromLogin;
 @property (strong, nonatomic) IBOutlet UILabel *lblWelcome;
 @property (strong, nonatomic) IBOutlet UILabel *lblYouCan;
 @property (strong, nonatomic) IBOutlet UIView *ssgTextView;

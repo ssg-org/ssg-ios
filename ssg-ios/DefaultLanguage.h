@@ -12,6 +12,6 @@
 
 @interface DefaultLanguage : NSManagedObject
 
-@property (nonatomic, retain) NSString * language;
+@property (nonatomic, retain) NSString *language;
 
 @end

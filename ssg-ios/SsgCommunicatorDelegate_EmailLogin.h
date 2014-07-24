@@ -13,9 +13,9 @@
 
 @interface SsgCommunicatorDelegate_EmailLogin : NSObject
 
-@property (strong,nonatomic) id<SsgCommunicatorDelegate> email_delegate;
+@property (strong, nonatomic) id <SsgCommunicatorDelegate> email_delegate;
 
--(void)loginWithEmail:(NSString *) email : (NSString *) password;
+- (void)loginWithEmail:(NSString *)email :(NSString *)password;
 
 
 @end

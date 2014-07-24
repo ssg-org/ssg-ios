@@ -14,14 +14,12 @@
 #import "SsgCommunicatorDelegate_EmailSignUp.h"
 #import "GAITrackedViewController.h"
 
-@interface SignUpEmailViewController : GAITrackedViewController<UITextFieldDelegate,SsgCommunicatorDelegate,CitiesDelegate,UIAlertViewDelegate>{
-
-    long last_city_index;
-    SsgCommnicatorDelegate_Info* _ssgCommunicator;
-    SsgCommunicatorDelegate_EmailSignUp * _ssgCommunicatorEmailSignup;
-    City * selectedCity;
-    NSString * validationMessage;
-   
+@interface SignUpEmailViewController : GAITrackedViewController <UITextFieldDelegate, SsgCommunicatorDelegate, CitiesDelegate, UIAlertViewDelegate> {
+	long last_city_index;
+	SsgCommnicatorDelegate_Info *_ssgCommunicator;
+	SsgCommunicatorDelegate_EmailSignUp *_ssgCommunicatorEmailSignup;
+	City *selectedCity;
+	NSString *validationMessage;
 }
 
 //property

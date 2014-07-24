@@ -10,13 +10,13 @@
 
 @interface SsgAPI : NSObject
 
-+(NSString*)getHostName;
++ (NSString *)getHostName;
 
-+(NSString*)buildSingature:(NSMutableDictionary*)params;
++ (NSString *)buildSingature:(NSMutableDictionary *)params;
 
-+ (NSString*)base64forData:(NSData*)theData;
++ (NSString *)base64forData:(NSData *)theData;
 
-+(NSString*)generateTimestamp;
++ (NSString *)generateTimestamp;
 
 
 

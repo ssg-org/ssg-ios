@@ -14,8 +14,8 @@
 
 @interface SsgCommunicatorDelegate_EmailSignUp : NSObject
 
-@property (strong,nonatomic) id<SsgCommunicatorDelegate>  emailSignup_delegate;
+@property (strong, nonatomic) id <SsgCommunicatorDelegate> emailSignup_delegate;
 
--(void)signUpWithEmail:(User *)user;
+- (void)signUpWithEmail:(User *)user;
 
 @end

@@ -11,17 +11,14 @@
 #import "GAITrackedViewController.h"
 @protocol SubCategoryDelegate <NSObject>
 
--(void)selectSubCategory:(Categories*)category;
+- (void)selectSubCategory:(Categories *)category;
 
 @end
 
-
 @interface SubCategoryViewController : GAITrackedViewController
 
-@property (nonatomic,strong) NSMutableArray * subcategory;
-@property (retain) id<SubCategoryDelegate> delegate_subcategory;
-
+@property (nonatomic, strong) NSMutableArray *subcategory;
+@property (retain) id <SubCategoryDelegate> delegate_subcategory;
 @property (weak, nonatomic) IBOutlet UITableView *tblSubcategory;
-
 
 @end

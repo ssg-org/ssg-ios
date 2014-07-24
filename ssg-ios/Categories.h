@@ -12,11 +12,11 @@
 
 @interface Categories : NSManagedObject
 
-@property (nonatomic, retain) NSString * color;
-@property (nonatomic, retain) NSString * descript;
-@property (nonatomic, retain) NSString * icon;
-@property (nonatomic, retain) NSNumber * id_;
-@property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSNumber * parent_id;
+@property (nonatomic, retain) NSString *color;
+@property (nonatomic, retain) NSString *descript;
+@property (nonatomic, retain) NSString *icon;
+@property (nonatomic, retain) NSNumber *id_;
+@property (nonatomic, retain) NSString *name;
+@property (nonatomic, retain) NSNumber *parent_id;
 
 @end

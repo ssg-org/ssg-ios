@@ -10,6 +10,6 @@
 
 @interface CitiesBuilder : NSObject
 
-+ (NSMutableArray*) build:(NSDictionary*)json;
++ (NSMutableArray *)build:(NSDictionary *)json;
 
 @end

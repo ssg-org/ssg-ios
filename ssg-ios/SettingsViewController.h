@@ -10,7 +10,7 @@
 #import "UIViewController+BackButtonHandler.h"
 #import "GAITrackedViewController.h"
 
-@interface SettingsViewController : GAITrackedViewController<BackButtonHandlerProtocol>
+@interface SettingsViewController : GAITrackedViewController <BackButtonHandlerProtocol>
 
 //Actions
 - (IBAction)btnLogOut:(id)sender;

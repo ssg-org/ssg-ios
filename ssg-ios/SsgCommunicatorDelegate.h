@@ -14,8 +14,8 @@
 @protocol SsgCommunicatorDelegate
 
 
-- (void)recivedData:(SyncData*)syncData;
+- (void)recivedData:(SyncData *)syncData;
 - (void)fetchingData:(NSError *)error;
-- (void)getResponse:(NSString*)code : (id)responseObject;
+- (void)getResponse:(NSString *)code :(id)responseObject;
 
 @end

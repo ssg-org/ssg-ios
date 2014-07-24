@@ -15,22 +15,19 @@
 
 @protocol CitiesDelegate <NSObject>
 
--(void)getSelectedCity :(City*)city;
+- (void)getSelectedCity:(City *)city;
 
 @end
 
-@interface CitiesViewController : GAITrackedViewController<UITableViewDataSource,UITableViewDelegate,SsgCommunicatorDelegate>
+@interface CitiesViewController : GAITrackedViewController <UITableViewDataSource, UITableViewDelegate, SsgCommunicatorDelegate>
 {
-   
-    SsgCommnicatorDelegate_Info * _ssgCommunicator;
-    NSMutableArray * cities; //cities names
-    NSMutableDictionary *cities_object; //cities objects (Model.City)
-    
-    
+	SsgCommnicatorDelegate_Info *_ssgCommunicator;
+	NSMutableArray *cities;  //cities names
+	NSMutableDictionary *cities_object; //cities objects (Model.City)
 }
 
 @property (strong, nonatomic) IBOutlet UITableView *tblComponent;
-@property (retain) id<CitiesDelegate> delegate_cities;
+@property (retain) id <CitiesDelegate> delegate_cities;
 
 
 

@@ -11,7 +11,6 @@
 
 @interface HelperFunctions : NSObject
 
-
-+(UIColor*)colorWithHexString:(NSString*)hex;
++ (UIColor *)colorWithHexString:(NSString *)hex;
 
 @end

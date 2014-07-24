@@ -14,9 +14,9 @@
 
 @interface SsgCommunicatorDelegate_CreateIssue : NSObject
 
-@property (strong,nonatomic) id<SsgCommunicatorDelegate> createIssue_delegate;
+@property (strong, nonatomic) id <SsgCommunicatorDelegate> createIssue_delegate;
 
--(void)createIssue:(Issue*)issue : (UIImage *)image : (NSString*)accessToken;
+- (void)createIssue:(Issue *)issue :(UIImage *)image :(NSString *)accessToken;
 
 
 

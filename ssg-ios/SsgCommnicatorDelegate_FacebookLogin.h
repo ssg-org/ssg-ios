@@ -15,9 +15,9 @@
 
 @interface SsgCommnicatorDelegate_FacebookLogin : NSObject
 
-@property (strong, nonatomic) id<SsgCommunicatorDelegate> facebook_delegate;
+@property (strong, nonatomic) id <SsgCommunicatorDelegate> facebook_delegate;
 
-- (void) loginWithFacebook: (id<FBGraphUser>)user;
+- (void)loginWithFacebook:(id <FBGraphUser> )user;
 
 
 @end

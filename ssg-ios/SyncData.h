@@ -13,31 +13,28 @@
 
 
 //Cities
-@property (nonatomic,strong) NSMutableArray * cities;
+@property (nonatomic, strong) NSMutableArray *cities;
 
 //Categories
-@property (nonatomic,strong) NSMutableArray * categories;
+@property (nonatomic, strong) NSMutableArray *categories;
 
 //Current issue objects
-@property (nonatomic,strong) Issue * current_issue;
-@property (nonatomic,strong)UIImage * issue_image;
-@property (nonatomic,strong) NSString * issueResponseUrl;
+@property (nonatomic, strong) Issue *current_issue;
+@property (nonatomic, strong) UIImage *issue_image;
+@property (nonatomic, strong) NSString *issueResponseUrl;
 
 //Signup username and password
-@property (nonatomic,strong) NSString * signupPassword;
-@property (nonatomic,strong) NSString * signupEmail;
+@property (nonatomic, strong) NSString *signupPassword;
+@property (nonatomic, strong) NSString *signupEmail;
 
 //numberOfFacebookRequest
 @property int numberOfFacebookRequest;
 
 //Faq
-@property  NSMutableArray * faq;
+@property NSMutableArray *faq;
 
-+ (SyncData*)get;
++ (SyncData *)get;
 
 
 
 @end
-
-
-

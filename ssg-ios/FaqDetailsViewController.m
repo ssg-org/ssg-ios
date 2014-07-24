@@ -15,30 +15,27 @@
 
 @implementation FaqDetailsViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+	self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+	if (self) {
+		// Custom initialization
+	}
+	return self;
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    self.txtDetails.text=self.selected_info;
+- (void)viewDidLoad {
+	[super viewDidLoad];
+	self.txtDetails.text = self.selected_info;
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
+- (void)didReceiveMemoryWarning {
+	[super didReceiveMemoryWarning];
 }
 
--(void)viewDidAppear:(BOOL)animated{
-    self.screenName=@"FaqDetails";
-    [super viewDidAppear:YES];
-    self.navigationItem.title = [MCLocalization stringForKey:@"faq_bar"];
+- (void)viewDidAppear:(BOOL)animated {
+	self.screenName = @"FaqDetails";
+	[super viewDidAppear:YES];
+	self.navigationItem.title = [MCLocalization stringForKey:@"faq_bar"];
 }
 
 @end

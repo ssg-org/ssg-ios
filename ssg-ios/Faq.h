@@ -10,7 +10,7 @@
 
 @interface Faq : NSObject
 
-@property (nonatomic,strong) NSString* name;
-@property (nonatomic,strong) NSString* descript;
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *descript;
 
 @end

@@ -16,16 +16,16 @@
 #import "CustomTextField.h"
 #import "GAITrackedViewController.h"
 
-@interface DescriptionViewController : GAITrackedViewController<UITextFieldDelegate,UITextViewDelegate,CategoryDelegate,SubCategoryDelegate,CitiesDelegate>
+@interface DescriptionViewController : GAITrackedViewController <UITextFieldDelegate, UITextViewDelegate, CategoryDelegate, SubCategoryDelegate, CitiesDelegate>
 {
-    UIAlertView * alertView;
+	UIAlertView *alertView;
 }
 
 //Property
 @property (strong, nonatomic) IBOutlet UITextField *txtTitle;
 @property (strong, nonatomic) IBOutlet UITextField *txtCity;
-@property Categories * selectedCategory;
-@property City * selectedCity;
+@property Categories *selectedCategory;
+@property City *selectedCity;
 @property (strong, nonatomic) IBOutlet UIButton *btnCategory;
 @property (strong, nonatomic) IBOutlet UIButton *btnCity;
 @property (strong, nonatomic) IBOutlet UIPlaceHolderTextView *txtCustomDescription;

@@ -13,12 +13,12 @@
 #import "MBProgressHUD.h"
 #import "GAITrackedViewController.h"
 
-@interface MapViewController : GAITrackedViewController<GMSMapViewDelegate,CLLocationManagerDelegate,SsgCommunicatorDelegate >{
-    CLLocationManager *locationManager;
-    BOOL first_marker;
-    GMSMarker *marker ;
-    SsgCommunicatorDelegate_CreateIssue * _ssgCommunicatorCreateIssueDelegate;
-    MBProgressHUD *hud;
+@interface MapViewController : GAITrackedViewController <GMSMapViewDelegate, CLLocationManagerDelegate, SsgCommunicatorDelegate> {
+	CLLocationManager *locationManager;
+	BOOL first_marker;
+	GMSMarker *marker;
+	SsgCommunicatorDelegate_CreateIssue *_ssgCommunicatorCreateIssueDelegate;
+	MBProgressHUD *hud;
 }
 
 //Property
@@ -31,5 +31,3 @@
 
 
 @end
-
-

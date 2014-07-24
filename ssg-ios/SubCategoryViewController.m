@@ -19,69 +19,58 @@
 
 @implementation SubCategoryViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+	self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+	if (self) {
+		// Custom initialization
+	}
+	return self;
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    
+- (void)viewDidLoad {
+	[super viewDidLoad];
+	// Do any additional setup after loading the view.
 }
 
-
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)didReceiveMemoryWarning {
+	[super didReceiveMemoryWarning];
+	// Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+	return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return [self.subcategory count];
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+	return [self.subcategory count];
 }
 
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    SubCategoriesCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SubcategoryCell" forIndexPath:indexPath];
-    Categories * current = [self.subcategory objectAtIndex:indexPath.row];
-    cell.lblSubcategoryName.text=current.name;
-    cell.imgSubcategory.image=nil;
-    [cell.imgSubcategory setDefaultIconIdentifier:current.icon];
-    cell.imgSubcategory.defaultView.backgroundColor=[HelperFunctions colorWithHexString:current.color];
-    return cell;
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+	SubCategoriesCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SubcategoryCell" forIndexPath:indexPath];
+	Categories *current = [self.subcategory objectAtIndex:indexPath.row];
+	cell.lblSubcategoryName.text = current.name;
+	cell.imgSubcategory.image = nil;
+	[cell.imgSubcategory setDefaultIconIdentifier:current.icon];
+	cell.imgSubcategory.defaultView.backgroundColor = [HelperFunctions colorWithHexString:current.color];
+	return cell;
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self.delegate_subcategory selectSubCategory:[self.subcategory objectAtIndex:indexPath.row]];
-    NSInteger count=[[self.navigationController viewControllers] count];
-    [self.navigationController  popToViewController:[[self.navigationController viewControllers] objectAtIndex:count-3 ] animated:YES];
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+	[self.delegate_subcategory selectSubCategory:[self.subcategory objectAtIndex:indexPath.row]];
+	NSInteger count = [[self.navigationController viewControllers] count];
+	[self.navigationController popToViewController:[[self.navigationController viewControllers] objectAtIndex:count - 3] animated:YES];
 }
 
--(void)viewWillAppear:(BOOL)animated{
-    self.navigationItem.title = [MCLocalization stringForKey:@"subcategory_bar"];
-    [self.tblSubcategory reloadData];
+- (void)viewWillAppear:(BOOL)animated {
+	self.navigationItem.title = [MCLocalization stringForKey:@"subcategory_bar"];
+	[self.tblSubcategory reloadData];
 }
 
--(void)viewDidAppear:(BOOL)animated{
-    self.screenName=@"Subcategory";
-    [super viewDidAppear:YES];
+- (void)viewDidAppear:(BOOL)animated {
+	self.screenName = @"Subcategory";
+	[super viewDidAppear:YES];
 }
-
 
 @end
